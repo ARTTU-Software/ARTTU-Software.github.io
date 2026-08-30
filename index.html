@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ART TU Cluj-Napoca | Formula Student Team</title>
+    <meta name="description" content="Technical University of Cluj-Napoca's Formula Student electric racing team. Champions of FS Balkans 2026 and P3 Efficiency at FS Germany 2026." />
+    <!-- Fonts: Plus Jakarta Sans, Inter, Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700;1,800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Single Page Apps for GitHub Pages: restore redirected path -->
+    <script type="text/javascript">
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) { 
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location))
+    </script>
+  </head>
+  <body class="bg-warm-100 text-warm-900 antialiased selection:bg-red-100 selection:text-red-900 min-h-screen">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
