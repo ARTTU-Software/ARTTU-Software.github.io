@@ -24,16 +24,66 @@ export const HomePage: React.FC = () => {
     }
     return 0;
   });
-  const [isMuted, setIsMuted] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
   const [isUnmuteFlashing, setIsUnmuteFlashing] = useState(false);
   const videoRefs = useRef<{ [key: string]: HTMLVideoElement | null }>({});
+  const userUnlockedAudioRef = useRef(false);
+  const userManuallyMutedRef = useRef(false);
 
   const currentMedia = heroSlideshowMedia[currentIndex];
 
-  // Flash the unmute button for 3s starting right as the website & video emerge into view
+  // Helper to smoothly ramp volume up from 0 to target (e.g. 1.0)
+  const rampVolumeIn = useCallback((video: HTMLVideoElement, targetVol = 1.0, durationMs = 350) => {
+    video.volume = 0;
+    const steps = 10;
+    const stepTime = durationMs / steps;
+    const stepVol = targetVol / steps;
+    let currentVol = 0;
+    const timer = setInterval(() => {
+      currentVol += stepVol;
+      if (currentVol >= targetVol) {
+        video.volume = targetVol;
+        clearInterval(timer);
+      } else {
+        video.volume = currentVol;
+      }
+    }, stepTime);
+  }, []);
+
+  // Global First-Interaction Listener: Unmute on ANY click, tap, or keypress anywhere on the screen
+  useEffect(() => {
+    const handleFirstGesture = () => {
+      if (userManuallyMutedRef.current) return;
+
+      userUnlockedAudioRef.current = true;
+      setIsMuted(false);
+      setIsUnmuteFlashing(false);
+
+      const activeVideo = videoRefs.current[currentMedia.id];
+      if (activeVideo) {
+        activeVideo.muted = false;
+        rampVolumeIn(activeVideo, 1.0, 400);
+        activeVideo.play().catch(() => {});
+      }
+    };
+
+    // Capture any user interaction anywhere on the window (even empty space/background)
+    const options = { capture: true, once: true };
+    window.addEventListener('pointerdown', handleFirstGesture, options);
+    window.addEventListener('keydown', handleFirstGesture, options);
+    window.addEventListener('touchstart', handleFirstGesture, options);
+
+    return () => {
+      window.removeEventListener('pointerdown', handleFirstGesture, { capture: true });
+      window.removeEventListener('keydown', handleFirstGesture, { capture: true });
+      window.removeEventListener('touchstart', handleFirstGesture, { capture: true });
+    };
+  }, [currentMedia.id, rampVolumeIn]);
+
+  // Flash the unmute button for 3s if still muted when website emerges into view
   useEffect(() => {
     if (!isIntroComplete) return;
-    if (isMuted) {
+    if (isMuted && !userUnlockedAudioRef.current) {
       setIsUnmuteFlashing(true);
       const timer = setTimeout(() => {
         setIsUnmuteFlashing(false);
@@ -41,7 +91,6 @@ export const HomePage: React.FC = () => {
       return () => clearTimeout(timer);
     }
   }, [isIntroComplete, isMuted]);
-
 
   const nextSlide = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % heroSlideshowMedia.length);
@@ -76,8 +125,12 @@ export const HomePage: React.FC = () => {
       const activeVideo = videoRefs.current[currentMedia.id];
       if (activeVideo) {
         activeVideo.currentTime = 0;
-        activeVideo.muted = isMuted;
-        activeVideo.volume = 1;
+        const shouldBeMuted = userManuallyMutedRef.current || !userUnlockedAudioRef.current;
+        activeVideo.muted = shouldBeMuted;
+        setIsMuted(shouldBeMuted);
+        if (!shouldBeMuted) {
+          activeVideo.volume = 1;
+        }
         const playPromise = activeVideo.play();
         if (playPromise !== undefined) {
           playPromise.catch(() => {
@@ -95,7 +148,7 @@ export const HomePage: React.FC = () => {
         vid.pause();
       }
     });
-  }, [currentIndex, isIntroComplete]);
+  }, [currentIndex, isIntroComplete, currentMedia]);
 
   // Handle Photo auto-advance timer only after intro is done
   useEffect(() => {
@@ -109,8 +162,7 @@ export const HomePage: React.FC = () => {
     }
   }, [currentIndex, currentMedia, nextSlide, isIntroComplete]);
 
-
-  // Clean 1-tap sound toggle (never resets video playback position)
+  // Manual sound toggle button handler
   const toggleAudio = (e?: React.SyntheticEvent) => {
     if (e) {
       e.stopPropagation();
@@ -121,8 +173,12 @@ export const HomePage: React.FC = () => {
       const nextMuted = !activeVideo.muted;
       activeVideo.muted = nextMuted;
       setIsMuted(nextMuted);
-      if (!nextMuted) {
-        activeVideo.volume = 1;
+      if (nextMuted) {
+        userManuallyMutedRef.current = true;
+      } else {
+        userManuallyMutedRef.current = false;
+        userUnlockedAudioRef.current = true;
+        rampVolumeIn(activeVideo, 1.0, 300);
         activeVideo.play().catch(() => {});
       }
     } else {
