@@ -42,62 +42,71 @@ export const HomePage: React.FC = () => {
     }
   }, []);
 
-  // Global Multi-Gesture Listener: Auto-unmute on ANY touch, scroll, swipe, click, or keypress
+  // Global Discrete-Gesture Listener: Auto-unmute on first user touch/tap, scroll gesture, or click
   useEffect(() => {
     let detached = false;
+    let isUnmutingInProgress = false;
 
     const detachListeners = () => {
       if (detached) return;
       detached = true;
-      window.removeEventListener('pointerdown', tryUnmute, { capture: true });
-      window.removeEventListener('touchstart', tryUnmute, { capture: true });
-      window.removeEventListener('touchend', tryUnmute, { capture: true });
-      window.removeEventListener('scroll', tryUnmute, { capture: true });
-      window.removeEventListener('wheel', tryUnmute, { capture: true });
-      window.removeEventListener('keydown', tryUnmute, { capture: true });
+      window.removeEventListener('touchstart', handleUserGesture, { capture: true });
+      window.removeEventListener('pointerdown', handleUserGesture, { capture: true });
+      window.removeEventListener('touchend', handleUserGesture, { capture: true });
+      window.removeEventListener('click', handleUserGesture, { capture: true });
+      window.removeEventListener('keydown', handleUserGesture, { capture: true });
     };
 
-    const tryUnmute = () => {
-      if (userManuallyMutedRef.current || detached) return;
+    const handleUserGesture = () => {
+      if (userManuallyMutedRef.current || userUnlockedAudioRef.current || isUnmutingInProgress || detached) {
+        return;
+      }
 
       const activeVideo = videoRefs.current[currentMedia.id];
       if (!activeVideo) return;
 
-      // Attempt unmute
+      isUnmutingInProgress = true;
+
+      // Unmute and trigger play() to bind audio output device on mobile & desktop
       activeVideo.muted = false;
       try {
         activeVideo.volume = 1;
       } catch {
-        // iOS Safari hardware safe
+        // Safe for iOS Safari hardware-locked volume
       }
 
       const playPromise = activeVideo.play();
       if (playPromise !== undefined) {
         playPromise
           .then(() => {
-            // Successfully unmuted and playing with audio!
             userUnlockedAudioRef.current = true;
             setIsMuted(false);
             setIsUnmuteFlashing(false);
             detachListeners();
+            isUnmutingInProgress = false;
           })
           .catch(() => {
-            // If browser engine blocks sound on this specific scroll tick,
-            // immediately restore muted playback so the video NEVER stalls or freezes!
+            // If browser engine refused unmuted state on this frame, keep video playing muted
             activeVideo.muted = true;
             setIsMuted(true);
             activeVideo.play().catch(() => {});
+            isUnmutingInProgress = false;
           });
+      } else {
+        userUnlockedAudioRef.current = true;
+        setIsMuted(false);
+        setIsUnmuteFlashing(false);
+        detachListeners();
+        isUnmutingInProgress = false;
       }
     };
 
     const options = { capture: true, passive: true };
-    window.addEventListener('pointerdown', tryUnmute, options);
-    window.addEventListener('touchstart', tryUnmute, options);
-    window.addEventListener('touchend', tryUnmute, options);
-    window.addEventListener('scroll', tryUnmute, options);
-    window.addEventListener('wheel', tryUnmute, options);
-    window.addEventListener('keydown', tryUnmute, options);
+    window.addEventListener('touchstart', handleUserGesture, options);
+    window.addEventListener('pointerdown', handleUserGesture, options);
+    window.addEventListener('touchend', handleUserGesture, options);
+    window.addEventListener('click', handleUserGesture, options);
+    window.addEventListener('keydown', handleUserGesture, options);
 
     return () => {
       detachListeners();
@@ -124,17 +133,54 @@ export const HomePage: React.FC = () => {
     setCurrentIndex((prev) => (prev - 1 + heroSlideshowMedia.length) % heroSlideshowMedia.length);
   }, []);
 
-  // Preload all slideshow images on mount for instant seamless crossfades
+  // Pause video & audio immediately when switching tabs, minimizing browser, locking phone, or navigating away
   useEffect(() => {
-    heroSlideshowMedia.forEach((media) => {
-      if (media.type === 'image') {
-        const img = new Image();
-        img.src = media.src;
-      } else if (media.poster) {
-        const img = new Image();
-        img.src = media.poster;
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        // Tab is hidden / minimized / screen locked: PAUSE ALL videos instantly
+        Object.values(videoRefs.current).forEach((vid) => {
+          if (vid) {
+            vid.pause();
+          }
+        });
+      } else {
+        // User came back to the tab: resume playback if on a video slide and intro is complete
+        if (currentMedia.type === 'video' && isIntroComplete) {
+          const activeVideo = videoRefs.current[currentMedia.id];
+          if (activeVideo) {
+            activeVideo.play().catch(() => {});
+          }
+        }
       }
-    });
+    };
+
+    const handlePageHide = () => {
+      Object.values(videoRefs.current).forEach((vid) => {
+        if (vid) {
+          vid.pause();
+        }
+      });
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    window.addEventListener('pagehide', handlePageHide);
+
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      window.removeEventListener('pagehide', handlePageHide);
+    };
+  }, [currentMedia.id, currentMedia.type, isIntroComplete]);
+
+  // Clean unmount: stop all media when navigating to other routes (/car, /competitions, etc.)
+  useEffect(() => {
+    return () => {
+      Object.values(videoRefs.current).forEach((vid) => {
+        if (vid) {
+          vid.pause();
+          vid.muted = true;
+        }
+      });
+    };
   }, []);
 
   // Handle Video playback ONLY on genuine slide index change or intro complete

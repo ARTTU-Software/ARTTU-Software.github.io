@@ -132,7 +132,7 @@ export const CarPage: React.FC = () => {
               <span className="inline-block w-2 h-2 rounded-full bg-[#ff3b3b]" />
               <span className="text-white font-bold">{CURRENT_CAR.shortName.toUpperCase()}</span>
               <span className="text-white/40">•</span>
-              <span className="text-white/90">{CURRENT_CAR.generationCode} EV Single-Seater</span>
+              <span className="text-white/90">{CURRENT_CAR.generationCode} Single-Seater</span>
               <span className="hidden sm:inline text-white/40">•</span>
               <span className="hidden sm:inline text-white/70">Season {CURRENT_CAR.seasonSpan}</span>
             </div>
@@ -392,12 +392,9 @@ export const CarPage: React.FC = () => {
         <div>
           <ScrollReveal direction="up" delay={60} duration={600} className="flex items-center justify-between mb-3">
             <h2 className="font-display font-bold text-base sm:text-lg text-warm-900 uppercase flex items-center gap-2">
-              <Activity className="w-4 h-4 text-brand-red" />
+              <span className="inline-block w-2 h-2 rounded-full bg-[#ff3b3b]" />
               <span>Specs</span>
             </h2>
-            <span className="text-xs font-mono text-warm-500 uppercase font-semibold">
-              [ VALIDATED ]
-            </span>
           </ScrollReveal>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 sm:gap-3.5">
@@ -416,7 +413,6 @@ export const CarPage: React.FC = () => {
                       <span className="text-[10px] font-mono uppercase tracking-wider text-warm-500 font-semibold">
                         {kpi.label}
                       </span>
-                      <Icon className={`w-3.5 h-3.5 ${kpi.highlight ? 'text-brand-red' : 'text-warm-400'}`} />
                     </div>
                     <div>
                       <div
@@ -448,6 +444,7 @@ export const CarPage: React.FC = () => {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
               <div>
                 <h2 className="font-display font-black text-lg sm:text-xl text-warm-900 uppercase tracking-tight flex items-center gap-2">
+                  <span className="inline-block w-2 h-2 rounded-full bg-[#ff3b3b]" />
                   <span>Technical Specifications</span>
                 </h2>
                 <p className="text-xs sm:text-sm text-warm-600 mt-0.5">

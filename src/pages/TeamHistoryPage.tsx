@@ -119,7 +119,7 @@ export const TeamHistoryPage: React.FC<TeamHistoryPageProps> = ({
             <span className="font-bold text-warm-900">
               <TelemetryTicker value={6} />
             </span>
-            <span>Subsystem Divisions</span>
+            <span>Departments</span>
           </div>
         </div>
       </ScrollReveal>
@@ -274,7 +274,7 @@ export const TeamHistoryPage: React.FC<TeamHistoryPageProps> = ({
               <span>Roster</span>
             </div>
             <h3 className="font-display font-bold text-2xl sm:text-3xl text-warm-900 uppercase">
-              {currentGeneration.season} Leadership & Subsystem Engineers
+              {currentGeneration.season} Leadership & Department Leads
             </h3>
           </div>
 

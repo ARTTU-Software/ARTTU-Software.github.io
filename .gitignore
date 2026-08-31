@@ -17,4 +17,6 @@ design_files/
 site_content_summary.json
 structura_extracted.txt
 *.docx
+benchmark_*
+
 
