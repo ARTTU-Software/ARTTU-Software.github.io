@@ -29,30 +29,26 @@ export const HomePage: React.FC = () => {
   const videoRefs = useRef<{ [key: string]: HTMLVideoElement | null }>({});
   const userUnlockedAudioRef = useRef(false);
   const userManuallyMutedRef = useRef(false);
+  const prevIndexRef = useRef(currentIndex);
 
   const currentMedia = heroSlideshowMedia[currentIndex];
 
-  // Helper to smoothly ramp volume up from 0 to target (e.g. 1.0)
-  const rampVolumeIn = useCallback((video: HTMLVideoElement, targetVol = 1.0, durationMs = 350) => {
-    video.volume = 0;
-    const steps = 10;
-    const stepTime = durationMs / steps;
-    const stepVol = targetVol / steps;
-    let currentVol = 0;
-    const timer = setInterval(() => {
-      currentVol += stepVol;
-      if (currentVol >= targetVol) {
-        video.volume = targetVol;
-        clearInterval(timer);
-      } else {
-        video.volume = currentVol;
-      }
-    }, stepTime);
+  // Helper to safely ramp volume without stalling mobile WebKit
+  const rampVolumeIn = useCallback((video: HTMLVideoElement, targetVol = 1.0) => {
+    try {
+      video.volume = targetVol;
+    } catch {
+      // iOS Safari has read-only hardware volume control
+    }
   }, []);
 
-  // Global First-Interaction Listener: Unmute on ANY click, tap, or keypress anywhere on the screen
+  // Global First-Interaction Listener (Desktop only: ignore touch scrolling on mobile)
   useEffect(() => {
-    const handleFirstGesture = () => {
+    const handleFirstGesture = (e: Event) => {
+      // On touch devices, do not auto-unmute on passive scroll touches
+      if ('touches' in e || (e instanceof PointerEvent && e.pointerType === 'touch')) {
+        return;
+      }
       if (userManuallyMutedRef.current) return;
 
       userUnlockedAudioRef.current = true;
@@ -62,21 +58,24 @@ export const HomePage: React.FC = () => {
       const activeVideo = videoRefs.current[currentMedia.id];
       if (activeVideo) {
         activeVideo.muted = false;
-        rampVolumeIn(activeVideo, 1.0, 400);
-        activeVideo.play().catch(() => {});
+        rampVolumeIn(activeVideo, 1.0);
+        activeVideo.play().catch(() => {
+          // If browser rejected unmuted playback, keep playing muted smoothly without freezing
+          activeVideo.muted = true;
+          setIsMuted(true);
+          activeVideo.play().catch(() => {});
+        });
       }
     };
 
-    // Capture any user interaction anywhere on the window (even empty space/background)
+    // Capture desktop clicks & keyboard navigation
     const options = { capture: true, once: true };
     window.addEventListener('pointerdown', handleFirstGesture, options);
     window.addEventListener('keydown', handleFirstGesture, options);
-    window.addEventListener('touchstart', handleFirstGesture, options);
 
     return () => {
       window.removeEventListener('pointerdown', handleFirstGesture, { capture: true });
       window.removeEventListener('keydown', handleFirstGesture, { capture: true });
-      window.removeEventListener('touchstart', handleFirstGesture, { capture: true });
     };
   }, [currentMedia.id, rampVolumeIn]);
 
@@ -113,10 +112,9 @@ export const HomePage: React.FC = () => {
     });
   }, []);
 
-  // Handle Video playback ONLY once intro is complete and on slide change
+  // Handle Video playback ONLY on genuine slide index change or intro complete
   useEffect(() => {
     if (!isIntroComplete) {
-      // Ensure all videos stay paused during intro splash
       Object.values(videoRefs.current).forEach((vid) => vid?.pause());
       return;
     }
@@ -124,31 +122,41 @@ export const HomePage: React.FC = () => {
     if (currentMedia.type === 'video') {
       const activeVideo = videoRefs.current[currentMedia.id];
       if (activeVideo) {
-        activeVideo.currentTime = 0;
+        // ONLY reset currentTime if transitioning to a brand new slide
+        if (prevIndexRef.current !== currentIndex) {
+          activeVideo.currentTime = 0;
+          prevIndexRef.current = currentIndex;
+        }
+
         const shouldBeMuted = userManuallyMutedRef.current || !userUnlockedAudioRef.current;
         activeVideo.muted = shouldBeMuted;
-        setIsMuted(shouldBeMuted);
-        if (!shouldBeMuted) {
+        try {
           activeVideo.volume = 1;
+        } catch {
+          // iOS Safari safe
         }
+
         const playPromise = activeVideo.play();
         if (playPromise !== undefined) {
           playPromise.catch(() => {
+            // Guarantee video NEVER freezes on mobile if unmuted playback is rejected
             activeVideo.muted = true;
             setIsMuted(true);
             activeVideo.play().catch(() => {});
           });
         }
       }
+    } else {
+      prevIndexRef.current = currentIndex;
     }
 
-    // Pause all other videos so background videos don't freeze GPU decoders
+    // Pause all background videos to conserve GPU/battery on mobile
     Object.entries(videoRefs.current).forEach(([id, vid]) => {
       if (id !== currentMedia.id && vid) {
         vid.pause();
       }
     });
-  }, [currentIndex, isIntroComplete, currentMedia]);
+  }, [currentIndex, isIntroComplete, currentMedia.id, currentMedia.type]);
 
   // Handle Photo auto-advance timer only after intro is done
   useEffect(() => {
@@ -162,7 +170,7 @@ export const HomePage: React.FC = () => {
     }
   }, [currentIndex, currentMedia, nextSlide, isIntroComplete]);
 
-  // Manual sound toggle button handler
+  // Manual sound toggle button handler (works seamlessly on mobile & desktop)
   const toggleAudio = (e?: React.SyntheticEvent) => {
     if (e) {
       e.stopPropagation();
@@ -178,8 +186,12 @@ export const HomePage: React.FC = () => {
       } else {
         userManuallyMutedRef.current = false;
         userUnlockedAudioRef.current = true;
-        rampVolumeIn(activeVideo, 1.0, 300);
-        activeVideo.play().catch(() => {});
+        rampVolumeIn(activeVideo, 1.0);
+        activeVideo.play().catch(() => {
+          activeVideo.muted = true;
+          setIsMuted(true);
+          activeVideo.play().catch(() => {});
+        });
       }
     } else {
       setIsMuted((prev) => !prev);
