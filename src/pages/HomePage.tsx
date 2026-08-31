@@ -42,42 +42,67 @@ export const HomePage: React.FC = () => {
     }
   }, []);
 
-  // Global First-Interaction Listener (Desktop only: ignore touch scrolling on mobile)
+  // Global Multi-Gesture Listener: Auto-unmute on ANY touch, scroll, swipe, click, or keypress
   useEffect(() => {
-    const handleFirstGesture = (e: Event) => {
-      // On touch devices, do not auto-unmute on passive scroll touches
-      if ('touches' in e || (e instanceof PointerEvent && e.pointerType === 'touch')) {
-        return;
-      }
-      if (userManuallyMutedRef.current) return;
+    let detached = false;
 
-      userUnlockedAudioRef.current = true;
-      setIsMuted(false);
-      setIsUnmuteFlashing(false);
+    const detachListeners = () => {
+      if (detached) return;
+      detached = true;
+      window.removeEventListener('pointerdown', tryUnmute, { capture: true });
+      window.removeEventListener('touchstart', tryUnmute, { capture: true });
+      window.removeEventListener('touchend', tryUnmute, { capture: true });
+      window.removeEventListener('scroll', tryUnmute, { capture: true });
+      window.removeEventListener('wheel', tryUnmute, { capture: true });
+      window.removeEventListener('keydown', tryUnmute, { capture: true });
+    };
+
+    const tryUnmute = () => {
+      if (userManuallyMutedRef.current || detached) return;
 
       const activeVideo = videoRefs.current[currentMedia.id];
-      if (activeVideo) {
-        activeVideo.muted = false;
-        rampVolumeIn(activeVideo, 1.0);
-        activeVideo.play().catch(() => {
-          // If browser rejected unmuted playback, keep playing muted smoothly without freezing
-          activeVideo.muted = true;
-          setIsMuted(true);
-          activeVideo.play().catch(() => {});
-        });
+      if (!activeVideo) return;
+
+      // Attempt unmute
+      activeVideo.muted = false;
+      try {
+        activeVideo.volume = 1;
+      } catch {
+        // iOS Safari hardware safe
+      }
+
+      const playPromise = activeVideo.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            // Successfully unmuted and playing with audio!
+            userUnlockedAudioRef.current = true;
+            setIsMuted(false);
+            setIsUnmuteFlashing(false);
+            detachListeners();
+          })
+          .catch(() => {
+            // If browser engine blocks sound on this specific scroll tick,
+            // immediately restore muted playback so the video NEVER stalls or freezes!
+            activeVideo.muted = true;
+            setIsMuted(true);
+            activeVideo.play().catch(() => {});
+          });
       }
     };
 
-    // Capture desktop clicks & keyboard navigation
-    const options = { capture: true, once: true };
-    window.addEventListener('pointerdown', handleFirstGesture, options);
-    window.addEventListener('keydown', handleFirstGesture, options);
+    const options = { capture: true, passive: true };
+    window.addEventListener('pointerdown', tryUnmute, options);
+    window.addEventListener('touchstart', tryUnmute, options);
+    window.addEventListener('touchend', tryUnmute, options);
+    window.addEventListener('scroll', tryUnmute, options);
+    window.addEventListener('wheel', tryUnmute, options);
+    window.addEventListener('keydown', tryUnmute, options);
 
     return () => {
-      window.removeEventListener('pointerdown', handleFirstGesture, { capture: true });
-      window.removeEventListener('keydown', handleFirstGesture, { capture: true });
+      detachListeners();
     };
-  }, [currentMedia.id, rampVolumeIn]);
+  }, [currentMedia.id]);
 
   // Flash the unmute button for 3s if still muted when website emerges into view
   useEffect(() => {
