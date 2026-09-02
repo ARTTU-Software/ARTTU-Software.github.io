@@ -1,4 +1,4 @@
-﻿import { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 /**
@@ -6,9 +6,20 @@ import { useLocation } from 'react-router-dom';
  * and dispatches layout events so all scroll reveals trigger seamlessly.
  */
 export const ScrollToTop: React.FC = () => {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
+    if (hash) {
+      const elementId = hash.replace('#', '');
+      const timer = setTimeout(() => {
+        const element = document.getElementById(elementId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 50);
+      return () => clearTimeout(timer);
+    }
+
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     
     // Dispatch scroll & resize events to ensure IntersectionObservers update
@@ -18,7 +29,7 @@ export const ScrollToTop: React.FC = () => {
     }, 50);
 
     return () => clearTimeout(timer);
-  }, [pathname]);
+  }, [pathname, hash]);
 
   return null;
 };

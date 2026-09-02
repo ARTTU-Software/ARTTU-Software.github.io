@@ -78,7 +78,7 @@ export const RolloutSpotlight: React.FC<{ onOpenPhoto?: (src: string, title: str
                       Date: To Be Announced (TBA)
                     </h4>
                     <p className="text-[11px] text-warm-600 font-mono mt-0.5">
-                      Schedule and public livestream details will be announced ahead of track testing.
+                      Schedule details will be announced ahead of the event. Follow our official channels for updates and notifications.
                     </p>
                   </div>
                   <span className="shrink-0 px-3 py-1 rounded-lg bg-brand-red text-white font-mono text-xs font-bold uppercase shadow-xs">

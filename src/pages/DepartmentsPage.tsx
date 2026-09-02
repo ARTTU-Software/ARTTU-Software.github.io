@@ -33,7 +33,7 @@ export const DepartmentsPage: React.FC = () => {
               duration={650}
               delay={40}
             >
-              <div className="bg-white rounded-3xl border border-warm-250 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 grid grid-cols-1 lg:grid-cols-12">
+              <div id={dept.id} className={`bg-white rounded-3xl border border-warm-250 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 scroll-mt-28`}>
                 {/* Content */}
                 <div className={`lg:col-span-7 p-6 sm:p-10 flex flex-col justify-between space-y-6 ${
                   isEven ? '' : 'lg:order-2'
@@ -120,12 +120,8 @@ export const DepartmentsPage: React.FC = () => {
                   <img
                     src={dept.image}
                     alt={dept.name}
-                    className="w-full h-full object-cover"
+                    className={`w-full h-full object-cover ${dept.imagePosition || 'object-center'}`}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-warm-900/50 via-transparent to-transparent"></div>
-                  <div className="absolute bottom-3 left-3 right-3 text-xs font-mono text-white bg-black/60 backdrop-blur-sm p-2 rounded-lg border border-white/10">
-                    {dept.name} Division Workshop
-                  </div>
                 </div>
               </div>
             </ScrollReveal>

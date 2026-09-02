@@ -147,27 +147,47 @@ export const RecruitmentPage: React.FC = () => {
           </Link>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {departments.map((dept, idx) => (
             <ScrollReveal key={dept.id} direction="up" delay={(idx % 6) * 70} duration={600} className="h-full">
               <Link
-                to="/departments"
-                className="p-5 rounded-2xl bg-warm-50 border border-warm-200 hover:border-brand-red/50 transition-all duration-300 group flex flex-col justify-between hover:bg-white hover:shadow-md hover:-translate-y-1 h-full"
+                to={`/departments#${dept.id}`}
+                className="rounded-2xl bg-warm-50 border border-warm-200 hover:border-brand-red/50 transition-all duration-300 group flex flex-col justify-between hover:bg-white hover:shadow-md hover:-translate-y-1 overflow-hidden h-full"
               >
                 <div>
-                  <span className="text-[11px] font-mono text-emerald-800 font-bold block mb-1">
-                    ● Positions Open
-                  </span>
-                  <h3 className="font-display font-bold text-base text-warm-900 group-hover:text-brand-red transition">
-                    {dept.name}
-                  </h3>
-                  <p className="text-xs text-warm-600 mt-1 line-clamp-2 leading-relaxed">
-                    {dept.tagline}
-                  </p>
+                  {/* Department Photo */}
+                  <div className="relative h-36 sm:h-40 w-full overflow-hidden bg-warm-200">
+                    <img
+                      src={dept.image}
+                      alt={dept.name}
+                      className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out ${dept.imagePosition || 'object-center'}`}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-warm-950/75 via-warm-950/20 to-transparent" />
+                    <div className="absolute top-3 left-3">
+                      <span className="px-2.5 py-0.5 rounded-md bg-emerald-600/90 backdrop-blur-xs text-white text-[10px] font-mono font-bold shadow-xs">
+                        ● Positions Open
+                      </span>
+                    </div>
+                    <div className="absolute bottom-2.5 left-3 right-3 text-[10px] font-mono text-white/90 font-bold uppercase tracking-wider">
+                      // {dept.title}
+                    </div>
+                  </div>
+
+                  <div className="p-5">
+                    <h3 className="font-display font-bold text-base text-warm-900 group-hover:text-brand-red transition">
+                      {dept.name}
+                    </h3>
+                    <p className="text-xs text-warm-600 mt-1.5 line-clamp-2 leading-relaxed">
+                      {dept.tagline}
+                    </p>
+                  </div>
                 </div>
-                <div className="mt-4 pt-3 border-t border-warm-200 flex items-center justify-between text-xs font-mono text-warm-500 group-hover:text-brand-red font-semibold">
-                  <span>View Details</span>
-                  <span className="group-hover:translate-x-1 transition-transform">→</span>
+
+                <div className="px-5 pb-5 pt-0">
+                  <div className="pt-3 border-t border-warm-200 flex items-center justify-between text-xs font-mono text-warm-500 group-hover:text-brand-red font-semibold">
+                    <span>View Details</span>
+                    <span className="group-hover:translate-x-1 transition-transform">→</span>
+                  </div>
                 </div>
               </Link>
             </ScrollReveal>

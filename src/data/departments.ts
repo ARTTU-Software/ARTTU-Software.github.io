@@ -9,6 +9,7 @@ export interface Department {
   whatYoullLearn: string[];
   software: string[];
   image: string;
+  imagePosition?: string;
   openPositions: boolean;
 }
 
@@ -34,7 +35,7 @@ export const departments: Department[] = [
       "Motorsport technical compliance, physical component validation, and destructive testing"
     ],
     software: ["CATIA V6", "Ansys Mechanical"],
-    image: "/assets/IMG_7896-1-scaled.webp",
+    image: "/assets/2026_chassis_welding.webp",
     openPositions: true
   },
   {
@@ -59,6 +60,7 @@ export const departments: Department[] = [
     ],
     software: ["Altium Designer", "MATLAB / Simulink", "CAD (CATIA)", "Ansys Fluent / CFD"],
     image: "/assets/DBV_FSBK-Day2-49-1-scaled.webp",
+    imagePosition: "object-[85%_30%]",
     openPositions: true
   },
   {
@@ -82,7 +84,7 @@ export const departments: Department[] = [
       "Professional motorsport wiring harness design using Raychem DR-25 and Deutsch autosport connectors"
     ],
     software: ["Altium Designer", "Embedded C/C++", "Python", "GitHub", "STM32"],
-    image: "/assets/IMG_3543-scaled.webp",
+    image: "/assets/2026_dashboard_pcb.webp",
     openPositions: true
   },
   {

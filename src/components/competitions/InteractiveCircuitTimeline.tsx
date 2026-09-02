@@ -18,7 +18,7 @@ import {
   MapPin,
   Sparkles,
   Users,
-  CheckCircle2,
+  Plus,
   ArrowRight,
 } from 'lucide-react';
 import { AfiaEmojiCar } from '../common/AfiaEmojiCar';
@@ -522,7 +522,7 @@ export const InteractiveCircuitTimeline: React.FC<InteractiveCircuitTimelineProp
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {activeSeason.innovations.map((item, idx) => (
                   <li key={idx} className="text-xs text-warm-700 flex items-start gap-1.5 leading-snug">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-brand-red shrink-0 mt-0.5" />
+                    <Plus className="w-3.5 h-3.5 text-brand-red shrink-0 mt-0.5" />
                     <span>{item}</span>
                   </li>
                 ))}

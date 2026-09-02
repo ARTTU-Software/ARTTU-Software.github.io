@@ -151,7 +151,7 @@ export const DepartmentExplorer: React.FC<DepartmentExplorerProps> = ({ onOpenJo
             <img
               src={activeDept.image}
               alt={activeDept.name}
-              className="absolute inset-0 w-full h-full object-cover"
+              className={`absolute inset-0 w-full h-full object-cover ${activeDept.imagePosition || 'object-center'}`}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-carbon-950 via-carbon-950/40 to-transparent"></div>
             <div className="absolute bottom-6 left-6 right-6">

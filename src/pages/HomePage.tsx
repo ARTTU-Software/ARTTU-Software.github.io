@@ -16,20 +16,29 @@ const videoIndices = heroSlideshowMedia
 export const HomePage: React.FC = () => {
   const { isIntroComplete, isSplashFullyDone } = useIntro();
 
-  // Start with a randomly chosen video on initial page load / refresh
-  const [currentIndex, setCurrentIndex] = useState<number>(() => {
-    if (videoIndices.length > 0) {
-      const randomIndex = Math.floor(Math.random() * videoIndices.length);
-      return videoIndices[randomIndex];
-    }
-    return 0;
-  });
+  // Start with clean main showcase video slide on initial page load / refresh
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [isMuted, setIsMuted] = useState(true);
   const [isUnmuteFlashing, setIsUnmuteFlashing] = useState(false);
+  const [heroEntered, setHeroEntered] = useState(false);
   const videoRefs = useRef<{ [key: string]: HTMLVideoElement | null }>({});
   const userUnlockedAudioRef = useRef(false);
   const userManuallyMutedRef = useRef(false);
   const prevIndexRef = useRef(currentIndex);
+
+  // Synchronized Hero Entrance Animation (waits for reload intro splash if active, or triggers smoothly on route enter)
+  useEffect(() => {
+    if (!isIntroComplete) {
+      setHeroEntered(false);
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      setHeroEntered(true);
+    }, 120);
+
+    return () => clearTimeout(timer);
+  }, [isIntroComplete]);
 
   const currentMedia = heroSlideshowMedia[currentIndex];
 
@@ -57,7 +66,13 @@ export const HomePage: React.FC = () => {
       window.removeEventListener('keydown', handleUserGesture, { capture: true });
     };
 
-    const handleUserGesture = () => {
+    const handleUserGesture = (e: Event) => {
+      // If the user clicked/tapped directly on the audio toggle button, let toggleAudio handle it exclusively
+      const target = e.target as HTMLElement | null;
+      if (target && target.closest('[data-audio-toggle="true"]')) {
+        return;
+      }
+
       if (userManuallyMutedRef.current || userUnlockedAudioRef.current || isUnmutingInProgress || detached) {
         return;
       }
@@ -113,14 +128,14 @@ export const HomePage: React.FC = () => {
     };
   }, [currentMedia.id]);
 
-  // Flash the unmute button for 3s if still muted when website emerges into view
+  // Flash the unmute button for 5s (+2s) if still muted when website emerges into view
   useEffect(() => {
     if (!isIntroComplete) return;
     if (isMuted && !userUnlockedAudioRef.current) {
       setIsUnmuteFlashing(true);
       const timer = setTimeout(() => {
         setIsUnmuteFlashing(false);
-      }, 3000);
+      }, 5000);
       return () => clearTimeout(timer);
     }
   }, [isIntroComplete, isMuted]);
@@ -330,39 +345,83 @@ export const HomePage: React.FC = () => {
           
           <div className="max-w-2xl space-y-6">
             {/* UTCN & Championship Notification Tag */}
-            <div className="flex justify-start">
+            <div
+              className="flex justify-start"
+              style={{
+                opacity: heroEntered ? 1 : 0,
+                transform: heroEntered ? 'translate3d(0, 0, 0)' : 'translate3d(0, -22px, 0)',
+                transition: 'opacity 650ms cubic-bezier(0.16, 1, 0.3, 1) 60ms, transform 650ms cubic-bezier(0.16, 1, 0.3, 1) 60ms',
+              }}
+            >
               <Link
                 to="/history"
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/50 border border-white/30 hover:border-brand-brightRed text-xs font-mono text-white backdrop-blur-sm transition group shadow-md hover:bg-black/70"
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/50 border border-white/30 hover:border-brand-brightRed text-xs font-mono text-white backdrop-blur-sm transition-all duration-300 group shadow-md hover:bg-black/70 hover:scale-102"
               >
                 <span className="font-bold text-brand-brightRed">UTCN</span>
                 <span className="text-white/40">|</span>
                 <span className="font-medium text-white/95">FS BALKANS 2026 CHAMPIONS</span>
-                <ChevronRight className="w-3.5 h-3.5 text-white/60 group-hover:text-brand-brightRed group-hover:translate-x-0.5 transition" />
+                <ChevronRight className="w-3.5 h-3.5 text-white/60 group-hover:text-brand-brightRed group-hover:translate-x-0.5 transition-transform" />
               </Link>
             </div>
 
             {/* Hero Headline & Welcoming Introduction */}
             <div className="space-y-4">
-              <h1 className="font-display font-black text-4xl sm:text-6xl lg:text-7xl tracking-tight text-white uppercase leading-[1.02] [text-shadow:0_1px_2px_rgba(0,0,0,0.9),0_2px_8px_rgba(0,0,0,0.8),0_4px_24px_rgba(0,0,0,0.9)]">
-                ART TU <br />
-                <span className="text-brand-brightRed [text-shadow:0_1px_2px_rgba(0,0,0,0.9),0_2px_8px_rgba(0,0,0,0.8),0_4px_24px_rgba(0,0,0,0.9)]">
+              <h1 className="font-display font-black text-4xl sm:text-6xl lg:text-7xl tracking-tight text-white uppercase leading-[1.02]">
+                <span
+                  className="block [text-shadow:0_2px_12px_rgba(0,0,0,0.85),0_4px_24px_rgba(0,0,0,0.7)]"
+                  style={{
+                    opacity: heroEntered ? 1 : 0,
+                    transform: heroEntered ? 'translate3d(0, 0, 0)' : 'translate3d(0, 24px, 0)',
+                    transition: 'opacity 750ms cubic-bezier(0.16, 1, 0.3, 1) 180ms, transform 750ms cubic-bezier(0.16, 1, 0.3, 1) 180ms',
+                  }}
+                >
+                  ART TU
+                </span>
+                <span
+                  className="block text-brand-brightRed [text-shadow:0_2px_12px_rgba(0,0,0,0.85),0_4px_24px_rgba(0,0,0,0.7)]"
+                  style={{
+                    opacity: heroEntered ? 1 : 0,
+                    transform: heroEntered ? 'translate3d(0, 0, 0)' : 'translate3d(0, 24px, 0)',
+                    transition: 'opacity 750ms cubic-bezier(0.16, 1, 0.3, 1) 300ms, transform 750ms cubic-bezier(0.16, 1, 0.3, 1) 300ms',
+                  }}
+                >
                   CLUJ-NAPOCA
                 </span>
               </h1>
-              <p className="text-xs sm:text-sm font-mono font-bold uppercase tracking-wider text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.9),0_2px_6px_rgba(0,0,0,0.8),0_4px_16px_rgba(0,0,0,0.85)]">
+              <p
+                className="text-xs sm:text-sm font-mono font-bold uppercase tracking-wider text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.9),0_2px_8px_rgba(0,0,0,0.8)]"
+                style={{
+                  opacity: heroEntered ? 1 : 0,
+                  transform: heroEntered ? 'translate3d(0, 0, 0)' : 'translate3d(0, 18px, 0)',
+                  transition: 'opacity 700ms cubic-bezier(0.16, 1, 0.3, 1) 420ms, transform 700ms cubic-bezier(0.16, 1, 0.3, 1) 420ms',
+                }}
+              >
                 Formula Student Electric Racing • Powered by Porsche Engineering
               </p>
-              <p className="text-sm sm:text-base text-white/95 font-medium leading-relaxed max-w-xl [text-shadow:0_1px_3px_rgba(0,0,0,0.95),0_2px_8px_rgba(0,0,0,0.85),0_4px_16px_rgba(0,0,0,0.7)]">
+              <p
+                className="text-sm sm:text-base text-white/95 font-medium leading-relaxed max-w-xl [text-shadow:0_1px_3px_rgba(0,0,0,0.95),0_2px_8px_rgba(0,0,0,0.8)]"
+                style={{
+                  opacity: heroEntered ? 1 : 0,
+                  transform: heroEntered ? 'translate3d(0, 0, 0)' : 'translate3d(0, 18px, 0)',
+                  transition: 'opacity 700ms cubic-bezier(0.16, 1, 0.3, 1) 520ms, transform 700ms cubic-bezier(0.16, 1, 0.3, 1) 520ms',
+                }}
+              >
                 Designing, building, and racing high-voltage electric single-seaters on Europe's premier circuits. Representing the next generation of Romanian engineering. Powered by Porsche Engineering.
               </p>
             </div>
 
             {/* Action CTAs */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
+            <div
+              className="flex flex-wrap items-center gap-3 pt-2"
+              style={{
+                opacity: heroEntered ? 1 : 0,
+                transform: heroEntered ? 'translate3d(0, 0, 0)' : 'translate3d(0, 24px, 0)',
+                transition: 'opacity 750ms cubic-bezier(0.16, 1, 0.3, 1) 620ms, transform 750ms cubic-bezier(0.16, 1, 0.3, 1) 620ms',
+              }}
+            >
               <Link
                 to="/car"
-                className="px-6 py-3.5 rounded-lg bg-brand-red hover:bg-brand-darkRed text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-brand-red/30 transition flex items-center gap-2 group cursor-pointer"
+                className="px-6 py-3.5 rounded-lg bg-brand-red hover:bg-brand-darkRed text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-brand-red/30 hover:shadow-[0_0_24px_rgba(211,47,47,0.5)] hover:scale-102 transition-all duration-300 flex items-center gap-2 group cursor-pointer"
               >
                 <span>Explore The Racecar</span>
                 <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
@@ -370,18 +429,18 @@ export const HomePage: React.FC = () => {
 
               <Link
                 to="/recruitment"
-                className="px-6 py-3.5 rounded-lg bg-black/40 hover:bg-black/60 text-white font-bold text-xs uppercase tracking-wider border border-white/30 shadow-md backdrop-blur-sm transition flex items-center gap-2 cursor-pointer"
+                className="px-6 py-3.5 rounded-lg bg-black/40 hover:bg-black/60 text-white font-bold text-xs uppercase tracking-wider border border-white/30 hover:border-brand-brightRed/60 hover:scale-102 shadow-md backdrop-blur-sm transition-all duration-300 flex items-center gap-2 cursor-pointer group"
               >
-                <Users className="w-4 h-4 text-brand-brightRed" />
+                <Users className="w-4 h-4 text-brand-brightRed group-hover:scale-110 transition-transform" />
                 <span>Join Team</span>
               </Link>
 
               <Link
                 to="/partners"
-                className="px-5 py-3.5 rounded-lg bg-black/40 hover:bg-black/60 text-white font-bold text-xs uppercase tracking-wider border border-white/25 shadow-md backdrop-blur-sm transition flex items-center gap-1.5 cursor-pointer"
+                className="px-5 py-3.5 rounded-lg bg-black/40 hover:bg-black/60 text-white font-bold text-xs uppercase tracking-wider border border-white/25 hover:border-white/50 hover:scale-102 shadow-md backdrop-blur-sm transition-all duration-300 flex items-center gap-1.5 cursor-pointer group"
               >
                 <span>Partner</span>
-                <ArrowUpRight className="w-4 h-4 text-white/70" />
+                <ArrowUpRight className="w-4 h-4 text-white/70 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
               </Link>
             </div>
           </div>
@@ -391,22 +450,39 @@ export const HomePage: React.FC = () => {
         {/* Side Cycle Navigation Arrows */}
         <button
           onClick={prevSlide}
-          className="hidden md:flex absolute left-6 top-1/2 -translate-y-1/2 z-30 p-2.5 rounded-lg bg-black/45 hover:bg-black/75 text-white/90 hover:text-white backdrop-blur-sm border border-white/20 transition shadow-md items-center justify-center group"
+          className="hidden md:flex absolute left-6 top-1/2 -translate-y-1/2 z-30 p-2.5 rounded-lg bg-black/45 hover:bg-black/75 text-white/90 hover:text-white backdrop-blur-sm border border-white/20 hover:scale-105 transition-all duration-300 shadow-md items-center justify-center group cursor-pointer"
           aria-label="Previous Slide"
+          style={{
+            opacity: heroEntered ? 1 : 0,
+            transform: heroEntered ? 'translate3d(0, -50%, 0)' : 'translate3d(-24px, -50%, 0)',
+            transition: 'opacity 700ms cubic-bezier(0.16, 1, 0.3, 1) 700ms, transform 700ms cubic-bezier(0.16, 1, 0.3, 1) 700ms, background-color 200ms ease, border-color 200ms ease',
+          }}
         >
           <ChevronLeft className="w-5 h-5 group-hover:-translate-x-0.5 transition-transform" />
         </button>
 
         <button
           onClick={nextSlide}
-          className="hidden md:flex absolute right-6 top-1/2 -translate-y-1/2 z-30 p-2.5 rounded-lg bg-black/45 hover:bg-black/75 text-white/90 hover:text-white backdrop-blur-sm border border-white/20 transition shadow-md items-center justify-center group"
+          className="hidden md:flex absolute right-6 top-1/2 -translate-y-1/2 z-30 p-2.5 rounded-lg bg-black/45 hover:bg-black/75 text-white/90 hover:text-white backdrop-blur-sm border border-white/20 hover:scale-105 transition-all duration-300 shadow-md items-center justify-center group cursor-pointer"
           aria-label="Next Slide"
+          style={{
+            opacity: heroEntered ? 1 : 0,
+            transform: heroEntered ? 'translate3d(0, -50%, 0)' : 'translate3d(24px, -50%, 0)',
+            transition: 'opacity 700ms cubic-bezier(0.16, 1, 0.3, 1) 700ms, transform 700ms cubic-bezier(0.16, 1, 0.3, 1) 700ms, background-color 200ms ease, border-color 200ms ease',
+          }}
         >
           <ChevronRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
         </button>
 
         {/* Bottom Floating Control Bar (Slideshow Index, Next/Prev, Sound Toggle) */}
-        <div className="absolute bottom-6 right-6 left-6 sm:left-auto z-40 flex items-center justify-between sm:justify-end gap-2.5">
+        <div
+          className="absolute bottom-6 right-6 left-6 sm:left-auto z-40 flex items-center justify-between sm:justify-end gap-2.5"
+          style={{
+            opacity: heroEntered ? 1 : 0,
+            transform: heroEntered ? 'translate3d(0, 0, 0)' : 'translate3d(0, 24px, 0)',
+            transition: 'opacity 750ms cubic-bezier(0.16, 1, 0.3, 1) 760ms, transform 750ms cubic-bezier(0.16, 1, 0.3, 1) 760ms',
+          }}
+        >
           
           {/* Media Info & Pagination Badge */}
           <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-black/50 text-white backdrop-blur-md border border-white/20 text-xs font-mono shadow-md">
@@ -424,14 +500,14 @@ export const HomePage: React.FC = () => {
           <div className="flex items-center gap-1 p-1 rounded-lg bg-black/50 backdrop-blur-md border border-white/20 shadow-md">
             <button
               onClick={prevSlide}
-              className="p-1 rounded hover:bg-white/20 text-white transition"
+              className="p-1 rounded hover:bg-white/20 text-white transition cursor-pointer"
               aria-label="Previous"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
             <button
               onClick={nextSlide}
-              className="p-1 rounded hover:bg-white/20 text-white transition"
+              className="p-1 rounded hover:bg-white/20 text-white transition cursor-pointer"
               aria-label="Next"
             >
               <ChevronRight className="w-4 h-4" />
@@ -442,10 +518,11 @@ export const HomePage: React.FC = () => {
           {currentMedia.type === 'video' && (
             <button
               type="button"
+              data-audio-toggle="true"
               onClick={toggleAudio}
-              className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-mono transition-all duration-300 shadow-md touch-manipulation cursor-pointer select-none group ${
+              className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-mono transition-all duration-200 shadow-md touch-manipulation cursor-pointer select-none group ${
                 isMuted && isUnmuteFlashing
-                  ? 'bg-gradient-to-r from-red-600 via-brand-red to-rose-600 text-white border-2 border-white shadow-[0_0_24px_rgba(239,68,68,1)] ring-4 ring-brand-brightRed/60 scale-105 animate-pulse'
+                  ? 'animate-unmute-flash text-white border-2'
                   : 'bg-black/60 hover:bg-black/80 text-white backdrop-blur-md border border-white/20'
               }`}
               title={isMuted ? "Click to Unmute" : "Mute Sound"}
@@ -459,6 +536,12 @@ export const HomePage: React.FC = () => {
                 <>
                   <Volume2 className="w-3.5 h-3.5 text-brand-brightRed" />
                   <span className="hidden sm:inline font-semibold">Sound On</span>
+                  {/* Real-time audio waveform equalizer graphic indicator */}
+                  <span className="flex items-end gap-0.5 h-3 px-0.5" aria-hidden="true">
+                    <span className="w-0.5 bg-brand-brightRed rounded-full animate-pulse h-1.5" style={{ animationDuration: '600ms' }} />
+                    <span className="w-0.5 bg-brand-brightRed rounded-full animate-pulse h-3" style={{ animationDuration: '800ms', animationDelay: '150ms' }} />
+                    <span className="w-0.5 bg-brand-brightRed rounded-full animate-pulse h-2" style={{ animationDuration: '500ms', animationDelay: '300ms' }} />
+                  </span>
                 </>
               )}
             </button>

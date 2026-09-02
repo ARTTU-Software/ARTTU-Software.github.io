@@ -38,7 +38,7 @@ export const PartnersPage: React.FC = () => {
         <div className="pt-1 flex flex-wrap items-center justify-center gap-2 text-xs font-mono">
           <div className="px-3 py-1.5 rounded-lg bg-white border border-warm-250 shadow-2xs text-warm-800 flex items-center gap-1.5">
             <Users className="w-3.5 h-3.5 text-brand-red" />
-            <span className="font-bold text-brand-red"><TelemetryTicker value={35} suffix="+" /></span>
+            <span className="font-bold text-brand-red"><TelemetryTicker value={60} suffix="+" /></span>
             <span>UTCN Engineers</span>
           </div>
           <div className="px-3 py-1.5 rounded-lg bg-white border border-warm-250 shadow-2xs text-warm-800 flex items-center gap-1.5">
