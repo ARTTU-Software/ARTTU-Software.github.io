@@ -396,7 +396,7 @@ export const HomePage: React.FC = () => {
                   transition: 'opacity 700ms cubic-bezier(0.16, 1, 0.3, 1) 420ms, transform 700ms cubic-bezier(0.16, 1, 0.3, 1) 420ms',
                 }}
               >
-                Formula Student Electric Racing • Powered by Porsche Engineering
+                Formula Student • Powered by Porsche Engineering
               </p>
               <p
                 className="text-sm sm:text-base text-white/95 font-medium leading-relaxed max-w-xl [text-shadow:0_1px_3px_rgba(0,0,0,0.95),0_2px_8px_rgba(0,0,0,0.8)]"
@@ -406,7 +406,7 @@ export const HomePage: React.FC = () => {
                   transition: 'opacity 700ms cubic-bezier(0.16, 1, 0.3, 1) 520ms, transform 700ms cubic-bezier(0.16, 1, 0.3, 1) 520ms',
                 }}
               >
-                Designing, building, and racing high-voltage electric single-seaters on Europe's premier circuits. Representing the next generation of Romanian engineering. Powered by Porsche Engineering.
+                Designing, building, and racing high-voltage electric single-seaters on Europe's premier circuits. Representing the next generation of Romanian engineering. Powered by Porsche Engineering @ UTCN.
               </p>
             </div>
 

@@ -66,8 +66,8 @@ export const DepartmentsPage: React.FC = () => {
                         </h3>
                         <ul className="space-y-2 text-xs text-warm-700">
                           {dept.responsibilities.map((r, i) => (
-                            <li key={i} className="flex items-start gap-1.5 leading-snug">
-                              <Plus className="w-3.5 h-3.5 text-brand-red shrink-0 mt-0.5" />
+                            <li key={i} className="flex items-start gap-2">
+                              <span className="text-brand-red font-bold font-mono">▸</span>
                               <span>{r}</span>
                             </li>
                           ))}
@@ -76,13 +76,13 @@ export const DepartmentsPage: React.FC = () => {
 
                       <div>
                         <h3 className="text-xs font-mono uppercase tracking-wider text-warm-900 font-bold mb-3 flex items-center gap-1.5">
-                          <Plus className="w-3.5 h-3.5 text-amber-600" />
+                          <span className="w-2 h-2 rounded-sm bg-amber-500 inline-block" />
                           <span>What You'll Learn</span>
                         </h3>
                         <ul className="space-y-2 text-xs text-warm-700">
                           {dept.whatYoullLearn.map((item, i) => (
-                            <li key={i} className="flex items-start gap-1.5 leading-snug">
-                              <Plus className="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" />
+                            <li key={i} className="flex items-start gap-2">
+                              <span className="text-amber-700 font-bold font-mono">▸</span>
                               <span>{item}</span>
                             </li>
                           ))}

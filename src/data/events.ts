@@ -64,7 +64,7 @@ export const EVENTS_DATA: EventItem[] = [
     subtitle: "Live telemetry and electric vehicle science demonstrations",
     date: "Late September 2025",
     season: "2025-2026",
-    location: "Casino Parcul Central, Cluj-Napoca",
+    location: "Parcul Central, Cluj-Napoca",
     image: "/assets/events/noaptea_cercetatorilor.webp",
     description: "Demonstrating science and motorsport technology in action. Our vehicle dynamics and electrical leads presented live telemetry, CAN bus communication, and high-voltage battery safety systems to over 1,500 visitors."
   },
@@ -74,7 +74,7 @@ export const EVENTS_DATA: EventItem[] = [
     subtitle: "SIAR International Congress on Automotive and Transport Engineering",
     date: "23-25 October 2025",
     season: "2025-2026",
-    location: "UTCN Faculty of Automotive Engineering & Grand Hotel Italia, Cluj-Napoca",
+    location: "UTCN Faculty of Automotive Engineering, Cluj-Napoca",
     image: "/assets/events/amma_2025.webp",
     description: "Hosted at the Technical University of Cluj-Napoca by the Department of Automotive Engineering and SIAR, the AMMA Congress brought together international automotive researchers and mobility leaders. ART TU presented our electric racecar architecture and powertrain research."
   },
@@ -124,7 +124,7 @@ export const EVENTS_DATA: EventItem[] = [
     subtitle: "CAD, FEA, and CFD defense with alumni judges and mentors",
     date: "December 2025",
     season: "2025-2026",
-    location: "ART TU Design Studio, UTCN, Cluj-Napoca",
+    location: "Porsche Room, UTCN, Cluj-Napoca",
     image: "/assets/events/design_review_2025.webp",
     description: "A meticulous internal audit where each technical department presented CAD models, FEA stress analyses, and CFD aero simulations to alumni judges and technical mentors before manufacturing."
   },
@@ -134,7 +134,7 @@ export const EVENTS_DATA: EventItem[] = [
     subtitle: "Inspiring high school robotics students to join university motorsport",
     date: "January 2026",
     season: "2025-2026",
-    location: "UTCN Robotics Laboratories, Cluj-Napoca",
+    location: "UTCN, Cluj-Napoca",
     image: "/assets/events/ftc_to_fs.webp",
     description: "'First Tech Challenge to Formula Student' is an event where we share our journey with high school robotics students. It connects high school with university life, showing them how Formula Student can boost their future and inspiring the next generation to join our team."
   },
@@ -144,7 +144,7 @@ export const EVENTS_DATA: EventItem[] = [
     subtitle: "Connecting across departments, celebrating hard work and recharging",
     date: "March 2026",
     season: "2025-2026",
-    location: "Mărișel, Cluj County, Transylvania",
+    location: "Mărișel, Cluj County",
     image: "/assets/events/teambuilding2026.webp",
     description: "Team building is about more than just connecting across departments; it is a time to celebrate the hard work we have poured into the season. Our team buildings are about hanging out together, getting to know each other, and recharging our batteries."
   },
@@ -244,7 +244,7 @@ export const EVENTS_DATA: EventItem[] = [
     subtitle: "Annual celebration and unveiling of the AFIA ART-26 electric racecar",
     date: "June 2026",
     season: "2025-2026",
-    location: "Aula Magna & Innovation Atrium, UTCN, Cluj-Napoca",
+    location: "UTCN, Cluj-Napoca",
     image: "/assets/events/rollout2026.webp",
     description: "The Rollout is an annual celebration of our season's achievements, revealing our newest race car. It is a prestigious occasion to honor the partnerships with the individuals and companies whose support has been the driving force behind our success."
   },

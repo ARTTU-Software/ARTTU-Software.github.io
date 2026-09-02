@@ -25,7 +25,7 @@ export const PartnersPage: React.FC = () => {
       <ScrollReveal direction="up" duration={500} className="text-center max-w-3xl mx-auto space-y-2.5">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-red/10 border border-brand-red/20 text-brand-red text-xs font-mono uppercase font-bold shadow-2xs">
           <Handshake className="w-3.5 h-3.5" />
-          <span>Partnership & Fiscal Sponsorship</span>
+          <span>Partnership & Support</span>
         </div>
         <h1 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-warm-900 uppercase tracking-tight">
           PARTNER WITH ART TU
@@ -92,7 +92,7 @@ export const PartnersPage: React.FC = () => {
             {/* Content & Narrative */}
             <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between space-y-3">
               <p className="text-xs text-warm-700 leading-relaxed">
-                Behind every carbon fiber aerodynamic wing, custom printed circuit board, high-voltage battery cell, and telemetry line is an impassioned team of Technical University students. Sponsoring ART TU directly funds raw materials, precision machining, and future-defining engineering education.
+                Behind every carbon fiber aerodynamic wing, custom printed circuit board, high-voltage battery cell, and simulation is a passionate team of Technical University students. Sponsoring ART TU directly funds raw materials, precision machining, and future-defining engineering education.
               </p>
 
               <div className="pt-2 border-t border-warm-150 flex items-center justify-between">
@@ -206,7 +206,7 @@ export const PartnersPage: React.FC = () => {
       <div className="space-y-10 sm:space-y-12 pt-2">
         <div className="text-center max-w-2xl mx-auto space-y-1">
           <span className="text-xs font-mono text-brand-red uppercase tracking-wider font-bold">
-            // OUR COALITION
+            // OUR PARTNERS
           </span>
           <h2 className="font-display font-black text-2xl sm:text-3xl text-warm-900 uppercase">
             CURRENT PARTNERS & SPONSORS
