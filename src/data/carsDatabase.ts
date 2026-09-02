@@ -157,7 +157,7 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
     tagline: '1st Place Overall Champions at FS Balkans, P3 Efficiency at Hockenheim & P3 Efficiency / P9 Overall at FS Alpe Adria',
     description:
       'The 2025-2026 season marks the start of performance engineering at ART TU. Afia dominated Formula Student Balkans 2026 at TNT Karting Dej with a clean sweep of all static events and top dynamic speed, crowned with 1st Place Overall Championship, followed by 3rd in Efficiency at Hockenheim, and 3rd in Efficiency, 6th in Engineering Design, and 9th Overall at Formula Student Alpe Adria (Croatia).',
-    circuitLocation: 'TNT Karting, Dej (Romania) • Hockenheimring (Germany) • Novi Marof (Croatia)',
+    circuitLocation: 'TNT Karting, Dej (Romania) • Hockenheimring (Germany) • Bugatti Rimac Test Track (Croatia)',
 
 
     innovations: [
@@ -534,10 +534,10 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
     imageCaption: 'Danika at FS Alpe Adria Croatia • the first electric formula single-seater built by a Romanian university.',
 
     title: '1st Romanian Electric Single-Seater in History',
-    tagline: 'Historic debut at Formula Student Alpe Adria (Novi Marof, Croatia)',
+    tagline: 'Historic debut at Formula Student Alpe Adria (Bugatti Rimac Test Track, Croatia)',
     description:
       'In August 2022, we made Romanian motorsport history by becoming the very first university team in the country to design, build, and enter an electric formula car at an official Formula Student competition, scoring 25th in static events against established European teams.',
-    circuitLocation: 'Novi Marof (Croatia)',
+    circuitLocation: 'Bugatti Rimac Test Track (Croatia)',
 
     innovations: [
       'First 200V+ high-voltage accumulator container designed and fabricated in Romania',

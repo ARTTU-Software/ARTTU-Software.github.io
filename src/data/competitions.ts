@@ -97,8 +97,8 @@ export const competitionEvents: CompetitionEvent[] = [
     badge: 'P3 Efficiency • P9 Overall (Top 10)',
     badgeType: 'gold',
     icon: 'award',
-    circuit: 'Bugatti Rimac Test Track / Novi Marof, Croatia',
-    location: 'Novi Marof, Croatia',
+    circuit: 'Bugatti Rimac Test Track, Croatia',
+    location: 'Bugatti Rimac Test Track, Croatia',
     year: 2026,
     mainHighlight: '3rd Place in Fuel Efficiency & 9th Overall (Top 10)',
     summary: 'A monumental international performance: 3rd Place in Fuel Efficiency (3.298 kWh), 6th in Engineering Design, 10th in 22 km Endurance completion, and 9th Place Overall out of 42 European EV teams.',
@@ -134,7 +134,7 @@ export const historicalTimeline: HistoricalMilestone[] = [
   {
     year: 2026,
     name: 'FS Balkans, FS Germany & FS Alpe Adria',
-    location: 'TNT Karting, Dej (RO) • Hockenheimring (DE) • Novi Marof (HR)',
+    location: 'TNT Karting, Dej (RO) • Hockenheimring (DE) • Bugatti Rimac Test Track (HR)',
     badge: 'Historic Triple Podium Season',
     highlight: 'FS Balkans Overall Champions + P3 Efficiency at FSG & P3 Efficiency / P9 Overall at FSAA',
     awards: [
@@ -196,7 +196,7 @@ export const historicalTimeline: HistoricalMilestone[] = [
   {
     year: 2022,
     name: 'Formula Student Alpe Adria',
-    location: 'Novi Marof, Croatia',
+    location: 'Bugatti Rimac Test Track, Croatia',
     badge: 'Pioneers',
     highlight: '1st Romanian Electric Vehicle in Formula Student History',
     awards: [
