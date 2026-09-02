@@ -54,7 +54,7 @@ export const teamGenerations: TeamGeneration[] = [
     badge: "Current Generation",
     carModel: CARS_DATABASE['afia-art26'].name,
     groupPhoto: "/assets/2026_main_photo.webp",
-    groupPhotoCaption: "The 2025-2026 ART TU Team celebrating 1st Place Overall Championship victory at FS Balkans 2026.",
+    groupPhotoCaption: "The 2025-2026 team at Formula Student Germany, before the final few dynamic events.",
     description: "The 2025-2026 season represents the most successful chapter in ART TU history yet. The results speak for themselves: 1st Place Overall Champions at Formula Student Balkans 2026, 1st Place in Engineering Design, Cost & Manufacturing, and Business Plan Presentation, and P3 in Efficiency with full 22 km Endurance completion at all competitions.",
     highlights: [
       "1st Place Overall Champions at Formula Student Balkans 2026 (TNT Karting Dej)",
@@ -187,13 +187,13 @@ export const teamGenerations: TeamGeneration[] = [
   {
     id: "2024-2025",
     season: "2024-2025",
-    title: "Breakthrough & Scrutineering Generation (2024-2025)",
+    title: "Breakthrough & Scrutineering Generation",
     yearSpan: "2024 - 2025",
     tagline: "Podium Finish at FS Balkans 2025 and all dynamic events completed for the first time",
     badge: "Breakthrough Season",
     carModel: CARS_DATABASE['art-25'].name,
     groupPhoto: "/assets/20250821_12-46-42_1527_grobe-XL.webp",
-    groupPhotoCaption: "The 2024-2025 ART TU crew lined up on the Formula Student grid with the second-generation EV prototype.",
+    groupPhotoCaption: "The 2024-2025 team at the Formula Student Germany group photo session.",
     description: "Season 2024-2025 proved to be the turning point for us. We passed for the first time ever all scrutineering checks at both FSG/FSBK on the first try, and we finished on the podium at FS Balkans 2025. The team also completed all dynamic events for the first time, including acceleration, skidpad, autocross, and endurance.",
     highlights: [
       "P1 in all statics at FS Balkans 2025, including Engineering Design, Cost & Manufacturing, and Business Plan Presentation",
@@ -287,7 +287,7 @@ export const teamGenerations: TeamGeneration[] = [
   {
     id: "2023-2024",
     season: "2023-2024",
-    title: "Engineering Maturation Generation (2023-2024)",
+    title: "Engineering Baseline Generation",
     yearSpan: "2023 - 2024",
     tagline: "FS Czech Debut and Pilot FS Balkans Demonstration",
     badge: "Foundation Season",
@@ -415,7 +415,7 @@ export const teamGenerations: TeamGeneration[] = [
   {
     id: "2022-2023",
     season: "2022-2023",
-    title: "International EV Debut Generation (2022-2023)",
+    title: "International Debut Generation",
     yearSpan: "2022 - 2023",
     tagline: "First Romanian Electric Vehicle at Formula Student Alpe Adria (Bugatti Rimac Test Track)",
     badge: "Pioneer EV Season",
@@ -507,7 +507,7 @@ export const teamGenerations: TeamGeneration[] = [
   {
     id: "2019-2020",
     season: "2019-2020",
-    title: "Founding Generation (2019-2020)",
+    title: "Founding Generation",
     yearSpan: "2019 - 2020",
     tagline: "The Birth of ART TU Cluj-Napoca Formula Student",
     badge: "Founding Team",
