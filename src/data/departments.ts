@@ -36,6 +36,7 @@ export const departments: Department[] = [
     ],
     software: ["CATIA V6", "Ansys Mechanical"],
     image: "/assets/2026_chassis_welding.webp",
+    imagePosition: "object-[45%_35%]",
     openPositions: true
   },
   {
@@ -60,7 +61,7 @@ export const departments: Department[] = [
     ],
     software: ["Altium Designer", "MATLAB / Simulink", "CAD (CATIA)", "Ansys Fluent / CFD"],
     image: "/assets/DBV_FSBK-Day2-49-1-scaled.webp",
-    imagePosition: "object-[85%_30%]",
+    imagePosition: "object-[80%_35%]",
     openPositions: true
   },
   {
@@ -85,6 +86,7 @@ export const departments: Department[] = [
     ],
     software: ["Altium Designer", "Embedded C/C++", "Python", "GitHub", "STM32"],
     image: "/assets/2026_dashboard_pcb.webp",
+    imagePosition: "object-center",
     openPositions: true
   },
   {
@@ -109,6 +111,7 @@ export const departments: Department[] = [
     ],
     software: ["MATLAB & Simulink", "Ansys Suite", "Marple"],
     image: "/assets/IMG_8623-scaled.webp",
+    imagePosition: "object-[50%_60%]",
     openPositions: true
   },
   {
@@ -133,6 +136,7 @@ export const departments: Department[] = [
     ],
     software: ["Adobe Creative Suite", "Canva", "Excel / Sheets", "Social Analytics"],
     image: "/assets/IMG_9963-scaled.webp",
+    imagePosition: "object-[78%_25%]",
     openPositions: true
   },
   {
@@ -154,6 +158,7 @@ export const departments: Department[] = [
     ],
     software: ["Project Management Tools", "Inventory Management", "Google Workspace"],
     image: "/assets/DSC_0095-1-1-scaled.webp",
+    imagePosition: "object-[45%_40%]",
     openPositions: true
   }
 ];

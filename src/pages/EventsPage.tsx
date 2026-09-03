@@ -40,42 +40,42 @@ export const EventsPage: React.FC = () => {
   };
 
   return (
-    <div className="relative w-full overflow-hidden pt-20 sm:pt-24 pb-16 space-y-10 sm:space-y-14">
+    <div className="relative w-full overflow-hidden pt-20 sm:pt-24 pb-16">
       
       {/* Dynamic Aerodynamic Streamline Background Layer */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
         {/* Faint Abstract Flow Backdrop with feathered gradient mask */}
         <div
-          className="absolute top-0 inset-x-0 h-[1400px] opacity-[0.22] mix-blend-multiply bg-top bg-cover bg-no-repeat pointer-events-none"
+          className="absolute top-0 inset-x-0 h-[1250px] opacity-[0.16] mix-blend-multiply bg-top bg-cover bg-no-repeat pointer-events-none"
           style={{
             backgroundImage: `url('/assets/events_flow_bg.jpg')`,
-            maskImage: 'linear-gradient(to bottom, black, transparent)',
+            maskImage: 'linear-gradient(to bottom, black 0%, rgba(0,0,0,0.7) 40%, transparent 80%)',
           }}
         />
 
         {/* Ambient Floating Light Orbs */}
-        <div className="absolute top-[10%] -left-20 w-[450px] h-[450px] rounded-full bg-brand-red/[0.06] blur-[130px] animate-ambient-float-1" />
-        <div className="absolute top-[45%] right-[-10%] w-[550px] h-[550px] rounded-full bg-brand-brightRed/[0.05] blur-[140px] animate-ambient-float-2" />
-        <div className="absolute top-[75%] left-[8%] w-[500px] h-[500px] rounded-full bg-brand-red/[0.05] blur-[130px] animate-ambient-float-1" />
+        <div className="absolute top-[10%] -left-20 w-[450px] h-[450px] rounded-full bg-brand-red/[0.05] blur-[130px] animate-ambient-float-1" />
+        <div className="absolute top-[45%] right-[-10%] w-[550px] h-[550px] rounded-full bg-brand-brightRed/[0.04] blur-[140px] animate-ambient-float-2" />
+        <div className="absolute top-[75%] left-[8%] w-[500px] h-[500px] rounded-full bg-brand-red/[0.03] blur-[130px] animate-ambient-float-1" />
 
         {/* Wind Tunnel Speed Filaments */}
-        <div className="absolute top-[15%] left-[6%] w-52 h-px bg-gradient-to-r from-transparent via-brand-red/25 to-transparent animate-wind-streak-1" />
-        <div className="absolute top-[50%] right-[10%] w-64 h-px bg-gradient-to-r from-transparent via-brand-brightRed/20 to-transparent animate-wind-streak-2" />
-        <div className="absolute top-[82%] left-[14%] w-48 h-px bg-gradient-to-r from-transparent via-brand-red/18 to-transparent animate-wind-streak-3" />
+        <div className="absolute top-[15%] left-[6%] w-52 h-px bg-gradient-to-r from-transparent via-brand-red/20 to-transparent animate-wind-streak-1" />
+        <div className="absolute top-[50%] right-[10%] w-64 h-px bg-gradient-to-r from-transparent via-brand-brightRed/16 to-transparent animate-wind-streak-2" />
+        <div className="absolute top-[82%] left-[14%] w-48 h-px bg-gradient-to-r from-transparent via-brand-red/14 to-transparent animate-wind-streak-3" />
 
         {/* Margin Sector Ticks */}
-        <div className="hidden lg:flex flex-col gap-1.5 absolute top-[20%] left-5 opacity-30" aria-hidden="true">
+        <div className="hidden lg:flex flex-col gap-1.5 absolute top-[20%] left-5 opacity-25" aria-hidden="true">
           <div className="w-3 h-px bg-warm-400" />
           <div className="w-1.5 h-px bg-warm-400" />
           <div className="w-4 h-px bg-brand-red" />
         </div>
-        <div className="hidden lg:flex flex-col gap-1.5 absolute top-[60%] right-5 opacity-30" aria-hidden="true">
+        <div className="hidden lg:flex flex-col gap-1.5 absolute top-[60%] right-5 opacity-25" aria-hidden="true">
           <div className="w-4 h-px bg-brand-red" />
           <div className="w-1.5 h-px bg-warm-400" />
           <div className="w-3 h-px bg-warm-400" />
         </div>
 
-        {/* Continuous Animated SVG Streamlines */}
+        {/* Continuous Animated SVG Streamlines (Crisp Dotted Lines) */}
         <svg
           className="absolute inset-0 w-full h-full"
           fill="none"
@@ -85,8 +85,8 @@ export const EventsPage: React.FC = () => {
           <path
             d="M 140,0 C 700,320 1260,520 1120,900 C 960,1280 220,1460 380,1880 C 520,2220 1180,2420 1020,2800"
             stroke="#ef4444"
-            strokeWidth="2"
-            strokeOpacity="0.20"
+            strokeWidth="1.8"
+            strokeOpacity="0.16"
             strokeDasharray="14 18"
             className="animate-flow-streamline"
           />
@@ -94,7 +94,7 @@ export const EventsPage: React.FC = () => {
             d="M 170,0 C 730,320 1290,520 1150,900 C 990,1280 250,1460 410,1880 C 550,2220 1210,2420 1050,2800"
             stroke="#dc2626"
             strokeWidth="1.2"
-            strokeOpacity="0.14"
+            strokeOpacity="0.12"
             strokeDasharray="10 14"
             className="animate-flow-streamline-reverse"
           />
@@ -105,14 +105,10 @@ export const EventsPage: React.FC = () => {
       <div className="relative z-10 space-y-10 sm:space-y-14">
       {/* Header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ScrollReveal direction="up" duration={600} className="text-center max-w-3xl mx-auto space-y-2.5">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/70 backdrop-blur-sm border border-white/80 text-xs font-mono font-bold shadow-xs">
-            <span className="flex items-center gap-1.5 text-brand-red">
-              <Calendar className="w-3.5 h-3.5" />
-              <span>{EVENTS_DATA.length} Season Events</span>
-            </span>
-            <span className="w-1 h-1 rounded-full bg-warm-300" />
-            <span className="text-warm-600 uppercase tracking-wider text-[10px] sm:text-[11px]">Season 2025-2026 Timeline</span>
+        <ScrollReveal direction="up" duration={600} className="text-center max-w-3xl mx-auto space-y-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-red/10 border border-brand-red/20 text-brand-red text-xs font-mono uppercase font-bold shadow-2xs">
+            <Calendar className="w-3.5 h-3.5" />
+            <span>{EVENTS_DATA.length} Season Events • Timeline</span>
           </div>
 
           <h1 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-warm-900 uppercase tracking-tight">

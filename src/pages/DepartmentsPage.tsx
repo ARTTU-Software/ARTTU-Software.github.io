@@ -84,7 +84,7 @@ export const DepartmentsPage: React.FC = () => {
           </p>
         </ScrollReveal>
 
-        {/* Departments Open Editorial List (Abolishing Boxed Container) */}
+        {/* Departments Open Editorial Spreads (No Card Container Trap) */}
         <div className="space-y-16 sm:space-y-24">
           {departments.map((dept, index) => {
             const isEven = index % 2 === 0;
@@ -94,20 +94,21 @@ export const DepartmentsPage: React.FC = () => {
                 id={dept.id}
                 className="scroll-mt-28 pb-16 sm:pb-24 border-b border-warm-200/80 last:border-b-0"
               >
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
-                  
-                  {/* Text Column */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-stretch">
+                  {/* Text Column (Open on Canvas, No Card Box) */}
                   <ScrollReveal
                     direction={isEven ? 'left' : 'right'}
                     duration={550}
                     distance={20}
                     triggerOnce={false}
-                    className={`lg:col-span-6 space-y-6 ${isEven ? '' : 'lg:order-2'}`}
+                    className={`lg:col-span-6 flex flex-col justify-between space-y-6 ${
+                      isEven ? '' : 'lg:order-2'
+                    }`}
                   >
                     <div>
                       <div className="flex items-center justify-between mb-2">
                         <span className="text-xs font-mono text-brand-red uppercase font-bold tracking-wider">
-                          {dept.title}
+                          // {dept.title}
                         </span>
                         <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-800 text-[10px] font-mono font-bold flex items-center gap-1.5">
                           <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
@@ -183,23 +184,24 @@ export const DepartmentsPage: React.FC = () => {
                     </div>
                   </ScrollReveal>
 
-                  {/* Photo Column (Heroic Large Widescreen Frame, Clean No-Tooltip) */}
+                  {/* Photo Column: Full Height Frame matching entire text area */}
                   <ScrollReveal
                     direction={isEven ? 'right' : 'left'}
                     duration={550}
                     distance={20}
                     triggerOnce={false}
-                    className={`lg:col-span-6 ${isEven ? '' : 'lg:order-1'}`}
+                    className={`lg:col-span-6 h-full flex flex-col ${isEven ? '' : 'lg:order-1'}`}
                   >
-                    <div className="relative rounded-3xl overflow-hidden shadow-2xl group border border-warm-250/70">
+                    <div className="relative rounded-3xl overflow-hidden shadow-2xl group border border-warm-250/70 h-full min-h-[380px] sm:min-h-[460px]">
                       <img
                         src={dept.image}
                         alt={dept.name}
-                        className={`w-full h-[360px] sm:h-[460px] lg:h-[500px] object-cover group-hover:scale-103 transition duration-700 ease-out ${dept.imagePosition || 'object-center'}`}
+                        className={`w-full h-full object-cover group-hover:scale-103 transition duration-700 ease-out ${
+                          dept.imagePosition || 'object-center'
+                        }`}
                       />
                     </div>
                   </ScrollReveal>
-
                 </div>
               </div>
             );
