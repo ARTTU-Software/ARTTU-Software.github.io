@@ -29,7 +29,68 @@ export const SupportPage: React.FC = () => {
   };
 
   return (
-    <div className="pt-20 sm:pt-24 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
+    <div className="relative w-full overflow-hidden pt-20 sm:pt-24 pb-20">
+      
+      {/* Dynamic Aerodynamic Streamline Background Layer */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
+        {/* Faint Abstract Flow Backdrop with feathered gradient mask */}
+        <div
+          className="absolute top-0 inset-x-0 h-[1250px] opacity-[0.16] mix-blend-multiply bg-top bg-cover bg-no-repeat pointer-events-none"
+          style={{
+            backgroundImage: `url('/assets/support_flow_bg.jpg')`,
+            maskImage: 'linear-gradient(to bottom, black 0%, rgba(0,0,0,0.7) 40%, transparent 80%)',
+          }}
+        />
+
+        {/* Ambient Floating Light Orbs */}
+        <div className="absolute top-[12%] -left-20 w-[450px] h-[450px] rounded-full bg-brand-red/[0.05] blur-[130px] animate-ambient-float-1" />
+        <div className="absolute top-[48%] right-[-10%] w-[550px] h-[550px] rounded-full bg-brand-brightRed/[0.04] blur-[140px] animate-ambient-float-2" />
+        <div className="absolute top-[80%] left-[10%] w-[500px] h-[500px] rounded-full bg-brand-red/[0.03] blur-[130px] animate-ambient-float-1" />
+
+        {/* Wind Tunnel Speed Filaments */}
+        <div className="absolute top-[18%] left-[8%] w-52 h-px bg-gradient-to-r from-transparent via-brand-red/20 to-transparent animate-wind-streak-1" />
+        <div className="absolute top-[52%] right-[12%] w-64 h-px bg-gradient-to-r from-transparent via-brand-brightRed/16 to-transparent animate-wind-streak-2" />
+
+        {/* Margin Sector Ticks */}
+        <div className="hidden lg:flex flex-col gap-1.5 absolute top-[25%] left-5 opacity-25" aria-hidden="true">
+          <div className="w-3 h-px bg-warm-400" />
+          <div className="w-1.5 h-px bg-warm-400" />
+          <div className="w-4 h-px bg-brand-red" />
+        </div>
+        <div className="hidden lg:flex flex-col gap-1.5 absolute top-[68%] right-5 opacity-25" aria-hidden="true">
+          <div className="w-4 h-px bg-brand-red" />
+          <div className="w-1.5 h-px bg-warm-400" />
+          <div className="w-3 h-px bg-warm-400" />
+        </div>
+
+        {/* Continuous Animated SVG Streamlines (Crisp Dotted Lines) */}
+        <svg
+          className="absolute inset-0 w-full h-full"
+          fill="none"
+          viewBox="0 0 1440 2800"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M 140,0 C 700,320 1260,520 1120,900 C 960,1280 220,1460 380,1880 C 520,2220 1180,2420 1020,2800"
+            stroke="#ef4444"
+            strokeWidth="1.8"
+            strokeOpacity="0.16"
+            strokeDasharray="14 18"
+            className="animate-flow-streamline"
+          />
+          <path
+            d="M 170,0 C 730,320 1290,520 1150,900 C 990,1280 250,1460 410,1880 C 550,2220 1210,2420 1050,2800"
+            stroke="#dc2626"
+            strokeWidth="1.2"
+            strokeOpacity="0.12"
+            strokeDasharray="10 14"
+            className="animate-flow-streamline-reverse"
+          />
+        </svg>
+      </div>
+
+      {/* Content Container */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
       
       {/* Hero Header */}
       <ScrollReveal direction="up" duration={600} className="text-center max-w-3xl mx-auto space-y-2.5">
@@ -46,7 +107,7 @@ export const SupportPage: React.FC = () => {
           If you are an employee of a Romanian-based company, you have the possibility to redirect <strong><TelemetryTicker value={3.5} decimals={1} suffix="%" /> of your income tax</strong> to our non-governmental student organisation in 3 simple steps.
         </p>
 
-        <div className="p-3 sm:p-3.5 rounded-xl bg-warm-50 border border-brand-red/20 text-warm-800 text-xs text-left sm:text-center leading-relaxed shadow-xs">
+        <div className="p-3 sm:p-3.5 rounded-2xl bg-white/60 backdrop-blur-sm border border-brand-red/25 text-warm-800 text-xs text-left sm:text-center leading-relaxed shadow-xs">
           <span>
             Instead of allocating the full 10% income tax of your gross salary to the state budget,{' '}
             <strong className="text-brand-red font-bold">you can redirect 3.5% of it to fund student racecar engineering at zero cost to you.</strong>
@@ -58,7 +119,7 @@ export const SupportPage: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
         {/* Formularul 230 Interactive Card */}
-        <ScrollReveal direction="left" duration={650} className="lg:col-span-7 bg-white p-6 sm:p-8 rounded-3xl border border-warm-250 shadow-sm flex flex-col justify-between space-y-6">
+        <ScrollReveal direction="left" duration={650} className="lg:col-span-7 bg-white/50 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-white/80 shadow-xs flex flex-col justify-between space-y-6">
           
           {/* Top Bar with Title & Tab Switcher */}
           <div>
@@ -69,7 +130,7 @@ export const SupportPage: React.FC = () => {
               </div>
 
               {/* View Switcher Tabs */}
-              <div className="inline-flex p-1 bg-warm-100 rounded-xl border border-warm-200 text-xs font-semibold">
+              <div className="inline-flex p-1 bg-white/70 backdrop-blur-sm rounded-xl border border-warm-200/80 text-xs font-semibold">
                 <button
                   onClick={() => setActiveTab('steps')}
                   className={`px-3 py-1.5 rounded-lg transition duration-150 ${
@@ -105,7 +166,7 @@ export const SupportPage: React.FC = () => {
               <div className="space-y-4">
                 
                 {/* Step 1 */}
-                <div className="p-5 rounded-2xl bg-warm-50 border border-warm-200 hover:border-brand-red/30 transition">
+                <div className="p-5 rounded-2xl bg-white/60 backdrop-blur-sm border border-white/80 hover:border-brand-red/40 hover:bg-white transition-all duration-300">
                   <div className="flex items-start gap-4">
                     <span className="w-8 h-8 rounded-lg bg-brand-red text-white font-mono font-bold text-xs flex items-center justify-center shrink-0 shadow-xs">
                       01
@@ -132,7 +193,7 @@ export const SupportPage: React.FC = () => {
                 </div>
 
                 {/* Step 2 */}
-                <div className="p-5 rounded-2xl bg-warm-50 border border-warm-200 hover:border-brand-red/30 transition">
+                <div className="p-5 rounded-2xl bg-white/60 backdrop-blur-sm border border-white/80 hover:border-brand-red/40 hover:bg-white transition-all duration-300">
                   <div className="flex items-start gap-4">
                     <span className="w-8 h-8 rounded-lg bg-brand-red text-white font-mono font-bold text-xs flex items-center justify-center shrink-0 shadow-xs">
                       02
@@ -144,7 +205,7 @@ export const SupportPage: React.FC = () => {
                         </h3>
                         <button
                           onClick={() => setActiveTab('example')}
-                          className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-warm-200 hover:bg-warm-300 text-warm-800 font-mono text-xs font-bold transition"
+                          className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-warm-100 hover:bg-warm-200 text-warm-800 font-mono text-xs font-bold transition"
                         >
                           <Eye className="w-3.5 h-3.5 text-brand-red" />
                           <span>View Example</span>
@@ -158,7 +219,7 @@ export const SupportPage: React.FC = () => {
                 </div>
 
                 {/* Step 3 */}
-                <div className="p-5 rounded-2xl bg-warm-50 border border-warm-200 hover:border-brand-red/30 transition">
+                <div className="p-5 rounded-2xl bg-white/60 backdrop-blur-sm border border-white/80 hover:border-brand-red/40 hover:bg-white transition-all duration-300">
                   <div className="flex items-start gap-4">
                     <span className="w-8 h-8 rounded-lg bg-brand-red text-white font-mono font-bold text-xs flex items-center justify-center shrink-0 shadow-xs">
                       03
@@ -301,7 +362,7 @@ export const SupportPage: React.FC = () => {
         </ScrollReveal>
 
         {/* Bank Transfer Details Box */}
-        <ScrollReveal direction="right" duration={650} className="lg:col-span-5 bg-white p-6 sm:p-8 rounded-3xl border border-warm-250 shadow-sm flex flex-col justify-between space-y-6">
+        <ScrollReveal direction="right" duration={650} className="lg:col-span-5 bg-white/50 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-white/80 shadow-xs flex flex-col justify-between space-y-6">
           <div>
             <div className="flex items-center justify-between mb-2">
               <span className="text-xs font-mono text-warm-500 uppercase tracking-widest font-semibold">
@@ -322,7 +383,7 @@ export const SupportPage: React.FC = () => {
             <div className="space-y-3.5">
               
               {/* Bank Name */}
-              <div className="p-4 rounded-2xl bg-warm-50 border border-warm-200">
+              <div className="p-4 rounded-2xl bg-white/60 backdrop-blur-sm border border-white/80 hover:bg-white transition-all">
                 <span className="text-[10px] font-mono uppercase tracking-wider text-warm-500 block mb-1 font-semibold">
                   Bank / Sucursală
                 </span>
@@ -332,7 +393,7 @@ export const SupportPage: React.FC = () => {
               </div>
 
               {/* IBAN (RON) */}
-              <div className="p-4 rounded-2xl bg-warm-50 border border-warm-200">
+              <div className="p-4 rounded-2xl bg-white/60 backdrop-blur-sm border border-white/80 hover:bg-white transition-all">
                 <div className="flex items-center justify-between mb-1">
                   <span className="text-[10px] font-mono uppercase tracking-wider text-warm-500 font-semibold">
                     IBAN (RON)
@@ -355,7 +416,7 @@ export const SupportPage: React.FC = () => {
               </div>
 
               {/* BIC / SWIFT */}
-              <div className="p-4 rounded-2xl bg-warm-50 border border-warm-200">
+              <div className="p-4 rounded-2xl bg-white/60 backdrop-blur-sm border border-white/80 hover:bg-white transition-all">
                 <div className="flex items-center justify-between mb-1">
                   <span className="text-[10px] font-mono uppercase tracking-wider text-warm-500 font-semibold">
                     BIC / SWIFT
@@ -380,7 +441,7 @@ export const SupportPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="pt-4 border-t border-warm-200 text-xs text-warm-500 flex items-center justify-between font-semibold">
+          <div className="pt-4 border-t border-warm-200/60 text-xs text-warm-500 flex items-center justify-between font-semibold">
             <span>Fiscal NGO registration available</span>
             <span className="text-brand-red font-mono font-bold">UTCN Formula Student</span>
           </div>
@@ -388,6 +449,7 @@ export const SupportPage: React.FC = () => {
 
       </div>
 
+      </div>
     </div>
   );
 };

@@ -389,31 +389,31 @@ export const CarPage: React.FC = () => {
         <div className="absolute inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
           {/* Faint Car Flow Backdrop with feathered gradient mask */}
           <div
-            className="absolute top-0 inset-x-0 h-[1200px] opacity-[0.22] mix-blend-multiply bg-top bg-cover bg-no-repeat pointer-events-none"
+            className="absolute top-0 inset-x-0 h-[1200px] opacity-[0.16] mix-blend-multiply bg-top bg-cover bg-no-repeat pointer-events-none"
             style={{
               backgroundImage: `url('/assets/car_flow_bg.jpg')`,
-              maskImage: 'linear-gradient(to bottom, black, transparent)',
+              maskImage: 'linear-gradient(to bottom, black 0%, rgba(0,0,0,0.7) 40%, transparent 80%)',
             }}
           />
 
           {/* Ambient Floating Light Orbs */}
-          <div className="absolute top-[12%] -left-20 w-[450px] h-[450px] rounded-full bg-brand-red/[0.07] blur-[130px] animate-ambient-float-1" />
-          <div className="absolute top-[48%] right-[-10%] w-[550px] h-[550px] rounded-full bg-brand-brightRed/[0.06] blur-[140px] animate-ambient-float-2" />
-          <div className="absolute top-[80%] left-[10%] w-[500px] h-[500px] rounded-full bg-brand-red/[0.05] blur-[130px] animate-ambient-float-1" />
+          <div className="absolute top-[12%] -left-20 w-[450px] h-[450px] rounded-full bg-brand-red/[0.05] blur-[130px] animate-ambient-float-1" />
+          <div className="absolute top-[48%] right-[-10%] w-[550px] h-[550px] rounded-full bg-brand-brightRed/[0.04] blur-[140px] animate-ambient-float-2" />
+          <div className="absolute top-[80%] left-[10%] w-[500px] h-[500px] rounded-full bg-brand-red/[0.03] blur-[130px] animate-ambient-float-1" />
 
           {/* Wind Tunnel Horizontal Velocity Filaments */}
-          <div className="absolute top-[18%] left-[8%] w-52 h-px bg-gradient-to-r from-transparent via-brand-red/25 to-transparent animate-wind-streak-1" />
-          <div className="absolute top-[52%] right-[12%] w-64 h-px bg-gradient-to-r from-transparent via-brand-brightRed/20 to-transparent animate-wind-streak-2" />
-          <div className="absolute top-[78%] left-[16%] w-48 h-px bg-gradient-to-r from-transparent via-brand-red/18 to-transparent animate-wind-streak-3" />
+          <div className="absolute top-[18%] left-[8%] w-52 h-px bg-gradient-to-r from-transparent via-brand-red/20 to-transparent animate-wind-streak-1" />
+          <div className="absolute top-[52%] right-[12%] w-64 h-px bg-gradient-to-r from-transparent via-brand-brightRed/16 to-transparent animate-wind-streak-2" />
+          <div className="absolute top-[78%] left-[16%] w-48 h-px bg-gradient-to-r from-transparent via-brand-red/14 to-transparent animate-wind-streak-3" />
 
           {/* Margin Sector Track Ticks */}
-          <div className="hidden lg:flex flex-col gap-1.5 absolute top-[25%] left-5 opacity-30" aria-hidden="true">
+          <div className="hidden lg:flex flex-col gap-1.5 absolute top-[25%] left-5 opacity-25" aria-hidden="true">
             <div className="w-3 h-px bg-warm-400" />
             <div className="w-1.5 h-px bg-warm-400" />
             <div className="w-4 h-px bg-brand-red" />
             <div className="w-1.5 h-px bg-warm-400" />
           </div>
-          <div className="hidden lg:flex flex-col gap-1.5 absolute top-[68%] right-5 opacity-30" aria-hidden="true">
+          <div className="hidden lg:flex flex-col gap-1.5 absolute top-[68%] right-5 opacity-25" aria-hidden="true">
             <div className="w-1.5 h-px bg-warm-400" />
             <div className="w-4 h-px bg-brand-red" />
             <div className="w-1.5 h-px bg-warm-400" />
@@ -430,8 +430,8 @@ export const CarPage: React.FC = () => {
             <path
               d="M 160,0 C 720,280 1280,440 1140,780 C 980,1120 220,1300 380,1650 C 520,1950 1180,2050 1020,2200"
               stroke="#ef4444"
-              strokeWidth="2"
-              strokeOpacity="0.22"
+              strokeWidth="1.8"
+              strokeOpacity="0.16"
               strokeDasharray="14 18"
               className="animate-flow-streamline"
             />
@@ -439,7 +439,7 @@ export const CarPage: React.FC = () => {
               d="M 190,0 C 750,280 1310,440 1170,780 C 1010,1120 250,1300 410,1650 C 550,1950 1210,2050 1050,2200"
               stroke="#dc2626"
               strokeWidth="1.2"
-              strokeOpacity="0.15"
+              strokeOpacity="0.12"
               strokeDasharray="10 14"
               className="animate-flow-streamline-reverse"
             />
@@ -447,7 +447,7 @@ export const CarPage: React.FC = () => {
               d="M 210,0 C 770,280 1330,440 1190,780 C 1030,1120 270,1300 430,1650 C 570,1950 1230,2050 1070,2200"
               stroke="#f87171"
               strokeWidth="1"
-              strokeOpacity="0.12"
+              strokeOpacity="0.09"
               strokeDasharray="6 20"
               className="animate-flow-streamline-fast"
             />

@@ -8,13 +8,13 @@ export const RolloutSpotlight: React.FC<{ onOpenPhoto?: (src: string, title: str
 
   return (
     <ScrollReveal direction="up" duration={600} className="w-full">
-      <section className="relative overflow-hidden rounded-none w-full bg-white border-y border-x-0 border-warm-250 shadow-sm p-5 sm:p-7 lg:p-9">
+      <section className="relative overflow-hidden rounded-none w-full bg-white/40 backdrop-blur-md border-y border-x-0 border-warm-200/80 shadow-xs p-5 sm:p-7 lg:p-9">
         <div className="max-w-7xl mx-auto">
           {/* Subtle decorative glow */}
           <div className="absolute top-0 right-0 w-72 h-72 bg-brand-red/5 rounded-full blur-3xl pointer-events-none" />
 
           {/* Top Header */}
-          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-warm-200 pb-3.5 mb-4 relative z-10">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-warm-200/80 pb-3.5 mb-4 relative z-10">
 
           <div className="flex items-center gap-2.5">
             <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-red text-white shadow-xs">
@@ -26,10 +26,10 @@ export const RolloutSpotlight: React.FC<{ onOpenPhoto?: (src: string, title: str
           </div>
 
           {/* View Switcher: Overview vs Past Evolution */}
-          <div className="flex items-center bg-warm-150 p-1 rounded-lg border border-warm-200 text-xs font-medium">
+          <div className="flex items-center bg-white/70 backdrop-blur-sm p-1 rounded-xl border border-warm-200/80 text-xs font-medium">
             <button
               onClick={() => setActiveTab('overview')}
-              className={`px-3 py-1 rounded-md transition-all font-mono font-bold ${
+              className={`px-3 py-1 rounded-lg transition-all font-mono font-bold ${
                 activeTab === 'overview'
                   ? 'bg-white text-warm-900 shadow-xs border border-warm-200'
                   : 'text-warm-600 hover:text-warm-900'
@@ -39,7 +39,7 @@ export const RolloutSpotlight: React.FC<{ onOpenPhoto?: (src: string, title: str
             </button>
             <button
               onClick={() => setActiveTab('journey')}
-              className={`px-3 py-1 rounded-md transition-all font-mono font-bold ${
+              className={`px-3 py-1 rounded-lg transition-all font-mono font-bold ${
                 activeTab === 'journey'
                   ? 'bg-white text-warm-900 shadow-xs border border-warm-200'
                   : 'text-warm-600 hover:text-warm-900'
@@ -67,7 +67,7 @@ export const RolloutSpotlight: React.FC<{ onOpenPhoto?: (src: string, title: str
               </div>
 
               {/* TBA Announcement Box */}
-              <div className="bg-warm-150 border border-warm-250 rounded-xl p-3.5 sm:p-4 text-warm-900 shadow-xs">
+              <div className="bg-white/60 backdrop-blur-sm border border-brand-red/25 rounded-2xl p-4 text-warm-900 shadow-xs">
                 <div className="flex items-center gap-2 text-[11px] font-mono font-bold text-brand-red uppercase tracking-wider mb-1.5">
                   <Radio className="w-3.5 h-3.5 animate-pulse" />
                   Official Unveiling Schedule
@@ -81,7 +81,7 @@ export const RolloutSpotlight: React.FC<{ onOpenPhoto?: (src: string, title: str
                       Schedule details will be announced ahead of the event. Follow our official channels for updates and notifications.
                     </p>
                   </div>
-                  <span className="shrink-0 px-3 py-1 rounded-lg bg-brand-red text-white font-mono text-xs font-bold uppercase shadow-xs">
+                  <span className="shrink-0 px-3 py-1 rounded-xl bg-brand-red text-white font-mono text-xs font-bold uppercase shadow-xs">
                     Summer 2027
                   </span>
                 </div>
@@ -89,7 +89,7 @@ export const RolloutSpotlight: React.FC<{ onOpenPhoto?: (src: string, title: str
 
               {/* Quick Venue & Date Info */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div className="flex items-start gap-2.5 bg-warm-150 rounded-xl p-3 border border-warm-200">
+                <div className="flex items-start gap-2.5 bg-white/60 backdrop-blur-sm rounded-2xl p-3 border border-white/80">
                   <Calendar className="w-4 h-4 text-brand-red shrink-0 mt-0.5" />
                   <div>
                     <span className="block text-[10px] font-mono text-warm-500 uppercase font-semibold">Timeline</span>
@@ -97,7 +97,7 @@ export const RolloutSpotlight: React.FC<{ onOpenPhoto?: (src: string, title: str
                   </div>
                 </div>
 
-                <div className="flex items-start gap-2.5 bg-warm-150 rounded-xl p-3 border border-warm-200">
+                <div className="flex items-start gap-2.5 bg-white/60 backdrop-blur-sm rounded-2xl p-3 border border-white/80">
                   <MapPin className="w-4 h-4 text-brand-red shrink-0 mt-0.5" />
                   <div>
                     <span className="block text-[10px] font-mono text-warm-500 uppercase font-semibold">Venue</span>
@@ -108,7 +108,7 @@ export const RolloutSpotlight: React.FC<{ onOpenPhoto?: (src: string, title: str
               </div>
 
               {/* Tradition Statement */}
-              <div className="border-l-2 border-brand-red bg-warm-150/60 p-3 rounded-r-xl">
+              <div className="border-l-2 border-brand-red bg-white/60 backdrop-blur-sm p-3 rounded-r-2xl">
                 <span className="text-[10px] font-mono text-brand-red uppercase tracking-widest font-bold block mb-0.5">
                   OUR TRADITION
                 </span>

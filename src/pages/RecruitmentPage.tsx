@@ -42,35 +42,35 @@ export const RecruitmentPage: React.FC = () => {
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
         {/* Faint Workshop Paddock Flow Backdrop with feathered gradient mask */}
         <div
-          className="absolute top-0 inset-x-0 h-[1400px] opacity-[0.20] mix-blend-multiply bg-top bg-cover bg-no-repeat pointer-events-none"
+          className="absolute top-0 inset-x-0 h-[1250px] opacity-[0.16] mix-blend-multiply bg-top bg-cover bg-no-repeat pointer-events-none"
           style={{
             backgroundImage: `url('/assets/recruitment_flow_bg.jpg')`,
-            maskImage: 'linear-gradient(to bottom, black, transparent)',
+            maskImage: 'linear-gradient(to bottom, black 0%, rgba(0,0,0,0.7) 40%, transparent 80%)',
           }}
         />
 
         {/* Ambient Floating Light Orbs */}
-        <div className="absolute top-[12%] -left-20 w-[450px] h-[450px] rounded-full bg-brand-red/[0.06] blur-[130px] animate-ambient-float-1" />
-        <div className="absolute top-[48%] right-[-10%] w-[550px] h-[550px] rounded-full bg-brand-brightRed/[0.05] blur-[140px] animate-ambient-float-2" />
-        <div className="absolute top-[80%] left-[8%] w-[500px] h-[500px] rounded-full bg-emerald-500/[0.04] blur-[130px] animate-ambient-float-1" />
+        <div className="absolute top-[12%] -left-20 w-[450px] h-[450px] rounded-full bg-brand-red/[0.05] blur-[130px] animate-ambient-float-1" />
+        <div className="absolute top-[48%] right-[-10%] w-[550px] h-[550px] rounded-full bg-brand-brightRed/[0.04] blur-[140px] animate-ambient-float-2" />
+        <div className="absolute top-[80%] left-[8%] w-[500px] h-[500px] rounded-full bg-emerald-500/[0.03] blur-[130px] animate-ambient-float-1" />
 
         {/* High-Speed Filaments */}
-        <div className="absolute top-[18%] left-[8%] w-52 h-px bg-gradient-to-r from-transparent via-brand-red/25 to-transparent animate-wind-streak-1" />
-        <div className="absolute top-[52%] right-[12%] w-64 h-px bg-gradient-to-r from-transparent via-brand-brightRed/20 to-transparent animate-wind-streak-2" />
+        <div className="absolute top-[18%] left-[8%] w-52 h-px bg-gradient-to-r from-transparent via-brand-red/20 to-transparent animate-wind-streak-1" />
+        <div className="absolute top-[52%] right-[12%] w-64 h-px bg-gradient-to-r from-transparent via-brand-brightRed/16 to-transparent animate-wind-streak-2" />
 
         {/* Margin Sector Ticks */}
-        <div className="hidden lg:flex flex-col gap-1.5 absolute top-[25%] left-5 opacity-30" aria-hidden="true">
+        <div className="hidden lg:flex flex-col gap-1.5 absolute top-[25%] left-5 opacity-25" aria-hidden="true">
           <div className="w-3 h-px bg-warm-400" />
           <div className="w-1.5 h-px bg-warm-400" />
           <div className="w-4 h-px bg-brand-red" />
         </div>
-        <div className="hidden lg:flex flex-col gap-1.5 absolute top-[68%] right-5 opacity-30" aria-hidden="true">
+        <div className="hidden lg:flex flex-col gap-1.5 absolute top-[68%] right-5 opacity-25" aria-hidden="true">
           <div className="w-4 h-px bg-brand-red" />
           <div className="w-1.5 h-px bg-warm-400" />
           <div className="w-3 h-px bg-warm-400" />
         </div>
 
-        {/* Continuous Animated SVG Streamlines */}
+        {/* Continuous Animated SVG Streamlines (Crisp Dotted Lines) */}
         <svg
           className="absolute inset-0 w-full h-full"
           fill="none"
@@ -80,8 +80,8 @@ export const RecruitmentPage: React.FC = () => {
           <path
             d="M 140,0 C 700,320 1260,520 1120,900 C 960,1280 220,1460 380,1880 C 520,2220 1180,2420 1020,2800"
             stroke="#ef4444"
-            strokeWidth="2"
-            strokeOpacity="0.20"
+            strokeWidth="1.8"
+            strokeOpacity="0.16"
             strokeDasharray="14 18"
             className="animate-flow-streamline"
           />
@@ -89,7 +89,7 @@ export const RecruitmentPage: React.FC = () => {
             d="M 170,0 C 730,320 1290,520 1150,900 C 990,1280 250,1460 410,1880 C 550,2220 1210,2420 1050,2800"
             stroke="#dc2626"
             strokeWidth="1.2"
-            strokeOpacity="0.14"
+            strokeOpacity="0.12"
             strokeDasharray="10 14"
             className="animate-flow-streamline-reverse"
           />
@@ -127,16 +127,16 @@ export const RecruitmentPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Column: Direct Apply Card */}
-            <div className="p-6 sm:p-7 rounded-3xl bg-white/90 backdrop-blur-md border border-warm-250 shrink-0 flex flex-col justify-center space-y-4 lg:max-w-sm w-full shadow-lg">
-              <div>
-                <span className="text-[10px] font-mono uppercase tracking-wider text-brand-red font-bold block">
+            {/* Right Column: Direct Apply Card (Hero Size) */}
+            <div className="p-8 sm:p-9 lg:p-10 rounded-3xl bg-white/95 backdrop-blur-md border border-warm-250/90 shrink-0 flex flex-col justify-center space-y-6 lg:max-w-md w-full shadow-xl shadow-warm-900/5 hover:border-brand-red/40 transition-all">
+              <div className="space-y-2">
+                <span className="text-xs font-mono uppercase tracking-widest text-brand-red font-extrabold block">
                   Official Application
                 </span>
-                <h3 className="font-display font-bold text-lg text-warm-900 mt-0.5">
+                <h3 className="font-display font-black text-2xl sm:text-3xl text-warm-900 tracking-tight leading-snug">
                   Ready to race with us?
                 </h3>
-                <p className="text-xs text-warm-600 mt-1 leading-relaxed">
+                <p className="text-sm sm:text-base text-warm-600 leading-relaxed">
                   Applications are reviewed continuously by department coordinators.
                 </p>
               </div>
@@ -145,10 +145,10 @@ export const RecruitmentPage: React.FC = () => {
                 href={GOOGLE_FORMS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full px-5 py-3.5 rounded-full bg-brand-red hover:bg-brand-darkRed text-white font-bold text-xs uppercase tracking-wider shadow-sm transition flex items-center justify-center gap-2 group cursor-pointer hover:scale-102 hover:shadow-md"
+                className="w-full px-7 py-4 rounded-2xl bg-brand-red hover:bg-brand-darkRed text-white font-display font-black text-sm uppercase tracking-wider shadow-md shadow-brand-red/30 transition-all flex items-center justify-center gap-2.5 group cursor-pointer hover:scale-[1.02] hover:shadow-lg active:scale-98"
               >
                 <span>Apply via Google Forms</span>
-                <ExternalLink className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
           </div>

@@ -84,7 +84,69 @@ export const TeamHistoryPage: React.FC<TeamHistoryPageProps> = ({
   }, [currentGeneration, selectedDepartment, searchQuery]);
 
   return (
-    <div className="pt-20 sm:pt-24 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
+    <div className="relative w-full overflow-hidden pt-20 sm:pt-24 pb-20">
+      
+      {/* Dynamic Aerodynamic Streamline Background Layer */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
+        {/* Faint Abstract Flow Backdrop with feathered gradient mask */}
+        <div
+          className="absolute top-0 inset-x-0 h-[1400px] opacity-[0.22] mix-blend-multiply bg-top bg-cover bg-no-repeat pointer-events-none"
+          style={{
+            backgroundImage: `url('/assets/team_flow_bg.jpg')`,
+            maskImage: 'linear-gradient(to bottom, black, transparent)',
+          }}
+        />
+
+        {/* Ambient Floating Light Orbs */}
+        <div className="absolute top-[10%] -left-20 w-[450px] h-[450px] rounded-full bg-brand-red/[0.06] blur-[130px] animate-ambient-float-1" />
+        <div className="absolute top-[45%] right-[-10%] w-[550px] h-[550px] rounded-full bg-brand-brightRed/[0.05] blur-[140px] animate-ambient-float-2" />
+        <div className="absolute top-[75%] left-[8%] w-[500px] h-[500px] rounded-full bg-brand-red/[0.05] blur-[130px] animate-ambient-float-1" />
+
+        {/* Wind Tunnel Speed Filaments */}
+        <div className="absolute top-[15%] left-[6%] w-52 h-px bg-gradient-to-r from-transparent via-brand-red/25 to-transparent animate-wind-streak-1" />
+        <div className="absolute top-[50%] right-[10%] w-64 h-px bg-gradient-to-r from-transparent via-brand-brightRed/20 to-transparent animate-wind-streak-2" />
+        <div className="absolute top-[82%] left-[14%] w-48 h-px bg-gradient-to-r from-transparent via-brand-red/18 to-transparent animate-wind-streak-3" />
+
+        {/* Margin Sector Ticks */}
+        <div className="hidden lg:flex flex-col gap-1.5 absolute top-[20%] left-5 opacity-30" aria-hidden="true">
+          <div className="w-3 h-px bg-warm-400" />
+          <div className="w-1.5 h-px bg-warm-400" />
+          <div className="w-4 h-px bg-brand-red" />
+        </div>
+        <div className="hidden lg:flex flex-col gap-1.5 absolute top-[60%] right-5 opacity-30" aria-hidden="true">
+          <div className="w-4 h-px bg-brand-red" />
+          <div className="w-1.5 h-px bg-warm-400" />
+          <div className="w-3 h-px bg-warm-400" />
+        </div>
+
+        {/* Continuous Animated SVG Streamlines */}
+        <svg
+          className="absolute inset-0 w-full h-full"
+          fill="none"
+          viewBox="0 0 1440 2800"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M 140,0 C 700,320 1260,520 1120,900 C 960,1280 220,1460 380,1880 C 520,2220 1180,2420 1020,2800"
+            stroke="#ef4444"
+            strokeWidth="2"
+            strokeOpacity="0.20"
+            strokeDasharray="14 18"
+            className="animate-flow-streamline"
+          />
+          <path
+            d="M 170,0 C 730,320 1290,520 1150,900 C 990,1280 250,1460 410,1880 C 550,2220 1210,2420 1050,2800"
+            stroke="#dc2626"
+            strokeWidth="1.2"
+            strokeOpacity="0.14"
+            strokeDasharray="10 14"
+            className="animate-flow-streamline-reverse"
+          />
+        </svg>
+      </div>
+
+      {/* Content Container */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
       
       {/* Hero Header */}
       <ScrollReveal direction="up" duration={600} className="text-center max-w-4xl mx-auto space-y-2.5">
@@ -150,7 +212,7 @@ export const TeamHistoryPage: React.FC<TeamHistoryPageProps> = ({
           )}
         </div>
 
-        <div className="flex flex-wrap gap-2.5 sm:gap-3 bg-white/80 p-2 sm:p-2.5 rounded-2xl border border-warm-250 shadow-sm backdrop-blur-sm">
+        <div className="flex flex-wrap gap-2.5 sm:gap-3 bg-white/50 backdrop-blur-md p-2.5 rounded-3xl border border-white/80 shadow-xs">
           {teamGenerations.map((gen) => {
             const isSelected = gen.id === selectedSeasonId;
             return (
@@ -166,7 +228,7 @@ export const TeamHistoryPage: React.FC<TeamHistoryPageProps> = ({
                   borderColor: isSelected ? '#d32f2f' : '#e9e3d7',
                   color: isSelected ? '#ffffff' : '#1c1917',
                 }}
-                className={`flex-1 min-w-[150px] sm:min-w-[180px] px-4 py-3.5 rounded-xl font-display text-left border transition-all duration-150 ${
+                className={`flex-1 min-w-[150px] sm:min-w-[180px] px-4 py-3.5 rounded-2xl font-display text-left border transition-all duration-150 ${
                   isSelected
                     ? 'shadow-lg shadow-black/25 ring-2 ring-brand-red scale-[1.01]'
                     : 'hover:bg-warm-100 hover:border-warm-300'
@@ -195,7 +257,7 @@ export const TeamHistoryPage: React.FC<TeamHistoryPageProps> = ({
 
       {/* 🌟 Generation Showcase Banner & Team Photo */}
       <ScrollReveal direction="up" delay={80} duration={650}>
-        <div className="bg-white rounded-3xl border border-warm-250 shadow-md overflow-hidden grid grid-cols-1 lg:grid-cols-12 card-hover-glow">
+        <div className="bg-white/50 backdrop-blur-md rounded-3xl border border-white/80 shadow-xs overflow-hidden grid grid-cols-1 lg:grid-cols-12 card-hover-glow">
           {/* Team Photo Container */}
           <div className="lg:col-span-7 relative bg-warm-900 min-h-[340px] sm:min-h-[440px] overflow-hidden group">
             <img
@@ -221,7 +283,7 @@ export const TeamHistoryPage: React.FC<TeamHistoryPageProps> = ({
           </div>
 
           {/* Generation Narrative & Highlights */}
-          <div className="lg:col-span-5 p-6 sm:p-8 flex flex-col justify-between space-y-6 bg-gradient-to-br from-white to-warm-50">
+          <div className="lg:col-span-5 p-6 sm:p-8 flex flex-col justify-between space-y-6 bg-white/40 backdrop-blur-sm">
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-warm-100 text-warm-800 text-xs font-mono uppercase font-bold border border-warm-200">
                 <Zap className="w-3.5 h-3.5 text-brand-red" />
@@ -286,7 +348,7 @@ export const TeamHistoryPage: React.FC<TeamHistoryPageProps> = ({
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search member or role..."
-              className="w-full pl-9 pr-4 py-2 text-xs bg-white border border-warm-250 rounded-xl focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red shadow-sm"
+              className="w-full pl-9 pr-4 py-2 text-xs bg-white/70 backdrop-blur-sm border border-white/80 rounded-xl focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red shadow-2xs"
             />
           </div>
         </ScrollReveal>
@@ -303,7 +365,7 @@ export const TeamHistoryPage: React.FC<TeamHistoryPageProps> = ({
                 className={`px-3 py-1.5 rounded-xl text-xs font-mono font-bold whitespace-nowrap transition duration-150 ${
                   isDeptActive
                     ? 'bg-brand-red text-white shadow-sm shadow-brand-red/30'
-                    : 'bg-white hover:bg-warm-100 text-warm-700 border border-warm-250'
+                    : 'bg-white/70 backdrop-blur-sm hover:bg-white text-warm-700 border border-white/80'
                 }`}
               >
                 {dept}
@@ -314,7 +376,7 @@ export const TeamHistoryPage: React.FC<TeamHistoryPageProps> = ({
 
         {/* Member Cards Grid */}
         {filteredMembers.length === 0 ? (
-          <div className="bg-white rounded-2xl border border-warm-250 p-12 text-center text-warm-500">
+          <div className="bg-white/60 backdrop-blur-sm rounded-3xl border border-white/80 p-12 text-center text-warm-500 shadow-xs">
             <Users className="w-10 h-10 mx-auto text-warm-300 mb-3" />
             <p className="font-bold text-base">No team members match your filter.</p>
             <p className="text-xs mt-1">Try resetting the department filter or search query.</p>
@@ -338,7 +400,7 @@ export const TeamHistoryPage: React.FC<TeamHistoryPageProps> = ({
                 duration={500}
                 className="h-full"
               >
-                <div className="bg-white rounded-2xl border border-warm-250 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group hover:-translate-y-1 h-full">
+                <div className="bg-white/60 backdrop-blur-sm rounded-2xl border border-white/80 shadow-xs hover:shadow-md hover:bg-white transition-all duration-300 overflow-hidden flex flex-col group hover:-translate-y-1 h-full">
                   {/* Photo Frame */}
                   <div className="relative aspect-[4/5] w-full bg-warm-100 overflow-hidden">
                     <img
@@ -439,7 +501,7 @@ export const TeamHistoryPage: React.FC<TeamHistoryPageProps> = ({
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {currentGeneration.events.map((event, i) => (
               <ScrollReveal key={i} direction="up" delay={i * 90} duration={650} className="h-full">
-                <div className="bg-white rounded-2xl border border-warm-250 shadow-sm overflow-hidden flex flex-col group hover:shadow-md transition h-full">
+                <div className="bg-white/60 backdrop-blur-sm rounded-2xl border border-white/80 shadow-xs overflow-hidden flex flex-col group hover:shadow-md hover:bg-white transition-all h-full">
                   {event.image && (
                     <div className="relative aspect-video w-full bg-warm-900 overflow-hidden">
                       <img
@@ -476,7 +538,7 @@ export const TeamHistoryPage: React.FC<TeamHistoryPageProps> = ({
 
       {/* Next Generation CTA Banner */}
       <ScrollReveal direction="up" duration={650}>
-        <div className="bg-white rounded-3xl border border-warm-250 p-8 sm:p-12 shadow-sm text-center max-w-4xl mx-auto space-y-6 card-hover-glow">
+        <div className="bg-white/50 backdrop-blur-md rounded-3xl border border-white/80 p-8 sm:p-12 shadow-xs text-center max-w-4xl mx-auto space-y-6 card-hover-glow">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-red/10 border border-brand-red/20 text-brand-red text-xs font-mono uppercase font-bold">
             <Trophy className="w-3.5 h-3.5" />
             <span>Write the Next Chapter</span>
@@ -505,6 +567,7 @@ export const TeamHistoryPage: React.FC<TeamHistoryPageProps> = ({
         </div>
       </ScrollReveal>
 
+      </div>
     </div>
   );
 };

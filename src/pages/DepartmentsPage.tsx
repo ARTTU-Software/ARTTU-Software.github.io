@@ -12,36 +12,36 @@ export const DepartmentsPage: React.FC = () => {
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
         {/* Faint CAD Wireframe Backdrop with feathered gradient mask */}
         <div
-          className="absolute top-0 inset-x-0 h-[1400px] opacity-[0.22] mix-blend-multiply bg-top bg-cover bg-no-repeat pointer-events-none"
+          className="absolute top-0 inset-x-0 h-[1250px] opacity-[0.16] mix-blend-multiply bg-top bg-cover bg-no-repeat pointer-events-none"
           style={{
             backgroundImage: `url('/assets/departments_flow_bg.jpg')`,
-            maskImage: 'linear-gradient(to bottom, black, transparent)',
+            maskImage: 'linear-gradient(to bottom, black 0%, rgba(0,0,0,0.7) 40%, transparent 80%)',
           }}
         />
 
         {/* Ambient Floating Light Orbs */}
-        <div className="absolute top-[10%] -left-20 w-[450px] h-[450px] rounded-full bg-brand-red/[0.06] blur-[130px] animate-ambient-float-1" />
-        <div className="absolute top-[45%] right-[-10%] w-[550px] h-[550px] rounded-full bg-brand-brightRed/[0.05] blur-[140px] animate-ambient-float-2" />
-        <div className="absolute top-[75%] left-[8%] w-[500px] h-[500px] rounded-full bg-brand-red/[0.05] blur-[130px] animate-ambient-float-1" />
+        <div className="absolute top-[10%] -left-20 w-[450px] h-[450px] rounded-full bg-brand-red/[0.05] blur-[130px] animate-ambient-float-1" />
+        <div className="absolute top-[45%] right-[-10%] w-[550px] h-[550px] rounded-full bg-brand-brightRed/[0.04] blur-[140px] animate-ambient-float-2" />
+        <div className="absolute top-[75%] left-[8%] w-[500px] h-[500px] rounded-full bg-brand-red/[0.03] blur-[130px] animate-ambient-float-1" />
 
         {/* Precision Engineering Speed Filaments */}
-        <div className="absolute top-[15%] left-[6%] w-52 h-px bg-gradient-to-r from-transparent via-brand-red/25 to-transparent animate-wind-streak-1" />
-        <div className="absolute top-[50%] right-[10%] w-64 h-px bg-gradient-to-r from-transparent via-brand-brightRed/20 to-transparent animate-wind-streak-2" />
-        <div className="absolute top-[82%] left-[14%] w-48 h-px bg-gradient-to-r from-transparent via-brand-red/18 to-transparent animate-wind-streak-3" />
+        <div className="absolute top-[15%] left-[6%] w-52 h-px bg-gradient-to-r from-transparent via-brand-red/20 to-transparent animate-wind-streak-1" />
+        <div className="absolute top-[50%] right-[10%] w-64 h-px bg-gradient-to-r from-transparent via-brand-brightRed/16 to-transparent animate-wind-streak-2" />
+        <div className="absolute top-[82%] left-[14%] w-48 h-px bg-gradient-to-r from-transparent via-brand-red/14 to-transparent animate-wind-streak-3" />
 
         {/* Margin Sector Ticks */}
-        <div className="hidden lg:flex flex-col gap-1.5 absolute top-[20%] left-5 opacity-30" aria-hidden="true">
+        <div className="hidden lg:flex flex-col gap-1.5 absolute top-[20%] left-5 opacity-25" aria-hidden="true">
           <div className="w-3 h-px bg-warm-400" />
           <div className="w-1.5 h-px bg-warm-400" />
           <div className="w-4 h-px bg-brand-red" />
         </div>
-        <div className="hidden lg:flex flex-col gap-1.5 absolute top-[60%] right-5 opacity-30" aria-hidden="true">
+        <div className="hidden lg:flex flex-col gap-1.5 absolute top-[60%] right-5 opacity-25" aria-hidden="true">
           <div className="w-4 h-px bg-brand-red" />
           <div className="w-1.5 h-px bg-warm-400" />
           <div className="w-3 h-px bg-warm-400" />
         </div>
 
-        {/* Continuous Animated SVG Streamlines */}
+        {/* Continuous Animated SVG Streamlines (Crisp Dotted Lines) */}
         <svg
           className="absolute inset-0 w-full h-full"
           fill="none"
@@ -51,8 +51,8 @@ export const DepartmentsPage: React.FC = () => {
           <path
             d="M 140,0 C 700,320 1260,520 1120,900 C 960,1280 220,1460 380,1880 C 520,2220 1180,2420 1020,2800"
             stroke="#ef4444"
-            strokeWidth="2"
-            strokeOpacity="0.20"
+            strokeWidth="1.8"
+            strokeOpacity="0.16"
             strokeDasharray="14 18"
             className="animate-flow-streamline"
           />
@@ -60,7 +60,7 @@ export const DepartmentsPage: React.FC = () => {
             d="M 170,0 C 730,320 1290,520 1150,900 C 990,1280 250,1460 410,1880 C 550,2220 1210,2420 1050,2800"
             stroke="#dc2626"
             strokeWidth="1.2"
-            strokeOpacity="0.14"
+            strokeOpacity="0.12"
             strokeDasharray="10 14"
             className="animate-flow-streamline-reverse"
           />
@@ -102,7 +102,7 @@ export const DepartmentsPage: React.FC = () => {
                     duration={550}
                     distance={20}
                     triggerOnce={false}
-                    className={`lg:col-span-7 space-y-5 ${isEven ? '' : 'lg:order-2'}`}
+                    className={`lg:col-span-6 space-y-6 ${isEven ? '' : 'lg:order-2'}`}
                   >
                     <div>
                       <div className="flex items-center justify-between mb-2">
@@ -183,25 +183,20 @@ export const DepartmentsPage: React.FC = () => {
                     </div>
                   </ScrollReveal>
 
-                  {/* Photo Column (Heroic Widescreen Frame) */}
+                  {/* Photo Column (Heroic Large Widescreen Frame, Clean No-Tooltip) */}
                   <ScrollReveal
                     direction={isEven ? 'right' : 'left'}
                     duration={550}
                     distance={20}
                     triggerOnce={false}
-                    className={`lg:col-span-5 ${isEven ? '' : 'lg:order-1'}`}
+                    className={`lg:col-span-6 ${isEven ? '' : 'lg:order-1'}`}
                   >
-                    <div className="relative rounded-3xl overflow-hidden shadow-xl group">
+                    <div className="relative rounded-3xl overflow-hidden shadow-2xl group border border-warm-250/70">
                       <img
                         src={dept.image}
                         alt={dept.name}
-                        className={`w-full h-[280px] sm:h-[340px] lg:h-[380px] object-cover group-hover:scale-103 transition duration-700 ease-out ${dept.imagePosition || 'object-center'}`}
+                        className={`w-full h-[360px] sm:h-[460px] lg:h-[500px] object-cover group-hover:scale-103 transition duration-700 ease-out ${dept.imagePosition || 'object-center'}`}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-                      <div className="absolute bottom-4 left-4 right-4 text-xs font-mono text-white/90 bg-black/40 backdrop-blur-md px-3.5 py-2 rounded-xl flex items-center justify-between">
-                        <span>{dept.name} Subsystem</span>
-                        <span className="text-brand-brightRed font-bold">ART TU</span>
-                      </div>
                     </div>
                   </ScrollReveal>
 

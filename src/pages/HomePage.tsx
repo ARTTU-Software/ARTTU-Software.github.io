@@ -910,22 +910,23 @@ export const HomePage: React.FC = () => {
           </section>
 
 
-          {/* 3. Sponsorship Section (Seamless, Dark Flow Canvas, No Boxed Card) */}
-          <section className="relative overflow-hidden bg-carbon-950 py-14 sm:py-18 my-6">
-            {/* Ambient Motorsport Glow with faint red accents */}
-            <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-brand-red/15 blur-[130px] pointer-events-none animate-ambient-float-1" />
+          {/* 3. Sponsorship Section (Floating Dark Carbon Capsule, No Full-Bleed Clash) */}
+          <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-10 sm:my-16">
+            <ScrollReveal direction="up" duration={550} distance={20} triggerOnce={false}>
+              <div className="relative overflow-hidden rounded-3xl sm:rounded-4xl bg-gradient-to-br from-[#1a1817] via-[#11100f] to-[#0a0908] border border-stone-800/80 border-t-stone-700/60 shadow-2xl p-8 sm:p-12 lg:p-14">
+                {/* Ambient Motorsport Glow */}
+                <div className="absolute -top-24 -right-24 w-96 h-96 bg-brand-red/15 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-brand-red/10 rounded-full blur-3xl pointer-events-none" />
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-              <ScrollReveal direction="up" duration={550} distance={20} triggerOnce={false}>
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center justify-between">
+                <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center justify-between">
                   <div className="lg:col-span-8 space-y-4">
-                    <span className="text-xs font-mono text-brand-brightRed uppercase tracking-widest font-bold block">
+                    <span className="text-xs font-mono text-brand-brightRed uppercase tracking-widest font-extrabold block">
                       CORPORATE & TECHNICAL PARTNERSHIPS
                     </span>
                     <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-white uppercase tracking-tight leading-tight">
                       Partner with Romania's Leading Formula Student Team
                     </h2>
-                    <p className="text-sm sm:text-base text-carbon-300 leading-relaxed max-w-2xl">
+                    <p className="text-sm sm:text-base text-white leading-relaxed max-w-2xl font-normal">
                       Gain racecar livery branding, visibility at international circuits, and recruitment access to top engineering and software graduates from UTCN.
                     </p>
                   </div>
@@ -933,15 +934,15 @@ export const HomePage: React.FC = () => {
                   <div className="lg:col-span-4 flex lg:justify-end">
                     <Link
                       to="/partners"
-                      className="px-8 py-4 rounded-full bg-brand-red hover:bg-brand-brightRed text-white font-mono font-bold text-xs uppercase tracking-wider shadow-lg shadow-brand-red/30 hover:shadow-brand-red/50 hover:scale-103 transition-all duration-300 flex items-center gap-2"
+                      className="px-8 py-4 rounded-full bg-brand-red hover:bg-brand-brightRed text-white font-mono font-bold text-xs uppercase tracking-wider shadow-lg shadow-brand-red/40 hover:shadow-brand-red/60 hover:scale-103 transition-all duration-300 flex items-center gap-2"
                     >
                       <span>Explore Sponsorship Tiers</span>
                       <ChevronRight className="w-4 h-4" />
                     </Link>
                   </div>
                 </div>
-              </ScrollReveal>
-            </div>
+              </div>
+            </ScrollReveal>
           </section>
 
         </div>

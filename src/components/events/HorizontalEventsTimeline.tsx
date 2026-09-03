@@ -100,10 +100,10 @@ export const HorizontalEventsTimeline: React.FC<HorizontalEventsTimelineProps> =
     <ScrollReveal direction="up" duration={600} className="w-full space-y-6">
       {/* Full-width Carousel Track Ribbon */}
 
-      <div className="w-full rounded-none border-y border-x-0 border-warm-250 bg-white py-5 sm:py-7 shadow-sm">
+      <div className="w-full rounded-none border-y border-x-0 border-warm-200/80 bg-white/40 backdrop-blur-md py-5 sm:py-7 shadow-xs">
         {/* Top Header & Navigation Controls */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-warm-200 pb-2.5">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-warm-200/80 pb-2.5">
             <div>
               <div className="flex items-center gap-2 text-xs font-mono font-bold text-brand-red uppercase tracking-wider mb-0.5">
                 <Calendar className="w-3.5 h-3.5" />
@@ -126,14 +126,14 @@ export const HorizontalEventsTimeline: React.FC<HorizontalEventsTimelineProps> =
               <div className="flex items-center gap-1">
                 <button
                   onClick={handlePrev}
-                  className="p-2 rounded-lg bg-warm-100 hover:bg-brand-red hover:text-white text-warm-800 border border-warm-250 transition-colors shadow-xs cursor-pointer"
+                  className="p-2 rounded-lg bg-white/80 hover:bg-brand-red hover:text-white text-warm-800 border border-warm-200/80 transition-colors shadow-xs cursor-pointer"
                   aria-label="Previous Event"
                 >
                   <ChevronLeft className="w-4 h-4" />
                 </button>
                 <button
                   onClick={handleNext}
-                  className="p-2 rounded-lg bg-warm-100 hover:bg-brand-red hover:text-white text-warm-800 border border-warm-250 transition-colors shadow-xs cursor-pointer"
+                  className="p-2 rounded-lg bg-white/80 hover:bg-brand-red hover:text-white text-warm-800 border border-warm-200/80 transition-colors shadow-xs cursor-pointer"
                   aria-label="Next Event"
                 >
                   <ChevronRight className="w-4 h-4" />
@@ -145,8 +145,8 @@ export const HorizontalEventsTimeline: React.FC<HorizontalEventsTimelineProps> =
 
         {/* Horizontal Carousel Track with Square Cards */}
         <div className="relative w-full overflow-hidden">
-          <div className="absolute left-0 top-0 bottom-0 w-6 sm:w-16 bg-gradient-to-r from-white via-white/80 to-transparent z-20 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-6 sm:w-16 bg-gradient-to-l from-white via-white/80 to-transparent z-20 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-6 sm:w-16 bg-gradient-to-r from-warm-100/60 to-transparent z-20 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-6 sm:w-16 bg-gradient-to-l from-warm-100/60 to-transparent z-20 pointer-events-none" />
 
           <div
             ref={scrollContainerRef}
@@ -188,13 +188,6 @@ export const HorizontalEventsTimeline: React.FC<HorizontalEventsTimelineProps> =
                     <div className="absolute top-2.5 left-2.5 bg-black/70 backdrop-blur-md text-white font-mono text-[10px] px-2 py-0.5 rounded border border-white/10 font-bold">
                       {event.date}
                     </div>
-
-                    {/* Active Indicator */}
-                    {isActive && (
-                      <div className="absolute top-2.5 right-2.5 flex items-center gap-1 bg-brand-red text-white text-[9px] font-mono font-bold uppercase px-1.5 py-0.5 rounded shadow">
-                        <span className="w-1 h-1 rounded-full bg-white animate-pulse" /> Selected
-                      </div>
-                    )}
 
                     {/* Bottom title in card */}
                     <div className="absolute bottom-2.5 left-2.5 right-2.5 text-white space-y-0.5">
