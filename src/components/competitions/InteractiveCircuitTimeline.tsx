@@ -223,7 +223,7 @@ export const InteractiveCircuitTimeline: React.FC<InteractiveCircuitTimelineProp
   const carAngle = getSlopeAngle(carWorldX);
 
   return (
-    <div className={`w-full rounded-none border-y border-x-0 border-warm-250 bg-white p-4 sm:p-7 lg:p-9 shadow-sm transition-all duration-300 select-none ${className}`}>
+    <div className={`w-full rounded-none border-y border-x-0 border-warm-250/60 bg-transparent p-4 sm:p-7 lg:p-9 transition-all duration-300 select-none ${className}`}>
       
       {/* ========================================================================= */}
       {/* 🏁 1. INFINITE ORGANIC WAVY TRACK (Smooth varied race curves)              */}
@@ -268,8 +268,8 @@ export const InteractiveCircuitTimeline: React.FC<InteractiveCircuitTimelineProp
         <div className="relative w-full h-[126px] sm:h-[132px] overflow-hidden flex items-center justify-center">
           
           {/* Left & Right Soft Fade Gradients */}
-          <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-warm-100/80 via-warm-100/40 to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-warm-100/80 via-warm-100/40 to-transparent z-10 pointer-events-none" />
 
           {/* ================================================================= */}
           {/* 🛣️ MOVING WAVY LINE TRACK (Translates horizontally with offset)    */}
@@ -411,18 +411,15 @@ export const InteractiveCircuitTimeline: React.FC<InteractiveCircuitTimelineProp
           }`}
         >
 
-
-          
           {/* LEFT SUB-COLUMN (5 cols): High-Resolution Car Image & Fast Telemetry Matrix */}
-          <div className="lg:col-span-5 space-y-3.5">
+          <div className="lg:col-span-5 space-y-3">
 
-            
-            {/* Image Container with Hover Zoom */}
-            <div className="relative aspect-[16/9.5] w-full rounded-2xl overflow-hidden bg-warm-900 group shadow-sm border border-warm-250">
+            {/* Image Container extended upward with clean, unboxed text */}
+            <div className="relative aspect-[16/11] sm:aspect-[16/10.5] w-full rounded-2xl overflow-hidden bg-warm-900 group shadow-sm border border-warm-250">
               <img
                 src={activeSeason.image}
                 alt={`${activeSeason.seasonName} - ${activeSeason.carModel}`}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-104"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   if (target.src !== activeSeason.fallbackImage) {
@@ -430,29 +427,29 @@ export const InteractiveCircuitTimeline: React.FC<InteractiveCircuitTimelineProp
                   }
                 }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
 
-              <div className="absolute bottom-3 left-3.5 right-3.5 text-white text-xs flex items-center justify-between">
-                <div>
-                  <div className="font-display font-black text-sm sm:text-base text-white uppercase tracking-tight">
+              {/* Clean, unboxed text overlay with subtle drop shadow (no harsh dark bar) */}
+              <div className="absolute bottom-3 left-3.5 right-3.5 flex items-end justify-between pointer-events-none">
+                <div className="space-y-0.5">
+                  <div className="font-display font-black text-base sm:text-lg text-white uppercase tracking-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
                     {activeSeason.carModel}
                   </div>
-                  <div className="text-[11px] text-warm-300 font-mono truncate max-w-[240px]">
+                  <div className="text-[11px] text-white/90 font-mono drop-shadow-[0_1px_6px_rgba(0,0,0,0.9)]">
                     {activeSeason.circuitLocation}
                   </div>
                 </div>
-                <span className="px-2.5 py-1 rounded bg-brand-red text-white text-xs font-mono font-bold shadow-xs">
-                  {activeSeason.shortYear}
+                <span className="px-2.5 py-1 rounded-lg bg-brand-red text-white text-xs font-mono font-bold shadow-md">
+                  '{activeSeason.shortYear}
                 </span>
               </div>
             </div>
 
-            {/* Fast Telemetry Specs Matrix */}
-            <div className="grid grid-cols-3 gap-2 pt-1">
+            {/* Fast Telemetry Specs Matrix (Original 3-Column Grid Restored) */}
+            <div className="grid grid-cols-3 gap-2">
               {activeSeason.keySpecsSummary.map((spec, i) => (
                 <div
                   key={i}
-                  className={`p-2 rounded-xl border text-center transition ${
+                  className={`p-2.5 rounded-xl border text-center transition ${
                     spec.highlight
                       ? 'bg-red-50/90 border-brand-red/30'
                       : 'bg-warm-100/70 border-warm-200'
@@ -515,7 +512,7 @@ export const InteractiveCircuitTimeline: React.FC<InteractiveCircuitTimelineProp
             </p>
 
             {/* Key Technical Innovations & Upgrades */}
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-warm-50 border border-warm-200 space-y-2">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-warm-100/60 backdrop-blur-xs border border-warm-250/70 space-y-2">
               <div className="flex items-center gap-2 text-xs font-mono uppercase font-bold text-warm-900">
                 <span>Season Engineering Upgrades & Innovations:</span>
               </div>

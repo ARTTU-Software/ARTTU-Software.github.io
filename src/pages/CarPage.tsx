@@ -306,10 +306,6 @@ export const CarPage: React.FC = () => {
                 // {selectedHotspot.department}
               </span>
               <div className="flex items-center gap-2">
-                <span className="inline-flex items-center gap-1 text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-warm-100 text-warm-700 font-bold border border-warm-250">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                  LIVE CAD
-                </span>
                 <button
                   onClick={handleCloseDrawer}
                   className="w-6 h-6 rounded-full bg-warm-100 hover:bg-warm-200 text-warm-600 flex items-center justify-center text-xs font-bold transition-colors cursor-pointer"
@@ -385,170 +381,228 @@ export const CarPage: React.FC = () => {
       </section>
 
       {/* ---------------------------------------------------------------------- */}
-      {/* LOWER SECTIONS (Constrained in max-w-7xl) */}
+      {/* LOWER SECTIONS (Dynamic Aerodynamic Canvas, Borderless Flow, No Boxed Cards) */}
       {/* ---------------------------------------------------------------------- */}
-      <div ref={specsSectionRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12">
-        {/* Vehicle Specs KPI Strip */}
-        <div>
-          <ScrollReveal direction="up" delay={60} duration={600} className="flex items-center justify-between mb-3">
-            <h2 className="font-display font-bold text-base sm:text-lg text-warm-900 uppercase flex items-center gap-2">
-              <span className="inline-block w-2 h-2 rounded-full bg-[#ff3b3b]" />
-              <span>Specs</span>
-            </h2>
-          </ScrollReveal>
+      <div ref={specsSectionRef} className="relative w-full overflow-hidden pt-12 sm:pt-16 pb-16">
+        
+        {/* Dynamic Aerodynamic Background Layer for Car Page */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
+          {/* Faint Car Flow Backdrop with feathered gradient mask */}
+          <div
+            className="absolute top-0 inset-x-0 h-[1200px] opacity-[0.22] mix-blend-multiply bg-top bg-cover bg-no-repeat pointer-events-none"
+            style={{
+              backgroundImage: `url('/assets/car_flow_bg.jpg')`,
+              maskImage: 'linear-gradient(to bottom, black, transparent)',
+            }}
+          />
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 sm:gap-3.5">
-            {kpis.map((kpi, idx) => {
-              const Icon = kpi.icon;
-              return (
-                <ScrollReveal key={idx} direction="up" delay={100 + idx * 70} duration={650}>
-                  <div
-                    className={`p-3.5 rounded-xl border transition-all duration-300 flex flex-col justify-between hover:-translate-y-0.5 hover:shadow-md ${
-                      kpi.highlight
-                        ? 'bg-gradient-to-b from-red-50/90 to-white border-brand-red/30 shadow-2xs'
-                        : 'bg-white border-warm-250 hover:border-warm-350 shadow-2xs'
-                    }`}
-                  >
-                    <div className="flex items-center justify-between mb-1.5">
-                      <span className="text-[10px] font-mono uppercase tracking-wider text-warm-500 font-semibold">
-                        {kpi.label}
-                      </span>
+          {/* Ambient Floating Light Orbs */}
+          <div className="absolute top-[12%] -left-20 w-[450px] h-[450px] rounded-full bg-brand-red/[0.07] blur-[130px] animate-ambient-float-1" />
+          <div className="absolute top-[48%] right-[-10%] w-[550px] h-[550px] rounded-full bg-brand-brightRed/[0.06] blur-[140px] animate-ambient-float-2" />
+          <div className="absolute top-[80%] left-[10%] w-[500px] h-[500px] rounded-full bg-brand-red/[0.05] blur-[130px] animate-ambient-float-1" />
+
+          {/* Wind Tunnel Horizontal Velocity Filaments */}
+          <div className="absolute top-[18%] left-[8%] w-52 h-px bg-gradient-to-r from-transparent via-brand-red/25 to-transparent animate-wind-streak-1" />
+          <div className="absolute top-[52%] right-[12%] w-64 h-px bg-gradient-to-r from-transparent via-brand-brightRed/20 to-transparent animate-wind-streak-2" />
+          <div className="absolute top-[78%] left-[16%] w-48 h-px bg-gradient-to-r from-transparent via-brand-red/18 to-transparent animate-wind-streak-3" />
+
+          {/* Margin Sector Track Ticks */}
+          <div className="hidden lg:flex flex-col gap-1.5 absolute top-[25%] left-5 opacity-30" aria-hidden="true">
+            <div className="w-3 h-px bg-warm-400" />
+            <div className="w-1.5 h-px bg-warm-400" />
+            <div className="w-4 h-px bg-brand-red" />
+            <div className="w-1.5 h-px bg-warm-400" />
+          </div>
+          <div className="hidden lg:flex flex-col gap-1.5 absolute top-[68%] right-5 opacity-30" aria-hidden="true">
+            <div className="w-1.5 h-px bg-warm-400" />
+            <div className="w-4 h-px bg-brand-red" />
+            <div className="w-1.5 h-px bg-warm-400" />
+            <div className="w-3 h-px bg-warm-400" />
+          </div>
+
+          {/* Continuous Animated SVG Racing Lines */}
+          <svg
+            className="absolute inset-0 w-full h-full"
+            fill="none"
+            viewBox="0 0 1440 2200"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M 160,0 C 720,280 1280,440 1140,780 C 980,1120 220,1300 380,1650 C 520,1950 1180,2050 1020,2200"
+              stroke="#ef4444"
+              strokeWidth="2"
+              strokeOpacity="0.22"
+              strokeDasharray="14 18"
+              className="animate-flow-streamline"
+            />
+            <path
+              d="M 190,0 C 750,280 1310,440 1170,780 C 1010,1120 250,1300 410,1650 C 550,1950 1210,2050 1050,2200"
+              stroke="#dc2626"
+              strokeWidth="1.2"
+              strokeOpacity="0.15"
+              strokeDasharray="10 14"
+              className="animate-flow-streamline-reverse"
+            />
+            <path
+              d="M 210,0 C 770,280 1330,440 1190,780 C 1030,1120 270,1300 430,1650 C 570,1950 1230,2050 1070,2200"
+              stroke="#f87171"
+              strokeWidth="1"
+              strokeOpacity="0.12"
+              strokeDasharray="6 20"
+              className="animate-flow-streamline-fast"
+            />
+          </svg>
+        </div>
+
+        {/* Content Container (No boxes, pure dynamic flow, tight vertical rhythm) */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 sm:space-y-20">
+          
+          {/* 1. Vehicle Specs KPI Strip */}
+          <div className="space-y-6">
+            <ScrollReveal direction="up" duration={550} distance={20} triggerOnce={false} className="max-w-2xl">
+              <span className="text-xs font-mono text-brand-red uppercase tracking-widest font-bold block mb-1">
+                PERFORMANCE
+              </span>
+              <h2 className="font-display font-black text-2xl sm:text-3xl lg:text-4xl text-warm-900 uppercase tracking-tight leading-tight">
+                Specs
+              </h2>
+            </ScrollReveal>
+
+            {/* Floating Borderless KPI Row */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 pt-4 pb-4 border-y border-warm-200">
+              {kpis.map((kpi, idx) => (
+                <ScrollReveal key={idx} direction="up" delay={idx * 50} duration={550} distance={15} triggerOnce={false}>
+                  <div className="space-y-1">
+                    <div className="text-xs font-mono uppercase tracking-wider text-warm-500 font-semibold">
+                      {kpi.label}
                     </div>
-                    <div>
-                      <div
-                        className={`text-lg sm:text-xl font-black font-mono tracking-tight ${
-                          kpi.highlight ? 'text-brand-red' : 'text-warm-900'
-                        }`}
-                      >
-                        <TelemetryTicker
-                          value={kpi.value}
-                          decimals={kpi.decimals || 0}
-                          prefix={kpi.prefix || ''}
-                          suffix={kpi.suffix || ''}
-                        />
-                      </div>
-                      <div className="text-[10px] font-mono text-warm-500 mt-0.5 truncate">
-                        {kpi.sublabel}
-                      </div>
+                    <div
+                      className={`text-2xl sm:text-3xl font-black font-mono tracking-tight ${
+                        kpi.highlight ? 'text-brand-red' : 'text-warm-900'
+                      }`}
+                    >
+                      <TelemetryTicker
+                        value={kpi.value}
+                        decimals={kpi.decimals || 0}
+                        prefix={kpi.prefix || ''}
+                        suffix={kpi.suffix || ''}
+                      />
+                    </div>
+                    <div className="text-[11px] font-mono text-warm-500 truncate">
+                      {kpi.sublabel}
                     </div>
                   </div>
                 </ScrollReveal>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Technical Specifications Matrix */}
-        <div className="bg-white p-5 sm:p-7 rounded-2xl border border-warm-250 shadow-sm">
-          <ScrollReveal direction="up" duration={600} className="mb-5">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-              <div>
-                <h2 className="font-display font-black text-lg sm:text-xl text-warm-900 uppercase tracking-tight flex items-center gap-2">
-                  <span className="inline-block w-2 h-2 rounded-full bg-[#ff3b3b]" />
-                  <span>Technical Specifications</span>
-                </h2>
-                <p className="text-xs sm:text-sm text-warm-600 mt-0.5">
-                  Engineering subsystem parameters and specs.
-                </p>
-              </div>
-              <span className="text-xs font-mono text-warm-500 uppercase font-semibold">
-                [ SPECS // 2026 ]
-              </span>
+              ))}
             </div>
-          </ScrollReveal>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
-            {mainCarSpecs.map((group, idx) => (
-              <ScrollReveal key={idx} direction="up" delay={idx * 80} duration={650} className="h-full">
-                <div className="bg-warm-50/80 p-4 sm:p-5 rounded-xl border border-warm-200 h-full flex flex-col justify-between">
-                  <div>
-                    <h3 className="text-xs font-mono uppercase tracking-wider text-brand-red font-bold mb-3 pb-2 border-b border-warm-200 flex items-center justify-between">
-                      <span>// {group.category}</span>
+          {/* 2. Technical Specifications Matrix (Open Architectural Layout, No Box Trap) */}
+          <div className="space-y-8">
+            <ScrollReveal direction="up" duration={550} distance={20} triggerOnce={false} className="max-w-2xl">
+              <span className="text-xs font-mono text-brand-red uppercase tracking-widest font-bold block mb-1">
+                ENGINEERING
+              </span>
+              <h2 className="font-display font-black text-2xl sm:text-3xl lg:text-4xl text-warm-900 uppercase tracking-tight leading-tight">
+                Technical Specifications
+              </h2>
+              <p className="text-warm-600 text-sm sm:text-base mt-1.5">
+                Engineering subsystem parameters and specs.
+              </p>
+            </ScrollReveal>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+              {mainCarSpecs.map((group, idx) => (
+                <ScrollReveal key={idx} direction="up" delay={idx * 80} duration={550} distance={20} triggerOnce={false}>
+                  <div className="space-y-3">
+                    <h3 className="text-xs font-mono uppercase tracking-wider text-brand-red font-bold pb-2 border-b border-warm-200">
+                      {group.category}
                     </h3>
-                    <div className="space-y-2">
+                    <div className="divide-y divide-warm-200/60 font-mono text-xs">
                       {group.items.map((item, i) => (
                         <div
                           key={i}
-                          className="flex items-center justify-between text-xs py-1.5 border-b border-warm-200/60 last:border-0 last:py-0"
+                          className="flex items-center justify-between py-2 text-xs"
                         >
                           <span className="text-warm-600 font-medium">{item.label}</span>
-                          <span className="font-mono font-bold text-warm-900">{item.value}</span>
+                          <span className="font-bold text-warm-900 text-right">{item.value}</span>
                         </div>
                       ))}
                     </div>
                   </div>
-                </div>
-              </ScrollReveal>
-            ))}
+                </ScrollReveal>
+              ))}
+            </div>
           </div>
-        </div>
 
-        {/* Gallery */}
-        <div className="space-y-4">
-          <ScrollReveal direction="up" duration={600} className="flex items-center justify-between">
-            <div>
-              <h2 className="font-display font-black text-lg sm:text-xl text-warm-900 uppercase tracking-tight flex items-center gap-2">
-                <span>Track Action</span>
+          {/* 3. Track Action Gallery (Heroic Expansive Frames, No Card Trap) */}
+          <div className="space-y-8">
+            <ScrollReveal direction="up" duration={550} distance={20} triggerOnce={false} className="max-w-2xl">
+              <span className="text-xs font-mono text-brand-red uppercase tracking-widest font-bold block mb-1">
+                MEDIA ARCHIVE
+              </span>
+              <h2 className="font-display font-black text-2xl sm:text-3xl lg:text-4xl text-warm-900 uppercase tracking-tight leading-tight">
+                Track Action
               </h2>
-              <p className="text-xs sm:text-sm text-warm-600 mt-0.5">
+              <p className="text-warm-600 text-sm sm:text-base mt-1.5">
                 Behind-the-scenes media from the {CURRENT_CAR.seasonSpan} season.
               </p>
+            </ScrollReveal>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+              <ScrollReveal direction="up" delay={0} duration={550} distance={20} triggerOnce={false}>
+                <div className="rounded-3xl overflow-hidden shadow-xl h-[280px] sm:h-[320px] lg:h-[350px] bg-warm-150 group relative">
+                  <img
+                    src="/assets/IMG_8745.webp"
+                    alt="Team Trackside Support"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover group-hover:scale-104 transition duration-700 ease-out"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-90 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
+                    <span className="font-mono text-xs font-bold">Trackside Operations</span>
+                    <span className="text-[10px] font-mono bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-md">Dej Circuit</span>
+                  </div>
+                </div>
+              </ScrollReveal>
+
+              <ScrollReveal direction="up" delay={80} duration={550} distance={20} triggerOnce={false}>
+                <div className="rounded-3xl overflow-hidden shadow-xl h-[280px] sm:h-[320px] lg:h-[350px] bg-warm-150 group relative">
+                  <img
+                    src="/assets/IMG_7447.webp"
+                    alt="Driver Cockpit Preparation"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover group-hover:scale-104 transition duration-700 ease-out"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-90 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
+                    <span className="font-mono text-xs font-bold">Driver Cockpit Calibration</span>
+                    <span className="text-[10px] font-mono bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-md">Hockenheim</span>
+                  </div>
+                </div>
+              </ScrollReveal>
+
+              <ScrollReveal direction="up" delay={160} duration={550} distance={20} triggerOnce={false}>
+                <div className="rounded-3xl overflow-hidden shadow-xl h-[280px] sm:h-[320px] lg:h-[350px] bg-warm-150 group relative">
+                  <img
+                    src="/assets/IMG_1513.webp"
+                    alt="Driver in Racecar"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover group-hover:scale-104 transition duration-700 ease-out"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-90 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
+                    <span className="font-mono text-xs font-bold">Dynamic Scrutineering</span>
+                    <span className="text-[10px] font-mono bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-md">Dej Circuit</span>
+                  </div>
+                </div>
+              </ScrollReveal>
             </div>
-            <span className="text-xs font-mono text-warm-500 uppercase font-semibold">Media Archive</span>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <ScrollReveal direction="up" delay={0} duration={650}>
-              <div className="rounded-2xl overflow-hidden border border-warm-250 h-44 sm:h-52 bg-warm-150 shadow-xs group relative">
-                <img
-                  src="/assets/IMG_8745.webp"
-                  alt="Team Trackside Support"
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover group-hover:scale-103 transition duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-90 group-hover:opacity-100 transition-opacity" />
-                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
-                  <span className="font-mono text-xs font-bold">Trackside</span>
-                  <span className="text-[10px] font-mono bg-white/20 backdrop-blur-sm px-2 py-0.5 rounded">Dej</span>
-                </div>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal direction="up" delay={120} duration={650}>
-              <div className="rounded-2xl overflow-hidden border border-warm-250 h-44 sm:h-52 bg-warm-150 shadow-xs group relative">
-                <img
-                  src="/assets/IMG_7447.webp"
-                  alt="Driver Cockpit Preparation"
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover group-hover:scale-103 transition duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-90 group-hover:opacity-100 transition-opacity" />
-                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
-                  <span className="font-mono text-xs font-bold">Preparation</span>
-                  <span className="text-[10px] font-mono bg-white/20 backdrop-blur-sm px-2 py-0.5 rounded">Germany</span>
-                </div>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal direction="up" delay={240} duration={650}>
-              <div className="rounded-2xl overflow-hidden border border-warm-250 h-44 sm:h-52 bg-warm-150 shadow-xs group relative">
-                <img
-                  src="/assets/IMG_1513.webp"
-                  alt="Driver in Racecar"
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover group-hover:scale-103 transition duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-90 group-hover:opacity-100 transition-opacity" />
-                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
-                  <span className="font-mono text-xs font-bold">Ready to Race</span>
-                  <span className="text-[10px] font-mono bg-white/20 backdrop-blur-sm px-2 py-0.5 rounded">Dej</span>
-                </div>
-              </div>
-            </ScrollReveal>
           </div>
+
         </div>
       </div>
     </div>

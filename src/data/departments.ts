@@ -80,8 +80,8 @@ export const departments: Department[] = [
       "Custom multi-layer PCB schematic capture, trace routing, and hardware bring-up in Altium Designer",
       "Embedded C/C++ firmware programming for automotive ARM Cortex-M / STM32 microcontrollers",
       "Automotive communication networks: CAN bus protocol, SPI, I2C, and sensor signal conditioning",
-      "Real-time wireless telemetry, driver digital steering wheel displays, and cloud data pipelines",
-      "Professional motorsport wiring harness design using Raychem DR-25 and Deutsch autosport connectors"
+      "Real-time wireless telemetry, driver dashboards, and cloud data pipelines",
+      "Professional motorsport wiring harness design using Deutsch autosport connectors"
     ],
     software: ["Altium Designer", "Embedded C/C++", "Python", "GitHub", "STM32"],
     image: "/assets/2026_dashboard_pcb.webp",
@@ -137,7 +137,7 @@ export const departments: Department[] = [
   },
   {
     id: "logistics",
-    name: "Operations & Logistics",
+    name: "Logistics",
     iconName: "Truck",
     title: "Logistics Team",
     tagline: "The circulatory system managing resource flow, acquisitions, and European transit.",
@@ -145,13 +145,11 @@ export const departments: Department[] = [
     responsibilities: [
       "Coordinating international transportation of racecar, equipment, and crew across Europe",
       "Managing workshop inventory, tool organization, and consumable supply chains",
-      "Booking paddock accommodations, travel routes, and vehicle fleet logistics",
-      "Optimizing paddock efficiency and emergency response during competition crunch time"
+      "Travel routes, and vehicle fleet logistics"
     ],
     whatYoullLearn: [
       "International motorsport logistics: freight routing, customs clearance, and European border transit",
       "Workshop supply chain operations and tool/consumable inventory tracking",
-      "Pit garage management",
       "Project management methodologies, team scheduling, and cross-department operational leadership"
     ],
     software: ["Project Management Tools", "Inventory Management", "Google Workspace"],

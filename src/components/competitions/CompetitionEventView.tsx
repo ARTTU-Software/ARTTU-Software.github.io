@@ -13,7 +13,7 @@ export const CompetitionEventView: React.FC<CompetitionEventViewProps> = ({
   className = '',
 }) => {
   return (
-    <div className={`bg-white p-6 sm:p-10 rounded-2xl border border-warm-250 shadow-sm space-y-8 ${className}`}>
+    <div className={`space-y-6 pt-2 ${className}`}>
       <CompetitionHeader event={event} />
       <CompetitionResultsGrid results={event.results} />
     </div>
