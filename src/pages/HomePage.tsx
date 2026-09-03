@@ -574,242 +574,377 @@ export const HomePage: React.FC = () => {
         </div>
       </ScrollReveal>
 
-      {/* Main Page Content Sections */}
-      <div className="space-y-16 sm:space-y-24 mt-14 sm:mt-20">
+      {/* Dynamic Background Flow Layer: Organic Aerodynamic Guide Elements */}
+      <div className="relative overflow-hidden">
+        
+        {/* Ambient Aerodynamic Light Streams & Curves with Faint Red Accents */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
+          {/* Subtle aerodynamic flow backdrop with feathered mask */}
+          <div 
+            className="absolute top-0 inset-x-0 h-[1200px] opacity-[0.22] mix-blend-multiply bg-top bg-cover bg-no-repeat pointer-events-none"
+            style={{ backgroundImage: `url('/assets/light_flow_bg.jpg')`, maskImage: 'linear-gradient(to bottom, black, transparent)' }}
+          />
 
-      {/* 3. "Who We Are" Mission & Team Photo Feature */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center bg-white rounded-2xl border border-warm-250 p-8 sm:p-12 shadow-sm overflow-hidden relative card-hover-glow">
-          
-          <ScrollReveal direction="left" duration={650} className="lg:col-span-6 space-y-5">
-            <span className="text-xs font-mono text-brand-red uppercase tracking-wider font-bold block">
-              // 01. THE TEAM
-            </span>
+          {/* Smooth floating aerodynamic ambient light orbs with faint red accents */}
+          <div className="absolute top-[8%] -left-20 w-[450px] h-[450px] rounded-full bg-brand-red/[0.08] blur-[120px] animate-ambient-float-1" />
+          <div className="absolute top-[32%] right-[-10%] w-[550px] h-[550px] rounded-full bg-brand-red/[0.07] blur-[140px] animate-ambient-float-2" />
+          <div className="absolute top-[58%] left-[15%] w-[500px] h-[500px] rounded-full bg-brand-brightRed/[0.06] blur-[130px] animate-ambient-float-1" />
+          <div className="absolute top-[82%] right-[5%] w-[600px] h-[600px] rounded-full bg-brand-red/[0.06] blur-[150px] animate-ambient-float-2" />
 
-            <h2 className="font-display font-black text-3xl sm:text-4xl text-warm-900 uppercase tracking-tight">
-              STUDENT ENGINEERING. <br />
-              INTERNATIONAL MOTORSPORT.
-            </h2>
+          {/* Wind Tunnel Speed Filaments (Subtle horizontal drift) */}
+          <div className="absolute top-[16%] left-[10%] w-48 h-px bg-gradient-to-r from-transparent via-brand-red/25 to-transparent animate-wind-streak-1" />
+          <div className="absolute top-[44%] right-[14%] w-60 h-px bg-gradient-to-r from-transparent via-brand-brightRed/20 to-transparent animate-wind-streak-2" />
+          <div className="absolute top-[72%] left-[18%] w-52 h-px bg-gradient-to-r from-transparent via-brand-red/18 to-transparent animate-wind-streak-3" />
 
-            <p className="text-sm sm:text-base text-warm-700 leading-relaxed">
-              Founded in 2019 at the Technical University of Cluj-Napoca, ART TU brings together over 60 dedicated students across mechanical engineering, high-voltage powertrains, embedded electronics, aerodynamics, and business operations.
-            </p>
+          {/* Subtle Margin Sector Track Ticks (Timing splitters on viewport edges) */}
+          <div className="hidden lg:flex flex-col gap-1.5 absolute top-[28%] left-5 opacity-30" aria-hidden="true">
+            <div className="w-3 h-px bg-warm-400" />
+            <div className="w-1.5 h-px bg-warm-400" />
+            <div className="w-1.5 h-px bg-warm-400" />
+            <div className="w-4 h-px bg-brand-red" />
+            <div className="w-1.5 h-px bg-warm-400" />
+          </div>
 
-            <p className="text-sm sm:text-base text-warm-700 leading-relaxed">
-              Together, we represent UTCN on Europe's most challenging Formula Student tracks, developing practical engineering mastery and competitive teamwork.
-            </p>
+          <div className="hidden lg:flex flex-col gap-1.5 absolute top-[64%] right-5 opacity-30" aria-hidden="true">
+            <div className="w-1.5 h-px bg-warm-400" />
+            <div className="w-4 h-px bg-brand-red" />
+            <div className="w-1.5 h-px bg-warm-400" />
+            <div className="w-1.5 h-px bg-warm-400" />
+            <div className="w-3 h-px bg-warm-400" />
+          </div>
 
-            {/* Dynamic Telemetry Stats Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 pb-2">
-              <div className="p-3 rounded-xl bg-warm-50 border border-warm-200">
-                <div className="text-xl sm:text-2xl font-black text-brand-red font-mono">
-                  <TelemetryTicker value={60} suffix="+" />
-                </div>
-                <div className="text-[11px] font-mono text-warm-600 uppercase font-semibold">Engineers</div>
-              </div>
-              <div className="p-3 rounded-xl bg-warm-50 border border-warm-200">
-                <div className="text-xl sm:text-2xl font-black text-warm-900 font-mono">
-                  <TelemetryTicker value={7} suffix=" Yrs" />
-                </div>
-                <div className="text-[11px] font-mono text-warm-600 uppercase font-semibold">Track Record</div>
-              </div>
-              <div className="p-3 rounded-xl bg-warm-50 border border-warm-200">
-                <div className="text-xl sm:text-2xl font-black text-warm-900 font-mono">
-                  <TelemetryTicker value={6} />
-                </div>
-                <div className="text-[11px] font-mono text-warm-600 uppercase font-semibold">Departments</div>
-              </div>
-              <div className="p-3 rounded-xl bg-warm-50 border border-warm-200">
-                <div className="text-xl sm:text-2xl font-black text-warm-900 font-mono">
-                  <TelemetryTicker value={20} suffix="+" />
-                </div>
-                <div className="text-[11px] font-mono text-warm-600 uppercase font-semibold">Partners</div>
-              </div>
-            </div>
-
-            <div className="pt-2 flex flex-wrap gap-3">
-              <Link
-                to="/departments"
-                className="px-5 py-2.5 rounded-lg bg-brand-red hover:bg-brand-darkRed text-white font-bold text-xs uppercase tracking-wider shadow-sm transition flex items-center gap-1.5"
-              >
-                <span>Meet All Departments</span>
-                <ChevronRight className="w-4 h-4" />
-              </Link>
-              <Link
-                to="/history"
-                className="px-5 py-2.5 rounded-lg bg-warm-100 hover:bg-warm-150 text-warm-800 font-bold text-xs uppercase tracking-wider border border-warm-300 transition hover:border-warm-400"
-              >
-                <span>Our History & Milestones</span>
-              </Link>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal direction="right" duration={650} className="lg:col-span-6 relative">
-            <div className="relative rounded-xl overflow-hidden border border-warm-250 shadow-sm group">
-              <img
-                src="/assets/2026_main_photo.webp"
-                alt="ART TU Formula Student Full Team Photo"
-                className="w-full h-[360px] object-cover group-hover:scale-105 transition duration-700 ease-out"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-warm-900/70 via-transparent to-transparent"></div>
-              <div className="absolute bottom-3 left-3 right-3 text-xs font-mono text-white bg-warm-900/85 p-2.5 rounded-lg backdrop-blur-sm border border-white/15">
-                ART TU Team at Formula Student Germany 2026, Hockenheimring Circuit
-              </div>
-            </div>
-          </ScrollReveal>
-
+          {/* Continuous Dynamic Flowing Racing Lines: Animated SVG streamlines with faint red accents */}
+          <svg
+            className="absolute inset-0 w-full h-full"
+            fill="none"
+            viewBox="0 0 1440 2400"
+            preserveAspectRatio="none"
+          >
+            {/* Faint Red Primary Aerodynamic Curve with continuous flow animation */}
+            <path
+              d="M 180,0 C 650,350 1250,520 1120,880 C 980,1240 240,1400 360,1750 C 480,2100 1220,2150 1050,2400"
+              stroke="#ef4444"
+              strokeWidth="2"
+              strokeOpacity="0.22"
+              strokeDasharray="14 18"
+              className="animate-flow-streamline"
+            />
+            {/* Secondary Echoing Flow Line with continuous reverse flow animation */}
+            <path
+              d="M 210,0 C 680,350 1280,520 1150,880 C 1010,1240 270,1400 390,1750 C 510,2100 1250,2150 1080,2400"
+              stroke="#dc2626"
+              strokeWidth="1.2"
+              strokeOpacity="0.16"
+              strokeDasharray="10 14"
+              className="animate-flow-streamline-reverse"
+            />
+            {/* Fast Whispering Streamline Filament */}
+            <path
+              d="M 230,0 C 700,350 1300,520 1170,880 C 1030,1240 290,1400 410,1750 C 530,2100 1270,2150 1100,2400"
+              stroke="#f87171"
+              strokeWidth="1"
+              strokeOpacity="0.14"
+              strokeDasharray="6 20"
+              className="animate-flow-streamline-fast"
+            />
+            {/* Subtle graphite trace */}
+            <path
+              d="M 150,0 C 620,350 1220,520 1090,880 C 950,1240 210,1400 330,1750 C 450,2100 1190,2150 1020,2400"
+              stroke="#1f2937"
+              strokeWidth="1"
+              strokeOpacity="0.08"
+              strokeDasharray="6 10"
+              className="animate-flow-streamline"
+            />
+          </svg>
         </div>
-      </section>
 
-      {/* 4. Curated 3-Card Gateway (Car, History, Recruitment) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ScrollReveal direction="up" duration={600} className="text-center max-w-2xl mx-auto mb-10 space-y-1.5">
-          <span className="text-xs font-mono text-brand-red uppercase tracking-wider font-bold block">
-            // 02. EXPLORE THE PROJECT
-          </span>
-          <h2 className="font-display font-black text-2xl sm:text-3xl text-warm-900 uppercase tracking-tight">
-            INSIDE ART TU
-          </h2>
-          <p className="text-warm-600 text-xs sm:text-sm">
-            Performance engineering, high-voltage powertrains, and international motorsport. Explore the team.
-          </p>
-        </ScrollReveal>
+        {/* Content Container (No boxes, pure dynamic flow, tighter vertical rhythm) */}
+        <div className="relative z-10 space-y-16 sm:space-y-20 mt-10 sm:mt-14">
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          
-          {/* Card 1: The Racecar */}
-          <ScrollReveal direction="up" delay={0} duration={650} className="h-full">
-            <Link
-              to="/car"
-              className="bg-white rounded-2xl border border-warm-250 hover:border-brand-red/50 p-6 flex flex-col justify-between group transition duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1.5 h-full shimmer-hover"
-            >
-              <div>
-                <div className="h-48 rounded-xl overflow-hidden mb-5 bg-warm-150 relative">
+          {/* 1. Team & Mission (Expansive Editorial Spread, No Box) */}
+          <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
+              
+              <ScrollReveal direction="left" duration={550} distance={20} triggerOnce={false} className="lg:col-span-6 space-y-5">
+                <span className="text-xs font-mono text-brand-red uppercase tracking-widest font-bold block">
+                  THE TEAM
+                </span>
+
+                <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-warm-900 uppercase tracking-tight leading-[1.08]">
+                  STUDENT ENGINEERING. <br />
+                  <span className="font-serif italic font-normal text-brand-red normal-case tracking-normal">International motorsport.</span>
+                </h2>
+
+                <p className="text-base sm:text-lg text-warm-700 leading-relaxed font-normal">
+                  Founded in 2019 at the Technical University of Cluj-Napoca, ART TU brings together over 60 dedicated students across mechanical engineering, high-voltage powertrains, embedded electronics, aerodynamics, and business operations.
+                </p>
+
+                <p className="text-sm sm:text-base text-warm-600 leading-relaxed">
+                  Together, we represent UTCN on Europe's most challenging Formula Student tracks, developing practical engineering mastery and competitive teamwork.
+                </p>
+
+                {/* Clean, borderless metrics row */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-3 pb-1 border-t border-warm-200">
+                  <div>
+                    <div className="text-2xl sm:text-3xl font-black text-brand-red font-mono">
+                      <TelemetryTicker value={60} suffix="+" />
+                    </div>
+                    <div className="text-xs font-mono text-warm-500 uppercase tracking-wider font-semibold mt-0.5">Engineers</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl sm:text-3xl font-black text-warm-900 font-mono">
+                      <TelemetryTicker value={7} suffix=" Yrs" />
+                    </div>
+                    <div className="text-xs font-mono text-warm-500 uppercase tracking-wider font-semibold mt-0.5">Track Record</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl sm:text-3xl font-black text-warm-900 font-mono">
+                      <TelemetryTicker value={6} />
+                    </div>
+                    <div className="text-xs font-mono text-warm-500 uppercase tracking-wider font-semibold mt-0.5">Departments</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl sm:text-3xl font-black text-warm-900 font-mono">
+                      <TelemetryTicker value={20} suffix="+" />
+                    </div>
+                    <div className="text-xs font-mono text-warm-500 uppercase tracking-wider font-semibold mt-0.5">Partners</div>
+                  </div>
+                </div>
+
+                <div className="pt-2 flex flex-wrap gap-4">
+                  <Link
+                    to="/departments"
+                    className="px-6 py-3 rounded-full bg-brand-red hover:bg-brand-darkRed text-white font-bold text-xs uppercase tracking-wider shadow-sm transition hover:shadow-md hover:scale-102 flex items-center gap-2 group"
+                  >
+                    <span>Meet All Departments</span>
+                    <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                  </Link>
+                  <Link
+                    to="/history"
+                    className="px-6 py-3 rounded-full bg-warm-200/70 hover:bg-warm-200 text-warm-800 font-bold text-xs uppercase tracking-wider transition hover:text-warm-900"
+                  >
+                    <span>Our History & Milestones</span>
+                  </Link>
+                </div>
+              </ScrollReveal>
+
+              {/* Massive Team Photograph (Clean, expansive frame) */}
+              <ScrollReveal direction="right" duration={550} distance={20} triggerOnce={false} className="lg:col-span-6">
+                <div className="relative rounded-3xl overflow-hidden shadow-xl group">
+                  <img
+                    src="/assets/2026_main_photo.webp"
+                    alt="ART TU Formula Student Full Team Photo"
+                    className="w-full h-[300px] sm:h-[360px] object-cover group-hover:scale-103 transition duration-700 ease-out"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute bottom-4 left-4 right-4 text-xs font-mono text-white/90 bg-black/40 backdrop-blur-md px-4 py-2.5 rounded-xl">
+                    ART TU Team at Formula Student Germany 2026, Hockenheimring Circuit
+                  </div>
+                </div>
+              </ScrollReveal>
+
+            </div>
+          </section>
+
+
+          {/* 2. Inside ART TU: Three Chapters along the Dynamic Aerodynamic Line */}
+          <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14 sm:space-y-20">
+            
+            {/* Section Header */}
+            <ScrollReveal direction="up" duration={550} distance={20} triggerOnce={false} className="max-w-2xl">
+              <span className="text-xs font-mono text-brand-red uppercase tracking-widest font-bold block mb-1">
+                EXPLORE THE PROJECT
+              </span>
+              <h2 className="font-display font-black text-3xl sm:text-4xl text-warm-900 uppercase tracking-tight">
+                INSIDE ART TU
+              </h2>
+              <p className="text-warm-600 text-sm sm:text-base mt-1.5">
+                Performance engineering, high-voltage powertrains, and international motorsport. Explore the team.
+              </p>
+            </ScrollReveal>
+
+            {/* Chapter 1: The Machine (Wide Landscape Format on the Left, Technical Specs on the Right) */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
+              <ScrollReveal direction="left" duration={550} distance={20} triggerOnce={false} className="lg:col-span-7">
+                <Link to="/car" className="block group relative rounded-3xl overflow-hidden shadow-xl">
                   <img
                     src="/assets/IMG_7408.webp"
                     alt="ART TU Electric Single-Seater"
-                    className="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out"
+                    className="w-full h-[280px] sm:h-[340px] lg:h-[370px] object-cover group-hover:scale-103 transition duration-700 ease-out"
                   />
-                  <div className="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-md bg-white/95 backdrop-blur-sm text-[10px] font-mono font-bold text-brand-red border border-warm-200 shadow-xs">
+                  <div className="absolute top-4 left-4 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md text-xs font-mono font-bold text-brand-red shadow-sm">
                     200V EV PLATFORM
+                  </div>
+                </Link>
+              </ScrollReveal>
+
+              <ScrollReveal direction="right" duration={550} distance={20} triggerOnce={false} className="lg:col-span-5 space-y-4">
+                <span className="text-xs font-mono text-brand-red font-bold uppercase tracking-widest block">
+                  THE MACHINE
+                </span>
+                <h3 className="font-display font-black text-2xl sm:text-3xl text-warm-900 uppercase tracking-tight">
+                  The Racecar & Specs
+                </h3>
+                <p className="text-sm sm:text-base text-warm-600 leading-relaxed">
+                  Engineered in-house at UTCN: <span className="font-semibold text-brand-red">custom high-voltage accumulator</span>, <span className="font-semibold text-warm-900">dual electric drive</span>, carbon aero package, and <span className="font-semibold text-warm-900">real-time CAN telemetry</span>.
+                </p>
+
+                {/* Machine Spec Pillars */}
+                <div className="pt-1 flex flex-wrap gap-2 text-xs font-mono text-warm-700">
+                  <span className="px-2.5 py-1 rounded-md bg-warm-200/60 font-medium">Custom Accumulator</span>
+                  <span className="px-2.5 py-1 rounded-md bg-warm-200/60 font-medium">Dual Motors</span>
+                  <span className="px-2.5 py-1 rounded-md bg-warm-200/60 font-medium">Carbon Aero</span>
+                </div>
+
+                <div className="pt-2">
+                  <Link
+                    to="/car"
+                    className="inline-flex items-center gap-2 text-sm font-mono font-bold text-brand-red hover:text-brand-darkRed transition group"
+                  >
+                    <span>Explore Technical Specs</span>
+                    <span className="group-hover:translate-x-1.5 transition-transform">→</span>
+                  </Link>
+                </div>
+              </ScrollReveal>
+            </div>
+
+            {/* Chapter 2: Track Record & History (Flowing into the Victory Podium on the Right) */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
+              <ScrollReveal direction="left" duration={550} distance={20} triggerOnce={false} className="lg:col-span-5 lg:order-1 order-2 space-y-4">
+                <span className="text-xs font-mono text-amber-700 font-bold uppercase tracking-widest block">
+                  TRACK RECORD
+                </span>
+                <h3 className="font-display font-black text-2xl sm:text-3xl text-warm-900 uppercase tracking-tight">
+                  Track Record & History
+                </h3>
+                <p className="text-sm sm:text-base text-warm-600 leading-relaxed">
+                  From our first prototype in 2019 to <span className="font-bold text-emerald-600">P1 overall at FS Balkans</span>, plus <span className="font-semibold text-warm-900">efficiency podiums</span> at Hockenheim and FS Alpe Adria.
+                </p>
+
+                {/* Milestone Highlight Badges */}
+                <div className="pt-1 space-y-2 text-xs font-mono">
+                  <div className="flex items-center justify-between px-3 py-1.5 rounded-lg bg-amber-50/80 border border-amber-200/60 text-amber-900">
+                    <span className="font-semibold">FS Balkans</span>
+                    <span className="font-bold text-amber-700">1st Place Overall</span>
+                  </div>
+                  <div className="flex items-center justify-between px-3 py-1.5 rounded-lg bg-emerald-50/80 border border-emerald-200/60 text-emerald-900">
+                    <span className="font-semibold">FS Germany Hockenheim</span>
+                    <span className="font-bold text-emerald-700">Efficiency Podium</span>
                   </div>
                 </div>
 
-                <h3 className="font-display font-bold text-lg text-warm-900 mb-2 flex items-center justify-between">
-                  <span>The Racecar & Specs</span>
-                  <ChevronRight className="w-4 h-4 text-warm-400 group-hover:text-brand-red group-hover:translate-x-1 transition-transform" />
-                </h3>
-                <p className="text-xs sm:text-sm text-warm-600 leading-relaxed">
-                  Engineered in-house at UTCN: <span className="font-semibold text-brand-red">custom high-voltage accumulator</span>, <span className="font-semibold text-warm-900">dual electric drive</span>, carbon aero package, and <span className="font-semibold text-warm-900">real-time CAN telemetry</span>.
-                </p>
-              </div>
+                <div className="pt-2">
+                  <Link
+                    to="/history"
+                    className="inline-flex items-center gap-2 text-sm font-mono font-bold text-brand-red hover:text-brand-darkRed transition group"
+                  >
+                    <span>View Trophy Case & Archive</span>
+                    <span className="group-hover:translate-x-1.5 transition-transform">→</span>
+                  </Link>
+                </div>
+              </ScrollReveal>
 
-              <div className="mt-5 pt-3.5 border-t border-warm-200 flex items-center justify-between text-xs font-mono font-bold text-brand-red">
-                <span>Explore Technical Specs</span>
-                <span className="group-hover:translate-x-1 transition-transform">→</span>
-              </div>
-            </Link>
-          </ScrollReveal>
-
-          {/* Card 2: Racing History */}
-          <ScrollReveal direction="up" delay={120} duration={650} className="h-full">
-            <Link
-              to="/history"
-              className="bg-white rounded-2xl border border-warm-250 hover:border-brand-red/50 p-6 flex flex-col justify-between group transition duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1.5 h-full shimmer-hover"
-            >
-              <div>
-                <div className="h-48 rounded-xl overflow-hidden mb-5 bg-warm-150 relative">
+              <ScrollReveal direction="right" duration={550} distance={20} triggerOnce={false} className="lg:col-span-7 lg:order-2 order-1">
+                <Link to="/history" className="block group relative rounded-3xl overflow-hidden shadow-xl">
                   <img
                     src="/assets/DBV_FSBK-Day4-428-scaled.webp"
                     alt="Podium Celebration at FS Balkans"
-                    className="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out"
+                    className="w-full h-[280px] sm:h-[340px] lg:h-[370px] object-cover group-hover:scale-103 transition duration-700 ease-out"
                   />
-                  <div className="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-md bg-white/95 backdrop-blur-sm text-[10px] font-mono font-bold text-amber-700 border border-warm-200 shadow-xs">
+                  <div className="absolute top-4 left-4 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md text-xs font-mono font-bold text-amber-700 shadow-sm">
                     1ST PLACE OVERALL
                   </div>
-                </div>
+                </Link>
+              </ScrollReveal>
+            </div>
 
-                <h3 className="font-display font-bold text-lg text-warm-900 mb-2 flex items-center justify-between">
-                  <span>Track Record & History</span>
-                  <ChevronRight className="w-4 h-4 text-warm-400 group-hover:text-brand-red group-hover:translate-x-1 transition-transform" />
-                </h3>
-                <p className="text-xs sm:text-sm text-warm-600 leading-relaxed">
-                  From our first prototype in 2019 to <span className="font-bold text-emerald-600">P1 overall at FS Balkans</span>, plus <span className="font-semibold text-warm-900">efficiency podiums</span> at Hockenheim and FS Alpe Adria.
-                </p>
-              </div>
-
-              <div className="mt-5 pt-3.5 border-t border-warm-200 flex items-center justify-between text-xs font-mono font-bold text-brand-red">
-                <span>View Trophy Case & Archive</span>
-                <span className="group-hover:translate-x-1 transition-transform">→</span>
-              </div>
-            </Link>
-          </ScrollReveal>
-
-          {/* Card 3: Recruitment Hub */}
-          <ScrollReveal direction="up" delay={240} duration={650} className="h-full">
-            <Link
-              to="/recruitment"
-              className="bg-white rounded-2xl border border-warm-250 hover:border-brand-red/50 p-6 flex flex-col justify-between group transition duration-300 shadow-sm hover:shadow-xl hover:-translate-y-1.5 h-full shimmer-hover"
-            >
-              <div>
-                <div className="h-48 rounded-xl overflow-hidden mb-5 bg-warm-150 relative">
+            {/* Chapter 3: Join The Team (Workshop Living Collective on the Left, Roster on the Right) */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
+              <ScrollReveal direction="left" duration={550} distance={20} triggerOnce={false} className="lg:col-span-7">
+                <Link to="/recruitment" className="block group relative rounded-3xl overflow-hidden shadow-xl">
                   <img
                     src="/assets/IMG_8575-1-1-scaled.webp"
                     alt="Student Engineers Workshop"
-                    className="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out"
+                    className="w-full h-[280px] sm:h-[340px] lg:h-[370px] object-cover group-hover:scale-103 transition duration-700 ease-out"
                   />
-                  <div className="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-md bg-white/95 backdrop-blur-sm text-[10px] font-mono font-bold text-emerald-700 border border-warm-200 shadow-xs">
+                  <div className="absolute top-4 left-4 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md text-xs font-mono font-bold text-emerald-700 shadow-sm flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                     RECRUITMENT ACTIVE
                   </div>
-                </div>
+                </Link>
+              </ScrollReveal>
 
-                <h3 className="font-display font-bold text-lg text-warm-900 mb-2 flex items-center justify-between">
-                  <span>Join The Team</span>
-                  <ChevronRight className="w-4 h-4 text-warm-400 group-hover:text-brand-red group-hover:translate-x-1 transition-transform" />
+              <ScrollReveal direction="right" duration={550} distance={20} triggerOnce={false} className="lg:col-span-5 space-y-4">
+                <span className="text-xs font-mono text-emerald-700 font-bold uppercase tracking-widest block">
+                  THE FUTURE
+                </span>
+                <h3 className="font-display font-black text-2xl sm:text-3xl text-warm-900 uppercase tracking-tight">
+                  Join The Team
                 </h3>
-                <p className="text-xs sm:text-sm text-warm-600 leading-relaxed">
+                <p className="text-sm sm:text-base text-warm-600 leading-relaxed">
                   <span className="font-semibold text-emerald-600">Hands-on engineering</span> for UTCN students across mechanical CAD, <span className="font-semibold text-warm-900">high-voltage battery packs</span>, <span className="font-semibold text-warm-900">telemetry firmware</span>, and team operations.
                 </p>
-              </div>
 
-              <div className="mt-5 pt-3.5 border-t border-warm-200 flex items-center justify-between text-xs font-mono font-bold text-brand-red">
-                <span>Open Positions & Application</span>
-                <span className="group-hover:translate-x-1 transition-transform">→</span>
-              </div>
-            </Link>
-          </ScrollReveal>
+                {/* Department Disciplines Roster */}
+                <div className="pt-1 flex flex-wrap gap-1.5 text-xs font-mono text-warm-700">
+                  {['Mechanical CAD', 'Battery Systems', 'Firmware', 'Aerodynamics', 'Operations'].map((discipline) => (
+                    <span key={discipline} className="px-2.5 py-1 rounded-md bg-warm-200/60 font-medium">
+                      {discipline}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="pt-2">
+                  <Link
+                    to="/recruitment"
+                    className="inline-flex items-center gap-2 text-sm font-mono font-bold text-brand-red hover:text-brand-darkRed transition group"
+                  >
+                    <span>Open Positions & Application</span>
+                    <span className="group-hover:translate-x-1.5 transition-transform">→</span>
+                  </Link>
+                </div>
+              </ScrollReveal>
+            </div>
+
+          </section>
+
+
+          {/* 3. Sponsorship Section (Seamless, Dark Flow Canvas, No Boxed Card) */}
+          <section className="relative overflow-hidden bg-carbon-950 py-14 sm:py-18 my-6">
+            {/* Ambient Motorsport Glow with faint red accents */}
+            <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-brand-red/15 blur-[130px] pointer-events-none animate-ambient-float-1" />
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+              <ScrollReveal direction="up" duration={550} distance={20} triggerOnce={false}>
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center justify-between">
+                  <div className="lg:col-span-8 space-y-4">
+                    <span className="text-xs font-mono text-brand-brightRed uppercase tracking-widest font-bold block">
+                      CORPORATE & TECHNICAL PARTNERSHIPS
+                    </span>
+                    <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-white uppercase tracking-tight leading-tight">
+                      Partner with Romania's Leading Formula Student Team
+                    </h2>
+                    <p className="text-sm sm:text-base text-carbon-300 leading-relaxed max-w-2xl">
+                      Gain racecar livery branding, visibility at international circuits, and recruitment access to top engineering and software graduates from UTCN.
+                    </p>
+                  </div>
+
+                  <div className="lg:col-span-4 flex lg:justify-end">
+                    <Link
+                      to="/partners"
+                      className="px-8 py-4 rounded-full bg-brand-red hover:bg-brand-brightRed text-white font-mono font-bold text-xs uppercase tracking-wider shadow-lg shadow-brand-red/30 hover:shadow-brand-red/50 hover:scale-103 transition-all duration-300 flex items-center gap-2"
+                    >
+                      <span>Explore Sponsorship Tiers</span>
+                      <ChevronRight className="w-4 h-4" />
+                    </Link>
+                  </div>
+                </div>
+              </ScrollReveal>
+            </div>
+          </section>
 
         </div>
-      </section>
-
-      {/* 5. Direct Sponsorship Teaser Banner */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ScrollReveal direction="up" delay={100} duration={650}>
-          <div className="bg-gradient-to-r from-red-50 via-warm-50 to-warm-100 p-8 sm:p-10 rounded-2xl border border-brand-red/20 flex flex-col lg:flex-row items-center justify-between gap-6 shadow-sm card-hover-glow">
-            <div className="space-y-2 max-w-2xl">
-              <span className="text-xs font-mono text-brand-red uppercase tracking-wider font-bold block">
-                // 03. CORPORATE & TECHNICAL PARTNERSHIPS
-              </span>
-              <h2 className="font-display font-black text-2xl sm:text-3xl text-warm-900">
-                Partner with Romania's Leading Formula Student Team
-              </h2>
-              <p className="text-xs sm:text-sm text-warm-700 leading-relaxed">
-                Gain racecar livery branding, visibility at international circuits, and recruitment access to top engineering and software graduates from UTCN.
-              </p>
-            </div>
-
-            <div className="flex flex-wrap gap-3 shrink-0">
-              <Link
-                to="/partners"
-                className="px-6 py-3 rounded-lg bg-brand-red hover:bg-brand-darkRed text-white font-bold text-xs uppercase tracking-wider transition shadow-sm hover:shadow-md hover:scale-102"
-              >
-                Explore Sponsorship Tiers
-              </Link>
-            </div>
-          </div>
-        </ScrollReveal>
-      </section>
-
       </div>
     </div>
   );

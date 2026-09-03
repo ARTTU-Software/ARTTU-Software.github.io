@@ -47,3 +47,44 @@ The goal is an **elite, modern, multi-page motorsport website** that reflects th
 - **Local Dev Server:** `npm run dev` or `npx vite --port 5173 --host`
 - **Production Build:** `npm run build`
 - **Inspection & Testing:** `npm run inspect -- --route=/events` (optional `--screenshot` for major features)
+
+---
+
+## 🎨 5. Creative Direction & Anti-Slop Guidelines
+
+To prevent generic AI patterns and maintain authentic, high-impact motorsport art direction:
+
+1. **Abolish the Card Container Trap:**
+   - Avoid boxing standard text into repetitive white cards with borders (`bg-white rounded-2xl border p-8`).
+   - Let typography, negative space, and large imagery structure the layout directly on the background canvas.
+
+2. **Heroic Imagery Over Thumbnails:**
+   - Authentic track, podium, and workshop photos must be given scale (320px–420px tall widescreen frames).
+   - Never shrink high-emotion moments into tiny thumbnail squares inside cards.
+
+3. **Strict Ban on AI Tells:**
+   - **Zero Emojis:** Never use emojis (no 🏆, ⚡, 🏎️).
+   - **Zero Em Dashes:** Avoid em dashes (`—`). Use clean punctuation (colons, periods, or simple clean breaks).
+   - **Zero Fake Programmer Decoration:** Do not fake "technical" depth with arbitrary brackets (`[PAD.01]`), coordinates, frame codes, or double slashes (`//`) unless specifically requested.
+
+4. **Copy Restraint ("Less is More"):**
+   - Do not bloat copy with generated filler paragraphs. Respect the team's concise, authentic tone.
+
+5. **Living Atmospheric Backgrounds:**
+   - Use dynamic, continuous ambient elements (animated SVG aerodynamic streamlines, slow floating blurred light orbs, faint brand-red glows) to guide the user's eye through the page without visual noise.
+
+6. **Kinetic Re-engagement:**
+   - When using scroll reveal animations, set `triggerOnce={false}` (or `once={false}`) so the viewport remains reactive, dynamic, and fluid when users scroll up and down.
+
+7. **Tight Vertical Rhythm:**
+   - Maintain compact section spacing (`space-y-16 sm:space-y-20`) so that image and accompanying text land together in standard viewports without endless scrolling fatigue.
+
+8. **Ban on Fake Technical Gadgets & Dashboard Clutter:**
+   - Do not insert simulated analog dials, speedometers, live telemetry progress bars, or fake software dashboards into editorial and storytelling sections.
+   - The site must feel like an elite, high-end motorsport publication (human, emotional, clean), NOT an embedded engineer's debugging console or telemetry software.
+
+9. **Copy Integrity in Typographic Styling:**
+   - When using typographic collision (pairing bold display sans with expressive italics), ALWAYS use the team's exact authentic phrasing (e.g. *"STUDENT ENGINEERING. International motorsport."*).
+   - Never replace existing team copy with synthetic AI slogans or rewritten marketing filler.
+
+
