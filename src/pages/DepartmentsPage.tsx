@@ -72,10 +72,6 @@ export const DepartmentsPage: React.FC = () => {
         
         {/* Header */}
         <ScrollReveal direction="up" duration={550} distance={20} triggerOnce={false} className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-red/10 border border-brand-red/20 text-brand-red text-xs font-mono uppercase font-bold shadow-2xs">
-            <UserPlus className="w-3.5 h-3.5" />
-            <span>Engineering & Operations Organization</span>
-          </div>
           <h1 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-warm-900 uppercase tracking-tight">
             OUR DEPARTMENTS
           </h1>
@@ -110,8 +106,7 @@ export const DepartmentsPage: React.FC = () => {
                         <span className="text-xs font-mono text-brand-red uppercase font-bold tracking-wider">
                           // {dept.title}
                         </span>
-                        <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-800 text-[10px] font-mono font-bold flex items-center gap-1.5">
-                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                        <span className="px-2.5 py-0.5 rounded-md bg-emerald-500/10 border border-emerald-500/30 text-emerald-800 text-[10px] font-mono font-bold flex items-center gap-1.5">
                           RECRUITING ACTIVE
                         </span>
                       </div>
@@ -176,7 +171,7 @@ export const DepartmentsPage: React.FC = () => {
 
                       <Link
                         to="/recruitment"
-                        className="px-5 py-2.5 rounded-full bg-brand-red hover:bg-brand-darkRed text-white font-bold text-xs uppercase tracking-wider transition shadow-sm hover:shadow-md hover:scale-102 flex items-center gap-1.5 group"
+                        className="px-5 py-2.5 rounded-lg bg-brand-red hover:bg-brand-darkRed text-white font-bold text-xs uppercase tracking-wider transition shadow-sm hover:shadow-md hover:scale-102 flex items-center gap-1.5 group"
                       >
                         <span>Apply for {dept.name}</span>
                         <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />

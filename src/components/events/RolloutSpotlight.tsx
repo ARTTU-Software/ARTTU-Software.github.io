@@ -17,7 +17,7 @@ export const RolloutSpotlight: React.FC<{ onOpenPhoto?: (src: string, title: str
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-warm-200/80 pb-3.5 mb-4 relative z-10">
 
           <div className="flex items-center gap-2.5">
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-red text-white shadow-xs">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md text-xs font-bold uppercase tracking-wider bg-brand-red text-white shadow-xs">
               Flagship Event
             </span>
             <span className="text-xs font-mono text-warm-500 uppercase tracking-widest font-semibold">

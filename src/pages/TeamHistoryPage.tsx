@@ -150,10 +150,6 @@ export const TeamHistoryPage: React.FC<TeamHistoryPageProps> = ({
       
       {/* Hero Header */}
       <ScrollReveal direction="up" duration={600} className="text-center max-w-4xl mx-auto space-y-2.5">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-red/10 border border-brand-red/20 text-brand-red text-xs font-mono uppercase font-bold shadow-xs">
-          <Users className="w-3.5 h-3.5" />
-          <span>Team Generations & Alumni Archive</span>
-        </div>
         
         <h1 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-warm-900 uppercase tracking-tight">
           THE ENGINEERS BEHIND THE RACECARS
@@ -235,7 +231,7 @@ export const TeamHistoryPage: React.FC<TeamHistoryPageProps> = ({
                 }`}
               >
                 <div className="flex items-center justify-between mb-1.5">
-                  <span className={`text-[10px] font-mono uppercase font-bold px-2 py-0.5 rounded-full ${
+                  <span className={`text-[10px] font-mono uppercase font-bold px-2 py-0.5 rounded-md ${
                     isSelected ? 'bg-brand-red text-white' : 'bg-warm-200 text-warm-700'
                   }`}>
                     {gen.badge}
@@ -277,7 +273,6 @@ export const TeamHistoryPage: React.FC<TeamHistoryPageProps> = ({
             </div>
 
             <div className="absolute bottom-4 left-4 right-4 text-white text-xs sm:text-sm bg-black/70 backdrop-blur-md p-3.5 rounded-xl border border-white/10 flex items-start gap-2.5">
-              <Sparkles className="w-4 h-4 text-brand-brightRed shrink-0 mt-0.5" />
               <p className="leading-snug text-warm-200">{currentGeneration.groupPhotoCaption}</p>
             </div>
           </div>
@@ -539,7 +534,7 @@ export const TeamHistoryPage: React.FC<TeamHistoryPageProps> = ({
       {/* Next Generation CTA Banner */}
       <ScrollReveal direction="up" duration={650}>
         <div className="bg-white/50 backdrop-blur-md rounded-3xl border border-white/80 p-8 sm:p-12 shadow-xs text-center max-w-4xl mx-auto space-y-6 card-hover-glow">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-red/10 border border-brand-red/20 text-brand-red text-xs font-mono uppercase font-bold">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-lg bg-brand-red/10 border border-brand-red/20 text-brand-red text-xs font-mono uppercase font-bold">
             <Trophy className="w-3.5 h-3.5" />
             <span>Write the Next Chapter</span>
           </div>

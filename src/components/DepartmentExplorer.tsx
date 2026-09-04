@@ -74,7 +74,7 @@ export const DepartmentExplorer: React.FC<DepartmentExplorerProps> = ({ onOpenJo
           {/* Department Information */}
           <div className="lg:col-span-7 p-6 sm:p-10 flex flex-col justify-between space-y-6">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono uppercase font-semibold mb-3">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono uppercase font-semibold mb-3">
                 <span className="h-2 w-2 rounded-full bg-emerald-400 animate-ping"></span>
                 <span>Active Recruitment Position</span>
               </div>

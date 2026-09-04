@@ -94,15 +94,10 @@ export const SupportPage: React.FC = () => {
       
       {/* Hero Header */}
       <ScrollReveal direction="up" duration={600} className="text-center max-w-3xl mx-auto space-y-2.5">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-red/10 border border-brand-red/20 text-brand-red text-xs font-mono uppercase font-bold tracking-wider shadow-xs">
-          <Heart className="w-3.5 h-3.5 text-brand-red fill-brand-red" />
-          <span>Support Our Student Team</span>
-        </div>
         
         <h1 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-warm-900 uppercase tracking-tight">
           Support ART TU Cluj-Napoca
         </h1>
-
         <p className="text-warm-700 text-xs sm:text-sm leading-relaxed max-w-2xl mx-auto">
           If you are an employee of a Romanian-based company, you have the possibility to redirect <strong><TelemetryTicker value={3.5} decimals={1} suffix="%" /> of your income tax</strong> to our non-governmental student organisation in 3 simple steps.
         </p>

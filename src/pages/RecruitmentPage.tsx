@@ -104,10 +104,6 @@ export const RecruitmentPage: React.FC = () => {
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 pb-10 border-b border-warm-200/80">
             {/* Left Column: Title & Mission */}
             <div className="space-y-4 max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-800 text-[11px] font-mono uppercase font-bold shadow-2xs">
-                <UserPlus className="w-3.5 h-3.5" />
-                <span>Recruitments Active // Season 2026/2027</span>
-              </div>
               
               <h1 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-warm-900 uppercase tracking-tight leading-tight">
                 JOIN ART TU FORMULA STUDENT
@@ -118,10 +114,10 @@ export const RecruitmentPage: React.FC = () => {
               </p>
 
               <div className="flex flex-wrap items-center gap-3 pt-2 text-xs font-mono text-warm-600">
-                <span className="inline-flex items-center gap-1.5 text-emerald-800 font-semibold bg-emerald-50/90 px-3 py-1.5 rounded-full border border-emerald-200">
+                <span className="inline-flex items-center gap-1.5 text-emerald-800 font-semibold bg-emerald-50/90 px-3 py-1.5 rounded-lg border border-emerald-200">
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" /> Open to all UTCN faculties
                 </span>
-                <span className="inline-flex items-center gap-1.5 text-warm-800 font-semibold bg-warm-200/70 px-3 py-1.5 rounded-full border border-warm-300/60">
+                <span className="inline-flex items-center gap-1.5 text-warm-800 font-semibold bg-warm-200/70 px-3 py-1.5 rounded-lg border border-warm-300/60">
                   <CheckCircle2 className="w-3.5 h-3.5 text-brand-red" /> No prior experience required
                 </span>
               </div>
@@ -227,7 +223,7 @@ export const RecruitmentPage: React.FC = () => {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-warm-950/80 via-warm-950/20 to-transparent" />
                       <div className="absolute top-2.5 left-2.5">
-                        <span className="px-2.5 py-1 rounded-full bg-emerald-600/90 backdrop-blur-xs text-white text-[10px] font-mono font-bold shadow-2xs">
+                        <span className="px-2.5 py-1 rounded-md bg-emerald-600/90 backdrop-blur-xs text-white text-[10px] font-mono font-bold shadow-2xs">
                           ● Positions Open
                         </span>
                       </div>
@@ -271,9 +267,6 @@ export const RecruitmentPage: React.FC = () => {
                   Life @ ART TU
                 </span>
               </div>
-              <span className="text-xs font-mono text-warm-500">
-                Paddock & Workshop Moments
-              </span>
             </div>
           </ScrollReveal>
 

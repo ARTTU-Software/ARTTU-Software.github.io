@@ -78,10 +78,6 @@ export const ContactPage: React.FC = () => {
       
       {/* Header */}
       <ScrollReveal direction="up" duration={600} className="text-center max-w-2xl mx-auto space-y-3">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-red/10 border border-brand-red/20 text-brand-red text-xs font-mono uppercase font-bold tracking-wider shadow-xs">
-          <Mail className="w-3.5 h-3.5" />
-          <span>Get In Touch With ART TU</span>
-        </div>
         <h1 className="font-display font-black text-3xl sm:text-5xl lg:text-6xl text-warm-900 uppercase tracking-tight">
           CONTACT US
         </h1>

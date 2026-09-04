@@ -355,7 +355,7 @@ export const HomePage: React.FC = () => {
             >
               <Link
                 to="/history"
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/50 border border-white/30 hover:border-brand-brightRed text-xs font-mono text-white backdrop-blur-sm transition-all duration-300 group shadow-md hover:bg-black/70 hover:scale-102"
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-black/50 border border-white/30 hover:border-brand-brightRed text-xs font-mono text-white backdrop-blur-sm transition-all duration-300 group shadow-md hover:bg-black/70 hover:scale-102"
               >
                 <span className="font-bold text-brand-brightRed">UTCN</span>
                 <span className="text-white/40">|</span>
@@ -715,14 +715,14 @@ export const HomePage: React.FC = () => {
                 <div className="pt-2 flex flex-wrap gap-4">
                   <Link
                     to="/departments"
-                    className="px-6 py-3 rounded-full bg-brand-red hover:bg-brand-darkRed text-white font-bold text-xs uppercase tracking-wider shadow-sm transition hover:shadow-md hover:scale-102 flex items-center gap-2 group"
+                    className="px-6 py-3 rounded-lg bg-brand-red hover:bg-brand-darkRed text-white font-bold text-xs uppercase tracking-wider shadow-sm transition hover:shadow-md hover:scale-102 flex items-center gap-2 group"
                   >
                     <span>Meet All Departments</span>
                     <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                   </Link>
                   <Link
                     to="/history"
-                    className="px-6 py-3 rounded-full bg-warm-200/70 hover:bg-warm-200 text-warm-800 font-bold text-xs uppercase tracking-wider transition hover:text-warm-900"
+                    className="px-6 py-3 rounded-lg bg-warm-200/70 hover:bg-warm-200 text-warm-800 font-bold text-xs uppercase tracking-wider transition hover:text-warm-900"
                   >
                     <span>Our History & Milestones</span>
                   </Link>
@@ -773,7 +773,7 @@ export const HomePage: React.FC = () => {
                     alt="ART TU Electric Single-Seater"
                     className="w-full h-[280px] sm:h-[340px] lg:h-[370px] object-cover group-hover:scale-103 transition duration-700 ease-out"
                   />
-                  <div className="absolute top-4 left-4 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md text-xs font-mono font-bold text-brand-red shadow-sm">
+                  <div className="absolute top-4 left-4 px-3.5 py-1.5 rounded-lg bg-white/95 backdrop-blur-md text-xs font-mono font-bold text-brand-red shadow-sm">
                     200V EV PLATFORM
                   </div>
                 </Link>
@@ -852,7 +852,7 @@ export const HomePage: React.FC = () => {
                     alt="Podium Celebration at FS Balkans"
                     className="w-full h-[280px] sm:h-[340px] lg:h-[370px] object-cover group-hover:scale-103 transition duration-700 ease-out"
                   />
-                  <div className="absolute top-4 left-4 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md text-xs font-mono font-bold text-amber-700 shadow-sm">
+                  <div className="absolute top-4 left-4 px-3.5 py-1.5 rounded-lg bg-white/95 backdrop-blur-md text-xs font-mono font-bold text-amber-700 shadow-sm">
                     1ST PLACE OVERALL
                   </div>
                 </Link>
@@ -868,7 +868,7 @@ export const HomePage: React.FC = () => {
                     alt="Student Engineers Workshop"
                     className="w-full h-[280px] sm:h-[340px] lg:h-[370px] object-cover group-hover:scale-103 transition duration-700 ease-out"
                   />
-                  <div className="absolute top-4 left-4 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md text-xs font-mono font-bold text-emerald-700 shadow-sm flex items-center gap-1.5">
+                  <div className="absolute top-4 left-4 px-3.5 py-1.5 rounded-lg bg-white/95 backdrop-blur-md text-xs font-mono font-bold text-emerald-700 shadow-sm flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                     RECRUITMENT ACTIVE
                   </div>
@@ -934,7 +934,7 @@ export const HomePage: React.FC = () => {
                   <div className="lg:col-span-4 flex lg:justify-end">
                     <Link
                       to="/partners"
-                      className="px-8 py-4 rounded-full bg-brand-red hover:bg-brand-brightRed text-white font-mono font-bold text-xs uppercase tracking-wider shadow-lg shadow-brand-red/40 hover:shadow-brand-red/60 hover:scale-103 transition-all duration-300 flex items-center gap-2"
+                      className="px-8 py-4 rounded-lg bg-brand-red hover:bg-brand-brightRed text-white font-mono font-bold text-xs uppercase tracking-wider shadow-lg shadow-brand-red/40 hover:shadow-brand-red/60 hover:scale-103 transition-all duration-300 flex items-center gap-2"
                     >
                       <span>Explore Sponsorship Tiers</span>
                       <ChevronRight className="w-4 h-4" />

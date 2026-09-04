@@ -85,10 +85,6 @@ export const PartnersPage: React.FC = () => {
       
       {/* 1. Compact Header */}
       <ScrollReveal direction="up" duration={500} className="text-center max-w-3xl mx-auto space-y-2.5">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-red/10 border border-brand-red/20 text-brand-red text-xs font-mono uppercase font-bold shadow-2xs">
-          <Handshake className="w-3.5 h-3.5" />
-          <span>Partnership & Support</span>
-        </div>
         <h1 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-warm-900 uppercase tracking-tight">
           PARTNER WITH ART TU
         </h1>

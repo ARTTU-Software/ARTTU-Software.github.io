@@ -128,8 +128,7 @@ export const CarPage: React.FC = () => {
         <ScrollReveal direction="down" duration={700} delay={100} className="relative z-20 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pt-3 sm:pt-5 pb-1">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3">
             {/* Left: Generation Model Tag */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/15 text-white text-xs font-mono font-semibold shadow-md shrink-0">
-              <span className="inline-block w-2 h-2 rounded-full bg-[#ff3b3b]" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-black/40 backdrop-blur-md border border-white/15 text-white text-xs font-mono font-semibold shadow-md shrink-0">
               <span className="text-white font-bold">{CURRENT_CAR.shortName.toUpperCase()}</span>
               <span className="text-white/40">•</span>
               <span className="text-white/90">{CURRENT_CAR.generationCode} Single-Seater</span>
@@ -151,7 +150,7 @@ export const CarPage: React.FC = () => {
                   <button
                     key={spot.id}
                     onClick={() => handleSelectHotspot(spot)}
-                    className={`text-[11px] font-mono px-3 py-1 rounded-full border transition-all cursor-pointer shrink-0 ${
+                    className={`text-[11px] font-mono px-3 py-1 rounded-lg border transition-all cursor-pointer shrink-0 ${
                       isSelected
                         ? 'bg-white text-brand-red border-white shadow-sm font-bold'
                         : 'bg-black/35 text-white/85 border-white/15 hover:bg-white/20 hover:text-white hover:border-white/30 backdrop-blur-sm'
@@ -372,7 +371,7 @@ export const CarPage: React.FC = () => {
         <ScrollReveal direction="up" duration={800} delay={600} className="relative z-20 pb-3 flex justify-center pointer-events-none">
           <button
             onClick={scrollToSpecs}
-            className="pointer-events-auto inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-black/40 hover:bg-black/60 backdrop-blur-md border border-white/15 text-white/80 hover:text-white text-xs font-mono font-medium transition-all shadow-md cursor-pointer group"
+            className="pointer-events-auto inline-flex items-center gap-1.5 px-4 py-1.5 rounded-lg bg-black/40 hover:bg-black/60 backdrop-blur-md border border-white/15 text-white/80 hover:text-white text-xs font-mono font-medium transition-all shadow-md cursor-pointer group"
           >
             <span>Explore Technical Specifications</span>
             <ChevronDown className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform text-[#ff4d4d] animate-bounce" />
@@ -554,14 +553,14 @@ export const CarPage: React.FC = () => {
                 <div className="rounded-3xl overflow-hidden shadow-xl h-[280px] sm:h-[320px] lg:h-[350px] bg-warm-150 group relative">
                   <img
                     src="/assets/IMG_8745.webp"
-                    alt="Team Trackside Support"
+                    alt="Drivers"
                     loading="lazy"
                     decoding="async"
                     className="w-full h-full object-cover group-hover:scale-104 transition duration-700 ease-out"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-90 group-hover:opacity-100 transition-opacity" />
                   <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
-                    <span className="font-mono text-xs font-bold">Trackside Operations</span>
+                    <span className="font-mono text-xs font-bold">Drivers</span>
                     <span className="text-[10px] font-mono bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-md">Dej Circuit</span>
                   </div>
                 </div>
@@ -571,14 +570,14 @@ export const CarPage: React.FC = () => {
                 <div className="rounded-3xl overflow-hidden shadow-xl h-[280px] sm:h-[320px] lg:h-[350px] bg-warm-150 group relative">
                   <img
                     src="/assets/IMG_7447.webp"
-                    alt="Driver Cockpit Preparation"
+                    alt="Setting Up"
                     loading="lazy"
                     decoding="async"
                     className="w-full h-full object-cover group-hover:scale-104 transition duration-700 ease-out"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-90 group-hover:opacity-100 transition-opacity" />
                   <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
-                    <span className="font-mono text-xs font-bold">Driver Cockpit Calibration</span>
+                    <span className="font-mono text-xs font-bold">Setting Up</span>
                     <span className="text-[10px] font-mono bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-md">Hockenheim</span>
                   </div>
                 </div>
@@ -588,14 +587,14 @@ export const CarPage: React.FC = () => {
                 <div className="rounded-3xl overflow-hidden shadow-xl h-[280px] sm:h-[320px] lg:h-[350px] bg-warm-150 group relative">
                   <img
                     src="/assets/IMG_1513.webp"
-                    alt="Driver in Racecar"
+                    alt="Ready to Race"
                     loading="lazy"
                     decoding="async"
                     className="w-full h-full object-cover group-hover:scale-104 transition duration-700 ease-out"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-90 group-hover:opacity-100 transition-opacity" />
                   <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
-                    <span className="font-mono text-xs font-bold">Dynamic Scrutineering</span>
+                    <span className="font-mono text-xs font-bold">Ready to Race</span>
                     <span className="text-[10px] font-mono bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-md">Dej Circuit</span>
                   </div>
                 </div>

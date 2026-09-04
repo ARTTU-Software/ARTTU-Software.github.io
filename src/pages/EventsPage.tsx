@@ -106,10 +106,6 @@ export const EventsPage: React.FC = () => {
       {/* Header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal direction="up" duration={600} className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-red/10 border border-brand-red/20 text-brand-red text-xs font-mono uppercase font-bold shadow-2xs">
-            <Calendar className="w-3.5 h-3.5" />
-            <span>{EVENTS_DATA.length} Season Events • Timeline</span>
-          </div>
 
           <h1 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-warm-900 uppercase tracking-tight">
             EVENTS & <span className="text-brand-red">OUTREACH</span>
@@ -138,7 +134,7 @@ export const EventsPage: React.FC = () => {
 
             <div className="relative z-10 max-w-2xl mx-auto space-y-3">
               <span className="inline-flex items-center gap-1.5 text-xs font-mono text-brand-red uppercase tracking-widest font-bold">
-                <Sparkles className="w-3.5 h-3.5" /> Community & Industry Partnerships
+                Community & Industry Partnerships
               </span>
               
               <h3 className="font-display font-black text-2xl sm:text-3xl text-warm-900 uppercase tracking-tight">

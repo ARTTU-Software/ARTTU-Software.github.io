@@ -232,10 +232,10 @@ export const InteractiveCircuitTimeline: React.FC<InteractiveCircuitTimelineProp
       <div className="relative w-full">
         
         {/* Minimal Controls Float (Top Right) */}
-        <div className="absolute -top-1 sm:top-0 right-0 z-30 flex items-center gap-1.5 bg-warm-100/90 backdrop-blur-md px-2.5 py-1 rounded-full border border-warm-300 shadow-2xs">
+        <div className="absolute -top-1 sm:top-0 right-0 z-30 flex items-center gap-1.5 bg-warm-100/90 backdrop-blur-md px-2.5 py-1 rounded-lg border border-warm-300 shadow-2xs">
           <button
             onClick={() => setIsPlaying((prev) => !prev)}
-            className={`px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider flex items-center gap-1.5 transition cursor-pointer ${
+            className={`px-3 py-1 rounded-lg text-xs font-mono font-bold uppercase tracking-wider flex items-center gap-1.5 transition cursor-pointer ${
               isPlaying
                 ? 'bg-amber-500 text-black hover:bg-amber-400'
                 : 'bg-brand-red text-white hover:bg-brand-darkRed shadow-xs'
@@ -250,14 +250,14 @@ export const InteractiveCircuitTimeline: React.FC<InteractiveCircuitTimelineProp
 
           <button
             onClick={handlePrevSeason}
-            className="p-1 rounded-full hover:bg-warm-200 text-warm-700 hover:text-warm-900 transition cursor-pointer"
+            className="p-1 rounded-lg hover:bg-warm-200 text-warm-700 hover:text-warm-900 transition cursor-pointer"
             title="Previous Season"
           >
             <ChevronLeft className="w-3.5 h-3.5" />
           </button>
           <button
             onClick={handleNextSeason}
-            className="p-1 rounded-full hover:bg-warm-200 text-warm-700 hover:text-warm-900 transition cursor-pointer"
+            className="p-1 rounded-lg hover:bg-warm-200 text-warm-700 hover:text-warm-900 transition cursor-pointer"
             title="Next Season"
           >
             <ChevronRight className="w-3.5 h-3.5" />
