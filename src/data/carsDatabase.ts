@@ -621,17 +621,17 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
     title: "The Foundation of ART TU's Electric Racing Legacy",
     tagline: "From Mărișel workshop concept to Romania's premier EV racing team",
     description:
-      'Founded in 2019 by 20 visionary UTCN engineering students, starting with the help of Porsche Engineering, ART TU was built from the ground up. Through early prototyping, student recruitment drives across Cluj faculties, and securing Porsche Engineering as the founding partner, the foundation was laid.',
-    circuitLocation: 'Technical University of Cluj-Napoca (UTCN) & Mărișel',
+      'Founded in 2019 by 20 visionary TUCN engineering students, starting with the help of Porsche Engineering, ART TU was built from the ground up. Through early prototyping, student recruitment drives across Cluj faculties, and securing Porsche Engineering as the founding partner, the foundation was laid.',
+    circuitLocation: 'Technical University of Cluj-Napoca (TUCN) & Mărișel',
 
     innovations: [
       'Inaugural full-scale 3D CAD chassis frame model and packaging envelope',
-      'Founding technical partnership with UTCN Faculty of Automotive Engineering & Porsche Engineering',
-      'Recruited and onboarded over 60 enthusiastic UTCN engineering and software students'
+      'Founding technical partnership with TUCN Faculty of Automotive Engineering & Porsche Engineering',
+      'Recruited and onboarded over 60 enthusiastic TUCN engineering and software students'
     ],
 
     awards: [
-      { title: 'UTCN Founding Approval', position: 'Official University Team', category: 'gold' },
+      { title: 'TUCN Founding Approval', position: 'Official University Team', category: 'gold' },
       { title: 'Porsche Engineering Partnership', position: 'Founding Tech Partner', category: 'gold' },
       { title: 'Inaugural Recruitment Drive', position: '60+ Members Recruited', category: 'special' }
     ],
@@ -673,7 +673,7 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
         category: 'Founding Milestone',
         items: [
           { label: 'Founding Team', value: '20 Engineers' },
-          { label: 'UTCN Recruitment', value: '60+ Students' },
+          { label: 'TUCN Recruitment', value: '60+ Students' },
           { label: 'Chassis Design', value: 'Full CAD 3D' }
         ]
       }
@@ -848,7 +848,7 @@ export function getTimelineSeasons() {
       specs: CARS_DATABASE['concept-art01'].technicalSpecs,
       keySpecsSummary: [
         { label: 'Founding Team', value: '20 Engineers', highlight: true },
-        { label: 'UTCN Recruitment', value: '60+ Students', highlight: true },
+        { label: 'TUCN Recruitment', value: '60+ Students', highlight: true },
         { label: 'Chassis Design', value: 'Full CAD 3D' },
         { label: 'Key Partner', value: 'Porsche Engineering', highlight: true },
         { label: 'Powertrain', value: 'High-Voltage EV' }

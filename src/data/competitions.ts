@@ -207,7 +207,7 @@ export const historicalTimeline: HistoricalMilestone[] = [
   },
   {
     year: 2019,
-    name: 'Team Founding at UTCN',
+    name: 'Team Founding at TUCN',
     location: 'Cluj-Napoca, Romania',
     badge: 'Origin',
     highlight: 'Initiated by 20 passionate engineering students',

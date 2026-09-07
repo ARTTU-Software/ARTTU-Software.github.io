@@ -438,7 +438,7 @@ export const SupportPage: React.FC = () => {
 
           <div className="pt-4 border-t border-warm-200/60 text-xs text-warm-500 flex items-center justify-between font-semibold">
             <span>Fiscal NGO registration available</span>
-            <span className="text-brand-red font-mono font-bold">UTCN Formula Student</span>
+            <span className="text-brand-red font-mono font-bold">TUCN Formula Student</span>
           </div>
         </ScrollReveal>
 

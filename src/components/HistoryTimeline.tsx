@@ -18,7 +18,7 @@ export const HistoryTimeline: React.FC = () => {
             OUR RACING HISTORY
           </h2>
           <p className="text-warm-700 text-sm sm:text-base">
-            From our founding in 2019 at UTCN to championship victories across Europe's top race circuits.
+            From our founding in 2019 at TUCN to championship victories across Europe's top race circuits.
           </p>
         </div>
 

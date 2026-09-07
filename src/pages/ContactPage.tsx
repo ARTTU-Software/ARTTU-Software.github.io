@@ -111,7 +111,7 @@ export const ContactPage: React.FC = () => {
             </div>
 
             <div className="pt-3 border-t border-warm-200/60 text-xs font-mono text-warm-500">
-              Technical University of Cluj-Napoca (UTCN)
+              Technical University of Cluj-Napoca (TUCN)
             </div>
           </div>
         </ScrollReveal>

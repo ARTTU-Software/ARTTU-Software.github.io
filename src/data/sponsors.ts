@@ -20,7 +20,7 @@ export const sponsorTiers: SponsorTierGroup[] = [
     subtitle: 'University & Research Institution',
     sponsors: [
       {
-        name: "Technical University of Cluj-Napoca (UTCN)",
+        name: "Technical University of Cluj-Napoca (TUCN)",
         tier: "educational",
         logo: "/assets/UTC-N-Logo.webp",
         website: "https://www.utcluj.ro/",
@@ -134,7 +134,7 @@ export interface MarqueeLogo {
 
 export const marqueeLogos: MarqueeLogo[] = [
   { name: "Porsche Engineering", logo: "/assets/Logo-Porsche-Eng.-768x155.webp", website: "https://www.porscheengineering.com/" },
-  { name: "UTCN", logo: "/assets/UTC-N-Logo.webp", website: "https://www.utcluj.ro/" },
+  { name: "TUCN", logo: "/assets/UTC-N-Logo.webp", website: "https://www.utcluj.ro/" },
   { name: "CSi Romania", logo: "/assets/CSi-logo-300x293.webp", website: "https://www.csiportal.com/" },
   { name: "INAS / ANSYS", logo: "/assets/INAS-LOGO-SAFE-SPACE-1024x560.webp", website: "https://www.inas.ro/" },
   { name: "BT Leasing", logo: "/assets/BT-Leasing-2026-1024x270.webp", website: "https://bancatransilvania.ro/" },

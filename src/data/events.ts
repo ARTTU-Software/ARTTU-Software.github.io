@@ -74,7 +74,7 @@ export const EVENTS_DATA: EventItem[] = [
     subtitle: "SIAR International Congress on Automotive and Transport Engineering",
     date: "23-25 October 2025",
     season: "2025-2026",
-    location: "UTCN Faculty of Automotive Engineering, Cluj-Napoca",
+    location: "TUCN Faculty of Automotive Engineering, Cluj-Napoca",
     image: "/assets/events/amma_2025.webp",
     description: "Hosted at the Technical University of Cluj-Napoca by the Department of Automotive Engineering and SIAR, the AMMA Congress brought together international automotive researchers and mobility leaders. ART TU presented our electric racecar architecture and powertrain research."
   },
@@ -84,9 +84,9 @@ export const EVENTS_DATA: EventItem[] = [
     subtitle: "Engaging with student tech innovators at OSUT InfoTech",
     date: "November 2025",
     season: "2025-2026",
-    location: "UTCN Campus, Cluj-Napoca (organized by OSUT Cluj)",
+    location: "TUCN Campus, Cluj-Napoca (organized by OSUT Cluj)",
     image: "/assets/events/contest_night.webp",
-    description: "At ContestNight, organized by OSUT Cluj under the InfoTech umbrella, our team engaged with enthusiastic UTCN engineering and IT students. We showcased our electric racecar subsystems and shared how Formula Student empowers students to gain hands-on technical and competitive engineering experience."
+    description: "At ContestNight, organized by OSUT Cluj under the InfoTech umbrella, our team engaged with enthusiastic TUCN engineering and IT students. We showcased our electric racecar subsystems and shared how Formula Student empowers students to gain hands-on technical and competitive engineering experience."
   },
   {
     id: "fs-symposium-gyor-2025",
@@ -124,7 +124,7 @@ export const EVENTS_DATA: EventItem[] = [
     subtitle: "CAD, FEA, and CFD defense with alumni judges and mentors",
     date: "December 2025",
     season: "2025-2026",
-    location: "Porsche Room, UTCN, Cluj-Napoca",
+    location: "Porsche Room, TUCN, Cluj-Napoca",
     image: "/assets/events/design_review_2025.webp",
     description: "A meticulous internal audit where each technical department presented CAD models, FEA stress analyses, and CFD aero simulations to alumni judges and technical mentors before manufacturing."
   },
@@ -134,7 +134,7 @@ export const EVENTS_DATA: EventItem[] = [
     subtitle: "Inspiring high school robotics students to join university motorsport",
     date: "January 2026",
     season: "2025-2026",
-    location: "UTCN, Cluj-Napoca",
+    location: "TUCN, Cluj-Napoca",
     image: "/assets/events/ftc_to_fs.webp",
     description: "'First Tech Challenge to Formula Student' is an event where we share our journey with high school robotics students. It connects high school with university life, showing them how Formula Student can boost their future and inspiring the next generation to join our team."
   },
@@ -174,7 +174,7 @@ export const EVENTS_DATA: EventItem[] = [
     subtitle: "Inspiring a mindset of innovation and continuous student growth",
     date: "01 April 2026",
     season: "2025-2026",
-    location: "UTCN Student Hub, Str. Constantin Daicoviciu 15, Cluj-Napoca",
+    location: "TUCN Student Hub, Str. Constantin Daicoviciu 15, Cluj-Napoca",
     image: "/assets/events/infonight.webp",
     description: "At Info Night, hosted by OSUT, we engaged with students to inspire a mindset of innovation and continuous growth. It was a great opportunity to encourage them to think outside the box and show how stepping beyond the standard curriculum can accelerate their personal and professional development."
   },
@@ -204,7 +204,7 @@ export const EVENTS_DATA: EventItem[] = [
     subtitle: "Hosting European industry and academic experts at our workshop",
     date: "20-21 April 2026",
     season: "2025-2026",
-    location: "UTCN Regional Innovation Hub & TestEcoCel Lab, Cluj-Napoca",
+    location: "TUCN Regional Innovation Hub & TestEcoCel Lab, Cluj-Napoca",
     image: "/assets/events/cina_skill_evolution.webp",
     description: "In collaboration with European industry and academic partners, we hosted a visit for a group of international experts at our facility. We provided an in-depth look into the world of Formula Student, sharing both the technical challenges we overcome and the major achievements of our season."
   },
@@ -244,7 +244,7 @@ export const EVENTS_DATA: EventItem[] = [
     subtitle: "Annual celebration and unveiling of the AFIA ART-26 electric racecar",
     date: "June 2026",
     season: "2025-2026",
-    location: "UTCN, Cluj-Napoca",
+    location: "TUCN, Cluj-Napoca",
     image: "/assets/events/rollout2026.webp",
     description: "The Rollout is an annual celebration of our season's achievements, revealing our newest race car. It is a prestigious occasion to honor the partnerships with the individuals and companies whose support has been the driving force behind our success."
   },

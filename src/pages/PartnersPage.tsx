@@ -97,7 +97,7 @@ export const PartnersPage: React.FC = () => {
           <div className="px-3 py-1.5 rounded-xl bg-white/60 backdrop-blur-sm border border-white/80 shadow-2xs text-warm-800 flex items-center gap-1.5">
             <Users className="w-3.5 h-3.5 text-brand-red" />
             <span className="font-bold text-brand-red"><TelemetryTicker value={60} suffix="+" /></span>
-            <span>UTCN Engineers</span>
+            <span>TUCN Engineers</span>
           </div>
           <div className="px-3 py-1.5 rounded-xl bg-white/60 backdrop-blur-sm border border-white/80 shadow-2xs text-warm-800 flex items-center gap-1.5">
             <Trophy className="w-3.5 h-3.5 text-amber-500" />
@@ -142,7 +142,7 @@ export const PartnersPage: React.FC = () => {
                   The People Behind The Machine
                 </p>
                 <p className="text-[11px] text-white/80 font-sans mt-0.5 line-clamp-1">
-                  60+ UTCN students turning ambitious engineering into race-winning reality.
+                  60+ TUCN students turning ambitious engineering into race-winning reality.
                 </p>
               </div>
             </div>
