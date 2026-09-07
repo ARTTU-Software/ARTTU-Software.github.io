@@ -396,7 +396,7 @@ export const HomePage: React.FC = () => {
                   transition: 'opacity 700ms cubic-bezier(0.16, 1, 0.3, 1) 420ms, transform 700ms cubic-bezier(0.16, 1, 0.3, 1) 420ms',
                 }}
               >
-                Formula Student • Powered by Porsche Engineering
+                Formula Student Team • Powered by Porsche Engineering
               </p>
               <p
                 className="text-sm sm:text-base text-white/95 font-medium leading-relaxed max-w-xl [text-shadow:0_1px_3px_rgba(0,0,0,0.95),0_2px_8px_rgba(0,0,0,0.8)]"
@@ -406,7 +406,7 @@ export const HomePage: React.FC = () => {
                   transition: 'opacity 700ms cubic-bezier(0.16, 1, 0.3, 1) 520ms, transform 700ms cubic-bezier(0.16, 1, 0.3, 1) 520ms',
                 }}
               >
-                Designing, building, and racing high-voltage electric single-seaters on Europe's premier circuits. Representing the next generation of Romanian engineering. Powered by Porsche Engineering @ TUCN.
+                Designing, building, and racing high-voltage electric single-seaters on Europe's premier circuits. Representing the next generation of Romanian engineering.
               </p>
             </div>
 
@@ -921,7 +921,7 @@ export const HomePage: React.FC = () => {
                 <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center justify-between">
                   <div className="lg:col-span-8 space-y-4">
                     <span className="text-xs font-mono text-brand-brightRed uppercase tracking-widest font-extrabold block">
-                      CORPORATE & TECHNICAL PARTNERSHIPS
+                      PARTNERSHIPS
                     </span>
                     <h2 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-white uppercase tracking-tight leading-tight">
                       Partner with Romania's Leading Formula Student Team
