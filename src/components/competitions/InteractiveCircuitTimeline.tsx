@@ -475,16 +475,6 @@ export const InteractiveCircuitTimeline: React.FC<InteractiveCircuitTimelineProp
             {/* Top Badges & Season Tag */}
             <div className="flex items-center justify-between gap-2 flex-wrap">
               <div className="flex items-center gap-2">
-                <span className={`px-3 py-1 rounded-lg text-xs font-mono font-bold uppercase tracking-wider border shadow-2xs ${
-                  activeSeason.badgeType === 'gold'
-                    ? 'bg-amber-500/15 text-amber-900 border-amber-500/30'
-                    : activeSeason.badgeType === 'silver'
-                    ? 'bg-slate-200 text-slate-900 border-slate-300'
-                    : 'bg-brand-red/10 text-brand-red border-brand-red/20'
-                }`}>
-                  {activeSeason.badge}
-                </span>
-
                 <span className="text-xs font-mono font-bold text-brand-red uppercase">
                   {activeSeason.seasonName}
                 </span>
@@ -499,7 +489,7 @@ export const InteractiveCircuitTimeline: React.FC<InteractiveCircuitTimelineProp
             {/* Title & Tagline */}
             <div>
               <h3 className="font-display font-black text-xl sm:text-2xl lg:text-3xl text-warm-900 uppercase leading-tight tracking-tight">
-                {activeSeason.title}
+                {activeSeason.carModel}
               </h3>
               <p className="text-xs sm:text-sm text-warm-600 font-mono italic mt-1 leading-relaxed">
                 "{activeSeason.tagline}"

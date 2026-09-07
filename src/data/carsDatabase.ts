@@ -137,9 +137,9 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
   // --------------------------------------------------------------------------
   'afia-art26': {
     id: 'afia-art26',
-    name: 'Afia',
-    shortName: 'Afia',
-    generationCode: 'Afia',
+    name: 'ARTT26',
+    shortName: 'ARTT26',
+    generationCode: 'ARTT26',
     seasonSpan: '2025 - 2026',
     shortYear: "'26",
     isCurrentCar: true,
@@ -341,9 +341,9 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
   // --------------------------------------------------------------------------
   'art-25': {
     id: 'art-25',
-    name: 'Coty',
-    shortName: 'Coty',
-    generationCode: 'Coty',
+    name: 'ART25',
+    shortName: 'ART25',
+    generationCode: 'ART25',
     seasonSpan: '2024 - 2025',
     shortYear: "'25",
     isCurrentCar: false,
@@ -435,9 +435,9 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
   // --------------------------------------------------------------------------
   'art-24': {
     id: 'art-24',
-    name: 'Danika Facelift',
-    shortName: 'Danika Facelift',
-    generationCode: 'Danika Facelift',
+    name: 'ART24',
+    shortName: 'ART24',
+    generationCode: 'ART24',
     seasonSpan: '2023 - 2024',
     shortYear: "'24",
     isCurrentCar: false,
@@ -520,9 +520,9 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
   // --------------------------------------------------------------------------
   'art-22': {
     id: 'art-22',
-    name: 'Danika',
-    shortName: 'Danika',
-    generationCode: 'Danika',
+    name: 'ART23',
+    shortName: 'ART23',
+    generationCode: 'ART23',
     seasonSpan: '2022 - 2023',
     shortYear: "'23",
     isCurrentCar: false,
@@ -605,9 +605,9 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
 
   'concept-art01': {
     id: 'concept-art01',
-    name: 'Marinela',
-    shortName: 'Marinela',
-    generationCode: 'Marinela',
+    name: 'ART01',
+    shortName: 'ART01',
+    generationCode: 'ART01',
     seasonSpan: '2019 - 2022',
     shortYear: "'19-'22",
     isCurrentCar: false,
