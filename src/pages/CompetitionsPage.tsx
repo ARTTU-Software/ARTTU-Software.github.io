@@ -62,7 +62,7 @@ export const CompetitionsPage: React.FC = () => {
   };
 
   return (
-    <div className="pt-14 sm:pt-16 pb-20 space-y-8 sm:space-y-10 w-full">
+    <div className="pt-[76px] sm:pt-[80px] pb-20 space-y-6 sm:space-y-8 w-full">
       
       {/* VIEW MODE 1: Racing Circuit Timeline & Trophies View */}
       {viewMode === 'timeline' && (

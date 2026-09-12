@@ -39,7 +39,7 @@ export const InteractiveCircuitTimeline: React.FC<InteractiveCircuitTimelineProp
 
   const numSeasons = chronologicalSeasons.length; // 5
   const CHECKPOINT_SPACING = 270; // px between checkpoints
-  const Y_CENTER = 66; // vertical center of 130px viewport
+  const Y_CENTER = 82; // vertical center of 156px-164px viewport
 
   // Multi-frequency harmonic wave function for rich, varied organic racetrack curvature
   const getY = useCallback((x: number) => {
@@ -263,7 +263,7 @@ export const InteractiveCircuitTimeline: React.FC<InteractiveCircuitTimelineProp
   const carAngle = getSlopeAngle(carWorldX);
 
   return (
-    <div className={`w-full rounded-none border-y border-x-0 border-warm-250/60 bg-transparent pt-2 sm:pt-3 px-4 sm:px-6 lg:px-8 pb-4 sm:pb-6 transition-all duration-300 select-none ${className}`}>
+    <div className={`w-full rounded-none border-y border-x-0 border-warm-250/60 bg-transparent pt-0 pb-3 sm:pb-5 transition-all duration-300 select-none ${className}`}>
       
       {/* ========================================================================= */}
       {/* 🏁 1. INFINITE ORGANIC WAVY TRACK (Smooth varied race curves)              */}
@@ -271,8 +271,8 @@ export const InteractiveCircuitTimeline: React.FC<InteractiveCircuitTimelineProp
 
       <div className="relative w-full">
         
-        {/* Minimal Controls Float (Top Right) */}
-        <div className="absolute -top-1 sm:top-0 right-0 z-30 flex items-center gap-1.5 bg-warm-100/90 backdrop-blur-md px-2.5 py-1 rounded-lg border border-warm-300 shadow-2xs">
+        {/* Floating Minimal Controls (Top Right, zero extra vertical height) */}
+        <div className="absolute top-1 sm:top-2 right-3 sm:right-6 z-30 flex items-center gap-1.5 bg-warm-100/90 backdrop-blur-md px-2.5 py-1 rounded-lg border border-warm-300 shadow-2xs">
           <button
             onClick={() => setIsPlaying((prev) => !prev)}
             className={`px-3 py-1 rounded-lg text-xs font-mono font-bold uppercase tracking-wider flex items-center gap-1.5 transition cursor-pointer ${
@@ -304,12 +304,12 @@ export const InteractiveCircuitTimeline: React.FC<InteractiveCircuitTimelineProp
           </button>
         </div>
 
-        {/* 🏎️ Conveyor Viewport with Left/Right Soft Edge Fade Masks */}
-        <div className="relative w-full h-[126px] sm:h-[132px] overflow-hidden flex items-center justify-center">
+        {/* 🏎️ Conveyor Viewport with Left/Right Soft Edge Fade Masks - FULL SCREEN WIDTH */}
+        <div className="relative w-full h-[156px] sm:h-[164px] overflow-hidden flex items-center justify-center">
           
-          {/* Left & Right Soft Fade Gradients */}
-          <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-warm-100/80 via-warm-100/40 to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-warm-100/80 via-warm-100/40 to-transparent z-10 pointer-events-none" />
+          {/* Left & Right Soft Fade Gradients (at absolute screen edges) */}
+          <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-[#f9f9fb] via-[#f9f9fb]/50 to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-[#f9f9fb] via-[#f9f9fb]/50 to-transparent z-10 pointer-events-none" />
 
           {/* ================================================================= */}
           {/* 🛣️ MOVING WAVY LINE TRACK (Translates horizontally with offset)    */}
@@ -323,7 +323,7 @@ export const InteractiveCircuitTimeline: React.FC<InteractiveCircuitTimelineProp
             {/* SVG Track Line (Simple, clean, narrow line) */}
             <svg
               className="overflow-visible absolute top-0 left-0"
-              style={{ width: '1px', height: '132px' }}
+              style={{ width: '1px', height: '164px' }}
             >
               <path
                 d={wavyPathD}
@@ -355,7 +355,7 @@ export const InteractiveCircuitTimeline: React.FC<InteractiveCircuitTimelineProp
                     onClick={() => handleSelectCheckpoint(item.virtualIndex)}
                   >
                     {/* 🏷️ YEAR BADGE (ABOVE THE TRACK & CAR) */}
-                    <div className={`absolute -top-9 sm:-top-10 transition-all duration-200 flex flex-col items-center ${
+                    <div className={`absolute -top-7.5 sm:-top-8 transition-all duration-200 flex flex-col items-center ${
                       isSelected
                         ? 'scale-110 -translate-y-0.5 z-20'
                         : isHovered
@@ -444,7 +444,7 @@ export const InteractiveCircuitTimeline: React.FC<InteractiveCircuitTimelineProp
       {/* ========================================================================= */}
       <div className="pt-4 sm:pt-6 border-t border-warm-200/70">
         <div
-          className={`max-w-6xl xl:max-w-7xl mx-auto space-y-4 sm:space-y-6 transition-opacity duration-300 ease-in-out ${
+          className={`max-w-6xl xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4 sm:space-y-6 transition-opacity duration-300 ease-in-out ${
             isFading ? 'opacity-0 pointer-events-none' : 'opacity-100'
           }`}
         >
