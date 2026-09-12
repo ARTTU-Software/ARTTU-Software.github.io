@@ -423,7 +423,7 @@ export const InteractiveCircuitTimeline: React.FC<InteractiveCircuitTimelineProp
           {/* 🏎️ AFIA (ART-26 EV) EMOJI RACECAR (Facing right, rides wavy track) */}
           {/* ================================================================= */}
           <div
-            className="absolute left-1/2 -translate-x-1/2 pointer-events-none z-20 transition-transform duration-75"
+            className="absolute left-1/2 -translate-x-1/2 pointer-events-none z-20"
             style={{
               top: `${carY}px`,
               transform: `translate(-50%, -50%) rotate(${carAngle}deg)`,
@@ -443,8 +443,8 @@ export const InteractiveCircuitTimeline: React.FC<InteractiveCircuitTimelineProp
       {/* ========================================================================= */}
       <div className="pt-4 sm:pt-6 border-t border-warm-200/70">
         <div
-          className={`max-w-6xl xl:max-w-7xl mx-auto space-y-4 sm:space-y-6 transition-all duration-300 ease-out ${
-            isFading ? 'opacity-0 scale-[0.99] translate-y-1' : 'opacity-100 scale-100 translate-y-0'
+          className={`max-w-6xl xl:max-w-7xl mx-auto space-y-4 sm:space-y-6 transition-opacity duration-350 ease-in-out ${
+            isFading ? 'opacity-0 pointer-events-none' : 'opacity-100'
           }`}
         >
           {/* 1. HERO SHOWCASE: LEFT KPIS + CENTERED HERO IMAGE + RIGHT KPIS (Borderless Typography) */}
