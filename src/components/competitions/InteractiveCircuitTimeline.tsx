@@ -95,27 +95,28 @@ export const InteractiveCircuitTimeline: React.FC<InteractiveCircuitTimelineProp
   // Silky smooth fade in / fade out transition state
   const [displayedSeason, setDisplayedSeason] = useState(activeSeason);
   const [isFading, setIsFading] = useState<boolean>(false);
-  const fadeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  // 1. When active season changes, trigger fade-out, then swap data
   useEffect(() => {
-    if (activeSeason.id !== displayedSeason.id) {
-      setIsFading(true);
-      if (fadeTimeoutRef.current) {
-        clearTimeout(fadeTimeoutRef.current);
-      }
-      fadeTimeoutRef.current = setTimeout(() => {
-        setDisplayedSeason(activeSeason);
-        fadeTimeoutRef.current = setTimeout(() => {
-          setIsFading(false);
-        }, 40);
-      }, 260); // 260ms smooth fade-out before content swap
-    }
-    return () => {
-      if (fadeTimeoutRef.current) {
-        clearTimeout(fadeTimeoutRef.current);
-      }
-    };
+    if (activeSeason.id === displayedSeason.id) return;
+
+    setIsFading(true);
+    const swapTimer = setTimeout(() => {
+      setDisplayedSeason(activeSeason);
+    }, 250); // 250ms smooth fade-out before content swap
+
+    return () => clearTimeout(swapTimer);
   }, [activeSeason, displayedSeason.id]);
+
+  // 2. Once displayed data has updated to match active season, smoothly fade back in
+  useEffect(() => {
+    if (isFading && displayedSeason.id === activeSeason.id) {
+      const fadeInTimer = setTimeout(() => {
+        setIsFading(false);
+      }, 40); // 40ms paint buffer so new data and images mount before fading in
+      return () => clearTimeout(fadeInTimer);
+    }
+  }, [displayedSeason.id, activeSeason.id, isFading]);
 
   // Preload all season photography on mount for zero-flicker instant render
   useEffect(() => {
@@ -443,7 +444,7 @@ export const InteractiveCircuitTimeline: React.FC<InteractiveCircuitTimelineProp
       {/* ========================================================================= */}
       <div className="pt-4 sm:pt-6 border-t border-warm-200/70">
         <div
-          className={`max-w-6xl xl:max-w-7xl mx-auto space-y-4 sm:space-y-6 transition-opacity duration-350 ease-in-out ${
+          className={`max-w-6xl xl:max-w-7xl mx-auto space-y-4 sm:space-y-6 transition-opacity duration-300 ease-in-out ${
             isFading ? 'opacity-0 pointer-events-none' : 'opacity-100'
           }`}
         >
