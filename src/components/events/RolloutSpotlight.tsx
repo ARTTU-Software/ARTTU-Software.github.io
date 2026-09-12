@@ -21,7 +21,7 @@ export const RolloutSpotlight: React.FC<{ onOpenPhoto?: (src: string, title: str
               Flagship Event
             </span>
             <span className="text-xs font-mono text-warm-500 uppercase tracking-widest font-semibold">
-              Season 2027 Unveiling
+              Season 2026 Rollout • Next: 2027
             </span>
           </div>
 
@@ -35,7 +35,7 @@ export const RolloutSpotlight: React.FC<{ onOpenPhoto?: (src: string, title: str
                   : 'text-warm-600 hover:text-warm-900'
               }`}
             >
-              Rollout 2027
+              Rollout 2026
             </button>
             <button
               onClick={() => setActiveTab('journey')}
@@ -66,11 +66,11 @@ export const RolloutSpotlight: React.FC<{ onOpenPhoto?: (src: string, title: str
                 </p>
               </div>
 
-              {/* TBA Announcement Box */}
+              {/* TBA Announcement Box for Next Season Rollout */}
               <div className="bg-white/60 backdrop-blur-sm border border-brand-red/25 rounded-2xl p-4 text-warm-900 shadow-xs">
                 <div className="flex items-center gap-2 text-[11px] font-mono font-bold text-brand-red uppercase tracking-wider mb-1.5">
                   <Radio className="w-3.5 h-3.5 animate-pulse" />
-                  Official Unveiling Schedule
+                  Next Rollout: Season 2027 Unveiling
                 </div>
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
                   <div>
@@ -78,22 +78,22 @@ export const RolloutSpotlight: React.FC<{ onOpenPhoto?: (src: string, title: str
                       Date: To Be Announced (TBA)
                     </h4>
                     <p className="text-[11px] text-warm-600 font-mono mt-0.5">
-                      Schedule details will be announced ahead of the event. Follow our official channels for updates and notifications.
+                      {ROLLOUT_DATA.nextRollout?.scheduleNotice || 'Schedule details will be announced ahead of the event. Follow our official channels for updates and notifications.'}
                     </p>
                   </div>
                   <span className="shrink-0 px-3 py-1 rounded-xl bg-brand-red text-white font-mono text-xs font-bold uppercase shadow-xs">
-                    Summer 2027
+                    {ROLLOUT_DATA.nextRollout?.dateDisplay || 'Summer 2027'}
                   </span>
                 </div>
               </div>
 
-              {/* Quick Venue & Date Info */}
+              {/* Quick Venue & Date Info for Next Rollout */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="flex items-start gap-2.5 bg-white/60 backdrop-blur-sm rounded-2xl p-3 border border-white/80">
                   <Calendar className="w-4 h-4 text-brand-red shrink-0 mt-0.5" />
                   <div>
                     <span className="block text-[10px] font-mono text-warm-500 uppercase font-semibold">Timeline</span>
-                    <span className="text-xs sm:text-sm font-bold text-warm-900">{ROLLOUT_DATA.dateDisplay}</span>
+                    <span className="text-xs sm:text-sm font-bold text-warm-900">{ROLLOUT_DATA.nextRollout?.dateDisplay || ROLLOUT_DATA.dateDisplay}</span>
                   </div>
                 </div>
 
@@ -101,8 +101,8 @@ export const RolloutSpotlight: React.FC<{ onOpenPhoto?: (src: string, title: str
                   <MapPin className="w-4 h-4 text-brand-red shrink-0 mt-0.5" />
                   <div>
                     <span className="block text-[10px] font-mono text-warm-500 uppercase font-semibold">Venue</span>
-                    <span className="text-xs sm:text-sm font-bold text-warm-900">{ROLLOUT_DATA.venue}</span>
-                    <span className="block text-[11px] text-warm-600 font-sans mt-0.5">{ROLLOUT_DATA.location}</span>
+                    <span className="text-xs sm:text-sm font-bold text-warm-900">{ROLLOUT_DATA.nextRollout?.venue || ROLLOUT_DATA.venue}</span>
+                    <span className="block text-[11px] text-warm-600 font-sans mt-0.5">{ROLLOUT_DATA.nextRollout?.location || ROLLOUT_DATA.location}</span>
                   </div>
                 </div>
               </div>
@@ -121,7 +121,7 @@ export const RolloutSpotlight: React.FC<{ onOpenPhoto?: (src: string, title: str
             {/* Right Column: Hero Visual Showcase */}
             <div className="lg:col-span-5">
               <div
-                onClick={() => onOpenPhoto && onOpenPhoto(ROLLOUT_DATA.heroImage, ROLLOUT_DATA.title)}
+                onClick={() => onOpenPhoto && onOpenPhoto(ROLLOUT_DATA.heroImage, `${ROLLOUT_DATA.title} (${ROLLOUT_DATA.carBadge})`)}
                 className="group relative rounded-2xl overflow-hidden border border-warm-250 bg-warm-900 aspect-4/3 shadow-md cursor-pointer"
               >
                 <img
@@ -137,7 +137,7 @@ export const RolloutSpotlight: React.FC<{ onOpenPhoto?: (src: string, title: str
                     Click to inspect photo
                   </span>
                   <span className="bg-brand-red px-2 py-0.5 rounded font-bold font-mono text-xs">
-                    ART-27
+                    {ROLLOUT_DATA.carBadge}
                   </span>
                 </div>
               </div>
@@ -175,9 +175,15 @@ export const RolloutSpotlight: React.FC<{ onOpenPhoto?: (src: string, title: str
                       Season {item.year}
                     </div>
                   </div>
-                  <div className="p-3.5 space-y-1 bg-white">
-                    <h4 className="text-sm font-bold text-warm-900 font-mono">{item.carName}</h4>
-                    <p className="text-xs text-warm-600 leading-relaxed">{item.milestone}</p>
+                  <div className="p-4 space-y-1.5 bg-white">
+                    <div className="flex items-center justify-between gap-2">
+                      <h4 className="text-sm font-bold text-warm-900 font-mono">{item.carName}</h4>
+                      {item.date && (
+                        <span className="text-[10px] font-mono text-warm-500">{item.date}</span>
+                      )}
+                    </div>
+                    <p className="text-xs font-semibold text-brand-red">{item.milestone}</p>
+                    <p className="text-xs text-warm-600 leading-relaxed">{item.description}</p>
                   </div>
                 </div>
               ))}

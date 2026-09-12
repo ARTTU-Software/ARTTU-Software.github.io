@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Heart, FileText, Download, Check, Copy, ExternalLink, Eye, Upload, HelpCircle, ArrowRight, ShieldCheck, Building2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Heart, FileText, Download, Check, Copy, ExternalLink, Eye, Upload, HelpCircle, ArrowRight, ShieldCheck, Building2, Calendar } from 'lucide-react';
 import { ScrollReveal } from '../components/motion/ScrollReveal';
 import { TelemetryTicker } from '../components/common/TelemetryTicker';
 
@@ -119,9 +120,14 @@ export const SupportPage: React.FC = () => {
           {/* Top Bar with Title & Tab Switcher */}
           <div>
             <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
-              <div className="flex items-center gap-2 text-xs font-mono text-brand-red uppercase tracking-wider font-bold">
-                <FileText className="w-4 h-4" />
-                <span>Formularul 230 (3.5% Impozit pe Venit)</span>
+              <div className="flex flex-wrap items-center gap-2.5">
+                <div className="flex items-center gap-2 text-xs font-mono text-brand-red uppercase tracking-wider font-bold">
+                  <FileText className="w-4 h-4" />
+                  <span>Formularul 230 (3.5% Impozit pe Venit)</span>
+                </div>
+                <span className="px-2.5 py-0.5 rounded-full bg-brand-red/10 text-brand-red border border-brand-red/25 text-[11px] font-mono font-bold">
+                  Opens Jan 2027
+                </span>
               </div>
 
               {/* View Switcher Tabs */}
@@ -171,17 +177,16 @@ export const SupportPage: React.FC = () => {
                         <h3 className="font-display font-bold text-base text-warm-900">
                           1. Download & print file
                         </h3>
-                        <a
-                          href={formPdfUrl}
-                          download="230_ASOCIATIA-ART-TU-CLUJ-NAPOCA.pdf"
+                        <Link
+                          to="/support/notice"
                           className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-brand-red/10 hover:bg-brand-red hover:text-white text-brand-red font-mono text-xs font-bold transition"
                         >
-                          <Download className="w-3.5 h-3.5" />
-                          <span>PDF Form</span>
-                        </a>
+                          <Calendar className="w-3.5 h-3.5" />
+                          <span>PDF Form (Jan 2027)</span>
+                        </Link>
                       </div>
                       <p className="text-xs sm:text-sm text-warm-600 leading-relaxed">
-                        Download & print the 230 form pre-filled with the official fiscal data of our student association.
+                        The 230 form pre-filled with our association fiscal details will be released here in January 2027 for the upcoming tax campaign.
                       </p>
                     </div>
                   </div>
@@ -224,18 +229,16 @@ export const SupportPage: React.FC = () => {
                         <h3 className="font-display font-bold text-base text-warm-900">
                           3. Upload completed form
                         </h3>
-                        <a
-                          href={googleFormUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                        <Link
+                          to="/support/notice"
                           className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 hover:bg-emerald-700 hover:text-white font-mono text-xs font-bold transition"
                         >
-                          <Upload className="w-3.5 h-3.5" />
-                          <span>Google Form</span>
-                        </a>
+                          <Calendar className="w-3.5 h-3.5" />
+                          <span>Google Form (Jan 2027)</span>
+                        </Link>
                       </div>
                       <p className="text-xs sm:text-sm text-warm-600 leading-relaxed">
-                        Upload the completed form through our Google Form or email it directly to{' '}
+                        Digital uploads via Google Form will activate in January 2027. You can also reach out directly to{' '}
                         <span className="text-brand-red font-mono font-bold">arttu.contact@gmail.com</span>.
                       </p>
                     </div>
@@ -246,14 +249,14 @@ export const SupportPage: React.FC = () => {
 
               {/* Action Buttons Toolbar */}
               <div className="pt-4 border-t border-warm-200 flex flex-wrap items-center gap-3">
-                <a
-                  href={formPdfUrl}
-                  download="230_ASOCIATIA-ART-TU-CLUJ-NAPOCA.pdf"
+                <Link
+                  to="/support/notice"
                   className="px-5 py-3 rounded-xl bg-brand-red hover:bg-brand-darkRed text-white font-bold text-xs uppercase tracking-wider transition flex items-center gap-2 shadow-sm"
                 >
                   <Download className="w-4 h-4" />
                   <span>Download Formular 230</span>
-                </a>
+                  <span className="px-2 py-0.5 rounded-full bg-white/20 text-[10px] font-mono font-semibold ml-1">Jan 2027</span>
+                </Link>
 
                 <button
                   onClick={() => setActiveTab('example')}
@@ -263,15 +266,14 @@ export const SupportPage: React.FC = () => {
                   <span>See Filled Example</span>
                 </button>
 
-                <a
-                  href={googleFormUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  to="/support/notice"
                   className="px-4 py-3 rounded-xl bg-warm-50 hover:bg-warm-100 text-warm-800 font-bold text-xs uppercase tracking-wider transition flex items-center gap-2 border border-warm-200 ml-auto"
                 >
                   <Upload className="w-4 h-4 text-emerald-700" />
                   <span>Upload Form</span>
-                </a>
+                  <span className="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-mono font-semibold ml-1">Jan 2027</span>
+                </Link>
               </div>
             </div>
           )}

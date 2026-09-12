@@ -92,6 +92,45 @@ export const InteractiveCircuitTimeline: React.FC<InteractiveCircuitTimelineProp
 
   const activeSeason = chronologicalSeasons[activeNormalizedIndex];
 
+  // Silky smooth fade in / fade out transition state
+  const [displayedSeason, setDisplayedSeason] = useState(activeSeason);
+  const [isFading, setIsFading] = useState<boolean>(false);
+  const fadeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    if (activeSeason.id !== displayedSeason.id) {
+      setIsFading(true);
+      if (fadeTimeoutRef.current) {
+        clearTimeout(fadeTimeoutRef.current);
+      }
+      fadeTimeoutRef.current = setTimeout(() => {
+        setDisplayedSeason(activeSeason);
+        fadeTimeoutRef.current = setTimeout(() => {
+          setIsFading(false);
+        }, 40);
+      }, 260); // 260ms smooth fade-out before content swap
+    }
+    return () => {
+      if (fadeTimeoutRef.current) {
+        clearTimeout(fadeTimeoutRef.current);
+      }
+    };
+  }, [activeSeason, displayedSeason.id]);
+
+  // Preload all season photography on mount for zero-flicker instant render
+  useEffect(() => {
+    chronologicalSeasons.forEach((season) => {
+      if (season.image) {
+        const img = new Image();
+        img.src = season.image;
+      }
+      if (season.fallbackImage) {
+        const fb = new Image();
+        fb.src = season.fallbackImage;
+      }
+    });
+  }, [chronologicalSeasons]);
+
 
   // Smooth glide to a target virtual index (infinite scroll)
   const glideToVirtualIndex = useCallback(
@@ -162,7 +201,7 @@ export const InteractiveCircuitTimeline: React.FC<InteractiveCircuitTimelineProp
     if (!isPlaying) return;
 
     let animationFrameId: number;
-    const speed = 1.15; // Smooth dynamic auto-scroll pace
+    const speed = 1.15 / 1.7; // Smooth dynamic auto-scroll pace (1.7x slower)
 
     const animate = () => {
       const nextOffset = currentOffsetRef.current - speed;
@@ -223,7 +262,7 @@ export const InteractiveCircuitTimeline: React.FC<InteractiveCircuitTimelineProp
   const carAngle = getSlopeAngle(carWorldX);
 
   return (
-    <div className={`w-full rounded-none border-y border-x-0 border-warm-250/60 bg-transparent p-4 sm:p-7 lg:p-9 transition-all duration-300 select-none ${className}`}>
+    <div className={`w-full rounded-none border-y border-x-0 border-warm-250/60 bg-transparent pt-2 sm:pt-3 px-4 sm:px-6 lg:px-8 pb-4 sm:pb-6 transition-all duration-300 select-none ${className}`}>
       
       {/* ========================================================================= */}
       {/* 🏁 1. INFINITE ORGANIC WAVY TRACK (Smooth varied race curves)              */}
@@ -295,8 +334,7 @@ export const InteractiveCircuitTimeline: React.FC<InteractiveCircuitTimelineProp
               />
             </svg>
 
-
-            {/* 📍 Checkpoint Nodes & Year Badges along Wavy Line */}
+            {/* Checkpoint Pins & Year Badges along Wavy Line */}
             <div className="absolute inset-0 pointer-events-auto">
               {visibleCheckpoints.map((item) => {
                 const isSelected = item.virtualIndex === virtualIndex;
@@ -401,66 +439,87 @@ export const InteractiveCircuitTimeline: React.FC<InteractiveCircuitTimelineProp
       </div>
 
       {/* ========================================================================= */}
-      {/* 🏎️ 2. ACTIVE SEASON DETAILS (Seamlessly attached without bounding box)    */}
+      {/* 🏎️ 2. ACTIVE SEASON HERO & DETAILS (Clean Hero, Telemetry & Narrative)    */}
       {/* ========================================================================= */}
-      <div className="pt-2 sm:pt-3 border-t border-warm-200/60 overflow-hidden">
+      <div className="pt-4 sm:pt-6 border-t border-warm-200/70">
         <div
-          key={activeSeason.id}
-          className={`grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start ${
-            swipeDirection === 'right' ? 'animate-swipe-right' : 'animate-swipe-left'
+          className={`max-w-6xl xl:max-w-7xl mx-auto space-y-4 sm:space-y-6 transition-all duration-300 ease-out ${
+            isFading ? 'opacity-0 scale-[0.99] translate-y-1' : 'opacity-100 scale-100 translate-y-0'
           }`}
         >
+          {/* 1. HERO SHOWCASE: LEFT KPIS + CENTERED HERO IMAGE + RIGHT KPIS (Borderless Typography) */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6 items-center">
+            
+            {/* LEFT KPIS (Desktop) */}
+            <div className="hidden lg:flex lg:col-span-2 flex-col justify-around h-full py-4 space-y-6 text-left">
+              {displayedSeason.keySpecsSummary.slice(0, 3).map((spec, i) => (
+                <div key={i} className="space-y-1">
+                  <div className="text-xs font-mono uppercase tracking-wider text-warm-500 font-semibold">
+                    {spec.label}
+                  </div>
+                  <div
+                    className={`text-2xl xl:text-3xl font-black font-mono tracking-tight ${
+                      spec.highlight ? 'text-brand-red' : 'text-warm-900'
+                    }`}
+                  >
+                    {spec.value}
+                  </div>
+                </div>
+              ))}
+            </div>
 
-          {/* LEFT SUB-COLUMN (5 cols): High-Resolution Car Image & Fast Telemetry Matrix */}
-          <div className="lg:col-span-5 space-y-3">
-
-            {/* Image Container extended upward with clean, unboxed text */}
-            <div className="relative aspect-[16/11] sm:aspect-[16/10.5] w-full rounded-2xl overflow-hidden bg-warm-900 group shadow-sm border border-warm-250">
+            {/* CENTER: Racecar Hero Image (Uniform 1536/905 Aspect Ratio matching 2019-2022) */}
+            <div className="col-span-12 lg:col-span-8 relative aspect-[1536/905] w-full rounded-2xl overflow-hidden bg-warm-900 group shadow-md border border-warm-250">
               <img
-                src={activeSeason.image}
-                alt={`${activeSeason.seasonName} - ${activeSeason.carModel}`}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-104"
+                src={displayedSeason.image}
+                alt={`${displayedSeason.seasonName} - ${displayedSeason.carModel}`}
+                className={`w-full h-full object-cover ${displayedSeason.imagePosition || 'object-center'} transition-transform duration-700 group-hover:scale-102`}
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
-                  if (target.src !== activeSeason.fallbackImage) {
-                    target.src = activeSeason.fallbackImage;
+                  if (target.src !== displayedSeason.fallbackImage) {
+                    target.src = displayedSeason.fallbackImage;
                   }
                 }}
               />
 
-              {/* Clean, unboxed text overlay with subtle drop shadow (no harsh dark bar) */}
-              <div className="absolute bottom-3 left-3.5 right-3.5 flex items-end justify-between pointer-events-none">
-                <div className="space-y-0.5">
-                  <div className="font-display font-black text-base sm:text-lg text-white uppercase tracking-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-                    {activeSeason.carModel}
-                  </div>
-                  <div className="text-[11px] text-white/90 font-mono drop-shadow-[0_1px_6px_rgba(0,0,0,0.9)]">
-                    {activeSeason.circuitLocation}
+              {/* Soft top gradient to ensure crystal-clear text readability over sky/background */}
+              <div className="absolute top-0 inset-x-0 h-24 sm:h-28 bg-gradient-to-b from-black/75 via-black/25 to-transparent pointer-events-none z-10" />
+
+              {/* 🏷️ Season Header Bar (On Top of Image to Save Vertical Space) */}
+              <div className="absolute top-3 sm:top-4 left-4 sm:left-6 right-4 sm:right-6 flex items-center justify-between gap-3 pointer-events-none z-20 flex-wrap">
+                <div className="flex items-center gap-2.5 sm:gap-3">
+                  <span className="px-2.5 py-1 rounded-lg bg-brand-red text-white text-xs font-mono font-bold shadow-xs">
+                    '{displayedSeason.shortYear}
+                  </span>
+                  <div className="flex items-baseline gap-2">
+                    <h3 className="font-display font-black text-2xl sm:text-3xl text-white uppercase tracking-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] leading-none">
+                      {displayedSeason.carModel}
+                    </h3>
+                    <span className="text-xs sm:text-sm font-mono text-white/90 drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)] font-semibold">
+                      {displayedSeason.seasonName}
+                    </span>
                   </div>
                 </div>
-                <span className="px-2.5 py-1 rounded-lg bg-brand-red text-white text-xs font-mono font-bold shadow-md">
-                  '{activeSeason.shortYear}
-                </span>
+
+                <div className="flex items-center gap-1.5 text-xs font-mono text-white/90 bg-black/50 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/20 drop-shadow-sm">
+                  <MapPin className="w-3.5 h-3.5 text-brand-red shrink-0" />
+                  <span className="truncate max-w-[260px] sm:max-w-none">{displayedSeason.circuitLocation}</span>
+                </div>
               </div>
             </div>
 
-            {/* Fast Telemetry Specs Matrix (Original 3-Column Grid Restored) */}
-            <div className="grid grid-cols-3 gap-2">
-              {activeSeason.keySpecsSummary.map((spec, i) => (
-                <div
-                  key={i}
-                  className={`p-2.5 rounded-xl border text-center transition ${
-                    spec.highlight
-                      ? 'bg-red-50/90 border-brand-red/30'
-                      : 'bg-warm-100/70 border-warm-200'
-                  }`}
-                >
-                  <div className="text-[9.5px] font-mono uppercase text-warm-500 font-semibold truncate">
+            {/* RIGHT KPIS (Desktop) */}
+            <div className="hidden lg:flex lg:col-span-2 flex-col justify-around h-full py-4 space-y-6 text-left">
+              {displayedSeason.keySpecsSummary.slice(3, 6).map((spec, i) => (
+                <div key={i} className="space-y-1">
+                  <div className="text-xs font-mono uppercase tracking-wider text-warm-500 font-semibold">
                     {spec.label}
                   </div>
-                  <div className={`font-mono font-bold text-sm sm:text-base ${
-                    spec.highlight ? 'text-brand-red' : 'text-warm-900'
-                  }`}>
+                  <div
+                    className={`text-2xl xl:text-3xl font-black font-mono tracking-tight ${
+                      spec.highlight ? 'text-brand-red' : 'text-warm-900'
+                    }`}
+                  >
                     {spec.value}
                   </div>
                 </div>
@@ -469,121 +528,128 @@ export const InteractiveCircuitTimeline: React.FC<InteractiveCircuitTimelineProp
 
           </div>
 
-          {/* RIGHT SUB-COLUMN (7 cols): Season Glory, Innovations & Podiums */}
-          <div className="lg:col-span-7 space-y-4">
+          {/* MOBILE BORDERLESS KPI ROW (< lg) */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-3 pb-2 border-y border-warm-200/70 lg:hidden">
+            {displayedSeason.keySpecsSummary.map((spec, i) => (
+              <div key={i} className="space-y-1">
+                <div className="text-xs font-mono uppercase tracking-wider text-warm-500 font-semibold">
+                  {spec.label}
+                </div>
+                <div
+                  className={`text-xl sm:text-2xl font-black font-mono tracking-tight ${
+                    spec.highlight ? 'text-brand-red' : 'text-warm-900'
+                  }`}
+                >
+                  {spec.value}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* 3. TWO-COLUMN EDITORIAL & MILESTONE SECTION */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start pt-1 sm:pt-2">
             
-            {/* Top Badges & Season Tag */}
-            <div className="flex items-center justify-between gap-2 flex-wrap">
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-mono font-bold text-brand-red uppercase">
-                  {activeSeason.seasonName}
-                </span>
+            {/* Left Sub-Column (7 cols): Narrative & Action Buttons */}
+            <div className="lg:col-span-7 space-y-4">
+              <div>
+                <div className="text-xs font-mono font-bold text-brand-red uppercase tracking-wider mb-1">
+                  Season Overview
+                </div>
+                <h4 className="font-display font-black text-xl sm:text-2xl text-warm-900 uppercase tracking-tight">
+                  {displayedSeason.carModel}
+                </h4>
               </div>
 
-              <div className="flex items-center gap-1.5 text-xs font-mono text-warm-600 font-semibold bg-warm-100 px-3 py-1 rounded-lg border border-warm-200">
-                <MapPin className="w-3.5 h-3.5 text-brand-red" />
-                <span className="truncate max-w-[220px]">{activeSeason.circuitLocation}</span>
-              </div>
-            </div>
-
-            {/* Title & Tagline */}
-            <div>
-              <h3 className="font-display font-black text-xl sm:text-2xl lg:text-3xl text-warm-900 uppercase leading-tight tracking-tight">
-                {activeSeason.carModel}
-              </h3>
-              <p className="text-xs sm:text-sm text-warm-600 font-mono italic mt-1 leading-relaxed">
-                "{activeSeason.tagline}"
+              {/* Authentic Narrative Description (Zero Taglines, Pure Authentic Story) */}
+              <p className="text-sm text-warm-700 leading-relaxed font-normal">
+                {displayedSeason.description}
               </p>
-            </div>
 
-            {/* Description */}
-            <p className="text-xs sm:text-sm text-warm-700 leading-relaxed">
-              {activeSeason.description}
-            </p>
-
-            {/* Key Technical Innovations & Upgrades */}
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-warm-100/60 backdrop-blur-xs border border-warm-250/70 space-y-2">
-              <div className="flex items-center gap-2 text-xs font-mono uppercase font-bold text-warm-900">
-                <span>Season Engineering Upgrades & Innovations:</span>
-              </div>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {activeSeason.innovations.map((item, idx) => (
-                  <li key={idx} className="text-xs text-warm-700 flex items-start gap-1.5 leading-snug">
-                    <Plus className="w-3.5 h-3.5 text-brand-red shrink-0 mt-0.5" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Season Milestones */}
-            <div className="space-y-2">
-              <div className="text-xs font-mono uppercase font-bold text-warm-900 tracking-wider flex items-center gap-1.5">
-                <span>Season Milestones:</span>
-              </div>
-
-              <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                {activeSeason.awards.map((award, i) => {
-                  const isGold = award.category === 'gold';
-                  const isBronze = award.category === 'bronze';
-                  const isSilver = award.category === 'silver';
-
-                  return (
-                    <span
-                      key={i}
-                      className={`px-2.5 py-1 rounded-lg text-xs font-mono font-semibold flex items-center gap-1.5 border shadow-2xs ${
-                        isGold
-                          ? 'bg-amber-500/10 border-amber-500/30 text-amber-900 font-bold'
-                          : isBronze
-                          ? 'bg-amber-700/10 border-amber-700/30 text-amber-950 font-bold'
-                          : isSilver
-                          ? 'bg-slate-200/80 border-slate-300 text-slate-900 font-bold'
-                          : 'bg-warm-100 border-warm-250 text-warm-800'
-                      }`}
-                    >
-                      <span>
-                        {award.title} • {award.position}
-                      </span>
-                    </span>
-                  );
-                })}
-              </div>
-            </div>
-
-
-            {/* Quick Action Buttons */}
-            <div className="pt-3 border-t border-warm-200 flex items-center justify-between gap-3">
-              <Link
-                to="/car"
-                className="px-4 py-2 rounded-xl bg-warm-100 hover:bg-warm-200 text-warm-900 border border-warm-300 text-xs font-display font-bold uppercase tracking-wider transition flex items-center gap-1.5"
-              >
-                <span>Full Car CAD Specs</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-
-              {onNavigateToAlumni ? (
-                <button
-                  onClick={() => onNavigateToAlumni(activeSeason.id)}
-                  className="px-4 py-2 rounded-xl bg-brand-red hover:bg-brand-darkRed text-white text-xs font-display font-bold uppercase tracking-wider transition flex items-center gap-2 shadow-sm shadow-brand-red/30 cursor-pointer"
-                >
-                  <Users className="w-3.5 h-3.5" />
-                  <span>Meet {activeSeason.yearSpan} Team</span>
-                </button>
-              ) : (
+              {/* Quick Action Buttons */}
+              <div className="pt-3 border-t border-warm-200/70 flex items-center justify-between gap-3 flex-wrap">
                 <Link
-                  to="/history/team"
-                  className="px-4 py-2 rounded-xl bg-brand-red hover:bg-brand-darkRed text-white text-xs font-display font-bold uppercase tracking-wider transition flex items-center gap-2 shadow-sm shadow-brand-red/30"
+                  to="/car"
+                  className="px-4 py-2.5 rounded-xl bg-warm-100 hover:bg-warm-200 text-warm-900 border border-warm-300 text-xs font-display font-bold uppercase tracking-wider transition flex items-center gap-2 shadow-2xs"
                 >
-                  <Users className="w-3.5 h-3.5" />
-                  <span>Alumni Roster</span>
+                  <span>Full Car CAD Specs</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
-              )}
+
+                {onNavigateToAlumni ? (
+                  <button
+                    onClick={() => onNavigateToAlumni(displayedSeason.id)}
+                    className="px-4 py-2.5 rounded-xl bg-brand-red hover:bg-brand-darkRed text-white text-xs font-display font-bold uppercase tracking-wider transition flex items-center gap-2 shadow-sm shadow-brand-red/30 cursor-pointer"
+                  >
+                    <Users className="w-3.5 h-3.5" />
+                    <span>Meet {displayedSeason.yearSpan} Team</span>
+                  </button>
+                ) : (
+                  <Link
+                    to="/history/team"
+                    className="px-4 py-2.5 rounded-xl bg-brand-red hover:bg-brand-darkRed text-white text-xs font-display font-bold uppercase tracking-wider transition flex items-center gap-2 shadow-sm shadow-brand-red/30"
+                  >
+                    <Users className="w-3.5 h-3.5" />
+                    <span>Alumni Roster</span>
+                  </Link>
+                )}
+              </div>
+            </div>
+
+            {/* Right Sub-Column (5 cols): Innovations & Milestones */}
+            <div className="lg:col-span-5 space-y-4">
+              {/* Engineering Upgrades & Innovations */}
+              <div className="p-4 sm:p-5 rounded-2xl bg-warm-100/70 border border-warm-250 space-y-2.5 shadow-2xs">
+                <div className="text-xs font-mono uppercase font-bold text-warm-900 tracking-wider">
+                  Season Engineering Upgrades & Innovations
+                </div>
+                <ul className="space-y-2">
+                  {displayedSeason.innovations.map((item, idx) => (
+                    <li key={idx} className="text-xs text-warm-700 flex items-start gap-2 leading-relaxed">
+                      <Plus className="w-3.5 h-3.5 text-brand-red shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Season Milestones */}
+              <div className="space-y-2">
+                <div className="text-xs font-mono uppercase font-bold text-warm-900 tracking-wider flex items-center gap-1.5">
+                  <Trophy className="w-3.5 h-3.5 text-brand-red" />
+                  <span>Season Milestones:</span>
+                </div>
+
+                <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                  {displayedSeason.awards.map((award, i) => {
+                    const isGold = award.category === 'gold';
+                    const isBronze = award.category === 'bronze';
+                    const isSilver = award.category === 'silver';
+
+                    return (
+                      <span
+                        key={i}
+                        className={`px-2.5 py-1 rounded-lg text-xs font-mono font-semibold flex items-center gap-1.5 border shadow-2xs ${
+                          isGold
+                            ? 'bg-amber-500/10 border-amber-500/30 text-amber-900 font-bold'
+                            : isBronze
+                            ? 'bg-amber-700/10 border-amber-700/30 text-amber-950 font-bold'
+                            : isSilver
+                            ? 'bg-slate-200/80 border-slate-300 text-slate-900 font-bold'
+                            : 'bg-warm-100 border-warm-250 text-warm-800'
+                        }`}
+                      >
+                        <span>
+                          {award.title} • {award.position}
+                        </span>
+                      </span>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
 
           </div>
-
         </div>
-
       </div>
 
     </div>

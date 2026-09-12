@@ -63,51 +63,88 @@ export const SponsorsSection: React.FC<SponsorsSectionProps> = ({ onOpenSponsorM
                     {tierGroup.tier === 'educational' && <ShieldCheck className="w-5 h-5 text-blue-600" />}
                     {tierGroup.tier === 'platinum' && <Star className="w-5 h-5 text-brand-red fill-brand-red" />}
                     {tierGroup.tier === 'gold' && <Star className="w-5 h-5 text-amber-500 fill-amber-500" />}
+                    {tierGroup.tier === 'silver' && <Star className="w-5 h-5 text-slate-400 fill-slate-400" />}
+                    {tierGroup.tier === 'bronze' && <Star className="w-5 h-5 text-amber-700 fill-amber-700" />}
+                    {tierGroup.tier === 'supporter' && <Handshake className="w-5 h-5 text-brand-red" />}
                     <span>{tierGroup.title}</span>
                   </h3>
                   <p className="text-xs text-warm-500 mt-0.5 font-medium">{tierGroup.subtitle}</p>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {tierGroup.sponsors.map((sponsor, idx) => (
-                  <div
-                    key={idx}
-                    className="bg-warm-50 p-6 rounded-2xl border border-warm-200 hover:border-brand-red/50 hover:bg-white transition-all duration-300 flex flex-col justify-between group hover:shadow-md"
-                  >
-                    <div>
-                      <div className="h-16 flex items-center justify-start mb-4 bg-white p-2 rounded-xl border border-warm-200">
-                        <img
-                          src={sponsor.logo}
-                          alt={sponsor.name}
-                          className="max-h-12 max-w-[180px] object-contain filter grayscale group-hover:grayscale-0 transition duration-300"
-                        />
-                      </div>
-                      <h4 className="font-display font-bold text-lg text-warm-900 mb-2 group-hover:text-brand-red transition">
-                        {sponsor.name}
-                      </h4>
-                      {sponsor.description && (
-                        <p className="text-xs text-warm-600 leading-relaxed line-clamp-3">
-                          {sponsor.description}
-                        </p>
-                      )}
-                    </div>
+              <div className={
+                tierGroup.tier === 'supporter' || tierGroup.tier === 'bronze'
+                  ? "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+                  : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+              }>
+                {tierGroup.sponsors.map((sponsor, idx) => {
+                  const CardContent = (
+                    <div className="h-full flex flex-col justify-between">
+                      <div>
+                        <div className="relative h-16 flex items-center justify-center mb-4 bg-white p-2 rounded-xl border border-warm-200 gap-3">
+                          {sponsor.secondaryLogo ? (
+                            <div className="flex items-center justify-center gap-2 w-full h-full px-1">
+                              <div className="flex-1 flex items-center justify-center h-full">
+                                <img
+                                  src={sponsor.logo}
+                                  alt={sponsor.name}
+                                  className="max-h-11 max-w-full w-auto object-contain filter grayscale group-hover:grayscale-0 transition duration-300"
+                                />
+                              </div>
+                              <div className="w-px h-7 bg-warm-250/80 shrink-0" aria-hidden="true" />
+                              <div className="flex-1 flex items-center justify-center h-full">
+                                <img
+                                  src={sponsor.secondaryLogo}
+                                  alt={`${sponsor.name} Secondary Logo`}
+                                  className="max-h-11 max-w-full w-auto object-contain filter grayscale group-hover:grayscale-0 transition duration-300"
+                                />
+                              </div>
+                            </div>
+                          ) : (
+                            <img
+                              src={sponsor.logo}
+                              alt={sponsor.name}
+                              className="max-h-12 max-w-[180px] object-contain filter grayscale group-hover:grayscale-0 transition duration-300"
+                            />
+                          )}
 
-                    {sponsor.website && (
-                      <div className="mt-4 pt-3 border-t border-warm-200">
-                        <a
-                          href={sponsor.website}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 text-xs font-mono text-brand-red hover:underline font-bold transition"
-                        >
-                          <span>Visit Partner</span>
-                          <ExternalLink className="w-3.5 h-3.5" />
-                        </a>
+                          {sponsor.website && (
+                            <div className="absolute top-2 right-2 text-warm-300 group-hover:text-brand-red opacity-0 group-hover:opacity-100 transition-all duration-200">
+                              <ExternalLink className="w-3.5 h-3.5" />
+                            </div>
+                          )}
+                        </div>
+                        <h4 className="font-display font-bold text-lg text-warm-900 mb-2 group-hover:text-brand-red transition">
+                          {sponsor.name}
+                        </h4>
+                        {sponsor.description && (
+                          <p className={`text-xs text-warm-600 leading-relaxed ${sponsor.tier === 'educational' ? '' : 'line-clamp-3'}`}>
+                            {sponsor.description}
+                          </p>
+                        )}
                       </div>
-                    )}
-                  </div>
-                ))}
+                    </div>
+                  );
+
+                  return sponsor.website ? (
+                    <a
+                      key={idx}
+                      href={sponsor.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-warm-50 p-6 rounded-2xl border border-warm-200 hover:border-brand-red/50 hover:bg-white hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group hover:shadow-md cursor-pointer block text-inherit no-underline"
+                    >
+                      {CardContent}
+                    </a>
+                  ) : (
+                    <div
+                      key={idx}
+                      className="bg-warm-50 p-6 rounded-2xl border border-warm-200 transition-all duration-300 flex flex-col justify-between"
+                    >
+                      {CardContent}
+                    </div>
+                  );
+                })}
               </div>
             </div>
           ))}

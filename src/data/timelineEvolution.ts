@@ -24,6 +24,7 @@ export interface TimelineSeason {
   image: string;
   fallbackImage: string;
   imageCaption: string;
+  imagePosition?: string;
   description: string;
   innovations: string[];
   specs: {

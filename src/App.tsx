@@ -10,6 +10,7 @@ import { DepartmentsPage } from './pages/DepartmentsPage';
 import { RecruitmentPage } from './pages/RecruitmentPage';
 import { PartnersPage } from './pages/PartnersPage';
 import { SupportPage } from './pages/SupportPage';
+import { SupportFormNoticePage } from './pages/SupportFormNoticePage';
 import { ContactPage } from './pages/ContactPage';
 import { EventsPage } from './pages/EventsPage';
 import { StartupSplash } from './components/common/StartupSplash';
@@ -40,6 +41,9 @@ export function App() {
             <Route path="/sponsors" element={<PartnersPage />} />
             <Route path="/sponsorship" element={<PartnersPage />} />
             <Route path="/support" element={<SupportPage />} />
+            <Route path="/support/notice" element={<SupportFormNoticePage />} />
+            <Route path="/support/form" element={<SupportFormNoticePage />} />
+            <Route path="/support/formular-230" element={<SupportFormNoticePage />} />
             <Route path="/contact" element={<ContactPage />} />
           </Routes>
         </main>

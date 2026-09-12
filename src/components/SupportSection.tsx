@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Heart, FileText, Download, Check, Copy, ExternalLink, Eye, Upload, HelpCircle, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Heart, FileText, Download, Check, Copy, ExternalLink, Eye, Upload, HelpCircle, ArrowRight, Calendar } from 'lucide-react';
 
 export const SupportSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'steps' | 'example'>('steps');
@@ -105,17 +106,16 @@ export const SupportSection: React.FC = () => {
                     <div className="flex-1 space-y-1">
                       <div className="flex items-center justify-between gap-2">
                         <h4 className="font-display font-bold text-sm text-white">1. Download & print file</h4>
-                        <a
-                          href={formPdfUrl}
-                          download="230_ASOCIATIA-ART-TU-CLUJ-NAPOCA.pdf"
+                        <Link
+                          to="/support/notice"
                           className="text-xs font-mono font-bold text-brand-brightRed hover:underline flex items-center gap-1"
                         >
-                          <Download className="w-3 h-3" />
-                          <span>PDF</span>
-                        </a>
+                          <Calendar className="w-3 h-3" />
+                          <span>PDF (Jan 2027)</span>
+                        </Link>
                       </div>
                       <p className="text-xs text-gray-400">
-                        Download & print the 230 form pre-filled with the data of our association!
+                        Formular 230 pre-filled with our association data will be available for download in January 2027.
                       </p>
                     </div>
                   </div>
@@ -148,32 +148,30 @@ export const SupportSection: React.FC = () => {
                     <div className="flex-1 space-y-1">
                       <div className="flex items-center justify-between gap-2">
                         <h4 className="font-display font-bold text-sm text-white">3. Upload file</h4>
-                        <a
-                          href={googleFormUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                        <Link
+                          to="/support/notice"
                           className="text-xs font-mono font-bold text-emerald-400 hover:underline flex items-center gap-1"
                         >
-                          <Upload className="w-3 h-3" />
-                          <span>Form</span>
-                        </a>
+                          <Calendar className="w-3 h-3" />
+                          <span>Form (Jan 2027)</span>
+                        </Link>
                       </div>
                       <p className="text-xs text-gray-400">
-                        After completing the form, please upload it using the Google form accessible in this section or send to <span className="text-white">arttu.contact@gmail.com</span>!
+                        The Google Form upload link will activate in January 2027.
                       </p>
                     </div>
                   </div>
                 </div>
 
                 <div className="pt-4 border-t border-carbon-800 flex flex-wrap items-center gap-3">
-                  <a
-                    href={formPdfUrl}
-                    download="230_ASOCIATIA-ART-TU-CLUJ-NAPOCA.pdf"
+                  <Link
+                    to="/support/notice"
                     className="px-5 py-3 rounded-lg bg-brand-red hover:bg-brand-brightRed text-white font-bold text-xs uppercase tracking-wider transition flex items-center gap-2 shadow-lg shadow-brand-red/20"
                   >
                     <Download className="w-4 h-4" />
                     <span>Download Formular 230</span>
-                  </a>
+                    <span className="px-2 py-0.5 rounded-full bg-white/20 text-[10px] font-mono font-semibold ml-1">Jan 2027</span>
+                  </Link>
 
                   <button
                     onClick={() => setActiveTab('example')}
@@ -183,15 +181,14 @@ export const SupportSection: React.FC = () => {
                     <span>See Filled Example</span>
                   </button>
 
-                  <a
-                    href={googleFormUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    to="/support/notice"
                     className="px-4 py-3 rounded-lg bg-carbon-900 hover:bg-carbon-800 text-gray-200 font-bold text-xs uppercase tracking-wider transition flex items-center gap-2 border border-carbon-750 ml-auto"
                   >
                     <Upload className="w-4 h-4 text-emerald-400" />
                     <span>Upload Form</span>
-                  </a>
+                    <span className="px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 text-[10px] font-mono font-semibold ml-1">Jan 2027</span>
+                  </Link>
                 </div>
               </div>
             )}

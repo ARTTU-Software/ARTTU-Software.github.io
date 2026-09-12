@@ -529,10 +529,6 @@ export const TeamHistoryPage: React.FC<TeamHistoryPageProps> = ({
       {/* Next Generation CTA Banner */}
       <ScrollReveal direction="up" duration={650}>
         <div className="bg-white/50 backdrop-blur-md rounded-3xl border border-white/80 p-8 sm:p-12 shadow-xs text-center max-w-4xl mx-auto space-y-6 card-hover-glow">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-lg bg-brand-red/10 border border-brand-red/20 text-brand-red text-xs font-mono uppercase font-bold">
-            <Trophy className="w-3.5 h-3.5" />
-            <span>Write the Next Chapter</span>
-          </div>
           <h3 className="font-display font-black text-2xl sm:text-4xl text-black uppercase tracking-tight">
             BE PART OF OUR NEXT GENERATION
           </h3>

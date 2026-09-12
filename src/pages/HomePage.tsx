@@ -869,7 +869,6 @@ export const HomePage: React.FC = () => {
                     className="w-full h-[280px] sm:h-[340px] lg:h-[370px] object-cover group-hover:scale-103 transition duration-700 ease-out"
                   />
                   <div className="absolute top-4 left-4 px-3.5 py-1.5 rounded-lg bg-white/95 backdrop-blur-md text-xs font-mono font-bold text-emerald-700 shadow-sm flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                     RECRUITMENT ACTIVE
                   </div>
                 </Link>

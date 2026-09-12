@@ -110,7 +110,7 @@ export const HorizontalEventsTimeline: React.FC<HorizontalEventsTimelineProps> =
                 Season Timeline
               </div>
               <h3 className="font-display font-black text-xl sm:text-2xl text-warm-900 uppercase tracking-tight">
-                Chronological Events Track
+                Off-Track Events
               </h3>
             </div>
 

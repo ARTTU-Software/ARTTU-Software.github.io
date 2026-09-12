@@ -65,6 +65,7 @@ export interface CarRecord {
   fallbackImage: string;
   /** Short photo caption */
   imageCaption: string;
+  imagePosition?: string;
 
   /** Engineering / Vehicle Overview (Focused purely on engineering rather than competition awards) */
   engineeringOverview?: string;
@@ -149,6 +150,7 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
     image: '/assets/IMG_7408.webp',
     fallbackImage: '/assets/2026_main_photo.webp',
     imageCaption: 'Afia (ART-26 EV) • 200V custom battery, full carbon aerodynamic package, and live telemetry streaming.',
+    imagePosition: 'object-[center_35%]',
     engineeringOverview:
       "Afia is our high-voltage electric formula single-seater, engineered in-house with a custom 200V lithium-ion accumulator, dual permanent magnet motors, full carbon-fiber aerodynamics package, and integrated CAN-bus telemetry.",
 
@@ -352,13 +354,14 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
 
     image: '/assets/20250821_12-46-42_1527_grobe-XL.webp',
     fallbackImage: '/assets/20250820_14-48-23_2601_seizinger-X3.webp',
-      imageCaption: "Coty on the grid • featuring our team's first aerodynamic wings and carbon wishbones.",
+    imageCaption: "Coty on the grid • featuring our team's first aerodynamic wings and carbon wishbones.",
+    imagePosition: 'object-[center_bottom]',
 
 
     title: 'Breakthrough & Scrutineering Perfection',
-    tagline: 'First car to pass all scrutineering inspections at any competition and complete the 22 km endurance event at Hockenheimring.',
+    tagline: 'Passed all technical inspections & completed 22 km endurance at Hockenheimring, 1st in Statics at FS Balkans',
     description:
-      'The pivotal turning point in our international campaign. Coty passed all stringent scrutineering inspections at Formula Student Germany on the first attempt and completed the punishing 22 km endurance event at Hockenheimring while taking 1st in all statics at FS Balkans.',
+      'The pivotal turning point in our international campaign. Season 2024-2025 delivered historic double success: winning 1st in all static events (Engineering Design, Cost & Manufacturing, Business Plan) and 2nd in Endurance at FS Balkans 2025, followed by reaching Hockenheim at Formula Student Germany 2025 where ART TU passed all technical inspections for the first time ever and completed all dynamic events, finishing P28 in Endurance and P59 out of 83 teams overall.',
     circuitLocation: 'Hockenheimring (Germany) & TNT Karting, Dej',
 
     innovations: [
@@ -369,9 +372,10 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
 
     awards: [
       { title: 'FS Balkans Statics', position: '1st in Design, Cost, BPP', category: 'gold' },
-      { title: 'FS Balkans Endurance', position: '2nd Place', category: 'silver' },
+      { title: 'FS Balkans Endurance & Efficiency', position: '2nd Place', category: 'silver' },
       { title: 'FS Germany (Hockenheim)', position: 'Full 22 km Endurance Finish (P28)', category: 'special' },
-      { title: 'FS Czech (Autodrom Most)', position: 'Mechanical Scrutineering Pass', category: 'special' }
+      { title: 'FS Germany Scrutineering', position: 'All Tech Inspections Passed', category: 'gold' },
+      { title: 'FS Germany Overall', position: 'P59 / 83 Teams', category: 'special' }
     ],
 
     kpis: {
@@ -446,12 +450,13 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
 
     image: '/assets/FB-Post-11.08.2024.webp',
     fallbackImage: '/assets/20250501_172038-1-1-scaled.webp',
-    imageCaption: 'Danika Facelift dynamic testing session • introducing structural composite bodywork and planetary transmission.',
+    imageCaption: 'ART24 on the grid at Formula Student Czech Republic 2024 (Autodrom Most) • historic first mechanical scrutineering pass.',
+    imagePosition: 'object-[center_top]',
 
-    title: 'Engineering Maturation & Carbon Chassis',
-    tagline: '3rd Place Overall Podium at FS Balkans & FS Czech Debut at Autodrom Most',
+    title: 'Engineering Maturation & Mechanical Breakthrough',
+    tagline: '3rd Place Overall Podium at FS Balkans & 1st Mechanical Scrutineering Pass at FS Czech',
     description:
-      'Refining high-voltage electrical safety and vehicle dynamics, the team debuted at Autodrom Most in Formula Student Czech (P28 / 37 EV teams) and captured an overall 3rd place podium finish at FS Balkans, winning 1st in Engineering Design and Business Plan Presentation.',
+      'Season 2023-2024 brought major technical milestones for ART TU: passing Mechanical Scrutineering for the first time in team history at Formula Student Czech 2024 (Autodrom Most, P37 / 46 EV teams), followed by capturing an overall 3rd place championship podium at the inaugural official edition of FS Balkans, winning 1st in Engineering Design, 1st in Business Plan Presentation, and 2nd in Cost & Manufacturing.',
     circuitLocation: 'Autodrom Most (Czech Republic) & TNT Karting, Dej',
 
     innovations: [
@@ -465,7 +470,7 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
       { title: 'Engineering Design', position: '1st Place (FSBK)', category: 'gold' },
       { title: 'Business Plan (BPP)', position: '1st Place (FSBK)', category: 'gold' },
       { title: 'Cost & Manufacturing', position: '2nd Place (FSBK)', category: 'silver' },
-      { title: 'FS Czech (Autodrom Most)', position: 'P28 / 37 EV Teams', category: 'special' }
+      { title: 'FS Czech (Autodrom Most)', position: 'Passed Mechanical Scrutineering (P37 / 46 EV)', category: 'special' }
     ],
 
     kpis: {
@@ -511,32 +516,118 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
       }
     ],
 
-    trackProgress: 0.46,
-    circuitTurn: ''
+    trackProgress: 0.52,
+    circuitTurn: 'Turn 7 • Technical Stadium Infield'
   },
 
   // --------------------------------------------------------------------------
-  // 4. ART-22 EV - Season 2022-2023
+  // 4. ART-23 EV - Season 2022-2023
   // --------------------------------------------------------------------------
-  'art-22': {
-    id: 'art-22',
+  'art-23': {
+    id: 'art-23',
     name: 'ART23',
     shortName: 'ART23',
     generationCode: 'ART23',
     seasonSpan: '2022 - 2023',
     shortYear: "'23",
     isCurrentCar: false,
-    status: 'Historic Milestone',
-    badgeType: 'gold',
+    status: 'Evolution Track Record',
+    badgeType: 'bronze',
 
     image: '/assets/FSCzech4-1536x1153.webp',
     fallbackImage: '/assets/IMG_1513.webp',
-    imageCaption: 'Danika at FS Alpe Adria Croatia • the first electric formula single-seater built by a Romanian university.',
+    imageCaption: 'ART23 under the arch at Formula Student Czech Republic 2023 (Autodrom Most) • upgraded chassis and composite aerodynamic bodywork.',
+    imagePosition: 'object-[center_45%]',
+
+    title: 'Evolution & FS Czech Debut',
+    tagline: 'Formula Student Czech Republic 2023 Debut & Pilot FS Balkans Demonstration',
+    description:
+      'In Season 2022-2023, ART TU introduced an upgraded single-seater electric racecar with optimized mechanical structures, composite bodywork, and enhanced powertrain reliability. Competing at Autodrom Most in Formula Student Czech 2023, the team finished P28 out of 37 electric vehicle teams, and participated in the pilot edition of FS Balkans near Brașov.',
+    circuitLocation: 'Autodrom Most (Czech Republic) & Brașov (Romania)',
+
+    innovations: [
+      'Composite aerodynamic bodywork panels and optimized nosecone packaging',
+      'Enhanced high-voltage battery enclosure cooling and safety disconnects',
+      'Refined suspension geometry and chassis torsional stiffness',
+      'Demonstration at the inaugural pilot edition of Formula Student Balkans'
+    ],
+
+    awards: [
+      { title: 'FS Czech 2023 (Autodrom Most)', position: 'P28 / 37 EV Teams', category: 'special' },
+      { title: 'FS Balkans Pilot (Brașov)', position: 'Pioneer Demonstration', category: 'special' },
+      { title: 'Static Events Classification', position: 'Official European Scoring', category: 'special' }
+    ],
+
+    kpis: {
+      accelerationSec: 5.6,
+      accelerationStr: '5.6 s',
+      topSpeedKmh: 70,
+      topSpeedStr: '70 km/h',
+      peakPowerKw: 35,
+      peakPowerStr: '35 kW',
+      packVoltageV: 201.6,
+      packVoltageStr: '201.6 V DC',
+      vehicleMassKg: 305,
+      vehicleMassStr: '305 kg',
+      downforceN: 60,
+      downforceStr: 'Low-Drag Aero',
+      torqueNm: 70,
+      torqueStr: '70 Nm'
+    },
+
+    technicalSpecs: {
+      weight: '305 kg',
+      power: '35 kW',
+      topSpeed: '70 km/h',
+      accel: '5.6 s',
+      voltage: '201.6 V DC',
+      batteryCells: 'Enepaq High-Performance Li-Ion Modules',
+      motors: 'Brushless DC, 2 x Plettenberg Nova 30A4S',
+      torque: '70 Nm',
+      downforce: 'Streamlined Composite Bodywork',
+      dimensions: '3050 x 1550 x 1320 mm',
+      driveType: 'Planetary Gearbox',
+      tyres: 'Continental Racing Slicks'
+    },
+
+    specGroups: [
+      {
+        category: 'Performance',
+        items: [
+          { label: 'Acceleration', value: '5.6 s' },
+          { label: 'Top Speed', value: '70 km/h' },
+          { label: 'Peak Power', value: '35 kW' }
+        ]
+      }
+    ],
+
+    trackProgress: 0.36,
+    circuitTurn: 'Turn 5 • North Chicane'
+  },
+
+  // --------------------------------------------------------------------------
+  // 5. ART-22 EV - Season 2021-2022
+  // --------------------------------------------------------------------------
+  'art-22': {
+    id: 'art-22',
+    name: 'ART22',
+    shortName: 'ART22',
+    generationCode: 'ART22',
+    seasonSpan: '2021 - 2022',
+    shortYear: "'22",
+    isCurrentCar: false,
+    status: 'Historic Milestone',
+    badgeType: 'gold',
+
+    image: '/assets/Cover-FB-03.09.webp',
+    fallbackImage: '/assets/IMG_1513.webp',
+    imageCaption: 'ART22 on the paddock at Formula Student Alpe Adria 2022 (Bugatti Rimac Test Track, Croatia) • the first electric formula single-seater built by a Romanian university.',
+    imagePosition: 'object-[center_45%]',
 
     title: '1st Romanian Electric Single-Seater in History',
     tagline: 'Historic debut at Formula Student Alpe Adria (Bugatti Rimac Test Track, Croatia)',
     description:
-      'In August 2022, we made Romanian motorsport history by becoming the very first university team in the country to design, build, and enter an electric formula car at an official Formula Student competition, scoring 25th in static events against established European teams.',
+      'In August 2022, ART TU made Romanian motorsport history by becoming the very first university team in the country to design, build, and enter an electric formula car at an official international Formula Student competition, scoring 25th in static events against established European teams.',
     circuitLocation: 'Bugatti Rimac Test Track (Croatia)',
 
     innovations: [
@@ -595,12 +686,12 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
       }
     ],
 
-    trackProgress: 0.22,
+    trackProgress: 0.20,
     circuitTurn: 'Turn 3 • Eastern Outer Hairpin'
   },
 
   // --------------------------------------------------------------------------
-  // 5. CONCEPT PROTOTYPE ART-01 - Founding Era 2019-2022
+  // 6. CONCEPT PROTOTYPE ART-01 - Founding Era 2019-2021
   // --------------------------------------------------------------------------
 
   'concept-art01': {
@@ -608,8 +699,8 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
     name: 'ART01',
     shortName: 'ART01',
     generationCode: 'ART01',
-    seasonSpan: '2019 - 2022',
-    shortYear: "'19-'22",
+    seasonSpan: '2019 - 2021',
+    shortYear: "'19-'21",
     isCurrentCar: false,
     status: 'Founding Concept',
     badgeType: 'brand',
@@ -617,6 +708,7 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
     image: '/assets/Team-building-Marisel-2019.webp',
     fallbackImage: '/assets/Recruitment-2019.webp',
     imageCaption: 'The founding ART TU crew at Mărișel in June 2019, building the first 1:1 scale tubular chassis mockup.',
+    imagePosition: 'object-[center_30%]',
 
     title: "The Foundation of ART TU's Electric Racing Legacy",
     tagline: "From Mărișel workshop concept to Romania's premier EV racing team",
@@ -714,7 +806,7 @@ export function getCurrentCar(): CarRecord {
 export function getTimelineSeasons() {
   return [
     {
-      id: CARS_DATABASE['afia-art26'].seasonSpan.replace(' ', ''),
+      id: '2025-2026',
       yearSpan: CARS_DATABASE['afia-art26'].seasonSpan,
       shortYear: CARS_DATABASE['afia-art26'].shortYear,
       seasonName: `Season ${CARS_DATABASE['afia-art26'].seasonSpan}`,
@@ -727,6 +819,7 @@ export function getTimelineSeasons() {
       image: CARS_DATABASE['afia-art26'].image,
       fallbackImage: CARS_DATABASE['afia-art26'].fallbackImage,
       imageCaption: CARS_DATABASE['afia-art26'].imageCaption,
+      imagePosition: CARS_DATABASE['afia-art26'].imagePosition,
       description: CARS_DATABASE['afia-art26'].description,
       innovations: CARS_DATABASE['afia-art26'].innovations,
       specs: CARS_DATABASE['afia-art26'].technicalSpecs,
@@ -743,7 +836,7 @@ export function getTimelineSeasons() {
       circuitTurn: CARS_DATABASE['afia-art26'].circuitTurn
     },
     {
-      id: CARS_DATABASE['art-25'].seasonSpan.replace(' ', ''),
+      id: '2024-2025',
       yearSpan: CARS_DATABASE['art-25'].seasonSpan,
       shortYear: CARS_DATABASE['art-25'].shortYear,
       seasonName: `Season ${CARS_DATABASE['art-25'].seasonSpan}`,
@@ -756,6 +849,7 @@ export function getTimelineSeasons() {
       image: CARS_DATABASE['art-25'].image,
       fallbackImage: CARS_DATABASE['art-25'].fallbackImage,
       imageCaption: CARS_DATABASE['art-25'].imageCaption,
+      imagePosition: CARS_DATABASE['art-25'].imagePosition,
       description: CARS_DATABASE['art-25'].description,
       innovations: CARS_DATABASE['art-25'].innovations,
       specs: CARS_DATABASE['art-25'].technicalSpecs,
@@ -772,7 +866,7 @@ export function getTimelineSeasons() {
       circuitTurn: CARS_DATABASE['art-25'].circuitTurn
     },
     {
-      id: CARS_DATABASE['art-24'].seasonSpan.replace(' ', ''),
+      id: '2023-2024',
       yearSpan: CARS_DATABASE['art-24'].seasonSpan,
       shortYear: CARS_DATABASE['art-24'].shortYear,
       seasonName: `Season ${CARS_DATABASE['art-24'].seasonSpan}`,
@@ -785,6 +879,7 @@ export function getTimelineSeasons() {
       image: CARS_DATABASE['art-24'].image,
       fallbackImage: CARS_DATABASE['art-24'].fallbackImage,
       imageCaption: CARS_DATABASE['art-24'].imageCaption,
+      imagePosition: CARS_DATABASE['art-24'].imagePosition,
       description: CARS_DATABASE['art-24'].description,
       innovations: CARS_DATABASE['art-24'].innovations,
       specs: CARS_DATABASE['art-24'].technicalSpecs,
@@ -801,7 +896,37 @@ export function getTimelineSeasons() {
       circuitTurn: CARS_DATABASE['art-24'].circuitTurn
     },
     {
-      id: CARS_DATABASE['art-22'].seasonSpan.replace(' ', ''),
+      id: '2022-2023',
+      yearSpan: CARS_DATABASE['art-23'].seasonSpan,
+      shortYear: CARS_DATABASE['art-23'].shortYear,
+      seasonName: `Season ${CARS_DATABASE['art-23'].seasonSpan}`,
+      carModel: CARS_DATABASE['art-23'].name,
+      title: CARS_DATABASE['art-23'].title,
+      tagline: CARS_DATABASE['art-23'].tagline,
+      badge: 'Evolution Season',
+      badgeType: CARS_DATABASE['art-23'].badgeType,
+      circuitLocation: CARS_DATABASE['art-23'].circuitLocation,
+      image: CARS_DATABASE['art-23'].image,
+      fallbackImage: CARS_DATABASE['art-23'].fallbackImage,
+      imageCaption: CARS_DATABASE['art-23'].imageCaption,
+      imagePosition: CARS_DATABASE['art-23'].imagePosition,
+      description: CARS_DATABASE['art-23'].description,
+      innovations: CARS_DATABASE['art-23'].innovations,
+      specs: CARS_DATABASE['art-23'].technicalSpecs,
+      keySpecsSummary: [
+        { label: 'Peak Power', value: CARS_DATABASE['art-23'].kpis.peakPowerStr, highlight: true },
+        { label: 'Vehicle Mass', value: CARS_DATABASE['art-23'].kpis.vehicleMassStr },
+        { label: 'Pack Voltage', value: CARS_DATABASE['art-23'].kpis.packVoltageStr },
+        { label: 'Max Torque', value: CARS_DATABASE['art-23'].kpis.torqueStr },
+        { label: 'Top Speed', value: CARS_DATABASE['art-23'].kpis.topSpeedStr },
+        { label: 'European Classification', value: 'P28 / 37 EV', highlight: true }
+      ],
+      awards: CARS_DATABASE['art-23'].awards,
+      trackProgress: CARS_DATABASE['art-23'].trackProgress,
+      circuitTurn: CARS_DATABASE['art-23'].circuitTurn
+    },
+    {
+      id: '2021-2022',
       yearSpan: CARS_DATABASE['art-22'].seasonSpan,
       shortYear: CARS_DATABASE['art-22'].shortYear,
       seasonName: `Season ${CARS_DATABASE['art-22'].seasonSpan}`,
@@ -814,6 +939,7 @@ export function getTimelineSeasons() {
       image: CARS_DATABASE['art-22'].image,
       fallbackImage: CARS_DATABASE['art-22'].fallbackImage,
       imageCaption: CARS_DATABASE['art-22'].imageCaption,
+      imagePosition: CARS_DATABASE['art-22'].imagePosition,
       description: CARS_DATABASE['art-22'].description,
       innovations: CARS_DATABASE['art-22'].innovations,
       specs: CARS_DATABASE['art-22'].technicalSpecs,
@@ -830,10 +956,10 @@ export function getTimelineSeasons() {
       circuitTurn: CARS_DATABASE['art-22'].circuitTurn
     },
     {
-      id: '2019-2022',
+      id: '2019-2020',
       yearSpan: CARS_DATABASE['concept-art01'].seasonSpan,
       shortYear: CARS_DATABASE['concept-art01'].shortYear,
-      seasonName: 'Founding Era (2019-2022)',
+      seasonName: 'Seasons 2019-2021',
       carModel: CARS_DATABASE['concept-art01'].name,
       title: CARS_DATABASE['concept-art01'].title,
       tagline: CARS_DATABASE['concept-art01'].tagline,
@@ -843,15 +969,17 @@ export function getTimelineSeasons() {
       image: CARS_DATABASE['concept-art01'].image,
       fallbackImage: CARS_DATABASE['concept-art01'].fallbackImage,
       imageCaption: CARS_DATABASE['concept-art01'].imageCaption,
+      imagePosition: CARS_DATABASE['concept-art01'].imagePosition,
       description: CARS_DATABASE['concept-art01'].description,
       innovations: CARS_DATABASE['concept-art01'].innovations,
       specs: CARS_DATABASE['concept-art01'].technicalSpecs,
       keySpecsSummary: [
-        { label: 'Founding Team', value: '20 Engineers', highlight: true },
+        { label: 'Founding Team', value: '20 Students', highlight: true },
         { label: 'TUCN Recruitment', value: '60+ Students', highlight: true },
         { label: 'Chassis Design', value: 'Full CAD 3D' },
         { label: 'Key Partner', value: 'Porsche Engineering', highlight: true },
-        { label: 'Powertrain', value: 'High-Voltage EV' }
+        { label: 'Powertrain', value: 'High-Voltage EV' },
+        { label: 'Educational Partner', value: 'TUCN Cluj' }
       ],
       awards: CARS_DATABASE['concept-art01'].awards,
       trackProgress: CARS_DATABASE['concept-art01'].trackProgress,

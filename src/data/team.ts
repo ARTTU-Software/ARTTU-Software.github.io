@@ -189,17 +189,17 @@ export const teamGenerations: TeamGeneration[] = [
     season: "2024-2025",
     title: "Breakthrough & Scrutineering Generation",
     yearSpan: "2024 - 2025",
-    tagline: "Podium Finish at FS Balkans 2025 and all dynamic events completed for the first time",
+    tagline: "Passed All Scrutineering Checks at FS Germany & Statics Clean Sweep at FS Balkans",
     badge: "Breakthrough Season",
     carModel: CARS_DATABASE['art-25'].name,
     groupPhoto: "/assets/20250821_12-46-42_1527_grobe-XL.webp",
-    groupPhotoCaption: "The 2024-2025 team at the Formula Student Germany group photo session.",
-    description: "Season 2024-2025 proved to be the turning point for us. We passed for the first time ever all scrutineering checks at both FSG/FSBK on the first try, and we finished on the podium at FS Balkans 2025. The team also completed all dynamic events for the first time, including acceleration, skidpad, autocross, and endurance.",
+    groupPhotoCaption: "The 2024-2025 team at Formula Student Germany (Hockenheimring).",
+    description: "Season 2024-2025 proved to be a historic turning point. For the first time ever, ART TU passed all technical inspections at Formula Student Germany (Hockenheimring), completed all dynamic events, and finished the grueling 22 km endurance race (P28 in Endurance, P59 / 83 teams overall). At FS Balkans 2025, the team achieved a clean sweep in static events (1st in Engineering Design, Cost & Manufacturing, and Business Plan Presentation) and finished 2nd in Endurance.",
     highlights: [
-      "P1 in all statics at FS Balkans 2025, including Engineering Design, Cost & Manufacturing, and Business Plan Presentation",
-      "1st Place in Engineering Design & 1st in Business Plan Presentation",
-      "2nd Place in Cost & Manufacturing at FS Balkans",
-      "Passed Mechanical Scrutineering at Formula Student Czech (Most Autodrom)"
+      "Passed all technical inspections at Formula Student Germany 2025 (Hockenheimring) on first attempt",
+      "Completed all dynamic events and the full 22 km Endurance race at Hockenheimring (P28 Endurance)",
+      "Clean sweep in statics at FS Balkans 2025: 1st in Engineering Design, Cost & Manufacturing, and Business Plan",
+      "2nd Place in Endurance & Efficiency at FS Balkans 2025"
     ],
     members: [
       {
@@ -230,7 +230,7 @@ export const teamGenerations: TeamGeneration[] = [
         image: "/assets/IMG_1096-scaled.webp",
         linkedin: "https://www.linkedin.com/in/alp%C3%A1r-tompos-236751208/",
         facebook: "https://www.facebook.com/alpar.tompos",
-        bio: "Engineered chassis optimizations and mechanical safety systems that passed tech inspections at FS Czech."
+        bio: "Engineered chassis optimizations and mechanical safety systems that passed all technical inspections at Formula Student Germany."
       },
       {
         name: "Robert CERCEL",
@@ -287,19 +287,19 @@ export const teamGenerations: TeamGeneration[] = [
   {
     id: "2023-2024",
     season: "2023-2024",
-    title: "Engineering Baseline Generation",
+    title: "Engineering Maturation Generation",
     yearSpan: "2023 - 2024",
-    tagline: "FS Czech Debut and Pilot FS Balkans Demonstration",
-    badge: "Foundation Season",
+    tagline: "3rd Place Overall Podium at FS Balkans & 1st Mechanical Scrutineering Pass at FS Czech",
+    badge: "Mechanical Breakthrough",
     carModel: CARS_DATABASE['art-24'].name,
     groupPhoto: "/assets/FB-Post-11.08.2024.webp",
-    groupPhotoCaption: "The 2023-2024 ART TU crew at the Farewell Meeting and dynamic testing session.",
-    description: "In Season 2023, we introduced an upgraded single-seater electric racecar with optimized mechanical structures, composite bodywork, and an almost functional battery pack. Competing at FS Czech and the pilot edition of FS Balkans, the team established vital engineering baselines.",
+    groupPhotoCaption: "The 2023-2024 team on the grid at Formula Student Czech Republic 2024 (Autodrom Most).",
+    description: "In Season 2023-2024, ART TU achieved major engineering breakthroughs with ART24: passing Mechanical Scrutineering for the first time in team history at Formula Student Czech 2024 (Autodrom Most, P37 / 46 EV teams), followed by capturing an overall 3rd place championship podium at the inaugural official edition of Formula Student Balkans, winning 1st in Engineering Design, 1st in Business Plan Presentation, and 2nd in Cost & Manufacturing.",
     highlights: [
-      "Competed at Formula Student Czech 2023 (Most Autodrom)",
-      "Finished P28 out of 37 electric vehicle teams across European universities",
-      "Participated in the pilot edition of Formula Student Balkans at TNT Karting, Dej",
-      "Hosted the University & Sponsor Farewell Meeting with live dynamic EV demonstrations"
+      "Passed Mechanical Scrutineering for the first time in team history at Formula Student Czech 2024 (Autodrom Most)",
+      "3rd Place Overall Championship Podium at Formula Student Balkans 2024",
+      "1st Place in Engineering Design & 1st Place in Business Plan Presentation (FSBK 2024)",
+      "2nd Place in Cost & Manufacturing at Formula Student Balkans 2024"
     ],
     members: [
       {
@@ -415,19 +415,19 @@ export const teamGenerations: TeamGeneration[] = [
   {
     id: "2022-2023",
     season: "2022-2023",
-    title: "International Debut Generation",
+    title: "Evolution & FS Czech Debut Generation",
     yearSpan: "2022 - 2023",
-    tagline: "First Romanian Electric Vehicle at Formula Student Alpe Adria (Bugatti Rimac Test Track)",
-    badge: "Pioneer EV Season",
-    carModel: CARS_DATABASE['art-22'].name,
+    tagline: "Formula Student Czech Republic 2023 Debut & Pilot FS Balkans Demonstration",
+    badge: "Evolution Season",
+    carModel: CARS_DATABASE['art-23'].name,
     groupPhoto: "/assets/FSCzech4-1536x1153.webp",
-    groupPhotoCaption: "The 2022-2023 team on the Formula Student Alpe Adria paddock in Croatia.",
-    description: "In August 2022, we made history by becoming the first Romanian Formula Student team to enter an all-electric single-seater prototype at an official international event (FS Alpe Adria at Bugatti Rimac Test Track, Croatia). Overcoming tremendous high-voltage engineering challenges, the team finished 25th out of 31 electric teams in statics.",
+    groupPhotoCaption: "The 2022-2023 team under the arch at Formula Student Czech Republic 2023 (Autodrom Most).",
+    description: "In Season 2022-2023, ART TU introduced an upgraded single-seater electric racecar with optimized mechanical structures, composite bodywork, and enhanced powertrain reliability. Competing at Autodrom Most in Formula Student Czech 2023, the team finished P28 out of 37 electric vehicle teams, and participated in the pilot demonstration edition of FS Balkans near Brașov.",
     highlights: [
-      "1st Romanian Formula Student team to compete with an EV prototype abroad",
-      "First high-voltage 400V accumulator container designed & built from scratch at TUCN",
-      "Scored 25th out of 31 electric teams in static events at FS Alpe Adria Croatia",
-      "Built the foundational powertrain and telemetry architecture used in future cars"
+      "Competed at Formula Student Czech Republic 2023 (Autodrom Most)",
+      "Finished P28 out of 37 electric vehicle teams across European universities",
+      "Participated in the pilot demonstration edition of Formula Student Balkans",
+      "Hosted the University & Sponsor Farewell Meeting with live dynamic EV demonstrations"
     ],
     members: [
       {
@@ -505,6 +505,96 @@ export const teamGenerations: TeamGeneration[] = [
     ]
   },
   {
+    id: "2021-2022",
+    season: "2021-2022",
+    title: "International Debut Generation",
+    yearSpan: "2021 - 2022",
+    tagline: "First Romanian Electric Vehicle at Formula Student Alpe Adria (Bugatti Rimac Test Track)",
+    badge: "Pioneer EV Season",
+    carModel: CARS_DATABASE['art-22'].name,
+    groupPhoto: "/assets/Cover-FB-03.09.webp",
+    groupPhotoCaption: "The 2021-2022 team in front of the Rimac and Alpe Adria banners at Formula Student Alpe Adria 2022 (Bugatti Rimac Test Track, Novi Marof, Croatia).",
+    description: "In August 2022, ART TU made Romanian motorsport history by becoming the very first Romanian university team to design, build, and enter an all-electric single-seater prototype at an official international Formula Student event (FS Alpe Adria at Bugatti Rimac Test Track, Croatia). Overcoming tremendous high-voltage engineering challenges, the team scored 25th out of 31 electric teams in static events.",
+    highlights: [
+      "1st Romanian Formula Student team to design and build an electric racecar",
+      "Official international debut at Formula Student Alpe Adria 2022 (Bugatti Rimac Test Track, Croatia)",
+      "Scored P25 out of 31 electric teams in static events against top European teams",
+      "Built the foundational 200V+ high-voltage accumulator and dual-motor architecture"
+    ],
+    members: [
+      {
+        name: "Thomas BUIDIN",
+        role: "Project Manager",
+        department: "Management",
+        season: "2021-2022",
+        image: "/assets/Thomas-BUIDIN-Powertrain-2020-2021-150x150.webp",
+        linkedin: "https://www.linkedin.com/in/buidin-thomas-665b881b1/",
+        facebook: "https://www.facebook.com/thomas.buidin",
+        bio: "Founding project lead who orchestrated Romania's first EV single-seater international competition debut."
+      },
+      {
+        name: "Robert SALLAI",
+        role: "Team Captain & Battery Pack Lead",
+        department: "Executive",
+        season: "2021-2022",
+        image: "/assets/Robert-Sallai-150x150.webp",
+        linkedin: "https://www.linkedin.com/in/robert-sallai-624b641a7/",
+        facebook: "https://www.facebook.com/sallai.roby",
+        bio: "Led the accumulator design and high-voltage container construction for the pioneering ART22 single-seater."
+      },
+      {
+        name: "Mihai TURC",
+        role: "Team Leader Mechanical & Body",
+        department: "Mechanical & Aero",
+        season: "2021-2022",
+        image: "/assets/Mihai-Turc-Body-2020-2021-150x150.webp",
+        linkedin: "https://www.linkedin.com/in/mihai-turc-a3b54815b/",
+        facebook: "https://www.facebook.com/turc.mihai.1",
+        bio: "Engineered the chassis structure and composite body panels for the historic Croatia debut."
+      },
+      {
+        name: "Laurențiu KECSKES",
+        role: "Team Leader Electrical",
+        department: "Electrical & Software",
+        season: "2021-2022",
+        image: "/assets/Laurentiu-Kecskes-150x150.webp",
+        linkedin: "https://www.linkedin.com/in/cristian-laurentiu-kecskes-117007251/",
+        facebook: "https://www.facebook.com/cristianlaurentiu.kacskes",
+        bio: "Developed the low-voltage electronics wiring harness and tractive system safety interlocks."
+      },
+      {
+        name: "Bogdan GAL",
+        role: "Team Leader Vehicle Dynamics",
+        department: "Vehicle Dynamics",
+        season: "2021-2022",
+        image: "/assets/Bogdan-Gal-150x150.webp",
+        linkedin: "https://www.linkedin.com/in/bogdan-gal-145397258/",
+        facebook: "https://www.facebook.com/gal.bogdan.31",
+        bio: "Designed suspension geometry and brake system packaging for the ART22 prototype."
+      },
+      {
+        name: "Irina DUMA",
+        role: "Team Leader Finance & Marketing",
+        department: "Operations",
+        season: "2021-2022",
+        image: "/assets/Irina-DUMA-Finances_Marketing-2020-2021-150x150.webp",
+        linkedin: "https://www.linkedin.com/in/irinaduma/",
+        facebook: "https://www.facebook.com/irina.duma.10",
+        bio: "Secured vital sponsorship support and coordinated international team travel to Croatia."
+      },
+      {
+        name: "Prof. Dr. Ing. Bogdan-Ovidiu VARGA",
+        role: "University Coordinator",
+        department: "TUCN Faculty",
+        season: "2021-2022",
+        image: "/assets/Bogdan-Ovidiu-VARGA-150x150.webp",
+        linkedin: "https://www.linkedin.com/in/vargab1/",
+        facebook: "https://www.facebook.com/profile.php?id=100010175641215",
+        bio: "Faculty mentor providing institutional backing and test facility access at Technical University of Cluj-Napoca."
+      }
+    ]
+  },
+  {
     id: "2019-2020",
     season: "2019-2020",
     title: "Founding Generation",
@@ -519,7 +609,7 @@ export const teamGenerations: TeamGeneration[] = [
       "Team officially established in early 2019 at Technical University of Cluj-Napoca (TUCN)",
       "Completed initial full-scale CAD chassis frame and concept packaging",
       "Secured foundational sponsorship partnerships including TUCN & Porsche Engineering",
-      "Executed inaugural TUCN student recruitment attracting over 60 aspiring engineers"
+      "Executed inaugural TUCN student recruitment attracting over 60 aspiring students"
     ],
     members: [
       {
