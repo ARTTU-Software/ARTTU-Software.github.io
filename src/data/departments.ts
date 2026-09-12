@@ -18,7 +18,7 @@ export const departments: Department[] = [
     id: "mechanical",
     name: "Mechanical",
     iconName: "Wrench",
-    title: "Mech Team",
+    title: "Mechanical",
     tagline: "The physical backbone of our racecar, from structural chassis to aerodynamic form.",
     description: "The backbone of our racecar. This department manages the complete lifecycle of the vehicle's chassis and body, from initial CAD concept to final precision manufacturing. In charge of developing all structural systems including the tubular spaceframe chassis, composite aerodynamic bodywork, suspension links, and steering mechanisms. By utilizing advanced FEA (Finite Element Analysis) simulations in CATIA and Ansys, they ensure every component is optimized for maximum structural integrity and minimum weight.",
     responsibilities: [
@@ -43,7 +43,7 @@ export const departments: Department[] = [
     id: "accumulator",
     name: "Accumulator & Powertrain",
     iconName: "BatteryCharging",
-    title: "Accu Team",
+    title: "Accumulator & Powertrain",
     tagline: "Engineering the high-voltage heart, custom battery pack, and tractive power.",
     description: "The team behind the 'heart' of our electric racecar. Specializing in high-voltage systems and electric powertrain behavior, their work centers on the meticulous design, assembly, and management of the custom battery pack (Accumulator) and active Battery Management System (BMS). They engineer high-voltage safety interlocks, cell isolation, and thermal cooling to ensure the car has the raw power and endurance to dominate the track.",
     responsibilities: [
@@ -68,7 +68,7 @@ export const departments: Department[] = [
     id: "electrical",
     name: "Electrical & Software Development",
     iconName: "Cpu",
-    title: "Electrical Team",
+    title: "Electrical & Software Development",
     tagline: "The 'brain' and central nervous system connecting sensors, compute nodes, and live telemetry.",
     description: "The 'brain' that brings the racecar to life. This department develops all low-voltage (LV) systems, handles motorsport wiring harness routing, custom multi-layer PCB design, and embedded C/C++ programming. They ensure seamless high-speed communication between all vehicle sensors, ECUs, and dashboard displays, translating driver input into instant, electric track performance and real-time telemetry.",
     responsibilities: [
@@ -93,7 +93,7 @@ export const departments: Department[] = [
     id: "vehicle-dynamics",
     name: "Vehicle Dynamics",
     iconName: "Activity",
-    title: "Dynamics Team",
+    title: "Vehicle Dynamics",
     tagline: "The sensory system and reflexes bridging vehicle physics to the pavement.",
     description: "The sensory system and reflexes of the vehicle, acting as the bridge where physics meets the pavement. This department ensures the racecar responds perfectly to every driver input by focusing on vehicle behavior analysis, mathematical modeling, and fine-tuning suspension and steering kinematics to define how the car feels and handles on the limit. In addition to CFD aerodynamic optimization and torque vectoring, they manage thermal management systems to keep all components stable and cool under intense racing conditions.",
     responsibilities: [
@@ -118,7 +118,7 @@ export const departments: Department[] = [
     id: "marketing",
     name: "Finances & Marketing",
     iconName: "TrendingUp",
-    title: "Finances Team",
+    title: "Finances & Marketing",
     tagline: "The face, voice, and creative force driving partner relations and global reach.",
     description: "The face and voice of the team. As the creative and strategic force behind ART TU, this department manages everything from fundraising and corporate sponsorship acquisition to the prestigious Business Plan Presentation (BPP) at European competitions. They lead photography, videography, graphic design, and social media management, ensuring our engineering achievements reach a global audience and our partners receive maximum visibility.",
     responsibilities: [
@@ -137,28 +137,6 @@ export const departments: Department[] = [
     software: ["Adobe Creative Suite", "Canva", "Excel / Sheets", "Social Analytics"],
     image: "/assets/IMG_9963-scaled.webp",
     imagePosition: "object-[78%_25%]",
-    openPositions: true
-  },
-  {
-    id: "logistics",
-    name: "Logistics",
-    iconName: "Truck",
-    title: "Logistics Team",
-    tagline: "The circulatory system managing resource flow, acquisitions, and European transit.",
-    description: "The circulatory system of the team that keeps our entire organization running smoothly. This department ensures the constant flow of resources, manages technical acquisitions, and coordinates international travel of the vehicle and 20+ crew members across European borders to competitions. From pit garage management to workshop supply chains, they ensure every component and team member is in the right place at the right time.",
-    responsibilities: [
-      "Coordinating international transportation of racecar, equipment, and crew across Europe",
-      "Managing workshop inventory, tool organization, and consumable supply chains",
-      "Travel routes, and vehicle fleet logistics"
-    ],
-    whatYoullLearn: [
-      "International motorsport logistics: freight routing, customs clearance, and European border transit",
-      "Workshop supply chain operations and tool/consumable inventory tracking",
-      "Project management methodologies, team scheduling, and cross-department operational leadership"
-    ],
-    software: ["Project Management Tools", "Inventory Management", "Google Workspace"],
-    image: "/assets/DSC_0095-1-1-scaled.webp",
-    imagePosition: "object-[45%_40%]",
     openPositions: true
   }
 ];

@@ -360,9 +360,6 @@ export const SupportPage: React.FC = () => {
         <ScrollReveal direction="right" duration={650} className="lg:col-span-5 bg-white/50 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-white/80 shadow-xs flex flex-col justify-between space-y-6">
           <div>
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-mono text-warm-500 uppercase tracking-widest font-semibold">
-                Direct NGO Bank Donation
-              </span>
               <span className="px-2.5 py-0.5 rounded-md bg-brand-red/10 text-brand-red text-[11px] font-mono font-bold">
                 Non-Profit NGO
               </span>

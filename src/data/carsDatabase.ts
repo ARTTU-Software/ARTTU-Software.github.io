@@ -137,9 +137,9 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
   // --------------------------------------------------------------------------
   'afia-art26': {
     id: 'afia-art26',
-    name: 'ARTT26',
-    shortName: 'ARTT26',
-    generationCode: 'ARTT26',
+    name: 'ART26',
+    shortName: 'ART26',
+    generationCode: 'ART26',
     seasonSpan: '2025 - 2026',
     shortYear: "'26",
     isCurrentCar: true,

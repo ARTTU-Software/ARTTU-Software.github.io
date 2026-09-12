@@ -554,7 +554,7 @@ export const HomePage: React.FC = () => {
       <ScrollReveal direction="fade" duration={600} as="section" className="overflow-hidden py-5 bg-warm-200/50 border-b border-warm-250 relative z-20">
         <div className="max-w-7xl mx-auto px-4 mb-2.5">
           <span className="text-[11px] font-mono uppercase tracking-widest text-warm-500 font-semibold block text-center">
-            Supported by industry leaders & technical partners
+            Partnered with Industry Leaders
           </span>
         </div>
         <div className="flex items-center gap-6 whitespace-nowrap animate-marquee">
@@ -690,7 +690,7 @@ export const HomePage: React.FC = () => {
                     <div className="text-2xl sm:text-3xl font-black text-brand-red font-mono">
                       <TelemetryTicker value={60} suffix="+" />
                     </div>
-                    <div className="text-xs font-mono text-warm-500 uppercase tracking-wider font-semibold mt-0.5">Engineers</div>
+                    <div className="text-xs font-mono text-warm-500 uppercase tracking-wider font-semibold mt-0.5">Students</div>
                   </div>
                   <div>
                     <div className="text-2xl sm:text-3xl font-black text-warm-900 font-mono">

@@ -152,7 +152,7 @@ export const TeamHistoryPage: React.FC<TeamHistoryPageProps> = ({
       <ScrollReveal direction="up" duration={600} className="text-center max-w-4xl mx-auto space-y-2.5">
         
         <h1 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-warm-900 uppercase tracking-tight">
-          THE ENGINEERS BEHIND THE RACECARS
+          THE STUDENTS BEHIND THE RACECARS
         </h1>
         
         <p className="text-warm-700 text-xs sm:text-sm leading-relaxed max-w-2xl mx-auto">
@@ -231,11 +231,6 @@ export const TeamHistoryPage: React.FC<TeamHistoryPageProps> = ({
                 }`}
               >
                 <div className="flex items-center justify-between mb-1.5">
-                  <span className={`text-[10px] font-mono uppercase font-bold px-2 py-0.5 rounded-md ${
-                    isSelected ? 'bg-brand-red text-white' : 'bg-warm-200 text-warm-700'
-                  }`}>
-                    {gen.badge}
-                  </span>
                   <span className={`text-[11px] font-mono ${isSelected ? 'text-warm-300' : 'text-warm-500'}`}>
                     {gen.yearSpan}
                   </span>
@@ -243,7 +238,7 @@ export const TeamHistoryPage: React.FC<TeamHistoryPageProps> = ({
                 <div className={`font-bold text-sm sm:text-base tracking-tight truncate ${
                   isSelected ? 'text-white' : 'text-warm-900'
                 }`}>
-                  {gen.season}
+                  {gen.carModel}
                 </div>
               </button>
             );
@@ -286,7 +281,7 @@ export const TeamHistoryPage: React.FC<TeamHistoryPageProps> = ({
               </div>
 
               <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-warm-900 uppercase leading-tight">
-                {currentGeneration.title}
+                {currentGeneration.carModel ? `${currentGeneration.carModel} (${currentGeneration.season})` : currentGeneration.season}
               </h2>
 
               <p className="text-xs font-mono text-brand-red uppercase font-semibold">

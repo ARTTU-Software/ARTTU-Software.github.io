@@ -561,7 +561,7 @@ export const CarPage: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-90 group-hover:opacity-100 transition-opacity" />
                   <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
                     <span className="font-mono text-xs font-bold">Drivers</span>
-                    <span className="text-[10px] font-mono bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-md">Dej Circuit</span>
+                    <span className="text-[10px] font-mono bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-md">TNT Karting Transylvania</span>
                   </div>
                 </div>
               </ScrollReveal>
@@ -578,7 +578,7 @@ export const CarPage: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-90 group-hover:opacity-100 transition-opacity" />
                   <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
                     <span className="font-mono text-xs font-bold">Setting Up</span>
-                    <span className="text-[10px] font-mono bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-md">Hockenheim</span>
+                    <span className="text-[10px] font-mono bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-md">Hockenheimring</span>
                   </div>
                 </div>
               </ScrollReveal>
@@ -595,7 +595,7 @@ export const CarPage: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-90 group-hover:opacity-100 transition-opacity" />
                   <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
                     <span className="font-mono text-xs font-bold">Ready to Race</span>
-                    <span className="text-[10px] font-mono bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-md">Dej Circuit</span>
+                    <span className="text-[10px] font-mono bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-md">TNT Karting Transylvania</span>
                   </div>
                 </div>
               </ScrollReveal>

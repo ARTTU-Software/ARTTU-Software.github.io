@@ -88,8 +88,9 @@ export const PartnersPage: React.FC = () => {
         <h1 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-warm-900 uppercase tracking-tight">
           PARTNER WITH ART TU
         </h1>
+        {/* Cannot say engineers, as we are a student team */}
         <p className="text-warm-700 text-xs sm:text-sm leading-relaxed max-w-2xl mx-auto">
-          Powering the next generation of motorsport engineers, electric vehicle innovation, and international Formula Student glory at the Technical University of Cluj-Napoca.
+          Powering the next generation of motorsport, electric vehicle innovation, and international Formula Student glory at the Technical University of Cluj-Napoca.
         </p>
 
         {/* Compact Key Metric Chips */}
@@ -97,7 +98,7 @@ export const PartnersPage: React.FC = () => {
           <div className="px-3 py-1.5 rounded-xl bg-white/60 backdrop-blur-sm border border-white/80 shadow-2xs text-warm-800 flex items-center gap-1.5">
             <Users className="w-3.5 h-3.5 text-brand-red" />
             <span className="font-bold text-brand-red"><TelemetryTicker value={60} suffix="+" /></span>
-            <span>TUCN Engineers</span>
+            <span>TUCN Students</span>
           </div>
           <div className="px-3 py-1.5 rounded-xl bg-white/60 backdrop-blur-sm border border-white/80 shadow-2xs text-warm-800 flex items-center gap-1.5">
             <Trophy className="w-3.5 h-3.5 text-amber-500" />
@@ -186,7 +187,7 @@ export const PartnersPage: React.FC = () => {
               </div>
 
               <h2 className="font-display font-black text-xl sm:text-2xl text-warm-900 leading-snug">
-                Official 2026 Sponsorship One-Pager
+                Request Official 2026 Partnership One-Pager
               </h2>
 
               <p className="text-xs text-warm-700 leading-relaxed">
@@ -243,7 +244,7 @@ export const PartnersPage: React.FC = () => {
                 className="flex-1 px-5 py-3 rounded-xl bg-brand-red hover:bg-brand-darkRed text-white font-bold text-xs uppercase tracking-wider transition shadow-sm shadow-brand-red/25 flex items-center justify-center gap-2 group"
               >
                 <Download className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" />
-                <span>Request Sponsorship One-Pager (PDF)</span>
+                <span>Request Partnership One-Pager (PDF)</span>
               </a>
 
               <a
@@ -267,7 +268,7 @@ export const PartnersPage: React.FC = () => {
             // OUR PARTNERS
           </span>
           <h2 className="font-display font-black text-2xl sm:text-3xl text-warm-900 uppercase">
-            CURRENT PARTNERS & SPONSORS
+            CURRENT PARTNERS
           </h2>
           <p className="text-xs sm:text-sm text-warm-600">
             Meet the visionary companies and institutions driving our team forward.
