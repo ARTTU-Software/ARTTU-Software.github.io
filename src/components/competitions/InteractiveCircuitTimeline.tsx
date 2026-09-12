@@ -501,11 +501,6 @@ export const InteractiveCircuitTimeline: React.FC<InteractiveCircuitTimelineProp
                     </span>
                   </div>
                 </div>
-
-                <div className="flex items-center gap-1.5 text-xs font-mono text-white/90 bg-black/50 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/20 drop-shadow-sm">
-                  <MapPin className="w-3.5 h-3.5 text-brand-red shrink-0" />
-                  <span className="truncate max-w-[260px] sm:max-w-none">{displayedSeason.circuitLocation}</span>
-                </div>
               </div>
             </div>
 
