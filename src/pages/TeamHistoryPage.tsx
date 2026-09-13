@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import {
   teamGenerations,
   TeamMember,
@@ -46,15 +46,25 @@ export const TeamHistoryPage: React.FC<TeamHistoryPageProps> = ({
   isEmbedded = false,
   onSwitchToTimeline,
 }) => {
-  const [selectedSeasonId, setSelectedSeasonId] = useState<string>(initialSeasonId || teamGenerations[0]?.id || '2025-2026');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const seasonParam = searchParams.get('season');
+
+  const [selectedSeasonId, setSelectedSeasonId] = useState<string>(() => {
+    if (seasonParam && teamGenerations.some((gen) => gen.id === seasonParam)) {
+      return seasonParam;
+    }
+    return initialSeasonId || teamGenerations[0]?.id || '2025-2026';
+  });
   const [selectedDepartment, setSelectedDepartment] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
   useEffect(() => {
-    if (initialSeasonId) {
+    if (seasonParam && teamGenerations.some((gen) => gen.id === seasonParam)) {
+      setSelectedSeasonId(seasonParam);
+    } else if (initialSeasonId) {
       setSelectedSeasonId(initialSeasonId);
     }
-  }, [initialSeasonId]);
+  }, [seasonParam, initialSeasonId]);
 
   const currentGeneration = useMemo(() => {
     return teamGenerations.find((gen) => gen.id === selectedSeasonId) || teamGenerations[0];
@@ -218,6 +228,7 @@ export const TeamHistoryPage: React.FC<TeamHistoryPageProps> = ({
                   setSelectedSeasonId(gen.id);
                   setSelectedDepartment('All');
                   setSearchQuery('');
+                  setSearchParams({ season: gen.id });
                 }}
                 style={{
                   backgroundColor: isSelected ? '#1c1917' : '#faf8f5',

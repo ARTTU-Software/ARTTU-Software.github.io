@@ -571,23 +571,13 @@ export const InteractiveCircuitTimeline: React.FC<InteractiveCircuitTimelineProp
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
 
-                {onNavigateToAlumni ? (
-                  <button
-                    onClick={() => onNavigateToAlumni(displayedSeason.id)}
-                    className="px-4 py-2.5 rounded-xl bg-brand-red hover:bg-brand-darkRed text-white text-xs font-display font-bold uppercase tracking-wider transition flex items-center gap-2 shadow-sm shadow-brand-red/30 cursor-pointer"
-                  >
-                    <Users className="w-3.5 h-3.5" />
-                    <span>Meet {displayedSeason.yearSpan} Team</span>
-                  </button>
-                ) : (
-                  <Link
-                    to="/history/team"
-                    className="px-4 py-2.5 rounded-xl bg-brand-red hover:bg-brand-darkRed text-white text-xs font-display font-bold uppercase tracking-wider transition flex items-center gap-2 shadow-sm shadow-brand-red/30"
-                  >
-                    <Users className="w-3.5 h-3.5" />
-                    <span>Alumni Roster</span>
-                  </Link>
-                )}
+                <Link
+                  to={`/history/team?season=${displayedSeason.id}`}
+                  className="px-4 py-2.5 rounded-xl bg-brand-red hover:bg-brand-darkRed text-white text-xs font-display font-bold uppercase tracking-wider transition flex items-center gap-2 shadow-sm shadow-brand-red/30 cursor-pointer"
+                >
+                  <Users className="w-3.5 h-3.5" />
+                  <span>Meet {displayedSeason.yearSpan} Team</span>
+                </Link>
               </div>
             </div>
 

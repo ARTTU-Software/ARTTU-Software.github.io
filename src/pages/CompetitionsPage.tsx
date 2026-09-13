@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useSearchParams, Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useSearchParams, Navigate } from 'react-router-dom';
 import { competitionEvents, historicalTimeline } from '../data/competitions';
 import {
   CompetitionTabs,
@@ -7,66 +7,24 @@ import {
   HistoryMilestonesList,
   InteractiveCircuitTimeline,
 } from '../components/competitions';
-import { TeamHistoryPage } from './TeamHistoryPage';
-import {
-  Trophy,
-  History,
-  Award,
-  Users,
-  ChevronRight,
-  Sparkles,
-  Flame,
-  Zap,
-  Compass,
-  Layers,
-  Flag,
-} from 'lucide-react';
 import { ScrollReveal } from '../components/motion/ScrollReveal';
-import { TelemetryTicker } from '../components/common/TelemetryTicker';
 
 export const CompetitionsPage: React.FC = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   
-  // Dual-view state: 'timeline' | 'alumni'
-  const initialView = searchParams.get('view') === 'alumni' || searchParams.get('tab') === 'alumni' ? 'alumni' : 'timeline';
-  const [viewMode, setViewMode] = useState<'timeline' | 'alumni'>(initialView);
-  const [targetAlumniSeasonId, setTargetAlumniSeasonId] = useState<string | undefined>(
-    searchParams.get('season') || undefined
-  );
+  // Backwards compatibility: redirect legacy view=alumni / tab=alumni to /history/team
+  const viewParam = searchParams.get('view') || searchParams.get('tab');
+  const seasonParam = searchParams.get('season');
+  if (viewParam === 'alumni') {
+    return <Navigate to={`/history/team${seasonParam ? `?season=${seasonParam}` : ''}`} replace />;
+  }
 
   const [activeTabId, setActiveTabId] = useState<string>(competitionEvents[0]?.id || 'fsBalkans');
   const activeEvent = competitionEvents.find((e) => e.id === activeTabId) || competitionEvents[0];
 
-  // Sync state if URL search params change
-  useEffect(() => {
-    const tab = searchParams.get('tab') || searchParams.get('view');
-    if (tab === 'alumni') {
-      setViewMode('alumni');
-    } else if (tab === 'timeline') {
-      setViewMode('timeline');
-    }
-    const season = searchParams.get('season');
-    if (season) {
-      setTargetAlumniSeasonId(season);
-    }
-  }, [searchParams]);
-
-  const handleSwitchView = (mode: 'timeline' | 'alumni', seasonId?: string) => {
-    setViewMode(mode);
-    if (seasonId) {
-      setTargetAlumniSeasonId(seasonId);
-      setSearchParams({ view: mode, season: seasonId });
-    } else {
-      setSearchParams({ view: mode });
-    }
-  };
-
   return (
     <div className="pt-[76px] sm:pt-[80px] pb-20 space-y-6 sm:space-y-8 w-full">
-      
-      {/* VIEW MODE 1: Racing Circuit Timeline & Trophies View */}
-      {viewMode === 'timeline' && (
-        <div className="relative w-full overflow-hidden">
+      <div className="relative w-full overflow-hidden">
           {/* Dynamic Circuit Background Layer (Wraps entire page from top to bottom) */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
             {/* Faint Racetrack Apex Backdrop starting right at the top under navbar */}
@@ -126,9 +84,7 @@ export const CompetitionsPage: React.FC = () => {
 
           {/* 🏎️ Section 1: Featured Interactive Racing Circuit Timeline (Transparent over racetrack canvas) */}
           <ScrollReveal direction="up" duration={650} className="relative z-10 w-full px-0">
-            <InteractiveCircuitTimeline
-              onNavigateToAlumni={(seasonId) => handleSwitchView('alumni', seasonId)}
-            />
+            <InteractiveCircuitTimeline />
           </ScrollReveal>
 
           {/* Lower Content Sections */}
@@ -180,21 +136,8 @@ export const CompetitionsPage: React.FC = () => {
               </div>
 
             </div>
-          </div>
         </div>
-      )}
-
-      {/* VIEW MODE 2: Team Generations & Alumni Archive View */}
-      {viewMode === 'alumni' && (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          <TeamHistoryPage
-            initialSeasonId={targetAlumniSeasonId}
-            isEmbedded={true}
-            onSwitchToTimeline={() => handleSwitchView('timeline')}
-          />
-        </div>
-      )}
-
+      </div>
     </div>
   );
 
