@@ -424,7 +424,7 @@ export const historicalSeasons: HistoricalSeason[] = [
           {
             name: "Porsche Engineering",
             tier: "platinum",
-            logo: "/assets/PE_Logo_2023-768x112.webp",
+            logo: "/assets/PoweredByPERO-site1.webp",
             website: "https://www.porscheengineering.com/peg/en/"
           },
           {
@@ -505,7 +505,7 @@ export const historicalSeasons: HistoricalSeason[] = [
           {
             name: "Porsche Engineering",
             tier: "platinum",
-            logo: "/assets/PE_Logo_2023-768x112.webp",
+            logo: "/assets/PoweredByPERO-site1.webp",
             website: "https://www.porscheengineering.com/peg/en/"
           },
           {
@@ -564,7 +564,7 @@ export const historicalSeasons: HistoricalSeason[] = [
           {
             name: "Porsche Engineering",
             tier: "platinum",
-            logo: "/assets/PE_Logo_2023-768x112.webp",
+            logo: "/assets/PoweredByPERO-site1.webp",
             website: "https://www.porscheengineering.com/peg/en/"
           },
           {
@@ -633,7 +633,7 @@ export const historicalSeasons: HistoricalSeason[] = [
           {
             name: "Porsche Engineering",
             tier: "platinum",
-            logo: "/assets/Logo-Porsche-Eng.-768x155.webp",
+            logo: "/assets/PoweredByPERO-site1.webp",
             website: "https://www.porscheengineering.com/peg/en/"
           },
           {
