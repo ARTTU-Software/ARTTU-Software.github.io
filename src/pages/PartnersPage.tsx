@@ -12,6 +12,7 @@ import {
   Trophy, 
   Users, 
   ArrowRight,
+  ArrowDown,
   Mail,
   History,
   Calendar
@@ -114,8 +115,8 @@ export const PartnersPage: React.FC = () => {
             Meet the visionary companies, academic institutions, and technical enablers driving ART TU forward across European Formula Student circuits.
           </p>
 
-          {/* Tab Navigation Bar */}
-          <div className="pt-2 flex justify-center">
+          {/* Tab Navigation Bar & Jump CTA */}
+          <div className="pt-2 flex flex-col items-center gap-3">
             <div 
               className="inline-flex p-1.5 rounded-2xl bg-white/70 backdrop-blur-md border border-warm-250 shadow-xs"
               role="tablist"
@@ -155,6 +156,20 @@ export const PartnersPage: React.FC = () => {
                 <span>Partner History</span>
               </button>
             </div>
+
+            {/* Scroll Down to Partner with ART TU Button */}
+            <a
+              href="#partner-with-us"
+              onClick={(e) => {
+                e.preventDefault();
+                const el = document.getElementById('partner-with-us');
+                el?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white/70 backdrop-blur-sm hover:bg-brand-red hover:text-white border border-warm-250 hover:border-brand-red text-xs font-mono font-bold text-warm-700 shadow-2xs hover:shadow-xs transition-all duration-200 group cursor-pointer"
+            >
+              <span>Partner with Us</span>
+              <ArrowDown className="w-3.5 h-3.5 text-brand-red group-hover:text-white group-hover:translate-y-0.5 transition-all" />
+            </a>
           </div>
         </ScrollReveal>
 
@@ -379,7 +394,7 @@ export const PartnersPage: React.FC = () => {
         {/* ========================================================================= */}
         {/* BOTTOM SECTION: PARTNER WITH ART TU & ONE-PAGER                           */}
         {/* ========================================================================= */}
-        <div id="partner-with-us" className="pt-12 sm:pt-16 border-t border-warm-250/80 space-y-10 sm:space-y-12">
+        <div id="partner-with-us" className="pt-12 sm:pt-16 border-t border-warm-250/80 space-y-10 sm:space-y-12 scroll-mt-24">
 {/* Section Header & Metrics */}
         <ScrollReveal direction="up" duration={500} className="text-center max-w-3xl mx-auto space-y-3">
           <h2 className="font-display font-black text-2xl sm:text-3xl lg:text-4xl text-warm-900 uppercase tracking-tight">
