@@ -68,7 +68,9 @@ export const SponsorsSection: React.FC<SponsorsSectionProps> = ({ onOpenSponsorM
                     {tierGroup.tier === 'supporter' && <Handshake className="w-5 h-5 text-brand-red" />}
                     <span>{tierGroup.title}</span>
                   </h3>
-                  <p className="text-xs text-warm-500 mt-0.5 font-medium">{tierGroup.subtitle}</p>
+                  {tierGroup.subtitle && (
+                    <p className="text-xs text-warm-500 mt-0.5 font-medium">{tierGroup.subtitle}</p>
+                  )}
                 </div>
               </div>
 

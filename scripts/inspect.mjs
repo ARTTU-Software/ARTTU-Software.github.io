@@ -235,7 +235,7 @@ async function run() {
       }
     }
 
-    const cleanRouteName = targetRoute.replace(/^\//, '').replace(/\//g, '_') || 'home';
+    const cleanRouteName = targetRoute.replace(/^\//, '').replace(/[\/?=&:#]/g, '_') || 'home';
     const filename = targetSelector
       ? `inspect-${cleanRouteName}-${targetSelector.replace(/[^a-zA-Z0-9_-]/g, '')}.png`
       : (clickSelector ? `inspect-${cleanRouteName}-clicked.png` : `inspect-${cleanRouteName}.png`);
