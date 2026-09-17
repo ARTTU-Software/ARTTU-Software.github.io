@@ -49,7 +49,7 @@ export interface RolloutInfo {
 }
 
 export const ROLLOUT_DATA: RolloutInfo = {
-  title: "Season 2026 Car Rollout",
+  title: "Season 2026 Rollout",
   season: "2025-2026",
   carName: "Afia (ART26)",
   carBadge: "ART-26",

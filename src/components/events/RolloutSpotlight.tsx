@@ -151,7 +151,7 @@ export const RolloutSpotlight: React.FC<{ onOpenPhoto?: (src: string, title: str
                 Previous Rollouts
               </h3>
               <p className="text-warm-700 text-xs mt-0.5">
-                Explore the official car unveiling ceremonies from previous seasons.
+                Explore the official unveiling ceremonies from previous seasons.
               </p>
             </div>
 
