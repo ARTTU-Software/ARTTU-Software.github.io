@@ -64,7 +64,7 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose }) => {
           </p>
           <div className="flex flex-wrap gap-3 text-xs text-warm-600 font-semibold pt-1">
             <span className="flex items-center gap-1 text-emerald-700">
-              <CheckCircle2 className="w-3.5 h-3.5" /> All TUCN faculties
+              <CheckCircle2 className="w-3.5 h-3.5" /> All UTCN faculties
             </span>
             <span className="flex items-center gap-1 text-warm-700">
               <CheckCircle2 className="w-3.5 h-3.5 text-brand-red" /> No experience needed

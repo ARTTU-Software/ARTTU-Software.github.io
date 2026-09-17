@@ -45,12 +45,12 @@ export const sponsorTiers: SponsorTierGroup[] = [
     title: 'Educational Partner',
     sponsors: [
       {
-        name: "Technical University of Cluj-Napoca (TUCN)",
+        name: "Technical University of Cluj-Napoca (UTCN)",
         tier: "educational",
         logo: "/assets/UTC-N-Logo.webp",
         secondaryLogo: "/assets/EUT_VERTICAL_EN-300x144.webp",
         website: "https://www.utcluj.ro/en/",
-        description: "According to its Charter, the Technical University of Cluj-Napoca is an \"Advanced Research and Education University\". TUC-N is today a higher education institution having both tradition and national and international recognition. TUC-N is a member of the European University of Technology alliance, meant to enhance research, innovation, mobilities for students and staff, and to strengthen cooperation in the field of education."
+        description: "According to its Charter, the Technical University of Cluj-Napoca is an \"Advanced Research and Education University\". UTCN is today a higher education institution having both tradition and national and international recognition. UTCN is a member of the European University of Technology alliance, meant to enhance research, innovation, mobilities for students and staff, and to strengthen cooperation in the field of education."
       }
     ]
   },
@@ -683,7 +683,7 @@ export const historicalSeasons: HistoricalSeason[] = [
 
 export const marqueeLogos: MarqueeLogo[] = [
   { name: "Porsche Engineering", logo: "/assets/PoweredByPERO-site1.webp", website: "https://www.porscheengineering.com/peg/en/" },
-  { name: "TUCN", logo: "/assets/UTC-N-Logo.webp", website: "https://www.utcluj.ro/en/" },
+  { name: "UTCN", logo: "/assets/UTC-N-Logo.webp", website: "https://www.utcluj.ro/en/" },
   { name: "CSi Romania", logo: "/assets/CSi-logo-300x293.webp", website: "https://www.csiportal.com/" },
   { name: "INAS / ANSYS", logo: "/assets/INAS-LOGO-SAFE-SPACE-1024x560.webp", website: "https://www.inas.ro/ro/" },
   { name: "BT Leasing", logo: "/assets/BT-Leasing-2026-1024x270.webp", website: "https://www.btleasing.ro/" },

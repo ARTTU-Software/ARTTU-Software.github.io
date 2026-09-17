@@ -63,7 +63,7 @@ export const Navbar: React.FC = () => {
     },
     { label: "Departments", path: "/departments" },
     { label: "Events", path: "/events" },
-    { label: "Support (230)", path: "/support" },
+    { label: "Support", path: "/support" },
     { label: "Contact", path: "/contact" },
   ];
 
@@ -129,7 +129,7 @@ export const Navbar: React.FC = () => {
                   : 'text-warm-500'
               }`}
             >
-              TUCN Formula Student
+              UTCN Formula Student
             </span>
           </div>
         </Link>
@@ -253,7 +253,7 @@ export const Navbar: React.FC = () => {
             }`}
           >
             <Handshake className={`w-3.5 h-3.5 ${isTransparent ? 'text-brand-brightRed' : 'text-brand-red'}`} />
-            <span>Partner</span>
+            <span>Partners</span>
           </Link>
           
           <Link

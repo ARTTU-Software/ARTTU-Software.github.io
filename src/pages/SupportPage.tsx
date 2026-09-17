@@ -1,33 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Heart, FileText, Download, Check, Copy, ExternalLink, Eye, Upload, HelpCircle, ArrowRight, ShieldCheck, Building2, Calendar } from 'lucide-react';
+import { FileText, Download, ExternalLink, Eye, Upload, HelpCircle, ArrowRight, Calendar } from 'lucide-react';
 import { ScrollReveal } from '../components/motion/ScrollReveal';
 import { TelemetryTicker } from '../components/common/TelemetryTicker';
 
 export const SupportPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'steps' | 'example'>('steps');
-  const [copiedIban, setCopiedIban] = useState(false);
-  const [copiedBic, setCopiedBic] = useState(false);
-
-  const iban = "RO25RNCB0106170625170001";
-  const bic = "RNCBROBUXXX";
-  const bank = "Banca Comerciala Romana";
 
   const formPdfUrl = "/assets/230_OPANAF_103_2026-ASOCIATIA-ART-TU-CLUJ-NAPOCA.pdf";
   const examplePdfUrl = "/assets/230_OPANAF_15_2023-ART-TU-Cluj-Napoca-model.pdf";
   const googleFormUrl = "https://forms.gle/hZBLEjdjidnxnEW6A";
-
-  const handleCopyIban = () => {
-    navigator.clipboard.writeText(iban);
-    setCopiedIban(true);
-    setTimeout(() => setCopiedIban(false), 2200);
-  };
-
-  const handleCopyBic = () => {
-    navigator.clipboard.writeText(bic);
-    setCopiedBic(true);
-    setTimeout(() => setCopiedBic(false), 2200);
-  };
 
   return (
     <div className="relative w-full overflow-hidden pt-20 sm:pt-24 pb-20">
@@ -111,11 +93,9 @@ export const SupportPage: React.FC = () => {
         </div>
       </ScrollReveal>
 
-      {/* Main Grid: Formular 230 on Left (7 cols) + Direct NGO Transfer on Right (5 cols) */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        
-        {/* Formularul 230 Interactive Card */}
-        <ScrollReveal direction="left" duration={650} className="lg:col-span-7 bg-white/50 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-white/80 shadow-xs flex flex-col justify-between space-y-6">
+      {/* Formularul 230 Interactive Card */}
+      <div className="max-w-4xl mx-auto w-full">
+        <ScrollReveal direction="up" duration={650} className="bg-white/50 backdrop-blur-md p-6 sm:p-8 md:p-10 rounded-3xl border border-white/80 shadow-xs flex flex-col justify-between space-y-6">
           
           {/* Top Bar with Title & Tab Switcher */}
           <div>
@@ -357,90 +337,6 @@ export const SupportPage: React.FC = () => {
           )}
 
         </ScrollReveal>
-
-        {/* Bank Transfer Details Box */}
-        <ScrollReveal direction="right" duration={650} className="lg:col-span-5 bg-white/50 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-white/80 shadow-xs flex flex-col justify-between space-y-6">
-          <div>
-            <div className="flex items-center justify-between mb-2">
-              <span className="px-2.5 py-0.5 rounded-md bg-brand-red/10 text-brand-red text-[11px] font-mono font-bold">
-                Non-Profit NGO
-              </span>
-            </div>
-
-            <h2 className="font-display font-black text-2xl text-warm-900 mb-2">
-              Asociația ART TU Cluj-Napoca
-            </h2>
-            <p className="text-xs text-warm-600 leading-relaxed mb-6">
-              Direct contributions fund raw materials, high-voltage battery components, precision CNC machining, and competition logistics for our electric racecars.
-            </p>
-
-            <div className="space-y-3.5">
-              
-              {/* Bank Name */}
-              <div className="p-4 rounded-2xl bg-white/60 backdrop-blur-sm border border-white/80 hover:bg-white transition-all">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-warm-500 block mb-1 font-semibold">
-                  Bank / Sucursală
-                </span>
-                <span className="font-mono font-bold text-sm text-warm-900">
-                  {bank}
-                </span>
-              </div>
-
-              {/* IBAN (RON) */}
-              <div className="p-4 rounded-2xl bg-white/60 backdrop-blur-sm border border-white/80 hover:bg-white transition-all">
-                <div className="flex items-center justify-between mb-1">
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-warm-500 font-semibold">
-                    IBAN (RON)
-                  </span>
-                  <button
-                    onClick={handleCopyIban}
-                    className={`text-xs flex items-center gap-1 font-mono font-bold transition px-2 py-0.5 rounded-md ${
-                      copiedIban
-                        ? 'bg-emerald-100 text-emerald-800 scale-105'
-                        : 'text-brand-red hover:bg-brand-red/10'
-                    }`}
-                  >
-                    {copiedIban ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
-                    <span>{copiedIban ? 'IBAN Copied!' : 'Copy IBAN'}</span>
-                  </button>
-                </div>
-                <span className="font-mono font-bold text-sm text-warm-900 break-all select-all">
-                  {iban}
-                </span>
-              </div>
-
-              {/* BIC / SWIFT */}
-              <div className="p-4 rounded-2xl bg-white/60 backdrop-blur-sm border border-white/80 hover:bg-white transition-all">
-                <div className="flex items-center justify-between mb-1">
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-warm-500 font-semibold">
-                    BIC / SWIFT
-                  </span>
-                  <button
-                    onClick={handleCopyBic}
-                    className={`text-xs flex items-center gap-1 font-mono font-bold transition px-2 py-0.5 rounded-md ${
-                      copiedBic
-                        ? 'bg-emerald-100 text-emerald-800 scale-105'
-                        : 'text-brand-red hover:bg-brand-red/10'
-                    }`}
-                  >
-                    {copiedBic ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
-                    <span>{copiedBic ? 'BIC Copied!' : 'Copy BIC'}</span>
-                  </button>
-                </div>
-                <span className="font-mono font-bold text-sm text-warm-900 select-all">
-                  {bic}
-                </span>
-              </div>
-
-            </div>
-          </div>
-
-          <div className="pt-4 border-t border-warm-200/60 text-xs text-warm-500 flex items-center justify-between font-semibold">
-            <span>Fiscal NGO registration available</span>
-            <span className="text-brand-red font-mono font-bold">TUCN Formula Student</span>
-          </div>
-        </ScrollReveal>
-
       </div>
 
       </div>

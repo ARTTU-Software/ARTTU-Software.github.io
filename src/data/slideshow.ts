@@ -96,7 +96,7 @@ export const heroSlideshowMedia: SlideMedia[] = [
     id: 'img-10',
     type: 'image',
     src: '/assets/main_slideshow/IMG_8575-Workshop.webp',
-    title: 'TUCN Workshop & Hands-on Assembly',
+    title: 'UTCN Workshop & Hands-on Assembly',
     caption: 'Over 40 dedicated engineering students',
     duration: 6000,
   },

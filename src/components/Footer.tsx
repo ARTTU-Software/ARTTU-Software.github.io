@@ -14,7 +14,7 @@ export const Footer: React.FC = () => {
         </div>
 
         <div>
-          Copyright © 2026 Asociația ART TU Cluj-Napoca / TUCN Formula Student Team.
+          Copyright © 2026 Asociația ART TU Cluj-Napoca / UTCN Formula Student Team.
         </div>
 
         <div className="flex items-center gap-1 text-warm-500">

@@ -166,7 +166,7 @@ export const TeamHistoryPage: React.FC<TeamHistoryPageProps> = ({
         </h1>
         
         <p className="text-warm-700 text-xs sm:text-sm leading-relaxed max-w-2xl mx-auto">
-          Over 7 seasons, more than 100 passionate engineering students and faculty mentors at Technical University of Cluj-Napoca (TUCN) have designed, built, and raced Romania&apos;s most decorated Formula Student electric vehicles.
+          Over 7 seasons, more than 100 passionate engineering students and faculty mentors at Technical University of Cluj-Napoca (UTCN) have designed, built, and raced Romania&apos;s most decorated Formula Student electric vehicles.
         </p>
 
         {/* Quick Summary Telemetry Bar */}
@@ -320,7 +320,7 @@ export const TeamHistoryPage: React.FC<TeamHistoryPageProps> = ({
 
             <div className="pt-4 border-t border-warm-200 flex items-center justify-between text-xs text-warm-500 font-mono">
               <span>{currentGeneration.members.length} Coordinators & Leads</span>
-              <span className="text-brand-red font-semibold">TUCN Formula Student</span>
+              <span className="text-brand-red font-semibold">UTCN Formula Student</span>
             </div>
           </div>
         </div>
@@ -544,7 +544,7 @@ export const TeamHistoryPage: React.FC<TeamHistoryPageProps> = ({
             BE PART OF OUR NEXT GENERATION
           </h3>
           <p className="text-black text-xs sm:text-sm leading-relaxed max-w-xl mx-auto font-medium">
-            Whether you are a first-year student excited by automotive electronics or an experienced programmer ready to build custom telemetry, ART TU welcomes passionate TUCN engineers.
+            Whether you are a first-year student excited by automotive electronics or an experienced programmer ready to build custom telemetry, ART TU welcomes passionate UTCN engineers.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
             <Link

@@ -175,7 +175,7 @@ export const teamGenerations: TeamGeneration[] = [
       {
         name: "Prof. Dr. Ing. Bogdan-Ovidiu VARGA",
         role: "University Coordinator & Faculty Advisor",
-        department: "TUCN Faculty",
+        department: "UTCN Faculty",
         season: "2025-2026",
         image: "/assets/Bogdan-Ovidiu-VARGA-1024x678.webp",
         linkedin: "https://www.linkedin.com/in/vargab1/",
@@ -275,7 +275,7 @@ export const teamGenerations: TeamGeneration[] = [
       {
         name: "Prof. Dr. Ing. Bogdan-Ovidiu VARGA",
         role: "University Coordinator",
-        department: "TUCN Faculty",
+        department: "UTCN Faculty",
         season: "2024-2025",
         image: "/assets/Bogdan-Ovidiu-VARGA.webp",
         linkedin: "https://www.linkedin.com/in/vargab1/",
@@ -404,7 +404,7 @@ export const teamGenerations: TeamGeneration[] = [
       {
         name: "Prof. Dr. Ing. Bogdan-Ovidiu VARGA",
         role: "University Coordinator",
-        department: "TUCN Faculty",
+        department: "UTCN Faculty",
         season: "2023-2024",
         image: "/assets/Bogdan-Ovidiu-VARGA-150x150.webp",
         linkedin: "https://www.linkedin.com/in/vargab1/",
@@ -496,7 +496,7 @@ export const teamGenerations: TeamGeneration[] = [
       {
         name: "Prof. Dr. Ing. Bogdan-Ovidiu VARGA",
         role: "University Coordinator",
-        department: "TUCN Faculty",
+        department: "UTCN Faculty",
         season: "2022-2023",
         image: "/assets/Bogdan-Ovidiu-VARGA-150x150.webp",
         linkedin: "https://www.linkedin.com/in/vargab1/",
@@ -585,7 +585,7 @@ export const teamGenerations: TeamGeneration[] = [
       {
         name: "Prof. Dr. Ing. Bogdan-Ovidiu VARGA",
         role: "University Coordinator",
-        department: "TUCN Faculty",
+        department: "UTCN Faculty",
         season: "2021-2022",
         image: "/assets/Bogdan-Ovidiu-VARGA-150x150.webp",
         linkedin: "https://www.linkedin.com/in/vargab1/",
@@ -604,12 +604,12 @@ export const teamGenerations: TeamGeneration[] = [
     carModel: CARS_DATABASE['concept-art01'].name,
     groupPhoto: "/assets/Team-building-Marisel-2019.webp",
     groupPhotoCaption: "The original founding members of ART TU at the Mărișel concept workshop in June 2019.",
-    description: "Founded in early 2019 from a core vision of 20 passionate TUCN engineering students and mentors, the founding team laid the cornerstone of automotive excellence in Cluj-Napoca. Through extensive recruitment campaigns, concept modeling, and team-building workshops in Mărișel, the team structured the blueprint for Romania's premiere EV motorsport team.",
+    description: "Founded in early 2019 from a core vision of 20 passionate UTCN engineering students and mentors, the founding team laid the cornerstone of automotive excellence in Cluj-Napoca. Through extensive recruitment campaigns, concept modeling, and team-building workshops in Mărișel, the team structured the blueprint for Romania's premiere EV motorsport team.",
     highlights: [
-      "Team officially established in early 2019 at Technical University of Cluj-Napoca (TUCN)",
+      "Team officially established in early 2019 at Technical University of Cluj-Napoca (UTCN)",
       "Completed initial full-scale CAD chassis frame and concept packaging",
-      "Secured foundational sponsorship partnerships including TUCN & Porsche Engineering",
-      "Executed inaugural TUCN student recruitment attracting over 60 aspiring students"
+      "Secured foundational sponsorship partnerships including UTCN & Porsche Engineering",
+      "Executed inaugural UTCN student recruitment attracting over 60 aspiring students"
     ],
     members: [
       {
@@ -723,7 +723,7 @@ export const teamGenerations: TeamGeneration[] = [
       {
         title: "First Large-Scale Student Recruitment Campaign",
         date: "October 19 - 31, 2019",
-        description: "Official presentation of ART TU to bachelor's and master's students across TUCN engineering faculties, recruiting over 60 new team members.",
+        description: "Official presentation of ART TU to bachelor's and master's students across UTCN engineering faculties, recruiting over 60 new team members.",
         image: "/assets/Recruitment-2019.webp"
       },
       {

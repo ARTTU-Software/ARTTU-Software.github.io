@@ -344,7 +344,7 @@ export const HomePage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-20 pt-6">
           
           <div className="max-w-2xl space-y-6">
-            {/* TUCN & Championship Notification Tag */}
+            {/* UTCN & Championship Notification Tag */}
             <div
               className="flex justify-start"
               style={{
@@ -357,7 +357,7 @@ export const HomePage: React.FC = () => {
                 to="/history"
                 className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-black/50 border border-white/30 hover:border-brand-brightRed text-xs font-mono text-white backdrop-blur-sm transition-all duration-300 group shadow-md hover:bg-black/70 hover:scale-102"
               >
-                <span className="font-bold text-brand-brightRed">TUCN</span>
+                <span className="font-bold text-brand-brightRed">UTCN</span>
                 <span className="text-white/40">|</span>
                 <span className="font-medium text-white/95">FS BALKANS 2026 CHAMPIONS</span>
                 <ChevronRight className="w-3.5 h-3.5 text-white/60 group-hover:text-brand-brightRed group-hover:translate-x-0.5 transition-transform" />
@@ -681,7 +681,7 @@ export const HomePage: React.FC = () => {
                 </p>
 
                 <p className="text-sm sm:text-base text-warm-600 leading-relaxed">
-                  Together, we represent TUCN on Europe's most challenging Formula Student tracks, developing practical engineering mastery and competitive teamwork.
+                  Together, we represent UTCN on Europe's most challenging Formula Student tracks, developing practical engineering mastery and competitive teamwork.
                 </p>
 
                 {/* Clean, borderless metrics row */}
@@ -787,7 +787,7 @@ export const HomePage: React.FC = () => {
                   The Racecar & Specs
                 </h3>
                 <p className="text-sm sm:text-base text-warm-600 leading-relaxed">
-                  Engineered in-house at TUCN: <span className="font-semibold text-brand-red">custom high-voltage accumulator</span>, <span className="font-semibold text-warm-900">dual electric drive</span>, carbon aero package, and <span className="font-semibold text-warm-900">real-time CAN telemetry</span>.
+                  Engineered in-house at UTCN: <span className="font-semibold text-brand-red">custom high-voltage accumulator</span>, <span className="font-semibold text-warm-900">dual electric drive</span>, carbon aero package, and <span className="font-semibold text-warm-900">real-time CAN telemetry</span>.
                 </p>
 
                 {/* Machine Spec Pillars */}
@@ -882,7 +882,7 @@ export const HomePage: React.FC = () => {
                   Join The Team
                 </h3>
                 <p className="text-sm sm:text-base text-warm-600 leading-relaxed">
-                  <span className="font-semibold text-emerald-600">Hands-on engineering</span> for TUCN students across mechanical CAD, <span className="font-semibold text-warm-900">high-voltage battery packs</span>, <span className="font-semibold text-warm-900">telemetry firmware</span>, and team operations.
+                  <span className="font-semibold text-emerald-600">Hands-on engineering</span> for UTCN students across mechanical CAD, <span className="font-semibold text-warm-900">high-voltage battery packs</span>, <span className="font-semibold text-warm-900">telemetry firmware</span>, and team operations.
                 </p>
 
                 {/* Department Disciplines Roster */}
@@ -926,7 +926,7 @@ export const HomePage: React.FC = () => {
                       Partner with Romania's Leading Formula Student Team
                     </h2>
                     <p className="text-sm sm:text-base text-white leading-relaxed max-w-2xl font-normal">
-                      Gain racecar livery branding, visibility at international circuits, and recruitment access to top engineering and software graduates from TUCN.
+                      Gain racecar livery branding, visibility at international circuits, and recruitment access to top engineering and software graduates from UTCN.
                     </p>
                   </div>
 

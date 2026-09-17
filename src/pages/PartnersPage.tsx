@@ -105,223 +105,60 @@ export const PartnersPage: React.FC = () => {
       {/* Content Container */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-14">
       
-        {/* 1. Compact Header */}
-        <ScrollReveal direction="up" duration={500} className="text-center max-w-3xl mx-auto space-y-3">
+                {/* 1. Page Header & Tab Navigation */}
+        <ScrollReveal direction="up" duration={500} className="text-center max-w-3xl mx-auto space-y-4">
           <h1 className="font-display font-black text-3xl sm:text-4xl lg:text-5xl text-warm-900 uppercase tracking-tight">
-            PARTNER WITH ART TU
+            OUR PARTNERS
           </h1>
           <p className="text-warm-700 text-xs sm:text-sm leading-relaxed max-w-2xl mx-auto">
-            Powering the next generation of motorsport, electric vehicle innovation, and international Formula Student glory at the Technical University of Cluj-Napoca.
+            Meet the visionary companies, academic institutions, and technical enablers driving ART TU forward across European Formula Student circuits.
           </p>
 
-          {/* Key Metric Chips with Quick History Toggle */}
-          <div className="pt-1 flex flex-wrap items-center justify-center gap-2 text-xs font-mono">
-            <div className="px-3 py-1.5 rounded-xl bg-white/60 backdrop-blur-sm border border-white/80 shadow-2xs text-warm-800 flex items-center gap-1.5">
-              <Users className="w-3.5 h-3.5 text-brand-red" />
-              <span className="font-bold text-brand-red"><TelemetryTicker value={60} suffix="+" /></span>
-              <span>TUCN Students</span>
-            </div>
-            <div className="px-3 py-1.5 rounded-xl bg-white/60 backdrop-blur-sm border border-white/80 shadow-2xs text-warm-800 flex items-center gap-1.5">
-              <Trophy className="w-3.5 h-3.5 text-amber-500" />
-              <span className="font-bold text-warm-900">1st Overall</span>
-              <span>FS Balkans</span>
-            </div>
-            <div className="px-3 py-1.5 rounded-xl bg-white/60 backdrop-blur-sm border border-white/80 shadow-2xs text-warm-800 flex items-center gap-1.5">
-              <Percent className="w-3.5 h-3.5 text-emerald-700" />
-              <span className="font-bold text-emerald-700">100% Tax Deductible</span>
-              <span>Law 227/2015</span>
-            </div>
-            <div className="px-3 py-1.5 rounded-xl bg-white/60 backdrop-blur-sm border border-white/80 shadow-2xs text-warm-800 flex items-center gap-1.5">
-              <Handshake className="w-3.5 h-3.5 text-brand-red" />
-              <span className="font-bold text-brand-red"><TelemetryTicker value={43} suffix="" /></span>
-              <span>Current Partners</span>
+          {/* Tab Navigation Bar */}
+          <div className="pt-2 flex justify-center">
+            <div 
+              className="inline-flex p-1.5 rounded-2xl bg-white/70 backdrop-blur-md border border-warm-250 shadow-xs"
+              role="tablist"
+              aria-label="Partnership Directory View"
+            >
+              <button
+                type="button"
+                role="tab"
+                id="tab-current"
+                aria-controls="panel-current"
+                aria-selected={activeTab === 'current'}
+                onClick={() => handleTabChange('current')}
+                className={`px-5 sm:px-6 py-2.5 rounded-xl font-display font-bold text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 flex items-center gap-2 cursor-pointer ${
+                  activeTab === 'current'
+                    ? 'bg-brand-red text-white shadow-xs'
+                    : 'text-warm-700 hover:text-warm-900 hover:bg-warm-100/70'
+                }`}
+              >
+                <Users className="w-4 h-4" />
+                <span>Current Partners</span>
+              </button>
+
+              <button
+                type="button"
+                role="tab"
+                id="tab-history"
+                aria-controls="panel-history"
+                aria-selected={activeTab === 'history'}
+                onClick={() => handleTabChange('history')}
+                className={`px-5 sm:px-6 py-2.5 rounded-xl font-display font-bold text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 flex items-center gap-2 cursor-pointer ${
+                  activeTab === 'history'
+                    ? 'bg-brand-red text-white shadow-xs'
+                    : 'text-warm-700 hover:text-warm-900 hover:bg-warm-100/70'
+                }`}
+              >
+                <History className="w-4 h-4" />
+                <span>Partner History</span>
+              </button>
             </div>
           </div>
         </ScrollReveal>
 
-        {/* 2. Compact Split Hero: The People Behind the Machine + One-Pager */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-          
-          {/* Left: The People Behind the Machine */}
-          <ScrollReveal direction="left" duration={550} className="lg:col-span-6 flex">
-            <div className="w-full bg-white/50 backdrop-blur-md rounded-3xl border border-white/80 overflow-hidden shadow-xs flex flex-col justify-between group">
-              <div className="relative aspect-[16/10] overflow-hidden bg-warm-900">
-                <img
-                  src="/assets/2026_team_photo.webp"
-                  alt="ART TU Cluj-Napoca Formula Student Team on Grid at Hockenheimring"
-                  className="w-full h-full object-cover object-center group-hover:scale-103 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
-                
-                <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md border border-white/20 text-white text-[11px] font-mono font-bold flex items-center gap-1.5">
-                  <span>FS Germany • Hockenheimring</span>
-                </div>
-
-                <div className="absolute bottom-3 left-3 right-3 text-white">
-                  <p className="font-display font-black text-sm sm:text-base uppercase tracking-tight leading-tight drop-shadow-sm">
-                    The People Behind The Machine
-                  </p>
-                  <p className="text-[11px] text-white/80 font-sans mt-0.5 line-clamp-1">
-                    60+ TUCN students turning ambitious engineering into race-winning reality.
-                  </p>
-                </div>
-              </div>
-
-              <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between space-y-3">
-                <p className="text-xs text-warm-700 leading-relaxed">
-                  Behind every carbon fiber aerodynamic wing, custom printed circuit board, high-voltage battery cell, and simulation is a passionate team of Technical University students. Partnering with ART TU directly funds raw materials, precision machining, and future-defining engineering education.
-                </p>
-
-                <div className="pt-2 border-t border-warm-150 flex items-center justify-between">
-                  <Link
-                    to="/departments"
-                    className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-brand-red hover:text-brand-darkRed transition"
-                  >
-                    <span>Explore Team Departments</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                  <Link
-                    to="/history/team"
-                    className="text-[11px] font-mono text-warm-500 hover:text-warm-900 transition"
-                  >
-                    View Team Roster
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </ScrollReveal>
-
-          {/* Right: Compact One-Pager & Key Benefits */}
-          <ScrollReveal direction="right" duration={550} className="lg:col-span-6 flex">
-            <div className="w-full bg-white/50 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-white/80 shadow-xs flex flex-col justify-between space-y-4">
-              <div className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-mono text-brand-red uppercase tracking-wider font-bold">
-                    2026/2027 PARTNERSHIP PACKAGES
-                  </span>
-                  <span className="px-2 py-0.5 rounded bg-brand-red/10 text-brand-red text-[10px] font-mono font-bold">
-                    Official One-Pager
-                  </span>
-                </div>
-
-                <h2 className="font-display font-black text-xl sm:text-2xl text-warm-900 leading-snug">
-                  Request Official 2026 Partnership One-Pager
-                </h2>
-
-                <p className="text-xs text-warm-700 leading-relaxed">
-                  Get our concise 1-page summary covering car livery branding zones and further partner benefits.
-                </p>
-
-                <div className="p-3.5 rounded-2xl bg-white/60 backdrop-blur-sm border border-emerald-200/60 shadow-2xs space-y-2.5">
-                  <div className="flex items-center gap-1.5 font-bold text-emerald-800 font-mono uppercase text-[11px]">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                    <span>Key Partner Benefits & Incentives:</span>
-                  </div>
-                  
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-warm-800">
-                    <div className="flex items-start gap-1.5 bg-emerald-50/80 p-2.5 rounded-xl border border-emerald-100/80">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700 shrink-0 mt-0.5" />
-                      <div>
-                        <strong className="text-emerald-950 block font-semibold">Top-Tier Students:</strong>
-                        <span className="text-warm-700">Direct recruitment access to top students familiar with industry standards.</span>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-1.5 bg-emerald-50/80 p-2.5 rounded-xl border border-emerald-100/80">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700 shrink-0 mt-0.5" />
-                      <div>
-                        <strong className="text-emerald-950 block font-semibold">High Publicity:</strong>
-                        <span className="text-warm-700">Car livery branding across European circuits</span>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-1.5 bg-emerald-50/80 p-2.5 rounded-xl border border-emerald-100/80">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700 shrink-0 mt-0.5" />
-                      <div>
-                        <strong className="text-emerald-950 block font-semibold">R&D Track Testing:</strong>
-                        <span className="text-warm-700">Extreme validation for parts, tools & software</span>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-1.5 bg-emerald-50/80 p-2.5 rounded-xl border border-emerald-100/80">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700 shrink-0 mt-0.5" />
-                      <div>
-                        <strong className="text-emerald-950 block font-semibold">Law 227/2015:</strong>
-                        <span className="text-warm-700">Deduct 20% profit tax (up to 0.75% turnover)</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Action Bar */}
-              <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5">
-                <a
-                  href="mailto:arttu.contact@gmail.com?subject=Partnership%20One-Pager%20Request%202026"
-                  className="flex-1 px-5 py-3 rounded-xl bg-brand-red hover:bg-brand-darkRed text-white font-bold text-xs uppercase tracking-wider transition shadow-sm shadow-brand-red/25 flex items-center justify-center gap-2 group"
-                >
-                  <Download className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" />
-                  <span>Request Partnership One-Pager (PDF)</span>
-                </a>
-
-                <a
-                  href="mailto:arttu.contact@gmail.com"
-                  className="px-3.5 py-3 rounded-xl bg-white/80 hover:bg-white border border-warm-300 text-warm-800 font-mono text-xs font-bold transition flex items-center justify-center gap-1.5 shrink-0 shadow-xs"
-                  title="Email Project Management directly"
-                >
-                  <Mail className="w-3.5 h-3.5 text-brand-red" />
-                  <span>Contact Team</span>
-                </a>
-              </div>
-            </div>
-          </ScrollReveal>
-
-        </div>
-
-        {/* 3. Top Tab Navigation Bar */}
-        <div className="pt-6 sm:pt-8 flex flex-col items-center justify-center space-y-4">
-          <div 
-            className="inline-flex p-1.5 rounded-2xl bg-white/70 backdrop-blur-md border border-warm-250 shadow-xs"
-            role="tablist"
-            aria-label="Partnership Directory View"
-          >
-            <button
-              type="button"
-              role="tab"
-              id="tab-current"
-              aria-controls="panel-current"
-              aria-selected={activeTab === 'current'}
-              onClick={() => handleTabChange('current')}
-              className={`px-5 sm:px-6 py-2.5 rounded-xl font-display font-bold text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 flex items-center gap-2 cursor-pointer ${
-                activeTab === 'current'
-                  ? 'bg-brand-red text-white shadow-xs'
-                  : 'text-warm-700 hover:text-warm-900 hover:bg-warm-100/70'
-              }`}
-            >
-              <Users className="w-4 h-4" />
-              <span>Current Partners</span>
-            </button>
-
-            <button
-              type="button"
-              role="tab"
-              id="tab-history"
-              aria-controls="panel-history"
-              aria-selected={activeTab === 'history'}
-              onClick={() => handleTabChange('history')}
-              className={`px-5 sm:px-6 py-2.5 rounded-xl font-display font-bold text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 flex items-center gap-2 cursor-pointer ${
-                activeTab === 'history'
-                  ? 'bg-brand-red text-white shadow-xs'
-                  : 'text-warm-700 hover:text-warm-900 hover:bg-warm-100/70'
-              }`}
-            >
-              <History className="w-4 h-4" />
-              <span>Partner History</span>
-            </button>
-          </div>
-        </div>
-
-        {/* ========================================================================= */}
+{/* ========================================================================= */}
         {/* TAB 1: CURRENT PARTNERS                                                   */}
         {/* ========================================================================= */}
         {activeTab === 'current' && (
@@ -357,7 +194,7 @@ export const PartnersPage: React.FC = () => {
                       </h3>
                     </div>
 
-                    {/* EDUCATIONAL: Prominent card with dual logo (TUCN + EUt+ together) and description */}
+                    {/* EDUCATIONAL: Prominent card with dual logo (UTCN + EUt+ together) and description */}
                     {isEducational && (
                       <div className="max-w-2xl mx-auto">
                         {tierGroup.sponsors.map((sponsor, idx) => (
@@ -538,6 +375,184 @@ export const PartnersPage: React.FC = () => {
 
           </div>
         )}
+
+        {/* ========================================================================= */}
+        {/* BOTTOM SECTION: PARTNER WITH ART TU & ONE-PAGER                           */}
+        {/* ========================================================================= */}
+        <div id="partner-with-us" className="pt-12 sm:pt-16 border-t border-warm-250/80 space-y-10 sm:space-y-12">
+{/* Section Header & Metrics */}
+        <ScrollReveal direction="up" duration={500} className="text-center max-w-3xl mx-auto space-y-3">
+          <h2 className="font-display font-black text-2xl sm:text-3xl lg:text-4xl text-warm-900 uppercase tracking-tight">
+            PARTNER WITH ART TU
+          </h2>
+          <p className="text-warm-700 text-xs sm:text-sm leading-relaxed max-w-2xl mx-auto">
+            Powering the next generation of motorsport, electric vehicle innovation, and international Formula Student glory at the Technical University of Cluj-Napoca.
+          </p>
+
+          {/* Key Metric Chips with Quick History Toggle */}
+          <div className="pt-1 flex flex-wrap items-center justify-center gap-2 text-xs font-mono">
+            <div className="px-3 py-1.5 rounded-xl bg-white/60 backdrop-blur-sm border border-white/80 shadow-2xs text-warm-800 flex items-center gap-1.5">
+              <Users className="w-3.5 h-3.5 text-brand-red" />
+              <span className="font-bold text-brand-red"><TelemetryTicker value={60} suffix="+" /></span>
+              <span>UTCN Students</span>
+            </div>
+            <div className="px-3 py-1.5 rounded-xl bg-white/60 backdrop-blur-sm border border-white/80 shadow-2xs text-warm-800 flex items-center gap-1.5">
+              <Trophy className="w-3.5 h-3.5 text-amber-500" />
+              <span className="font-bold text-warm-900">1st Overall</span>
+              <span>FS Balkans</span>
+            </div>
+            <div className="px-3 py-1.5 rounded-xl bg-white/60 backdrop-blur-sm border border-white/80 shadow-2xs text-warm-800 flex items-center gap-1.5">
+              <Percent className="w-3.5 h-3.5 text-emerald-700" />
+              <span className="font-bold text-emerald-700">100% Tax Deductible</span>
+              <span>Law 227/2015</span>
+            </div>
+            <div className="px-3 py-1.5 rounded-xl bg-white/60 backdrop-blur-sm border border-white/80 shadow-2xs text-warm-800 flex items-center gap-1.5">
+              <Handshake className="w-3.5 h-3.5 text-brand-red" />
+              <span className="font-bold text-brand-red"><TelemetryTicker value={43} suffix="" /></span>
+              <span>Current Partners</span>
+            </div>
+          </div>
+        </ScrollReveal>
+
+        {/* Split Hero: The People Behind the Machine + One-Pager */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+          
+          {/* Left: The People Behind the Machine */}
+          <ScrollReveal direction="left" duration={550} className="lg:col-span-6 flex">
+            <div className="w-full bg-white/50 backdrop-blur-md rounded-3xl border border-white/80 overflow-hidden shadow-xs flex flex-col justify-between group">
+              <div className="relative aspect-[16/10] overflow-hidden bg-warm-900">
+                <img
+                  src="/assets/2026_team_photo.webp"
+                  alt="ART TU Cluj-Napoca Formula Student Team on Grid at Hockenheimring"
+                  className="w-full h-full object-cover object-center group-hover:scale-103 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
+                
+                <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md border border-white/20 text-white text-[11px] font-mono font-bold flex items-center gap-1.5">
+                  <span>FS Germany • Hockenheimring</span>
+                </div>
+
+                <div className="absolute bottom-3 left-3 right-3 text-white">
+                  <p className="font-display font-black text-sm sm:text-base uppercase tracking-tight leading-tight drop-shadow-sm">
+                    The People Behind The Machine
+                  </p>
+                  <p className="text-[11px] text-white/80 font-sans mt-0.5 line-clamp-1">
+                    60+ UTCN students turning ambitious engineering into race-winning reality.
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between space-y-3">
+                <p className="text-xs text-warm-700 leading-relaxed">
+                  Behind every carbon fiber aerodynamic wing, custom printed circuit board, high-voltage battery cell, and simulation is a passionate team of Technical University students. Partnering with ART TU directly funds raw materials, precision machining, and future-defining engineering education.
+                </p>
+
+                <div className="pt-2 border-t border-warm-150 flex items-center justify-between">
+                  <Link
+                    to="/departments"
+                    className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-brand-red hover:text-brand-darkRed transition"
+                  >
+                    <span>Explore Team Departments</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                  <Link
+                    to="/history/team"
+                    className="text-[11px] font-mono text-warm-500 hover:text-warm-900 transition"
+                  >
+                    View Team Roster
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+
+          {/* Right: Compact One-Pager & Key Benefits */}
+          <ScrollReveal direction="right" duration={550} className="lg:col-span-6 flex">
+            <div className="w-full bg-white/50 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-white/80 shadow-xs flex flex-col justify-between space-y-4">
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-mono text-brand-red uppercase tracking-wider font-bold">
+                    2026/2027 PARTNERSHIP PACKAGES
+                  </span>
+                  <span className="px-2 py-0.5 rounded bg-brand-red/10 text-brand-red text-[10px] font-mono font-bold">
+                    Official One-Pager
+                  </span>
+                </div>
+
+                <h2 className="font-display font-black text-xl sm:text-2xl text-warm-900 leading-snug">
+                  Request Official 2026 Partnership One-Pager
+                </h2>
+
+                <p className="text-xs text-warm-700 leading-relaxed">
+                  Get our concise 1-page summary covering car livery branding zones and further partner benefits.
+                </p>
+
+                <div className="p-3.5 rounded-2xl bg-white/60 backdrop-blur-sm border border-emerald-200/60 shadow-2xs space-y-2.5">
+                  <div className="flex items-center gap-1.5 font-bold text-emerald-800 font-mono uppercase text-[11px]">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                    <span>Key Partner Benefits & Incentives:</span>
+                  </div>
+                  
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-warm-800">
+                    <div className="flex items-start gap-1.5 bg-emerald-50/80 p-2.5 rounded-xl border border-emerald-100/80">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700 shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="text-emerald-950 block font-semibold">Top-Tier Students:</strong>
+                        <span className="text-warm-700">Direct recruitment access to top students familiar with industry standards.</span>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-1.5 bg-emerald-50/80 p-2.5 rounded-xl border border-emerald-100/80">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700 shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="text-emerald-950 block font-semibold">High Publicity:</strong>
+                        <span className="text-warm-700">Car livery branding across European circuits</span>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-1.5 bg-emerald-50/80 p-2.5 rounded-xl border border-emerald-100/80">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700 shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="text-emerald-950 block font-semibold">R&D Track Testing:</strong>
+                        <span className="text-warm-700">Extreme validation for parts, tools & software</span>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-1.5 bg-emerald-50/80 p-2.5 rounded-xl border border-emerald-100/80">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700 shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="text-emerald-950 block font-semibold">Law 227/2015:</strong>
+                        <span className="text-warm-700">Deduct 20% profit tax (up to 0.75% turnover)</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Action Bar */}
+              <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5">
+                <a
+                  href="mailto:arttu.contact@gmail.com?subject=Partnership%20One-Pager%20Request%202026"
+                  className="flex-1 px-5 py-3 rounded-xl bg-brand-red hover:bg-brand-darkRed text-white font-bold text-xs uppercase tracking-wider transition shadow-sm shadow-brand-red/25 flex items-center justify-center gap-2 group"
+                >
+                  <Download className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" />
+                  <span>Request Partnership One-Pager (PDF)</span>
+                </a>
+
+                <a
+                  href="mailto:arttu.contact@gmail.com"
+                  className="px-3.5 py-3 rounded-xl bg-white/80 hover:bg-white border border-warm-300 text-warm-800 font-mono text-xs font-bold transition flex items-center justify-center gap-1.5 shrink-0 shadow-xs"
+                  title="Email Project Management directly"
+                >
+                  <Mail className="w-3.5 h-3.5 text-brand-red" />
+                  <span>Contact Team</span>
+                </a>
+              </div>
+            </div>
+          </ScrollReveal>
+
+        </div>
+        </div>
 
       </div>
     </div>

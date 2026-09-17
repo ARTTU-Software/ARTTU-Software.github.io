@@ -110,12 +110,12 @@ export const RecruitmentPage: React.FC = () => {
               </h1>
               
               <p className="text-warm-700 text-sm sm:text-base leading-relaxed font-normal">
-                Open to all students of the Technical University of Cluj-Napoca (TUCN). Gain real-world engineering, high-voltage powertrains, telemetry software, and motorsport project management experience on Europe's premier circuits.
+                Open to all students of the Technical University of Cluj-Napoca (UTCN). Gain real-world engineering, high-voltage powertrains, telemetry software, and motorsport project management experience on Europe's premier circuits.
               </p>
 
               <div className="flex flex-wrap items-center gap-3 pt-2 text-xs font-mono text-warm-600">
                 <span className="inline-flex items-center gap-1.5 text-emerald-800 font-semibold bg-emerald-50/90 px-3 py-1.5 rounded-lg border border-emerald-200">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" /> Open to all TUCN faculties
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" /> Open to all UTCN faculties
                 </span>
                 <span className="inline-flex items-center gap-1.5 text-warm-800 font-semibold bg-warm-200/70 px-3 py-1.5 rounded-lg border border-warm-300/60">
                   <CheckCircle2 className="w-3.5 h-3.5 text-brand-red" /> No prior experience required
