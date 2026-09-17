@@ -187,7 +187,8 @@ export const PartnersPage: React.FC = () => {
 
             {sponsorTiers.map((tierGroup, tIdx) => {
               const isEducational = tierGroup.tier === 'educational';
-              const isPlatinumOrGold = tierGroup.tier === 'platinum' || tierGroup.tier === 'gold';
+              const isPlatinum = tierGroup.tier === 'platinum';
+              const isGold = tierGroup.tier === 'gold';
               const isSilver = tierGroup.tier === 'silver';
               const isBronze = tierGroup.tier === 'bronze';
               const isSupporter = tierGroup.tier === 'supporter';
@@ -218,8 +219,17 @@ export const PartnersPage: React.FC = () => {
                       </div>
                     )}
 
-                    {/* PLATINUM & GOLD: Rich cards with descriptions */}
-                    {isPlatinumOrGold && (
+                    {/* PLATINUM: Rich cards with bigger logos */}
+                    {isPlatinum && (
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+                        {tierGroup.sponsors.map((sponsor, idx) => (
+                          <SponsorDescriptionCard key={idx} sponsor={sponsor} />
+                        ))}
+                      </div>
+                    )}
+
+                    {/* GOLD: Rich cards with descriptions (remains the same) */}
+                    {isGold && (
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
                         {tierGroup.sponsors.map((sponsor, idx) => (
                           <SponsorDescriptionCard key={idx} sponsor={sponsor} />
@@ -227,21 +237,23 @@ export const PartnersPage: React.FC = () => {
                       </div>
                     )}
 
-                    {/* SILVER: Clickable images only */}
+                    {/* SILVER: A bit bigger, partner hierarchy size */}
                     {isSilver && (
-                      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+                      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-4 sm:gap-5">
                         {tierGroup.sponsors.map((sponsor, idx) => (
                           <ClickableLogoCard 
                             key={idx}
                             name={sponsor.name}
                             logo={sponsor.logo}
                             website={sponsor.website}
+                            heightClass="h-24 sm:h-28"
+                            imgClass="max-h-13 sm:max-h-16 max-w-[85%]"
                           />
                         ))}
                       </div>
                     )}
 
-                    {/* BRONZE: Clickable images only */}
+                    {/* BRONZE: The size of silver rn */}
                     {isBronze && (
                       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
                         {tierGroup.sponsors.map((sponsor, idx) => (
@@ -250,20 +262,24 @@ export const PartnersPage: React.FC = () => {
                             name={sponsor.name}
                             logo={sponsor.logo}
                             website={sponsor.website}
+                            heightClass="h-20 sm:h-24"
+                            imgClass="max-h-10 sm:max-h-12 max-w-[85%]"
                           />
                         ))}
                       </div>
                     )}
 
-                    {/* SUPPORTER: Clickable images only */}
+                    {/* SUPPORTER: Compact clickable cards */}
                     {isSupporter && (
-                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2.5 sm:gap-3.5">
+                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2.5 sm:gap-3">
                         {tierGroup.sponsors.map((sponsor, idx) => (
                           <ClickableLogoCard 
                             key={idx}
                             name={sponsor.name}
                             logo={sponsor.logo}
                             website={sponsor.website}
+                            heightClass="h-16 sm:h-20"
+                            imgClass="max-h-8 sm:max-h-9 max-w-[80%]"
                           />
                         ))}
                       </div>
@@ -342,7 +358,8 @@ export const PartnersPage: React.FC = () => {
                                     logo={sp.logo}
                                     secondaryLogo={sp.secondaryLogo}
                                     website={sp.website}
-                                    heightClass="h-24 sm:h-28"
+                                    heightClass="h-26 sm:h-30"
+                                    imgClass="max-h-14 sm:max-h-16 max-w-[85%]"
                                   />
                                 ))}
                               </div>
@@ -350,14 +367,15 @@ export const PartnersPage: React.FC = () => {
 
                             {/* Silver Category */}
                             {isSilver && (
-                              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+                              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-4 sm:gap-5">
                                 {cat.sponsors.map((sp, idx) => (
                                   <ClickableLogoCard
                                     key={idx}
                                     name={sp.name}
                                     logo={sp.logo}
                                     website={sp.website}
-                                    heightClass="h-20 sm:h-24"
+                                    heightClass="h-24 sm:h-28"
+                                    imgClass="max-h-13 sm:max-h-16 max-w-[85%]"
                                   />
                                 ))}
                               </div>
@@ -365,7 +383,7 @@ export const PartnersPage: React.FC = () => {
 
                             {/* Bronze Category */}
                             {!isPlatinum && !isSilver && (
-                              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2.5 sm:gap-3">
+                              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
                                 {cat.sponsors.map((sp, idx) => (
                                   <ClickableLogoCard
                                     key={idx}
@@ -373,7 +391,8 @@ export const PartnersPage: React.FC = () => {
                                     logo={sp.logo}
                                     secondaryLogo={sp.secondaryLogo}
                                     website={sp.website}
-                                    heightClass="h-20 sm:h-22"
+                                    heightClass="h-20 sm:h-24"
+                                    imgClass="max-h-10 sm:max-h-12 max-w-[85%]"
                                   />
                                 ))}
                               </div>
@@ -589,6 +608,7 @@ interface ClickableLogoCardProps {
   secondaryLogo?: string;
   website?: string;
   heightClass?: string;
+  imgClass?: string;
 }
 
 const ClickableLogoCard: React.FC<ClickableLogoCardProps> = ({
@@ -596,7 +616,8 @@ const ClickableLogoCard: React.FC<ClickableLogoCardProps> = ({
   logo,
   secondaryLogo,
   website,
-  heightClass = "h-20 sm:h-24"
+  heightClass = "h-20 sm:h-24",
+  imgClass = "max-h-10 sm:max-h-12 max-w-[85%]"
 }) => {
   const innerContent = (
     <div className={`relative w-full ${heightClass} p-3 rounded-2xl bg-white/75 backdrop-blur-sm border border-warm-200/70 shadow-2xs hover:shadow-md hover:bg-white hover:border-brand-red/50 hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center group`}>
@@ -608,7 +629,7 @@ const ClickableLogoCard: React.FC<ClickableLogoCardProps> = ({
               alt={name}
               loading="lazy"
               decoding="async"
-              className="max-h-10 max-w-full w-auto object-contain filter grayscale group-hover:grayscale-0 transition duration-200"
+              className={`${imgClass} w-auto object-contain filter grayscale group-hover:grayscale-0 transition duration-200`}
             />
           </div>
           <div className="w-px h-6 bg-warm-250 shrink-0" aria-hidden="true" />
@@ -618,7 +639,7 @@ const ClickableLogoCard: React.FC<ClickableLogoCardProps> = ({
               alt={`${name} secondary logo`}
               loading="lazy"
               decoding="async"
-              className="max-h-10 max-w-full w-auto object-contain filter grayscale group-hover:grayscale-0 transition duration-200"
+              className={`${imgClass} w-auto object-contain filter grayscale group-hover:grayscale-0 transition duration-200`}
             />
           </div>
         </div>
@@ -628,7 +649,7 @@ const ClickableLogoCard: React.FC<ClickableLogoCardProps> = ({
           alt={name}
           loading="lazy"
           decoding="async"
-          className="max-h-10 sm:max-h-12 max-w-[85%] w-auto object-contain filter grayscale group-hover:grayscale-0 transition duration-200"
+          className={`${imgClass} w-auto object-contain filter grayscale group-hover:grayscale-0 transition duration-200`}
         />
       )}
 
@@ -674,11 +695,13 @@ interface SponsorDescriptionCardProps {
 }
 
 const SponsorDescriptionCard: React.FC<SponsorDescriptionCardProps> = ({ sponsor }) => {
+  const isPlatinum = sponsor.tier === 'platinum';
+
   const cardContent = (
     <div className="h-full bg-white/75 backdrop-blur-sm p-4 sm:p-5 rounded-2xl border border-warm-200/70 hover:border-brand-red/60 hover:bg-white hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 shadow-xs flex flex-col justify-between group">
       <div>
         {/* Logo Container */}
-        <div className="relative h-16 p-2 rounded-xl bg-white border border-warm-200/60 shadow-2xs flex items-center justify-center gap-3 mb-3">
+        <div className={`relative ${isPlatinum ? 'h-20 sm:h-24 p-3' : 'h-16 p-2'} rounded-xl bg-white border border-warm-200/60 shadow-2xs flex items-center justify-center gap-3 mb-3`}>
           {sponsor.secondaryLogo ? (
             <div className="flex items-center justify-center gap-2 w-full h-full px-1">
               <div className="flex-1 flex items-center justify-center h-full">
@@ -687,17 +710,17 @@ const SponsorDescriptionCard: React.FC<SponsorDescriptionCardProps> = ({ sponsor
                   alt={sponsor.name}
                   loading="lazy"
                   decoding="async"
-                  className="max-h-11 max-w-full w-auto object-contain filter grayscale group-hover:grayscale-0 transition duration-200"
+                  className={`${isPlatinum ? 'max-h-13 sm:max-h-15' : 'max-h-11'} max-w-full w-auto object-contain filter grayscale group-hover:grayscale-0 transition duration-200`}
                 />
               </div>
-              <div className="w-px h-7 bg-warm-250/70 shrink-0" aria-hidden="true" />
+              <div className={`w-px ${isPlatinum ? 'h-9' : 'h-7'} bg-warm-250/70 shrink-0`} aria-hidden="true" />
               <div className="flex-1 flex items-center justify-center h-full">
                 <img
                   src={sponsor.secondaryLogo}
                   alt={`${sponsor.name} Secondary Logo`}
                   loading="lazy"
                   decoding="async"
-                  className="max-h-11 max-w-full w-auto object-contain filter grayscale group-hover:grayscale-0 transition duration-200"
+                  className={`${isPlatinum ? 'max-h-13 sm:max-h-15' : 'max-h-11'} max-w-full w-auto object-contain filter grayscale group-hover:grayscale-0 transition duration-200`}
                 />
               </div>
             </div>
@@ -707,7 +730,7 @@ const SponsorDescriptionCard: React.FC<SponsorDescriptionCardProps> = ({ sponsor
               alt={sponsor.name}
               loading="lazy"
               decoding="async"
-              className="max-h-11 max-w-[160px] w-auto object-contain filter grayscale group-hover:grayscale-0 transition duration-200"
+              className={`${isPlatinum ? 'max-h-14 sm:max-h-16 max-w-[220px]' : 'max-h-11 max-w-[160px]'} w-auto object-contain filter grayscale group-hover:grayscale-0 transition duration-200`}
             />
           )}
 

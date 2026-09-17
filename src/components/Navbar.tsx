@@ -400,7 +400,7 @@ export const Navbar: React.FC = () => {
                   : 'border-warm-300 bg-warm-50 text-warm-800'
               }`}
             >
-              Partner With Us
+              Partners
             </Link>
           </div>
         </div>
