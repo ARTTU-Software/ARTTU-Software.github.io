@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FileText, Download, ExternalLink, Eye, Upload, HelpCircle, ArrowRight, Calendar } from 'lucide-react';
 import { ScrollReveal } from '../components/motion/ScrollReveal';
 import { TelemetryTicker } from '../components/common/TelemetryTicker';
+import { trackEvent } from '../utils/analytics';
 
 export const SupportPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'steps' | 'example'>('steps');
@@ -325,6 +326,7 @@ export const SupportPage: React.FC = () => {
                   <a
                     href={examplePdfUrl}
                     download="230_ART_TU_Cluj_Napoca_Model.pdf"
+                    onClick={() => trackEvent('formular_230_download', { file_name: '230_ART_TU_Cluj_Napoca_Model.pdf' })}
                     className="px-4 py-2.5 rounded-xl bg-brand-red hover:bg-brand-darkRed text-white font-bold text-xs uppercase tracking-wider transition flex items-center gap-2 shadow-sm"
                   >
                     <Download className="w-4 h-4" />

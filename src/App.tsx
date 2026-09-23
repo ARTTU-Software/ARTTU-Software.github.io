@@ -16,11 +16,13 @@ import { EventsPage } from './pages/EventsPage';
 import { StartupSplash } from './components/common/StartupSplash';
 import { ScrollToTop } from './components/common/ScrollToTop';
 import { IntroProvider } from './context/IntroContext';
+import { AnalyticsTracker } from './components/common/AnalyticsTracker';
 
 export function App() {
   return (
     <IntroProvider>
       <BrowserRouter>
+        <AnalyticsTracker />
         <ScrollToTop />
         <StartupSplash />
         <div className="min-h-screen bg-warm-100 text-warm-900 flex flex-col font-sans selection:bg-brand-red selection:text-white">

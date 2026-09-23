@@ -4,6 +4,7 @@ import { ExternalLink, CheckCircle2, ChevronRight, Lock, Clock } from 'lucide-re
 import { departments } from '../data/departments';
 import { ScrollReveal } from '../components/motion/ScrollReveal';
 import { useRecruitmentStatus } from '../utils/recruitment';
+import { trackEvent } from '../utils/analytics';
 
 export const RecruitmentPage: React.FC = () => {
   const { isOpen, formattedCountdown } = useRecruitmentStatus();
@@ -151,6 +152,7 @@ export const RecruitmentPage: React.FC = () => {
                       href={GOOGLE_FORMS_URL}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() => trackEvent('recruitment_apply_click', { form_url: GOOGLE_FORMS_URL })}
                       className="w-full sm:w-auto px-6 py-3.5 rounded-lg bg-brand-red hover:bg-brand-darkRed text-white font-display font-bold text-xs uppercase tracking-wider shadow-sm transition-all flex items-center justify-center gap-2 group cursor-pointer hover:scale-[1.02] active:scale-98"
                     >
                       <span>Apply via Google Forms</span>

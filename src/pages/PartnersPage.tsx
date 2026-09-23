@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import { ScrollReveal } from '../components/motion/ScrollReveal';
 import { TelemetryTicker } from '../components/common/TelemetryTicker';
+import { trackEvent } from '../utils/analytics';
 
 export const PartnersPage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -566,6 +567,7 @@ export const PartnersPage: React.FC = () => {
               <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5">
                 <a
                   href="mailto:arttu.contact@gmail.com?subject=Partnership%20One-Pager%20Request%202026"
+                  onClick={() => trackEvent('partnership_deck_request', { method: 'mailto' })}
                   className="flex-1 px-5 py-3 rounded-xl bg-brand-red hover:bg-brand-darkRed text-white font-bold text-xs uppercase tracking-wider transition shadow-sm shadow-brand-red/25 flex items-center justify-center gap-2 group"
                 >
                   <Download className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" />
@@ -574,6 +576,7 @@ export const PartnersPage: React.FC = () => {
 
                 <a
                   href="mailto:arttu.contact@gmail.com"
+                  onClick={() => trackEvent('partnership_contact_click', { method: 'mailto' })}
                   className="px-3.5 py-3 rounded-xl bg-white/80 hover:bg-white border border-warm-300 text-warm-800 font-mono text-xs font-bold transition flex items-center justify-center gap-1.5 shrink-0 shadow-xs"
                   title="Email Project Management directly"
                 >
