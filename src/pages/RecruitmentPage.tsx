@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { UserPlus, ExternalLink, CheckCircle2, ChevronRight } from 'lucide-react';
+import { ExternalLink, CheckCircle2, ChevronRight, Lock, Clock } from 'lucide-react';
 import { departments } from '../data/departments';
 import { ScrollReveal } from '../components/motion/ScrollReveal';
+import { useRecruitmentStatus } from '../utils/recruitment';
 
 export const RecruitmentPage: React.FC = () => {
+  const { isOpen, formattedCountdown } = useRecruitmentStatus();
   // Configurable Google Forms URL placeholder
   const GOOGLE_FORMS_URL = "https://placehold.co/";
 
@@ -120,32 +122,80 @@ export const RecruitmentPage: React.FC = () => {
                 <span className="inline-flex items-center gap-1.5 text-warm-800 font-semibold bg-warm-200/70 px-3 py-1.5 rounded-lg border border-warm-300/60">
                   <CheckCircle2 className="w-3.5 h-3.5 text-brand-red" /> No prior experience required
                 </span>
+                {!isOpen && (
+                  <span className="inline-flex items-center gap-1.5 text-warm-800 font-semibold bg-warm-200/70 px-3 py-1.5 rounded-lg border border-warm-300/60">
+                    <Clock className="w-3.5 h-3.5 text-warm-600" /> Submissions unlock Sept 25, 00:00
+                  </span>
+                )}
               </div>
             </div>
 
-            {/* Right Column: Direct Apply Card (Hero Size) */}
-            <div className="p-8 sm:p-9 lg:p-10 rounded-3xl bg-white/95 backdrop-blur-md border border-warm-250/90 shrink-0 flex flex-col justify-center space-y-6 lg:max-w-md w-full shadow-xl shadow-warm-900/5 hover:border-brand-red/40 transition-all">
-              <div className="space-y-2">
-                <span className="text-xs font-mono uppercase tracking-widest text-brand-red font-extrabold block">
-                  Official Application
-                </span>
-                <h3 className="font-display font-black text-2xl sm:text-3xl text-warm-900 tracking-tight leading-snug">
-                  Ready to race with us?
-                </h3>
-                <p className="text-sm sm:text-base text-warm-600 leading-relaxed">
-                  Applications are reviewed continuously by department coordinators.
-                </p>
-              </div>
+            {/* Right Column: Direct Apply Area (Open Canvas, No Card Box) */}
+            <div className="lg:max-w-md w-full shrink-0 flex flex-col justify-center space-y-4">
+              {isOpen ? (
+                <>
+                  <div className="space-y-1.5">
+                    <span className="text-xs font-mono uppercase tracking-wider text-brand-red font-bold block">
+                      Official Application
+                    </span>
+                    <h2 className="font-display font-black text-2xl sm:text-3xl text-warm-900 tracking-tight leading-snug">
+                      Ready to race with us?
+                    </h2>
+                    <p className="text-sm text-warm-600 leading-relaxed font-normal">
+                      Applications are reviewed continuously by department coordinators.
+                    </p>
+                  </div>
 
-              <a
-                href={GOOGLE_FORMS_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full px-7 py-4 rounded-2xl bg-brand-red hover:bg-brand-darkRed text-white font-display font-black text-sm uppercase tracking-wider shadow-md shadow-brand-red/30 transition-all flex items-center justify-center gap-2.5 group cursor-pointer hover:scale-[1.02] hover:shadow-lg active:scale-98"
-              >
-                <span>Apply via Google Forms</span>
-                <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
+                  <div className="pt-2">
+                    <a
+                      href={GOOGLE_FORMS_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full sm:w-auto px-6 py-3.5 rounded-lg bg-brand-red hover:bg-brand-darkRed text-white font-display font-bold text-xs uppercase tracking-wider shadow-sm transition-all flex items-center justify-center gap-2 group cursor-pointer hover:scale-[1.02] active:scale-98"
+                    >
+                      <span>Apply via Google Forms</span>
+                      <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                    </a>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="space-y-2">
+                    <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-warm-200/80 border border-warm-300/80 text-warm-700 text-xs font-mono font-bold w-fit">
+                      <Clock className="w-3.5 h-3.5 text-warm-500" />
+                      <span>Recruitment Starts Sept 25</span>
+                    </div>
+
+                    <h2 className="font-display font-black text-2xl sm:text-3xl text-warm-900 tracking-tight leading-snug">
+                      Applications Open Sept 25
+                    </h2>
+
+                    <p className="text-sm text-warm-600 leading-relaxed font-normal">
+                      Recruitment begins on September 25 at midnight. Review open departments below and return on the 25th to submit your application.
+                    </p>
+
+                    <div className="pt-1 flex items-center gap-2 text-xs font-mono text-warm-600">
+                      <span className="text-warm-400 uppercase tracking-wider">Unlocks in:</span>
+                      <span className="font-bold text-warm-900">{formattedCountdown}</span>
+                    </div>
+                  </div>
+
+                  <div className="pt-2">
+                    <button
+                      type="button"
+                      disabled
+                      aria-disabled="true"
+                      className="w-full sm:w-auto px-6 py-3.5 rounded-lg bg-warm-200 text-warm-500 font-display font-bold text-xs uppercase tracking-wider border border-warm-300/90 cursor-not-allowed select-none flex items-center justify-center gap-2"
+                    >
+                      <Lock className="w-3.5 h-3.5 text-warm-400" />
+                      <span>Applications Open Sept 25</span>
+                    </button>
+                    <p className="text-[11px] font-mono text-warm-500 mt-2">
+                      Official Google Form unlocks automatically on September 25 at 00:00.
+                    </p>
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </ScrollReveal>
@@ -223,8 +273,14 @@ export const RecruitmentPage: React.FC = () => {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-warm-950/80 via-warm-950/20 to-transparent" />
                       <div className="absolute top-2.5 left-2.5">
-                        <span className="px-2.5 py-1 rounded-md bg-emerald-600/90 backdrop-blur-xs text-white text-[10px] font-mono font-bold shadow-2xs">
-                          ● Positions Open
+                        <span
+                          className={`px-2.5 py-1 rounded-md backdrop-blur-xs text-[10px] font-mono font-bold shadow-2xs ${
+                            isOpen
+                              ? 'bg-emerald-600/90 text-white'
+                              : 'bg-warm-800/80 text-warm-200'
+                          }`}
+                        >
+                          {isOpen ? '● Positions Open' : '● Opens Sept 25'}
                         </span>
                       </div>
                       <div className="absolute bottom-2 left-3 right-3 text-[10px] font-mono text-white/90 font-bold uppercase tracking-wider">

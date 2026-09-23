@@ -5,6 +5,7 @@ import { marqueeLogos } from '../data/sponsors';
 import { heroSlideshowMedia } from '../data/slideshow';
 import { ScrollReveal } from '../components/motion/ScrollReveal';
 import { TelemetryTicker } from '../components/common/TelemetryTicker';
+import { useRecruitmentStatus } from '../utils/recruitment';
 
 import { useIntro } from '../context/IntroContext';
 
@@ -15,6 +16,7 @@ const videoIndices = heroSlideshowMedia
 
 export const HomePage: React.FC = () => {
   const { isIntroComplete, isSplashFullyDone } = useIntro();
+  const { isOpen: isRecruitmentOpen } = useRecruitmentStatus();
 
   // Start with clean main showcase video slide on initial page load / refresh
   const [currentIndex, setCurrentIndex] = useState<number>(0);
@@ -868,8 +870,10 @@ export const HomePage: React.FC = () => {
                     alt="Student Engineers Workshop"
                     className="w-full h-[280px] sm:h-[340px] lg:h-[370px] object-cover group-hover:scale-103 transition duration-700 ease-out"
                   />
-                  <div className="absolute top-4 left-4 px-3.5 py-1.5 rounded-lg bg-white/95 backdrop-blur-md text-xs font-mono font-bold text-emerald-700 shadow-sm flex items-center gap-1.5">
-                    RECRUITMENT ACTIVE
+                  <div className={`absolute top-4 left-4 px-3.5 py-1.5 rounded-lg bg-white/95 backdrop-blur-md text-xs font-mono font-bold shadow-sm flex items-center gap-1.5 ${
+                    isRecruitmentOpen ? 'text-emerald-700' : 'text-warm-700'
+                  }`}>
+                    {isRecruitmentOpen ? 'RECRUITMENT ACTIVE' : 'RECRUITMENT OPENS SEPT 25'}
                   </div>
                 </Link>
               </ScrollReveal>

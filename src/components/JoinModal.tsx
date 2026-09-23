@@ -1,5 +1,6 @@
 import React from 'react';
-import { X, ExternalLink, Users, Sparkles, CheckCircle2 } from 'lucide-react';
+import { X, ExternalLink, Users, Sparkles, CheckCircle2, Lock, Clock } from 'lucide-react';
+import { useRecruitmentStatus } from '../utils/recruitment';
 
 interface JoinModalProps {
   isOpen: boolean;
@@ -7,6 +8,7 @@ interface JoinModalProps {
 }
 
 export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose }) => {
+  const { isOpen: isRecruitmentOpen } = useRecruitmentStatus();
   if (!isOpen) return null;
   const GOOGLE_FORMS_URL = "https://forms.google.com/";
 
@@ -23,8 +25,8 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose }) => {
 
         <div className="mb-6">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 text-xs font-mono uppercase font-bold mb-2">
-            <Users className="w-3.5 h-3.5" />
-            <span>Recruitments Active</span>
+            {isRecruitmentOpen ? <Users className="w-3.5 h-3.5" /> : <Clock className="w-3.5 h-3.5" />}
+            <span>{isRecruitmentOpen ? 'Recruitments Active' : 'Recruitment Opens Sept 25'}</span>
           </div>
           <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-warm-900 uppercase">
             JOIN ART TU FORMULA STUDENT
@@ -80,15 +82,27 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose }) => {
           >
             Close
           </button>
-          <a
-            href={GOOGLE_FORMS_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-6 py-2.5 rounded-xl bg-brand-red hover:bg-brand-darkRed text-white text-xs font-bold uppercase tracking-wider shadow-md shadow-brand-red/25 transition flex items-center gap-1.5"
-          >
-            <span>Open Application Form</span>
-            <ExternalLink className="w-3.5 h-3.5" />
-          </a>
+          {isRecruitmentOpen ? (
+            <a
+              href={GOOGLE_FORMS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-2.5 rounded-xl bg-brand-red hover:bg-brand-darkRed text-white text-xs font-bold uppercase tracking-wider shadow-md shadow-brand-red/25 transition flex items-center gap-1.5"
+            >
+              <span>Open Application Form</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+          ) : (
+            <button
+              type="button"
+              disabled
+              aria-disabled="true"
+              className="px-6 py-2.5 rounded-xl bg-warm-200 text-warm-500 text-xs font-bold uppercase tracking-wider border border-warm-300 cursor-not-allowed select-none flex items-center gap-1.5"
+            >
+              <Lock className="w-3.5 h-3.5 text-warm-400" />
+              <span>Opens Sept 25 (Midnight)</span>
+            </button>
+          )}
         </div>
 
       </div>

@@ -37,6 +37,8 @@ export function App() {
             <Route path="/team-history" element={<TeamHistoryPage />} />
             <Route path="/departments" element={<DepartmentsPage />} />
             <Route path="/recruitment" element={<RecruitmentPage />} />
+            <Route path="/join" element={<RecruitmentPage />} />
+            <Route path="/join-us" element={<RecruitmentPage />} />
             <Route path="/partners" element={<PartnersPage />} />
             <Route path="/sponsors" element={<PartnersPage />} />
             <Route path="/sponsorship" element={<PartnersPage />} />
