@@ -83,22 +83,7 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(
       return;
     }
 
-    // 1. Instant Synchronous + RAF Check for items already in viewport on mount
-    const checkInitialVisibility = () => {
-      if (!ref.current || hasTriggeredRef.current) return;
-      const rect = ref.current.getBoundingClientRect();
-      const vh = window.innerHeight || document.documentElement.clientHeight;
-      // If element is anywhere in viewport or within 120px buffer
-      if (rect.top < vh + 120 && rect.bottom > -60) {
-        triggerReveal();
-      }
-    };
-
-    // Run check immediately and on next paint
-    checkInitialVisibility();
-    const rafId = requestAnimationFrame(checkInitialVisibility);
-
-    // 2. Setup IntersectionObserver
+    // 1. Setup IntersectionObserver (fires automatically on first layout paint)
     let observer: IntersectionObserver | null = null;
     try {
       observer = new IntersectionObserver(
@@ -128,15 +113,17 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(
       triggerReveal();
     }
 
-    // 3. Fallback safety timer: Never let content stay permanently invisible
+    // 2. Fallback safety timer: ONLY reveal if the element is actually in the visible viewport on mount
     const safetyTimer = setTimeout(() => {
-      if (!hasTriggeredRef.current) {
-        checkInitialVisibility();
+      if (!node || hasTriggeredRef.current) return;
+      const rect = node.getBoundingClientRect();
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+      if (rect.top < vh && rect.bottom > 0) {
+        triggerReveal();
       }
-    }, 350);
+    }, 500);
 
     return () => {
-      cancelAnimationFrame(rafId);
       clearTimeout(safetyTimer);
       if (timeoutIdRef.current) {
         clearTimeout(timeoutIdRef.current);

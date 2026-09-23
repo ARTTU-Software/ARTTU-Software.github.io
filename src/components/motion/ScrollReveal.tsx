@@ -66,11 +66,11 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
   children,
   direction = 'up',
   delay = 0,
-  duration = 650,
-  distance = 30,
-  threshold = 0.01,
-  rootMargin = '60px 0px 60px 0px',
-  triggerOnce = true,
+  duration = 750,
+  distance = 32,
+  threshold = 0.1,
+  rootMargin = '0px 0px -40px 0px',
+  triggerOnce = false,
   as: Component = 'div',
   className = '',
   style = {},
@@ -113,8 +113,7 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
     transitionProperty: 'opacity, transform',
     transitionDuration: `${duration}ms`,
     transitionDelay: `${delay}ms`,
-    transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
-    willChange: isVisible ? 'auto' : 'opacity, transform',
+    transitionTimingFunction: 'cubic-bezier(0.22, 1, 0.36, 1)',
   };
 
   return (

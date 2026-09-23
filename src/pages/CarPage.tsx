@@ -217,35 +217,42 @@ export const CarPage: React.FC = () => {
                 />
               </div>
 
-              {/* ------------------------------------------------------------- */}
-              {/* FULL VOLUMETRIC REALISTIC SHADOW STACK (Rich & Deep) */}
-              {/* ------------------------------------------------------------- */}
+              {/* Volumetric Underbody Ground Shadow Stack (Deep & Continuous Below All Bodywork, Zero Box Artifacts) */}
+              <div className="absolute inset-0 pointer-events-none z-0 transform-gpu select-none">
+                {/* 1. Extended Ambient Ground Penumbra Pool */}
+                <div className="absolute -bottom-3 sm:-bottom-4 -left-[5%] -right-[5%] h-16 sm:h-24 bg-black/65 blur-2xl rounded-[100%]" />
 
-              {/* 1. Extended Ambient Ground Penumbra */}
-              <div className="absolute bottom-[-4px] left-[-3%] right-[-3%] h-14 sm:h-18 bg-black/55 blur-2xl rounded-[100%] pointer-events-none z-0" />
+                {/* 2. Full-length Underbody Ground Shadow (Continuous across entire car length) */}
+                <div className="absolute bottom-[0.5%] left-[1%] right-[1%] h-9 sm:h-12 bg-black/85 blur-xl rounded-[100%]" />
 
-              {/* 2. Full-length Underbody Ground Shadow */}
-              <div className="absolute bottom-[1%] left-[2%] right-[2%] h-7 sm:h-9 bg-black/85 blur-xl rounded-[100%] pointer-events-none z-0" />
+                {/* 3. Deep Continuous Underbody Cavity Occlusion (Below all bodywork from nose to diffuser) */}
+                <div
+                  className="absolute bottom-[0.5%] left-[2%] right-[2%] h-[20%] blur-xl pointer-events-none"
+                  style={{
+                    background: 'radial-gradient(ellipse 95% 100% at 50% 100%, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.75) 45%, rgba(0,0,0,0) 80%)',
+                    borderRadius: '100% / 60%',
+                  }}
+                />
 
-              {/* 3. Deep Upward Shadow filling underneath Floor Tray & Sidepods */}
-              <div className="absolute bottom-[3%] left-[10%] right-[10%] h-[20%] bg-black/75 blur-lg rounded-2xl pointer-events-none z-0" />
-              <div className="absolute bottom-[4%] left-[16%] right-[14%] h-[15%] bg-black/85 blur-md rounded-xl pointer-events-none z-0" />
+                {/* 4. Deep Sidepod & Floor Tray Occlusion (Underneath main chassis & floor) */}
+                <div className="absolute bottom-[1%] left-[12%] right-[12%] h-[16%] bg-black/80 blur-lg rounded-[100%]" />
+                <div className="absolute bottom-[1.5%] left-[18%] right-[18%] h-[12%] bg-black/90 blur-md rounded-[100%]" />
 
-              {/* 4. Upward Volumetric Shadow covering UNDER THE REAR WING & DIFFUSER */}
-              <div className="absolute bottom-[14%] right-[3%] w-[28%] h-[36%] bg-black/65 blur-2xl rounded-full pointer-events-none z-0" />
-              <div className="absolute bottom-[6%] right-[2%] w-[25%] h-[22%] bg-black/85 blur-lg rounded-2xl pointer-events-none z-0" />
+                {/* 5. Front Wing & Nosecone Ground Shadow (Smooth elliptical falloff under front aero) */}
+                <div className="absolute bottom-[0.8%] left-[0%] w-[32%] h-[14%] bg-black/85 blur-lg rounded-[100%]" />
 
-              {/* 5. Upward Shadow covering UNDER THE FRONT WING & NOSECONE */}
-              <div className="absolute bottom-[3%] left-[1%] w-[24%] h-[15%] bg-black/80 blur-md rounded-xl pointer-events-none z-0" />
+                {/* 6. Rear Wing & Diffuser Volumetric Ground Shadow */}
+                <div className="absolute bottom-[1%] right-[0%] w-[30%] h-[18%] bg-black/80 blur-xl rounded-[100%]" />
 
-              {/* 6. Continuous Crisp Ground Contact Baseline */}
-              <div className="absolute bottom-[2%] left-[3%] right-[3%] h-3 sm:h-3.5 bg-black blur-[2px] rounded-full pointer-events-none z-0" />
+                {/* 7. Continuous Crisp Ground Contact Baseline */}
+                <div className="absolute bottom-[1%] left-[2%] right-[2%] h-3.5 bg-black blur-[2px] rounded-full" />
 
-              {/* 7. Front Tire High-Pressure Contact Patch */}
-              <div className="absolute bottom-[1.5%] left-[22.5%] w-[19%] h-3.5 sm:h-4 bg-black blur-[1.5px] rounded-[100%] pointer-events-none z-0" />
+                {/* 8. Front Tire High-Pressure Contact Patch (Exactly under Hoosier front tire) */}
+                <div className="absolute bottom-[0.6%] left-[22.5%] w-[19%] h-4 bg-black blur-[1.5px] rounded-[100%]" />
 
-              {/* 8. Rear Tire High-Pressure Contact Patch */}
-              <div className="absolute bottom-[1.8%] left-[75.5%] w-[19.5%] h-3.5 sm:h-4 bg-black blur-[1.5px] rounded-[100%] pointer-events-none z-0" />
+                {/* 9. Rear Tire High-Pressure Contact Patch (Exactly under Hoosier rear tire) */}
+                <div className="absolute bottom-[0.9%] left-[75.5%] w-[19.5%] h-4 bg-black blur-[1.5px] rounded-[100%]" />
+              </div>
 
               {/* Main Racecar Studio Profile Image */}
               <img
@@ -272,7 +279,7 @@ export const CarPage: React.FC = () => {
                         className={`relative inline-flex rounded-full h-5 w-5 sm:h-6 sm:w-6 items-center justify-center font-mono text-xs font-bold transition-all duration-200 shadow-md ${
                           isSelected
                             ? 'bg-white text-brand-red scale-115 ring-4 ring-white/40'
-                            : 'bg-black/85 text-white border border-white/80 backdrop-blur-sm group-hover:scale-110 group-hover:bg-white group-hover:text-brand-red'
+                            : 'bg-black/90 text-white border border-white/80 group-hover:scale-110 group-hover:bg-white group-hover:text-brand-red'
                         }`}
                       >
                         +
@@ -284,7 +291,7 @@ export const CarPage: React.FC = () => {
                       className={`absolute top-full mt-1.5 left-1/2 -translate-x-1/2 whitespace-nowrap text-[10.5px] sm:text-xs font-mono font-bold px-2.5 py-0.5 rounded-md shadow-xl transition-all duration-200 pointer-events-none ${
                         isSelected
                           ? 'bg-white text-brand-red opacity-100 translate-y-0 z-30'
-                          : 'bg-black/95 text-white opacity-0 -translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 backdrop-blur-md z-30'
+                          : 'bg-black/95 text-white opacity-0 -translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 z-30'
                       }`}
                     >
                       {spot.name}
@@ -396,9 +403,18 @@ export const CarPage: React.FC = () => {
           />
 
           {/* Ambient Floating Light Orbs */}
-          <div className="absolute top-[12%] -left-20 w-[450px] h-[450px] rounded-full bg-brand-red/[0.05] blur-[130px] animate-ambient-float-1" />
-          <div className="absolute top-[48%] right-[-10%] w-[550px] h-[550px] rounded-full bg-brand-brightRed/[0.04] blur-[140px] animate-ambient-float-2" />
-          <div className="absolute top-[80%] left-[10%] w-[500px] h-[500px] rounded-full bg-brand-red/[0.03] blur-[130px] animate-ambient-float-1" />
+          <div
+            className="absolute top-[12%] -left-20 w-[450px] h-[450px] rounded-full animate-ambient-float-1 pointer-events-none transform-gpu"
+            style={{ background: 'radial-gradient(circle, rgba(211, 47, 47, 0.08) 0%, rgba(211, 47, 47, 0) 70%)', contain: 'strict' }}
+          />
+          <div
+            className="absolute top-[48%] right-[-10%] w-[550px] h-[550px] rounded-full animate-ambient-float-2 pointer-events-none transform-gpu"
+            style={{ background: 'radial-gradient(circle, rgba(239, 68, 68, 0.07) 0%, rgba(239, 68, 68, 0) 70%)', contain: 'strict' }}
+          />
+          <div
+            className="absolute top-[80%] left-[10%] w-[500px] h-[500px] rounded-full animate-ambient-float-1 pointer-events-none transform-gpu"
+            style={{ background: 'radial-gradient(circle, rgba(211, 47, 47, 0.06) 0%, rgba(211, 47, 47, 0) 70%)', contain: 'strict' }}
+          />
 
           {/* Wind Tunnel Horizontal Velocity Filaments */}
           <div className="absolute top-[18%] left-[8%] w-52 h-px bg-gradient-to-r from-transparent via-brand-red/20 to-transparent animate-wind-streak-1" />
@@ -561,7 +577,7 @@ export const CarPage: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-90 group-hover:opacity-100 transition-opacity" />
                   <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
                     <span className="font-mono text-xs font-bold">Drivers</span>
-                    <span className="text-[10px] font-mono bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-md">TNT Karting Transylvania</span>
+                    <span className="text-[10px] font-mono bg-black/75 border border-white/10 px-2.5 py-1 rounded-md">TNT Karting Transylvania</span>
                   </div>
                 </div>
               </ScrollReveal>
@@ -578,7 +594,7 @@ export const CarPage: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-90 group-hover:opacity-100 transition-opacity" />
                   <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
                     <span className="font-mono text-xs font-bold">Setting Up</span>
-                    <span className="text-[10px] font-mono bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-md">Hockenheimring</span>
+                    <span className="text-[10px] font-mono bg-black/75 border border-white/10 px-2.5 py-1 rounded-md">Hockenheimring</span>
                   </div>
                 </div>
               </ScrollReveal>
@@ -595,7 +611,7 @@ export const CarPage: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-90 group-hover:opacity-100 transition-opacity" />
                   <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
                     <span className="font-mono text-xs font-bold">Ready to Race</span>
-                    <span className="text-[10px] font-mono bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-md">TNT Karting Transylvania</span>
+                    <span className="text-[10px] font-mono bg-black/75 border border-white/10 px-2.5 py-1 rounded-md">TNT Karting Transylvania</span>
                   </div>
                 </div>
               </ScrollReveal>

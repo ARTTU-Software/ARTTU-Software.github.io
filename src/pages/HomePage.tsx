@@ -25,9 +25,38 @@ export const HomePage: React.FC = () => {
   const [isUnmuteFlashing, setIsUnmuteFlashing] = useState(false);
   const [heroEntered, setHeroEntered] = useState(false);
   const videoRefs = useRef<{ [key: string]: HTMLVideoElement | null }>({});
+  const heroSectionRef = useRef<HTMLElement | null>(null);
+  const isHeroInViewRef = useRef(true);
   const userUnlockedAudioRef = useRef(false);
   const userManuallyMutedRef = useRef(false);
   const prevIndexRef = useRef(currentIndex);
+
+  const currentMedia = heroSlideshowMedia[currentIndex];
+
+  // Pause video decoding when hero is scrolled out of viewport
+  useEffect(() => {
+    const heroEl = heroSectionRef.current;
+    if (!heroEl) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const inView = entry.isIntersecting;
+        isHeroInViewRef.current = inView;
+        const activeVideo = videoRefs.current[currentMedia.id];
+        if (activeVideo && currentMedia.type === 'video') {
+          if (!inView) {
+            activeVideo.pause();
+          } else if (isIntroComplete && !document.hidden) {
+            activeVideo.play().catch(() => {});
+          }
+        }
+      },
+      { threshold: 0.05 }
+    );
+
+    observer.observe(heroEl);
+    return () => observer.disconnect();
+  }, [currentMedia.id, currentMedia.type, isIntroComplete]);
 
   // Synchronized Hero Entrance Animation (waits for reload intro splash if active, or triggers smoothly on route enter)
   useEffect(() => {
@@ -42,8 +71,6 @@ export const HomePage: React.FC = () => {
 
     return () => clearTimeout(timer);
   }, [isIntroComplete]);
-
-  const currentMedia = heroSlideshowMedia[currentIndex];
 
   // Helper to safely ramp volume without stalling mobile WebKit
   const rampVolumeIn = useCallback((video: HTMLVideoElement, targetVol = 1.0) => {
@@ -291,7 +318,7 @@ export const HomePage: React.FC = () => {
     <div className="pb-24">
       
       {/* 1. Cinematic Hero Section with Sequential Multi-Media Slideshow */}
-      <section className="relative min-h-[90vh] flex items-center justify-center pt-28 pb-20 overflow-hidden bg-carbon-950 isolate">
+      <section ref={heroSectionRef} className="relative min-h-[90vh] flex items-center justify-center pt-28 pb-20 overflow-hidden bg-carbon-950 isolate">
         
         {/* Background Visual Layer: Stacked Crossfade Slides (Video and Images) */}
         <div className="absolute inset-0 z-0 overflow-hidden">
@@ -586,10 +613,22 @@ export const HomePage: React.FC = () => {
           />
 
           {/* Smooth floating aerodynamic ambient light orbs with faint red accents */}
-          <div className="absolute top-[8%] -left-20 w-[450px] h-[450px] rounded-full bg-brand-red/[0.08] blur-[120px] animate-ambient-float-1" />
-          <div className="absolute top-[32%] right-[-10%] w-[550px] h-[550px] rounded-full bg-brand-red/[0.07] blur-[140px] animate-ambient-float-2" />
-          <div className="absolute top-[58%] left-[15%] w-[500px] h-[500px] rounded-full bg-brand-brightRed/[0.06] blur-[130px] animate-ambient-float-1" />
-          <div className="absolute top-[82%] right-[5%] w-[600px] h-[600px] rounded-full bg-brand-red/[0.06] blur-[150px] animate-ambient-float-2" />
+          <div
+            className="absolute top-[8%] -left-20 w-[450px] h-[450px] rounded-full animate-ambient-float-1 pointer-events-none transform-gpu"
+            style={{ background: 'radial-gradient(circle, rgba(211, 47, 47, 0.09) 0%, rgba(211, 47, 47, 0) 70%)', contain: 'strict' }}
+          />
+          <div
+            className="absolute top-[32%] right-[-10%] w-[550px] h-[550px] rounded-full animate-ambient-float-2 pointer-events-none transform-gpu"
+            style={{ background: 'radial-gradient(circle, rgba(211, 47, 47, 0.08) 0%, rgba(211, 47, 47, 0) 70%)', contain: 'strict' }}
+          />
+          <div
+            className="absolute top-[58%] left-[15%] w-[500px] h-[500px] rounded-full animate-ambient-float-1 pointer-events-none transform-gpu"
+            style={{ background: 'radial-gradient(circle, rgba(239, 68, 68, 0.07) 0%, rgba(239, 68, 68, 0) 70%)', contain: 'strict' }}
+          />
+          <div
+            className="absolute top-[82%] right-[5%] w-[600px] h-[600px] rounded-full animate-ambient-float-2 pointer-events-none transform-gpu"
+            style={{ background: 'radial-gradient(circle, rgba(211, 47, 47, 0.07) 0%, rgba(211, 47, 47, 0) 70%)', contain: 'strict' }}
+          />
 
           {/* Wind Tunnel Speed Filaments (Subtle horizontal drift) */}
           <div className="absolute top-[16%] left-[10%] w-48 h-px bg-gradient-to-r from-transparent via-brand-red/25 to-transparent animate-wind-streak-1" />
@@ -615,7 +654,8 @@ export const HomePage: React.FC = () => {
 
           {/* Continuous Dynamic Flowing Racing Lines: Animated SVG streamlines with faint red accents */}
           <svg
-            className="absolute inset-0 w-full h-full"
+            className="absolute inset-0 w-full h-full transform-gpu pointer-events-none"
+            style={{ contain: 'strict' }}
             fill="none"
             viewBox="0 0 1440 2400"
             preserveAspectRatio="none"

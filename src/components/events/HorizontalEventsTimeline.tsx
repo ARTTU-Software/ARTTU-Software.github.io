@@ -100,7 +100,7 @@ export const HorizontalEventsTimeline: React.FC<HorizontalEventsTimelineProps> =
     <ScrollReveal direction="up" duration={600} className="w-full space-y-6">
       {/* Full-width Carousel Track Ribbon */}
 
-      <div className="w-full rounded-none border-y border-x-0 border-warm-200/80 bg-white/40 backdrop-blur-md py-5 sm:py-7 shadow-xs">
+      <div className="w-full rounded-none border-y border-x-0 border-warm-200/80 bg-white/70 py-5 sm:py-7 shadow-xs">
         {/* Top Header & Navigation Controls */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-warm-200/80 pb-2.5">
@@ -185,7 +185,7 @@ export const HorizontalEventsTimeline: React.FC<HorizontalEventsTimelineProps> =
                     <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
 
                     {/* Top Date Badge */}
-                    <div className="absolute top-2.5 left-2.5 bg-black/70 backdrop-blur-md text-white font-mono text-[10px] px-2 py-0.5 rounded border border-white/10 font-bold">
+                    <div className="absolute top-2.5 left-2.5 bg-black/85 text-white font-mono text-[10px] px-2 py-0.5 rounded border border-white/15 font-bold shadow-xs">
                       {event.date}
                     </div>
 
@@ -209,7 +209,10 @@ export const HorizontalEventsTimeline: React.FC<HorizontalEventsTimelineProps> =
       {/* Dedicated Description Panel for the Selected Center Event (Constrained in max-w-7xl) */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="bg-white rounded-2xl border border-warm-250 p-5 sm:p-6 lg:p-7 shadow-sm relative overflow-hidden transition-all duration-300">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-brand-red/5 rounded-full blur-3xl pointer-events-none" />
+          <div
+            className="absolute top-0 right-0 w-64 h-64 rounded-full pointer-events-none"
+            style={{ background: 'radial-gradient(circle, rgba(211, 47, 47, 0.05) 0%, transparent 70%)' }}
+          />
 
           <div className="relative z-10 space-y-2.5">
             {/* Header metadata */}

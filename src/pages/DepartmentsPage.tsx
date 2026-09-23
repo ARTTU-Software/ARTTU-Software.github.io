@@ -22,9 +22,18 @@ export const DepartmentsPage: React.FC = () => {
         />
 
         {/* Ambient Floating Light Orbs */}
-        <div className="absolute top-[10%] -left-20 w-[450px] h-[450px] rounded-full bg-brand-red/[0.05] blur-[130px] animate-ambient-float-1" />
-        <div className="absolute top-[45%] right-[-10%] w-[550px] h-[550px] rounded-full bg-brand-brightRed/[0.04] blur-[140px] animate-ambient-float-2" />
-        <div className="absolute top-[75%] left-[8%] w-[500px] h-[500px] rounded-full bg-brand-red/[0.03] blur-[130px] animate-ambient-float-1" />
+        <div
+          className="absolute top-[10%] -left-20 w-[450px] h-[450px] rounded-full animate-ambient-float-1 pointer-events-none transform-gpu"
+          style={{ background: 'radial-gradient(circle, rgba(211, 47, 47, 0.08) 0%, rgba(211, 47, 47, 0) 70%)', contain: 'strict' }}
+        />
+        <div
+          className="absolute top-[45%] right-[-10%] w-[550px] h-[550px] rounded-full animate-ambient-float-2 pointer-events-none transform-gpu"
+          style={{ background: 'radial-gradient(circle, rgba(239, 68, 68, 0.07) 0%, rgba(239, 68, 68, 0) 70%)', contain: 'strict' }}
+        />
+        <div
+          className="absolute top-[75%] left-[8%] w-[500px] h-[500px] rounded-full animate-ambient-float-1 pointer-events-none transform-gpu"
+          style={{ background: 'radial-gradient(circle, rgba(211, 47, 47, 0.06) 0%, rgba(211, 47, 47, 0) 70%)', contain: 'strict' }}
+        />
 
         {/* Precision Engineering Speed Filaments */}
         <div className="absolute top-[15%] left-[6%] w-52 h-px bg-gradient-to-r from-transparent via-brand-red/20 to-transparent animate-wind-streak-1" />
@@ -91,6 +100,10 @@ export const DepartmentsPage: React.FC = () => {
                 key={dept.id}
                 id={dept.id}
                 className="scroll-mt-28 pb-16 sm:pb-24 border-b border-warm-200/80 last:border-b-0"
+                style={{
+                  contentVisibility: index > 0 ? 'auto' : undefined,
+                  containIntrinsicSize: index > 0 ? 'auto 650px' : undefined,
+                }}
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-stretch">
                   {/* Text Column (Open on Canvas, No Card Box) */}

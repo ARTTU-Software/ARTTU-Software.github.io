@@ -54,9 +54,18 @@ export const EventsPage: React.FC = () => {
         />
 
         {/* Ambient Floating Light Orbs */}
-        <div className="absolute top-[10%] -left-20 w-[450px] h-[450px] rounded-full bg-brand-red/[0.05] blur-[130px] animate-ambient-float-1" />
-        <div className="absolute top-[45%] right-[-10%] w-[550px] h-[550px] rounded-full bg-brand-brightRed/[0.04] blur-[140px] animate-ambient-float-2" />
-        <div className="absolute top-[75%] left-[8%] w-[500px] h-[500px] rounded-full bg-brand-red/[0.03] blur-[130px] animate-ambient-float-1" />
+        <div
+          className="absolute top-[10%] -left-20 w-[450px] h-[450px] rounded-full animate-ambient-float-1 pointer-events-none transform-gpu"
+          style={{ background: 'radial-gradient(circle, rgba(211, 47, 47, 0.08) 0%, rgba(211, 47, 47, 0) 70%)', contain: 'strict' }}
+        />
+        <div
+          className="absolute top-[45%] right-[-10%] w-[550px] h-[550px] rounded-full animate-ambient-float-2 pointer-events-none transform-gpu"
+          style={{ background: 'radial-gradient(circle, rgba(239, 68, 68, 0.07) 0%, rgba(239, 68, 68, 0) 70%)', contain: 'strict' }}
+        />
+        <div
+          className="absolute top-[75%] left-[8%] w-[500px] h-[500px] rounded-full animate-ambient-float-1 pointer-events-none transform-gpu"
+          style={{ background: 'radial-gradient(circle, rgba(211, 47, 47, 0.06) 0%, rgba(211, 47, 47, 0) 70%)', contain: 'strict' }}
+        />
 
         {/* Wind Tunnel Speed Filaments */}
         <div className="absolute top-[15%] left-[6%] w-52 h-px bg-gradient-to-r from-transparent via-brand-red/20 to-transparent animate-wind-streak-1" />
@@ -129,8 +138,11 @@ export const EventsPage: React.FC = () => {
       {/* Collaboration Callout (Constrained in max-w-7xl) */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal direction="up" duration={650}>
-          <div className="bg-white/50 backdrop-blur-md border border-white/80 rounded-3xl p-6 sm:p-8 text-center relative overflow-hidden shadow-xs">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-brand-red/5 rounded-full blur-3xl pointer-events-none" />
+          <div className="bg-white/90 border border-warm-250/90 rounded-3xl p-6 sm:p-8 text-center relative overflow-hidden shadow-xs">
+            <div
+              className="absolute top-0 right-0 w-64 h-64 rounded-full pointer-events-none"
+              style={{ background: 'radial-gradient(circle, rgba(211,47,47,0.06) 0%, transparent 70%)' }}
+            />
 
             <div className="relative z-10 max-w-2xl mx-auto space-y-3">
               <span className="inline-flex items-center gap-1.5 text-xs font-mono text-brand-red uppercase tracking-widest font-bold">

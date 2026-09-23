@@ -41,7 +41,7 @@ const ALL_ROUTES = [
 
 // Helper to check if a port is responding
 async function findActiveBaseUrl() {
-  const candidatePorts = [5173, 5174, 5175, 3000, 8080];
+  const candidatePorts = [4173, 5173, 5174, 5175, 3000, 8080];
   for (const port of candidatePorts) {
     const isLive = await new Promise((resolve) => {
       const req = http.get(`http://localhost:${port}/`, { timeout: 1000 }, (res) => {

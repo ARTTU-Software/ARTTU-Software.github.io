@@ -31,7 +31,7 @@ export function AnalyticsTracker() {
     const fullPath = location.pathname + location.search + location.hash;
     const pageTitle = PAGE_TITLES[location.pathname] || 'Home';
     
-    document.title = pageTitle;
+    // Send clean section name strictly to Google Analytics without modifying the browser tab
     trackPageView(fullPath, pageTitle);
   }, [location]);
 

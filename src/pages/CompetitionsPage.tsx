@@ -37,8 +37,14 @@ export const CompetitionsPage: React.FC = () => {
             />
 
             {/* Ambient Floating Light Orbs */}
-            <div className="absolute top-[8%] -left-24 w-[480px] h-[480px] rounded-full bg-brand-red/[0.06] blur-[130px] animate-ambient-float-1" />
-            <div className="absolute top-[50%] right-[-10%] w-[520px] h-[520px] rounded-full bg-amber-500/[0.05] blur-[140px] animate-ambient-float-2" />
+            <div
+              className="absolute top-[8%] -left-24 w-[480px] h-[480px] rounded-full animate-ambient-float-1 pointer-events-none transform-gpu"
+              style={{ background: 'radial-gradient(circle, rgba(211, 47, 47, 0.08) 0%, rgba(211, 47, 47, 0) 70%)', contain: 'strict' }}
+            />
+            <div
+              className="absolute top-[50%] right-[-10%] w-[520px] h-[520px] rounded-full animate-ambient-float-2 pointer-events-none transform-gpu"
+              style={{ background: 'radial-gradient(circle, rgba(245, 158, 11, 0.07) 0%, rgba(245, 158, 11, 0) 70%)', contain: 'strict' }}
+            />
 
             {/* High-Speed Track Velocity Filaments */}
             <div className="absolute top-[12%] left-[10%] w-56 h-px bg-gradient-to-r from-transparent via-brand-red/25 to-transparent animate-wind-streak-1" />
@@ -120,7 +126,10 @@ export const CompetitionsPage: React.FC = () => {
               </div>
 
               {/* Section 4: Full Historical Milestones Archive (2019-2026) */}
-              <div className="space-y-8 pt-8 border-t border-warm-200">
+              <div
+                className="space-y-8 pt-8 border-t border-warm-200"
+                style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto none auto 800px' }}
+              >
                 <ScrollReveal direction="up" duration={550} distance={20} triggerOnce={false} className="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
                   <div>
                     <div className="inline-flex items-center gap-2 text-brand-red font-mono text-xs uppercase tracking-widest font-bold mb-1">
