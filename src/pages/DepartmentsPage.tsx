@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { departments } from '../data/departments';
-import { Plus, ChevronRight, UserPlus, Sparkles } from 'lucide-react';
+import { Plus, ChevronRight, UserPlus } from 'lucide-react';
 import { ScrollReveal } from '../components/motion/ScrollReveal';
 import { DepartmentSlideshow } from '../components/departments/DepartmentSlideshow';
 
@@ -141,7 +141,7 @@ export const DepartmentsPage: React.FC = () => {
 
                       <div>
                         <h3 className="text-xs font-mono uppercase tracking-wider text-warm-900 font-bold mb-2.5 flex items-center gap-1.5">
-                          <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+                          <span className="w-2 h-2 rounded-xs bg-amber-500 inline-block" />
                           <span>What You'll Learn</span>
                         </h3>
                         <ul className="space-y-1.5 text-xs text-warm-700">
