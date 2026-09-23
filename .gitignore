@@ -19,4 +19,15 @@ structura_extracted.txt
 *.docx
 benchmark_*
 
+# Sponsor deck presentation artifacts & generation scripts
+cards_strip*.png
+deck_preview.html
+deck_test_preview.png
+header_static*.png
+poster_frame.png
+scripts/build_sponsor_video.mjs
+scripts/generate_marquee_assets.mjs
+sponsor_deck_marquee.mp4
+sponsor_marquee.mp4
+
 
