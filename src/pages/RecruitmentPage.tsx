@@ -203,12 +203,9 @@ export const RecruitmentPage: React.FC = () => {
         {/* 2. 4-Stage Connected Recruitment Roadmap (Open on Canvas, No Box Trap) */}
         <div className="space-y-6">
           <ScrollReveal direction="up" duration={550} distance={20} triggerOnce={false}>
-            <div className="flex items-center gap-2">
-              <span className="inline-block w-2 h-2 rounded-full bg-brand-red" />
-              <h2 className="font-display font-black text-xl sm:text-2xl text-warm-900 uppercase tracking-tight">
-                Recruitment Process & Roadmap
-              </h2>
-            </div>
+            <h2 className="font-display font-black text-xl sm:text-2xl text-warm-900 uppercase tracking-tight">
+              Recruitment Process & Roadmap
+            </h2>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -237,9 +234,8 @@ export const RecruitmentPage: React.FC = () => {
           <ScrollReveal direction="up" duration={550} distance={20} triggerOnce={false}>
             <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
               <div>
-                <h2 className="font-display font-black text-xl sm:text-2xl text-warm-900 uppercase tracking-tight flex items-center gap-2">
-                  <span className="inline-block w-2 h-2 rounded-full bg-[#ff3b3b]" />
-                  <span>Recruiting Departments</span>
+                <h2 className="font-display font-black text-xl sm:text-2xl text-warm-900 uppercase tracking-tight">
+                  Recruiting Departments
                 </h2>
                 <p className="text-xs sm:text-sm text-warm-600 mt-1">
                   Explore open positions across engineering, software, and operations.
@@ -280,7 +276,7 @@ export const RecruitmentPage: React.FC = () => {
                               : 'bg-warm-800/80 text-warm-200'
                           }`}
                         >
-                          {isOpen ? '● Positions Open' : '● Opens Sept 25'}
+                          {isOpen ? 'Positions Open' : 'Opens Sept 25'}
                         </span>
                       </div>
                       <div className="absolute bottom-2 left-3 right-3 text-[10px] font-mono text-white/90 font-bold uppercase tracking-wider">
@@ -318,7 +314,7 @@ export const RecruitmentPage: React.FC = () => {
                 <span className="text-xs font-mono text-brand-red uppercase tracking-wider font-bold">
                   WORKSHOP CULTURE
                 </span>
-                <span className="text-warm-400">•</span>
+                <span className="text-warm-400">/</span>
                 <span className="font-display font-black text-base sm:text-lg text-warm-900 uppercase tracking-tight">
                   Life @ ART TU
                 </span>

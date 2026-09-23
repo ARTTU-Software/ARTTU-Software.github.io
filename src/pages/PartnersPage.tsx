@@ -343,9 +343,8 @@ export const PartnersPage: React.FC = () => {
 
                         return (
                           <div key={cIdx} className="space-y-3">
-                            <h4 className="font-display font-bold text-sm sm:text-base text-warm-800 uppercase flex items-center gap-2">
-                              <span className="w-2 h-2 rounded-full bg-brand-red shrink-0" />
-                              <span>{cat.name}</span>
+                            <h4 className="font-display font-bold text-sm sm:text-base text-warm-800 uppercase">
+                              {cat.name}
                             </h4>
 
                             {/* Platinum Category */}
@@ -463,7 +462,7 @@ export const PartnersPage: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
                 
                 <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-black/70 backdrop-blur-md border border-white/20 text-white text-[11px] font-mono font-bold flex items-center gap-1.5">
-                  <span>FS Germany • Hockenheimring</span>
+                  <span>FS Germany | Hockenheimring</span>
                 </div>
 
                 <div className="absolute bottom-3 left-3 right-3 text-white">

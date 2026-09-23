@@ -130,9 +130,9 @@ export const CarPage: React.FC = () => {
             {/* Left: Generation Model Tag */}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-black/40 backdrop-blur-md border border-white/15 text-white text-xs font-mono font-semibold shadow-md shrink-0">
               <span className="text-white font-bold">{CURRENT_CAR.shortName.toUpperCase()}</span>
-              <span className="text-white/40">•</span>
+              <span className="text-white/30">|</span>
               <span className="text-white/90">{CURRENT_CAR.generationCode} Single-Seater</span>
-              <span className="hidden sm:inline text-white/40">•</span>
+              <span className="hidden sm:inline text-white/30">|</span>
               <span className="hidden sm:inline text-white/70">Season {CURRENT_CAR.seasonSpan}</span>
             </div>
 

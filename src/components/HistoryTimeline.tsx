@@ -43,7 +43,7 @@ export const HistoryTimeline: React.FC = () => {
                       isEven ? 'sm:justify-end' : 'justify-start'
                     }`}>
                       <Calendar className="w-3.5 h-3.5" />
-                      <span>{item.year} • {item.location}</span>
+                      <span>{item.year} | {item.location}</span>
                     </div>
 
                     <h3 className="font-display font-bold text-xl text-warm-900 mb-2">

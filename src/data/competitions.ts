@@ -94,7 +94,7 @@ export const competitionEvents: CompetitionEvent[] = [
     id: 'fsaa',
     name: 'Formula Student Alpe Adria (FSAA 2026)',
     shortName: 'FS Alpe Adria 2026',
-    badge: 'P3 Efficiency • P9 Overall (Top 10)',
+    badge: 'P3 Efficiency | P9 Overall (Top 10)',
     badgeType: 'gold',
     icon: 'award',
     circuit: 'Bugatti Rimac Test Track, Croatia',
@@ -134,7 +134,7 @@ export const historicalTimeline: HistoricalMilestone[] = [
   {
     year: 2026,
     name: 'FS Balkans, FS Germany & FS Alpe Adria',
-    location: 'TNT Karting, Dej (RO) • Hockenheimring (DE) • Bugatti Rimac Test Track (HR)',
+    location: 'TNT Karting, Dej (RO) | Hockenheimring (DE) | Bugatti Rimac Test Track (HR)',
     badge: 'Historic Triple Podium Season',
     highlight: 'FS Balkans Overall Champions + P3 Efficiency at FSG & P3 Efficiency / P9 Overall at FSAA',
     awards: [

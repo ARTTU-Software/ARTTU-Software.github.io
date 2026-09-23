@@ -149,7 +149,7 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
 
     image: '/assets/IMG_7408.webp',
     fallbackImage: '/assets/2026_main_photo.webp',
-    imageCaption: 'Afia (ART-26 EV) • 200V custom battery, full carbon aerodynamic package, and live telemetry streaming.',
+    imageCaption: 'Afia (ART-26 EV) | 200V custom battery, full carbon aerodynamic package, and live telemetry streaming.',
     imagePosition: 'object-[center_35%]',
     engineeringOverview:
       "Afia is our high-voltage electric formula single-seater, engineered in-house with a custom 200V lithium-ion accumulator, dual permanent magnet motors, full carbon-fiber aerodynamics package, and integrated CAN-bus telemetry.",
@@ -159,7 +159,7 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
     tagline: '1st Place Overall Champions at FS Balkans, P3 Efficiency at Hockenheim & P3 Efficiency / P9 Overall at FS Alpe Adria',
     description:
       'The 2025-2026 season marks the start of performance engineering at ART TU. Afia dominated Formula Student Balkans 2026 at TNT Karting Dej with a clean sweep of all static events and top dynamic speed, crowned with 1st Place Overall Championship, followed by 3rd in Efficiency at Hockenheim, and 3rd in Efficiency, 6th in Engineering Design, and 9th Overall at Formula Student Alpe Adria (Croatia).',
-    circuitLocation: 'TNT Karting, Dej (Romania) • Hockenheimring (Germany) • Bugatti Rimac Test Track (Croatia)',
+    circuitLocation: 'TNT Karting, Dej (Romania) | Hockenheimring (Germany) | Bugatti Rimac Test Track (Croatia)',
 
 
     innovations: [
@@ -335,7 +335,7 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
     ],
 
     trackProgress: 0.94,
-    circuitTurn: 'Turn 12 • Main Start / Finish Championship Straight'
+    circuitTurn: 'Turn 12 | Main Start / Finish Championship Straight'
   },
 
   // --------------------------------------------------------------------------
@@ -354,7 +354,7 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
 
     image: '/assets/20250821_12-46-42_1527_grobe-XL.webp',
     fallbackImage: '/assets/20250820_14-48-23_2601_seizinger-X3.webp',
-    imageCaption: "Coty on the grid • featuring our team's first aerodynamic wings and carbon wishbones.",
+    imageCaption: "Coty on the grid | featuring our team's first aerodynamic wings and carbon wishbones.",
     imagePosition: 'object-[center_bottom]',
 
 
@@ -431,7 +431,7 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
     ],
 
     trackProgress: 0.72,
-    circuitTurn: 'Turn 9 • Technical Triple Hairpin Complex'
+    circuitTurn: 'Turn 9 | Technical Triple Hairpin Complex'
   },
 
   // --------------------------------------------------------------------------
@@ -450,7 +450,7 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
 
     image: '/assets/FB-Post-11.08.2024.webp',
     fallbackImage: '/assets/20250501_172038-1-1-scaled.webp',
-    imageCaption: 'ART24 on the grid at Formula Student Czech Republic 2024 (Autodrom Most) • historic first mechanical scrutineering pass.',
+    imageCaption: 'ART24 on the grid at Formula Student Czech Republic 2024 (Autodrom Most) | historic first mechanical scrutineering pass.',
     imagePosition: 'object-[center_top]',
 
     title: 'Engineering Maturation & Mechanical Breakthrough',
@@ -517,7 +517,7 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
     ],
 
     trackProgress: 0.52,
-    circuitTurn: 'Turn 7 • Technical Stadium Infield'
+    circuitTurn: 'Turn 7 | Technical Stadium Infield'
   },
 
   // --------------------------------------------------------------------------
@@ -536,7 +536,7 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
 
     image: '/assets/FSCzech4-1536x1153.webp',
     fallbackImage: '/assets/IMG_1513.webp',
-    imageCaption: 'ART23 under the arch at Formula Student Czech Republic 2023 (Autodrom Most) • upgraded chassis and composite aerodynamic bodywork.',
+    imageCaption: 'ART23 under the arch at Formula Student Czech Republic 2023 (Autodrom Most) | upgraded chassis and composite aerodynamic bodywork.',
     imagePosition: 'object-[center_45%]',
 
     title: 'Evolution & FS Czech Debut',
@@ -602,7 +602,7 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
     ],
 
     trackProgress: 0.36,
-    circuitTurn: 'Turn 5 • North Chicane'
+    circuitTurn: 'Turn 5 | North Chicane'
   },
 
   // --------------------------------------------------------------------------
@@ -621,7 +621,7 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
 
     image: '/assets/Cover-FB-03.09.webp',
     fallbackImage: '/assets/IMG_1513.webp',
-    imageCaption: 'ART22 on the paddock at Formula Student Alpe Adria 2022 (Bugatti Rimac Test Track, Croatia) • the first electric formula single-seater built by a Romanian university.',
+    imageCaption: 'ART22 on the paddock at Formula Student Alpe Adria 2022 (Bugatti Rimac Test Track, Croatia) | the first electric formula single-seater built by a Romanian university.',
     imagePosition: 'object-[center_45%]',
 
     title: '1st Romanian Electric Single-Seater in History',
@@ -687,7 +687,7 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
     ],
 
     trackProgress: 0.20,
-    circuitTurn: 'Turn 3 • Eastern Outer Hairpin'
+    circuitTurn: 'Turn 3 | Eastern Outer Hairpin'
   },
 
   // --------------------------------------------------------------------------
@@ -772,7 +772,7 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
     ],
 
     trackProgress: 0.03,
-    circuitTurn: 'Turn 1 • Paddock Garage & Launch Line'
+    circuitTurn: 'Turn 1 | Paddock Garage & Launch Line'
   }
 };
 

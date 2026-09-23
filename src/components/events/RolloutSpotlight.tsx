@@ -21,7 +21,7 @@ export const RolloutSpotlight: React.FC<{ onOpenPhoto?: (src: string, title: str
               Flagship Event
             </span>
             <span className="text-xs font-mono text-warm-500 uppercase tracking-widest font-semibold">
-              Season 2026 Rollout • Next: 2027
+              Season 2026 Rollout / Next: 2027
             </span>
           </div>
 
@@ -69,7 +69,7 @@ export const RolloutSpotlight: React.FC<{ onOpenPhoto?: (src: string, title: str
               {/* TBA Announcement Box for Next Season Rollout */}
               <div className="bg-white/60 backdrop-blur-sm border border-brand-red/25 rounded-2xl p-4 text-warm-900 shadow-xs">
                 <div className="flex items-center gap-2 text-[11px] font-mono font-bold text-brand-red uppercase tracking-wider mb-1.5">
-                  <Radio className="w-3.5 h-3.5 animate-pulse" />
+                  <Radio className="w-3.5 h-3.5" />
                   Next Rollout: Season 2027 Unveiling
                 </div>
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">

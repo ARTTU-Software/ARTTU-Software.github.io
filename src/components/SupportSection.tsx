@@ -34,7 +34,7 @@ export const SupportSection: React.FC = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-brand-red/10 border border-brand-red/30 text-brand-brightRed text-xs font-mono uppercase font-semibold">
-            <Heart className="w-3.5 h-3.5 text-brand-brightRed fill-brand-brightRed animate-pulse" />
+            <Heart className="w-3.5 h-3.5 text-brand-brightRed fill-brand-brightRed" />
             <span>Support Our Team</span>
           </div>
           <h2 className="font-display font-extrabold text-3xl sm:text-5xl text-white uppercase tracking-tight">

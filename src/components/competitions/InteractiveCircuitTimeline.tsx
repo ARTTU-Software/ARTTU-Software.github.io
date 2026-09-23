@@ -625,7 +625,7 @@ export const InteractiveCircuitTimeline: React.FC<InteractiveCircuitTimelineProp
                         }`}
                       >
                         <span>
-                          {award.title} • {award.position}
+                          {award.title}: {award.position}
                         </span>
                       </span>
                     );

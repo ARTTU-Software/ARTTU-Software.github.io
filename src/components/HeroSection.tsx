@@ -20,11 +20,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenJoinModal, onOpe
         
         {/* 2026 Champion Badge */}
         <div className="flex justify-center mb-6">
-          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-carbon-850/90 border border-brand-red/40 shadow-lg shadow-brand-red/10 backdrop-blur-md animate-pulse-slow">
-            <span className="flex h-2.5 w-2.5 relative">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-brightRed opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-red"></span>
-            </span>
+          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-carbon-850/90 border border-brand-red/40 shadow-lg shadow-brand-red/10 backdrop-blur-md">
             <span className="text-xs font-mono font-bold tracking-wider uppercase text-gray-200 flex items-center gap-2">
               <Trophy className="w-3.5 h-3.5 text-amber-400 inline" />
               <span>FS Balkans 2026 Champions & P3 Efficiency @ Hockenheim</span>

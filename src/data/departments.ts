@@ -9,6 +9,7 @@ export interface Department {
   whatYoullLearn: string[];
   software: string[];
   image: string;
+  images: string[];
   imagePosition?: string;
   openPositions: boolean;
 }
@@ -23,7 +24,7 @@ export const departments: Department[] = [
     description: "The backbone of our racecar. This department manages the complete lifecycle of the vehicle's chassis and body, from initial CAD concept to final precision manufacturing. In charge of developing all structural systems including the tubular spaceframe chassis, composite aerodynamic bodywork, suspension links, and steering mechanisms. By utilizing advanced FEA (Finite Element Analysis) simulations in CATIA and Ansys, they ensure every component is optimized for maximum structural integrity and minimum weight.",
     responsibilities: [
       "Designing suspension, steering, braking, and cooling components in 3D CAD",
-      "Structural FEA and crash simulation analysis using Ansys Mechanical",
+      "Structural FEA simulation analysis using Ansys Mechanical",
       "Hands-on precision manufacturing: TIG welding, 5-axis CNC machining, composite layups",
       "Physical testing, rig validation, and compliance with Formula Student mechanical safety rules"
     ],
@@ -35,7 +36,12 @@ export const departments: Department[] = [
       "Motorsport technical compliance, physical component validation, and destructive testing"
     ],
     software: ["CATIA V6", "Ansys Mechanical"],
-    image: "/assets/2026_chassis_welding.webp",
+    image: "/assets/departments/mech/2026_chassis_welding.webp",
+    images: [
+      "/assets/departments/mech/2026_chassis_welding.webp",
+      "/assets/departments/mech/IMG_4709.webp",
+      "/assets/departments/mech/IMG_3941.webp"
+    ],
     imagePosition: "object-[45%_35%]",
     openPositions: true
   },
@@ -60,7 +66,12 @@ export const departments: Department[] = [
       "High-power testbench commissioning, electrical insulation testing, and live EV safety protocols"
     ],
     software: ["Altium Designer", "MATLAB / Simulink", "CAD (CATIA)", "Ansys Fluent / CFD"],
-    image: "/assets/DBV_FSBK-Day2-49-1-scaled.webp",
+    image: "/assets/departments/accu/DBV_FSBK-Day2-49-1-scaled.webp",
+    images: [
+      "/assets/departments/accu/DBV_FSBK-Day2-49-1-scaled.webp",
+      "/assets/departments/accu/20250501_172038.webp",
+      "/assets/departments/accu/IMG_0595.webp"
+    ],
     imagePosition: "object-[80%_35%]",
     openPositions: true
   },
@@ -85,7 +96,12 @@ export const departments: Department[] = [
       "Professional motorsport wiring harness design using Deutsch autosport connectors"
     ],
     software: ["Altium Designer", "Embedded C/C++", "Python", "GitHub", "STM32"],
-    image: "/assets/2026_dashboard_pcb.webp",
+    image: "/assets/departments/elec/2026_dashboard_pcb.webp",
+    images: [
+      "/assets/departments/elec/2026_dashboard_pcb.webp",
+      "/assets/departments/elec/20260114_183738.webp",
+      "/assets/departments/elec/20260114_204216.webp"
+    ],
     imagePosition: "object-center",
     openPositions: true
   },
@@ -110,7 +126,12 @@ export const departments: Department[] = [
       "Trackside telemetry data analysis (Marple/Grafana) to translate driver feedback into setups"
     ],
     software: ["MATLAB & Simulink", "Ansys Suite", "Marple"],
-    image: "/assets/IMG_8623-scaled.webp",
+    image: "/assets/departments/vd/IMG_8623-scaled.webp",
+    images: [
+      "/assets/departments/vd/IMG_8623-scaled.webp",
+      "/assets/departments/vd/IMG_0556.webp",
+      "/assets/departments/vd/IMG_0531.webp"
+    ],
     imagePosition: "object-[50%_60%]",
     openPositions: true
   },
@@ -135,7 +156,12 @@ export const departments: Department[] = [
       "Annual budget forecasting, event coordination, and brand identity design in Canva & Adobe Suite"
     ],
     software: ["Adobe Creative Suite", "Canva", "Excel / Sheets", "Social Analytics"],
-    image: "/assets/IMG_9963-scaled.webp",
+    image: "/assets/departments/fnm/IMG_9963-scaled.webp",
+    images: [
+      "/assets/departments/fnm/IMG_9963-scaled.webp",
+      "/assets/departments/fnm/IMG_8745.webp",
+      "/assets/departments/fnm/IMG_8727.webp"
+    ],
     imagePosition: "object-[78%_25%]",
     openPositions: true
   }

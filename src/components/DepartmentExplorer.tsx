@@ -75,7 +75,6 @@ export const DepartmentExplorer: React.FC<DepartmentExplorerProps> = ({ onOpenJo
           <div className="lg:col-span-7 p-6 sm:p-10 flex flex-col justify-between space-y-6">
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono uppercase font-semibold mb-3">
-                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-ping"></span>
                 <span>Active Recruitment Position</span>
               </div>
 
@@ -99,7 +98,7 @@ export const DepartmentExplorer: React.FC<DepartmentExplorerProps> = ({ onOpenJo
                   <ul className="space-y-2 text-xs text-gray-400">
                     {activeDept.responsibilities.map((r, i) => (
                       <li key={i} className="flex items-start gap-2">
-                        <span className="text-brand-brightRed font-mono font-bold">•</span>
+                        <span className="text-brand-brightRed font-mono font-bold">▸</span>
                         <span>{r}</span>
                       </li>
                     ))}
@@ -114,7 +113,7 @@ export const DepartmentExplorer: React.FC<DepartmentExplorerProps> = ({ onOpenJo
                   <ul className="space-y-2 text-xs text-gray-400">
                     {activeDept.whatYoullLearn.map((item, i) => (
                       <li key={i} className="flex items-start gap-2">
-                        <span className="text-yellow-400 font-mono font-bold">•</span>
+                        <span className="text-yellow-400 font-mono font-bold">▸</span>
                         <span>{item}</span>
                       </li>
                     ))}

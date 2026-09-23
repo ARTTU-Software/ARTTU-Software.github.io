@@ -398,7 +398,7 @@ export const HomePage: React.FC = () => {
                   transition: 'opacity 700ms cubic-bezier(0.16, 1, 0.3, 1) 420ms, transform 700ms cubic-bezier(0.16, 1, 0.3, 1) 420ms',
                 }}
               >
-                Formula Student Team • Powered by Porsche Engineering
+                Formula Student Team | Powered by Porsche Engineering
               </p>
               <p
                 className="text-sm sm:text-base text-white/95 font-medium leading-relaxed max-w-xl [text-shadow:0_1px_3px_rgba(0,0,0,0.95),0_2px_8px_rgba(0,0,0,0.8)]"
@@ -538,12 +538,6 @@ export const HomePage: React.FC = () => {
                 <>
                   <Volume2 className="w-3.5 h-3.5 text-brand-brightRed" />
                   <span className="hidden sm:inline font-semibold">Sound On</span>
-                  {/* Real-time audio waveform equalizer graphic indicator */}
-                  <span className="flex items-end gap-0.5 h-3 px-0.5" aria-hidden="true">
-                    <span className="w-0.5 bg-brand-brightRed rounded-full animate-pulse h-1.5" style={{ animationDuration: '600ms' }} />
-                    <span className="w-0.5 bg-brand-brightRed rounded-full animate-pulse h-3" style={{ animationDuration: '800ms', animationDelay: '150ms' }} />
-                    <span className="w-0.5 bg-brand-brightRed rounded-full animate-pulse h-2" style={{ animationDuration: '500ms', animationDelay: '300ms' }} />
-                  </span>
                 </>
               )}
             </button>

@@ -45,7 +45,6 @@ export default {
       animation: {
         'marquee': 'marquee 35s linear infinite',
         'marquee-reverse': 'marquee-reverse 35s linear infinite',
-        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'glitch': 'cyber-glitch 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) both',
         'radar-shimmer': 'radar-shimmer 1.2s cubic-bezier(0.4, 0, 0.2, 1)',
       },

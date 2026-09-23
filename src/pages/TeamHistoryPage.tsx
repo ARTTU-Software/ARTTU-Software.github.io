@@ -286,11 +286,6 @@ export const TeamHistoryPage: React.FC<TeamHistoryPageProps> = ({
           {/* Generation Narrative & Highlights */}
           <div className="lg:col-span-5 p-6 sm:p-8 flex flex-col justify-between space-y-6 bg-white/40 backdrop-blur-sm">
             <div className="space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-warm-100 text-warm-800 text-xs font-mono uppercase font-bold border border-warm-200">
-                <Zap className="w-3.5 h-3.5 text-brand-red" />
-                <span>{currentGeneration.carModel || 'Electric Single-Seater'}</span>
-              </div>
-
               <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-warm-900 uppercase leading-tight">
                 {currentGeneration.carModel ? `${currentGeneration.carModel} (${currentGeneration.season})` : currentGeneration.season}
               </h2>

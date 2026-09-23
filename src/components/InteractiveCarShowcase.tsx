@@ -47,9 +47,6 @@ export const InteractiveCarShowcase: React.FC = () => {
                     aria-label={spot.name}
                   >
                     <span className="relative flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center">
-                      <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${
-                        isSelected ? 'bg-brand-brightRed scale-125' : 'bg-white/50'
-                      }`}></span>
                       <span className={`relative inline-flex rounded-full h-5 w-5 sm:h-6 sm:w-6 items-center justify-center font-mono text-[10px] font-bold transition-transform duration-200 ${
                         isSelected
                           ? 'bg-brand-red text-white scale-110 shadow-lg shadow-brand-red ring-4 ring-brand-red/40'

@@ -103,7 +103,7 @@ export const CompetitionsPage: React.FC = () => {
                       2026 Results
                     </h3>
                     <span className="text-xs font-mono text-warm-500">
-                      FS Balkans • FS Germany • FS Alpe Adria
+                      FS Balkans / FS Germany / FS Alpe Adria
                     </span>
                   </div>
                 </ScrollReveal>
