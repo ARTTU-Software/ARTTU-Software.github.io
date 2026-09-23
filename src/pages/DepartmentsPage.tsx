@@ -4,6 +4,7 @@ import { departments } from '../data/departments';
 import { Plus, ChevronRight, UserPlus } from 'lucide-react';
 import { ScrollReveal } from '../components/motion/ScrollReveal';
 import { DepartmentSlideshow } from '../components/departments/DepartmentSlideshow';
+import { trackEvent } from '../utils/analytics';
 
 export const DepartmentsPage: React.FC = () => {
   return (
@@ -172,6 +173,7 @@ export const DepartmentsPage: React.FC = () => {
 
                       <Link
                         to="/recruitment"
+                        onClick={() => trackEvent('clicked_apply_for_department', { department: dept.name })}
                         className="px-5 py-2.5 rounded-lg bg-brand-red hover:bg-brand-darkRed text-white font-bold text-xs uppercase tracking-wider transition shadow-sm hover:shadow-md hover:scale-102 flex items-center gap-1.5 group"
                       >
                         <span>Apply for {dept.name}</span>

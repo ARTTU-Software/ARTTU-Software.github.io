@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, MapPin, Copy, Check, MessageSquare, Send } from 'lucide-react';
 import { ScrollReveal } from '../components/motion/ScrollReveal';
+import { trackEvent } from '../utils/analytics';
 
 export const ContactPage: React.FC = () => {
   const [copiedEmail, setCopiedEmail] = useState(false);
@@ -134,6 +135,7 @@ export const ContactPage: React.FC = () => {
               <div className="pt-1">
                 <a
                   href={`mailto:${teamEmail}`}
+                  onClick={() => trackEvent('clicked_team_email', { email: teamEmail })}
                   className="text-brand-red hover:underline font-mono font-bold text-sm sm:text-base block truncate select-all"
                 >
                   {teamEmail}
@@ -144,6 +146,7 @@ export const ContactPage: React.FC = () => {
             <div className="flex items-center gap-2.5 pt-2">
               <a
                 href={`mailto:${teamEmail}`}
+                onClick={() => trackEvent('clicked_team_email', { email: teamEmail })}
                 className="flex-1 py-2.5 px-4 rounded-xl bg-brand-red hover:bg-brand-darkRed text-white text-xs font-bold text-center uppercase tracking-wider transition shadow-sm hover:shadow-md"
               >
                 Send Email
@@ -195,6 +198,7 @@ export const ContactPage: React.FC = () => {
               href="https://www.instagram.com/arttuclujnapoca/"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackEvent('clicked_social_media', { platform: 'instagram' })}
               className="p-4 rounded-2xl bg-white/60 backdrop-blur-sm border border-white/80 hover:border-brand-red hover:bg-white text-warm-800 hover:text-brand-red transition-all duration-300 shadow-xs hover:shadow-md hover:-translate-y-1 flex items-center gap-3.5 group"
               aria-label="Instagram"
             >
@@ -213,6 +217,7 @@ export const ContactPage: React.FC = () => {
               href="https://www.linkedin.com/company/arttu-formulastudent/"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackEvent('clicked_social_media', { platform: 'linkedin' })}
               className="p-4 rounded-2xl bg-white/60 backdrop-blur-sm border border-white/80 hover:border-brand-red hover:bg-white text-warm-800 hover:text-brand-red transition-all duration-300 shadow-xs hover:shadow-md hover:-translate-y-1 flex items-center gap-3.5 group"
               aria-label="LinkedIn"
             >
@@ -231,6 +236,7 @@ export const ContactPage: React.FC = () => {
               href="https://www.facebook.com/arttuclujnapoca"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackEvent('clicked_social_media', { platform: 'facebook' })}
               className="p-4 rounded-2xl bg-white/60 backdrop-blur-sm border border-white/80 hover:border-brand-red hover:bg-white text-warm-800 hover:text-brand-red transition-all duration-300 shadow-xs hover:shadow-md hover:-translate-y-1 flex items-center gap-3.5 group"
               aria-label="Facebook"
             >

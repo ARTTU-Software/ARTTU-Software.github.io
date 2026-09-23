@@ -8,6 +8,7 @@ import { TelemetryTicker } from '../components/common/TelemetryTicker';
 import { useRecruitmentStatus } from '../utils/recruitment';
 
 import { useIntro } from '../context/IntroContext';
+import { trackEvent } from '../utils/analytics';
 
 // Find all video slide indices in the slideshow
 const videoIndices = heroSlideshowMedia
@@ -423,6 +424,7 @@ export const HomePage: React.FC = () => {
             >
               <Link
                 to="/car"
+                onClick={() => trackEvent('clicked_explore_racecar', { source: 'home_hero' })}
                 className="px-6 py-3.5 rounded-lg bg-brand-red hover:bg-brand-darkRed text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-brand-red/30 hover:shadow-[0_0_24px_rgba(211,47,47,0.5)] hover:scale-102 transition-all duration-300 flex items-center gap-2 group cursor-pointer"
               >
                 <span>Explore The Racecar</span>
@@ -431,6 +433,7 @@ export const HomePage: React.FC = () => {
 
               <Link
                 to="/recruitment"
+                onClick={() => trackEvent('clicked_join_us', { source: 'home_hero' })}
                 className="px-6 py-3.5 rounded-lg bg-black/40 hover:bg-black/60 text-white font-bold text-xs uppercase tracking-wider border border-white/30 hover:border-brand-brightRed/60 hover:scale-102 shadow-md backdrop-blur-sm transition-all duration-300 flex items-center gap-2 cursor-pointer group"
               >
                 <Users className="w-4 h-4 text-brand-brightRed group-hover:scale-110 transition-transform" />
@@ -439,6 +442,7 @@ export const HomePage: React.FC = () => {
 
               <Link
                 to="/partners"
+                onClick={() => trackEvent('clicked_sponsors', { source: 'home_hero' })}
                 className="px-5 py-3.5 rounded-lg bg-black/40 hover:bg-black/60 text-white font-bold text-xs uppercase tracking-wider border border-white/25 hover:border-white/50 hover:scale-102 shadow-md backdrop-blur-sm transition-all duration-300 flex items-center gap-1.5 cursor-pointer group"
               >
                 <span>Partner</span>

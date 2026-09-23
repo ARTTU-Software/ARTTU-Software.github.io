@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronRight, ChevronDown, Handshake, Trophy, Users, History } from 'lucide-react';
 import { ArtTuLogo } from './ArtTuLogo';
+import { trackEvent } from '../utils/analytics';
 
 
 interface SubLink {
@@ -246,6 +247,7 @@ export const Navbar: React.FC = () => {
         <div className="hidden sm:flex items-center gap-2.5">
           <Link
             to="/partners"
+            onClick={() => trackEvent('clicked_sponsors', { location: 'navbar_desktop' })}
             className={`px-3.5 py-2 text-xs font-bold uppercase tracking-wider rounded-lg border transition flex items-center gap-1.5 ${
               isTransparent
                 ? 'border-white/30 bg-black/40 hover:bg-black/60 text-white hover:text-white backdrop-blur-md shadow-xs'
@@ -258,6 +260,7 @@ export const Navbar: React.FC = () => {
           
           <Link
             to="/recruitment"
+            onClick={() => trackEvent('clicked_join_us', { location: 'navbar_desktop' })}
             className="px-3.5 py-2 text-xs font-bold uppercase tracking-wider rounded-lg bg-brand-red hover:bg-brand-darkRed text-white shadow-xs shadow-brand-red/30 transition flex items-center gap-1.5"
           >
             <span>Join Team</span>
@@ -386,14 +389,20 @@ export const Navbar: React.FC = () => {
           <div className={`pt-3 border-t flex flex-col gap-2 ${isTransparent ? 'border-white/15' : 'border-warm-200'}`}>
             <Link
               to="/recruitment"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={() => {
+                setMobileMenuOpen(false);
+                trackEvent('clicked_join_us', { location: 'navbar_mobile' });
+              }}
               className="w-full py-2.5 text-center text-xs font-bold uppercase tracking-wider rounded-lg bg-brand-red text-white shadow-xs"
             >
               Join Team
             </Link>
             <Link
               to="/partners"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={() => {
+                setMobileMenuOpen(false);
+                trackEvent('clicked_sponsors', { location: 'navbar_mobile' });
+              }}
               className={`w-full py-2.5 text-center text-xs font-bold uppercase tracking-wider rounded-lg border ${
                 isTransparent
                   ? 'border-white/20 bg-white/10 text-white'

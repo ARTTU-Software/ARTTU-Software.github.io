@@ -326,7 +326,7 @@ export const SupportPage: React.FC = () => {
                   <a
                     href={examplePdfUrl}
                     download="230_ART_TU_Cluj_Napoca_Model.pdf"
-                    onClick={() => trackEvent('formular_230_download', { file_name: '230_ART_TU_Cluj_Napoca_Model.pdf' })}
+                    onClick={() => trackEvent('downloaded_formular_230', { file_name: '230_ART_TU_Cluj_Napoca_Model.pdf' })}
                     className="px-4 py-2.5 rounded-xl bg-brand-red hover:bg-brand-darkRed text-white font-bold text-xs uppercase tracking-wider transition flex items-center gap-2 shadow-sm"
                   >
                     <Download className="w-4 h-4" />

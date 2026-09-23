@@ -152,7 +152,7 @@ export const RecruitmentPage: React.FC = () => {
                       href={GOOGLE_FORMS_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      onClick={() => trackEvent('recruitment_apply_click', { form_url: GOOGLE_FORMS_URL })}
+                      onClick={() => trackEvent('clicked_google_form', { form_url: GOOGLE_FORMS_URL })}
                       className="w-full sm:w-auto px-6 py-3.5 rounded-lg bg-brand-red hover:bg-brand-darkRed text-white font-display font-bold text-xs uppercase tracking-wider shadow-sm transition-all flex items-center justify-center gap-2 group cursor-pointer hover:scale-[1.02] active:scale-98"
                     >
                       <span>Apply via Google Forms</span>
@@ -245,6 +245,7 @@ export const RecruitmentPage: React.FC = () => {
               </div>
               <Link
                 to="/departments"
+                onClick={() => trackEvent('clicked_department_deep_dive')}
                 className="text-xs font-mono text-brand-red hover:underline font-bold flex items-center gap-1 transition shrink-0"
               >
                 <span>Read full department deep-dive</span>
