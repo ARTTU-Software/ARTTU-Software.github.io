@@ -415,13 +415,7 @@ export const TeamHistoryPage: React.FC<TeamHistoryPageProps> = ({
                         }
                       }}
                     />
-                    
-                    {/* Department Badge Overlay */}
-                    <div className="absolute top-3 left-3">
-                      <span className="px-2.5 py-0.5 rounded-md bg-black/70 backdrop-blur-md text-white text-[10px] font-mono uppercase font-bold border border-white/10">
-                        {member.department}
-                      </span>
-                    </div>
+                  
 
                     {/* Season Badge */}
                     <div className="absolute top-3 right-3">
@@ -444,22 +438,8 @@ export const TeamHistoryPage: React.FC<TeamHistoryPageProps> = ({
 
                     {/* Social & Department Footer */}
                     <div className="pt-3 border-t border-warm-150 flex items-center justify-between">
-                      <span className="text-[10px] font-mono uppercase font-semibold text-warm-400">
-                        ART TU Cluj
-                      </span>
                       
                       <div className="flex items-center gap-2">
-                        {member.facebook && (
-                          <a
-                            href={member.facebook}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="w-7 h-7 rounded-lg bg-warm-100 hover:bg-blue-600 hover:text-white text-warm-600 flex items-center justify-center transition shadow-sm"
-                            aria-label={`${member.name} Facebook`}
-                          >
-                            <FacebookIcon className="w-3.5 h-3.5" />
-                          </a>
-                        )}
                         {member.linkedin && (
                           <a
                             href={member.linkedin}

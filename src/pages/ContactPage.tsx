@@ -106,7 +106,7 @@ export const ContactPage: React.FC = () => {
               </div>
               <div className="text-warm-900 text-base font-semibold leading-relaxed pt-1">
                 Simtex Building, Room 03<br />
-                <span className="text-warm-600 font-normal text-sm">Bv. Muncii, Cluj-Napoca, Romania</span>
+                <span className="text-warm-600 font-normal text-sm">Bd. Muncii, Cluj-Napoca, Romania</span>
               </div>
             </div>
 
@@ -186,7 +186,7 @@ export const ContactPage: React.FC = () => {
               Official Social Channels
             </h2>
             <p className="text-warm-600 text-xs mt-0.5">
-              Follow our latest track testing updates, CAD build logs, and international competition coverage.
+              Follow our latest track testing updates, current work and international competition coverage.
             </p>
           </div>
 

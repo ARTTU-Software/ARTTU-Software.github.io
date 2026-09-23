@@ -138,9 +138,9 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
   // --------------------------------------------------------------------------
   'afia-art26': {
     id: 'afia-art26',
-    name: 'ART26',
-    shortName: 'ART26',
-    generationCode: 'ART26',
+    name: 'ARTTU26',
+    shortName: 'ARTTU26',
+    generationCode: 'ARTTU26',
     seasonSpan: '2025 - 2026',
     shortYear: "'26",
     isCurrentCar: true,
@@ -343,9 +343,9 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
   // --------------------------------------------------------------------------
   'art-25': {
     id: 'art-25',
-    name: 'ART25',
-    shortName: 'ART25',
-    generationCode: 'ART25',
+    name: 'ARTTU25',
+    shortName: 'ARTTU25',
+    generationCode: 'ARTTU25',
     seasonSpan: '2024 - 2025',
     shortYear: "'25",
     isCurrentCar: false,
@@ -439,9 +439,9 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
   // --------------------------------------------------------------------------
   'art-24': {
     id: 'art-24',
-    name: 'ART24',
-    shortName: 'ART24',
-    generationCode: 'ART24',
+    name: 'ARTTU24',
+    shortName: 'ARTTU24',
+    generationCode: 'ARTTU24',
     seasonSpan: '2023 - 2024',
     shortYear: "'24",
     isCurrentCar: false,
@@ -525,9 +525,9 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
   // --------------------------------------------------------------------------
   'art-23': {
     id: 'art-23',
-    name: 'ART23',
-    shortName: 'ART23',
-    generationCode: 'ART23',
+    name: 'ARTTU23',
+    shortName: 'ARTTU23',
+    generationCode: 'ARTTU23',
     seasonSpan: '2022 - 2023',
     shortYear: "'23",
     isCurrentCar: false,
@@ -610,9 +610,9 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
   // --------------------------------------------------------------------------
   'art-22': {
     id: 'art-22',
-    name: 'ART22',
-    shortName: 'ART22',
-    generationCode: 'ART22',
+    name: 'ARTTU22',
+    shortName: 'ARTTU22',
+    generationCode: 'ARTTU22',
     seasonSpan: '2021 - 2022',
     shortYear: "'22",
     isCurrentCar: false,
@@ -696,9 +696,9 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
 
   'concept-art01': {
     id: 'concept-art01',
-    name: 'ART01',
-    shortName: 'ART01',
-    generationCode: 'ART01',
+    name: 'ARTTU01',
+    shortName: 'ARTTU01',
+    generationCode: 'ARTTU01',
     seasonSpan: '2019 - 2021',
     shortYear: "'19-'21",
     isCurrentCar: false,

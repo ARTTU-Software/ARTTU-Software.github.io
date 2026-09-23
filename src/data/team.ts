@@ -174,8 +174,8 @@ export const teamGenerations: TeamGeneration[] = [
       },
       {
         name: "Prof. Dr. Ing. Bogdan-Ovidiu VARGA",
-        role: "University Coordinator & Faculty Advisor",
-        department: "UTCN Faculty",
+        role: "University Coordinator & Advisor",
+        department: "UTCN",
         season: "2025-2026",
         image: "/assets/Bogdan-Ovidiu-VARGA-1024x678.webp",
         linkedin: "https://www.linkedin.com/in/vargab1/",

@@ -14,7 +14,7 @@ export const RecruitmentPage: React.FC = () => {
     {
       step: '01',
       title: 'Google Form & CV',
-      desc: 'Submit faculty info, department choices, & CV.',
+      desc: 'Submit faculty info, department choices & CV.',
       badgeColor: 'bg-brand-red text-white',
     },
     {
@@ -163,15 +163,15 @@ export const RecruitmentPage: React.FC = () => {
                   <div className="space-y-2">
                     <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-warm-200/80 border border-warm-300/80 text-warm-700 text-xs font-mono font-bold w-fit">
                       <Clock className="w-3.5 h-3.5 text-warm-500" />
-                      <span>Recruitment Starts Sept 25</span>
+                      <span>Recruitment Starts Sept 25th</span>
                     </div>
 
                     <h2 className="font-display font-black text-2xl sm:text-3xl text-warm-900 tracking-tight leading-snug">
-                      Applications Open Sept 25
+                      Applications Open Sept 25th
                     </h2>
 
                     <p className="text-sm text-warm-600 leading-relaxed font-normal">
-                      Recruitment begins on September 25 at midnight. Review open departments below and return on the 25th to submit your application.
+                      Recruitment begins on September 25th at midnight. Review open departments below and return to submit your application.
                     </p>
 
                     <div className="pt-1 flex items-center gap-2 text-xs font-mono text-warm-600">
@@ -191,7 +191,7 @@ export const RecruitmentPage: React.FC = () => {
                       <span>Applications Open Sept 25</span>
                     </button>
                     <p className="text-[11px] font-mono text-warm-500 mt-2">
-                      Official Google Form unlocks automatically on September 25 at 00:00.
+                      Official Google Form unlocks automatically on September 25th at 00:00.
                     </p>
                   </div>
                 </>
@@ -276,7 +276,7 @@ export const RecruitmentPage: React.FC = () => {
                               : 'bg-warm-800/80 text-warm-200'
                           }`}
                         >
-                          {isOpen ? 'Positions Open' : 'Opens Sept 25'}
+                          {isOpen ? 'Positions Open' : 'Opens Sept 25th'}
                         </span>
                       </div>
                       <div className="absolute bottom-2 left-3 right-3 text-[10px] font-mono text-white/90 font-bold uppercase tracking-wider">

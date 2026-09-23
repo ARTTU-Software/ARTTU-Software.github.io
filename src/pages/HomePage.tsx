@@ -702,7 +702,7 @@ export const HomePage: React.FC = () => {
                   </div>
                   <div>
                     <div className="text-2xl sm:text-3xl font-black text-warm-900 font-mono">
-                      <TelemetryTicker value={20} suffix="+" />
+                      <TelemetryTicker value={30} suffix="+" />
                     </div>
                     <div className="text-xs font-mono text-warm-500 uppercase tracking-wider font-semibold mt-0.5">Partners</div>
                   </div>
@@ -867,7 +867,7 @@ export const HomePage: React.FC = () => {
                   <div className={`absolute top-4 left-4 px-3.5 py-1.5 rounded-lg bg-white/95 backdrop-blur-md text-xs font-mono font-bold shadow-sm flex items-center gap-1.5 ${
                     isRecruitmentOpen ? 'text-emerald-700' : 'text-warm-700'
                   }`}>
-                    {isRecruitmentOpen ? 'RECRUITMENT ACTIVE' : 'RECRUITMENT OPENS SEPT 25'}
+                    {isRecruitmentOpen ? 'RECRUITMENT ACTIVE' : 'RECRUITMENT OPENS SEPT 25TH'}
                   </div>
                 </Link>
               </ScrollReveal>
@@ -924,7 +924,7 @@ export const HomePage: React.FC = () => {
                       Partner with Romania's Leading Formula Student Team
                     </h2>
                     <p className="text-sm sm:text-base text-white leading-relaxed max-w-2xl font-normal">
-                      Gain racecar livery branding, visibility at international circuits, and recruitment access to top engineering and software graduates from UTCN.
+                      Gain racecar livery branding, visibility at international circuits, and recruitment access to top engineering graduates from UTCN.
                     </p>
                   </div>
 

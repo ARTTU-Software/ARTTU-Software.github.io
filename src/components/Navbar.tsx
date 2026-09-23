@@ -118,7 +118,7 @@ export const Navbar: React.FC = () => {
                   : 'text-warm-900'
               }`}
             >
-              ART<span className={isTransparent ? 'text-white' : 'text-brand-red'}> TU</span>
+              ART<span className={isTransparent ? 'text-white' : 'text-brand-red'}> TU </span>CLUJ-NAPOCA
             </span>
 
             {/* Sub-headline / Heritage Tag */}
@@ -129,7 +129,7 @@ export const Navbar: React.FC = () => {
                   : 'text-warm-500'
               }`}
             >
-              UTCN Formula Student
+              UTCN Formula Student Team
             </span>
           </div>
         </Link>

@@ -51,7 +51,7 @@ export interface RolloutInfo {
 export const ROLLOUT_DATA: RolloutInfo = {
   title: "Season 2026 Rollout",
   season: "2025-2026",
-  carName: "Afia (ART26)",
+  carName: "Afia (ARTTU26)",
   carBadge: "ART-26",
   heroImage: "/assets/events/rollout2026.webp",
   date: "11 June 2026",
@@ -76,7 +76,7 @@ export const ROLLOUT_DATA: RolloutInfo = {
   pastRollouts: [
     {
       year: "2026",
-      carName: "Afia (ART26)",
+      carName: "Afia (ARTTU26)",
       date: "11 June 2026",
       location: "UTCN, Blvd. Muncii 103-105",
       image: "/assets/events/rollout2026.webp",
@@ -85,7 +85,7 @@ export const ROLLOUT_DATA: RolloutInfo = {
     },
     {
       year: "2025",
-      carName: "ARTTU25 (Coty)",
+      carName: "ARTTU25",
       date: "03 July 2025",
       location: "Aula Centenar, Blvd. Muncii 103-105",
       image: "/assets/events/rollout2025.webp",
