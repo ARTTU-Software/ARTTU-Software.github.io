@@ -10,7 +10,7 @@ interface JoinModalProps {
 export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose }) => {
   const { isOpen: isRecruitmentOpen } = useRecruitmentStatus();
   if (!isOpen) return null;
-  const GOOGLE_FORMS_URL = "https://forms.google.com/";
+  const GOOGLE_FORMS_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdLY3Ri0WpxP8jI8ymsbl8eCXstdXOzgdQTTSqCssKgtAAgcg/viewform?usp=header";
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-warm-900/40 backdrop-blur-md animate-in fade-in duration-200">
