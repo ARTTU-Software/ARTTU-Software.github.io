@@ -111,21 +111,23 @@ export const departments: Department[] = [
     iconName: "Activity",
     title: "Vehicle Dynamics",
     tagline: "The sensory system and reflexes bridging vehicle physics to the pavement.",
-    description: "The sensory system and reflexes of the vehicle, acting as the bridge where physics meets the pavement. This department ensures the racecar responds perfectly to every driver input by focusing on vehicle behavior analysis, mathematical modeling, and fine-tuning suspension and steering kinematics to define how the car feels and handles on the limit. In addition to CFD aerodynamic optimization and torque vectoring, they manage thermal management systems to keep all components stable and cool under intense racing conditions.",
+    description: "The sensory system and reflexes of the vehicle, acting as the bridge where physics meets the pavement. This department focuses on vehicle behaviour analysis, mathematical modelling, developing and tuning suspension and steering kinematics to define how the car feels and handles on the limit. In addition to CFD aerodynamic optimization and torque vectoring, they manage thermal management systems to keep electric components in an optimal performance window under intense racing conditions.",
     responsibilities: [
       "Developing full-vehicle dynamic simulations in MATLAB / Simulink",
-      "CFD aero modeling for wing element optimization and downforce balance",
-      "Tire testing, suspension geometry kinematic optimization, and damper tuning",
-      "Post-session telemetry data processing from dynamic tests and competitions"
+      "CFD aero modeling for wing element optimization and aerodynamic balance",
+      "Suspension geometry kinematic optimization and development",
+      "Post-session telemetry data processing from dynamic tests and competitions",
+      "Thermal management optimization for high-voltage powertrain and battery systems"
     ],
     whatYoullLearn: [
-      "Race vehicle dynamics theory: Pacejka tire modeling, roll centers, and weight transfer",
+      "Race vehicle dynamics theory",
       "Multibody suspension kinematics simulation and lap time optimization using MATLAB / Simulink",
       "Computational Fluid Dynamics (CFD) for multi-element wings, diffusers, and aerodynamic balance",
-      "Torque vectoring, electronic differential, and regenerative braking control algorithms",
-      "Trackside telemetry data analysis (Marple/Grafana) to translate driver feedback into setups"
+      "Torque vectoring, slip and electronic differential control algorithms",
+      "Trackside telemetry data analysis and post analysis for performance optimisation",
+      "Efficient thermal management design and simulation optimization"
     ],
-    software: ["MATLAB & Simulink", "Ansys Suite", "Marple"],
+    software: ["MATLAB & Simulink", "Ansys Suite", "Marple", "Kuli"],
     image: "/assets/departments/vd/IMG_8623-scaled.webp",
     images: [
       "/assets/departments/vd/IMG_8623-scaled.webp",
