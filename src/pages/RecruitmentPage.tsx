@@ -9,7 +9,7 @@ import { trackEvent } from '../utils/analytics';
 export const RecruitmentPage: React.FC = () => {
   const { isOpen, formattedCountdown } = useRecruitmentStatus();
   // Configurable Google Forms URL placeholder
-  const GOOGLE_FORMS_URL = "https://placehold.co/";
+  const GOOGLE_FORMS_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdLY3Ri0WpxP8jI8ymsbl8eCXstdXOzgdQTTSqCssKgtAAgcg/viewform?usp=header";
 
   const stages = [
     {
