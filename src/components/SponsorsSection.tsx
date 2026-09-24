@@ -11,11 +11,11 @@ export const SponsorsSection: React.FC<SponsorsSectionProps> = ({ onOpenSponsorM
       
       {/* Infinite Logo Marquee Ticker */}
       <div className="mb-20 overflow-hidden py-5 bg-white border-y border-warm-250 shadow-sm">
-        <div className="flex items-center gap-10 whitespace-nowrap animate-marquee">
+        <div className="flex items-center whitespace-nowrap animate-marquee">
           {marqueeLogos.concat(marqueeLogos).map((item, i) => (
             <div
               key={i}
-              className="inline-flex items-center justify-center px-4 py-2 rounded-xl bg-warm-50 border border-warm-200 hover:border-brand-red/40 transition group shrink-0"
+              className="inline-flex items-center justify-center mr-10 px-4 py-2 rounded-xl bg-warm-50 border border-warm-200 hover:border-brand-red/40 transition group shrink-0"
               title={item.name}
             >
               <img

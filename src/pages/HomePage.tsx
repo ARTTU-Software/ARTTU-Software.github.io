@@ -584,11 +584,11 @@ export const HomePage: React.FC = () => {
             Partnered with Industry Leaders
           </span>
         </div>
-        <div className="flex items-center gap-6 whitespace-nowrap animate-marquee">
+        <div className="flex items-center whitespace-nowrap animate-marquee">
           {marqueeLogos.concat(marqueeLogos).map((item, i) => (
             <div
               key={i}
-              className="inline-flex items-center justify-center px-4 py-2.5 rounded-lg bg-white hover:bg-warm-50 border border-warm-250 hover:border-warm-350 transition duration-200 group shrink-0 shadow-xs"
+              className="inline-flex items-center justify-center mr-6 px-4 py-2.5 rounded-lg bg-white hover:bg-warm-50 border border-warm-250 hover:border-warm-350 transition duration-200 group shrink-0 shadow-xs"
               title={item.name}
             >
               <img
@@ -779,7 +779,7 @@ export const HomePage: React.FC = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
                   <div className="absolute bottom-4 left-4 right-4 text-xs font-mono text-white/90 bg-black/40 backdrop-blur-md px-4 py-2.5 rounded-xl">
-                    ART TU Team at Formula Student Germany 2026, Hockenheimring Circuit
+                    ART TU at Formula Student Germany 2026, Hockenheimring Circuit
                   </div>
                 </div>
               </ScrollReveal>
@@ -813,9 +813,6 @@ export const HomePage: React.FC = () => {
                     alt="ART TU Electric Single-Seater"
                     className="w-full h-[280px] sm:h-[340px] lg:h-[370px] object-cover group-hover:scale-103 transition duration-700 ease-out"
                   />
-                  <div className="absolute top-4 left-4 px-3.5 py-1.5 rounded-lg bg-white/95 backdrop-blur-md text-xs font-mono font-bold text-brand-red shadow-sm">
-                    200V EV PLATFORM
-                  </div>
                 </Link>
               </ScrollReveal>
 
