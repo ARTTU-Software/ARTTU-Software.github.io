@@ -128,13 +128,13 @@ export const departments: Department[] = [
       "Efficient thermal management design and simulation optimization"
     ],
     software: ["MATLAB & Simulink", "Ansys Suite", "Marple", "Kuli"],
-    image: "/assets/departments/vd/IMG_8623-scaled.webp",
+    image: "/assets/departments/vd/IMG_0556.webp",
     images: [
-      "/assets/departments/vd/IMG_8623-scaled.webp",
       "/assets/departments/vd/IMG_0556.webp",
-      "/assets/departments/vd/IMG_0531.webp"
+      "/assets/departments/vd/IMG_0531.webp",
+      "/assets/departments/vd/cocos_vd_data.webp"
     ],
-    imagePosition: "object-[50%_60%]",
+    imagePosition: "object-center",
     openPositions: true
   },
   {

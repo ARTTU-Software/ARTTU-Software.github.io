@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && node scripts/postbuild_routes.mjs",
+    "generate:og": "node scripts/generate_og_image.mjs",
     "preview": "vite preview",
     "inspect": "node scripts/inspect.mjs",
     "screenshots": "node scripts/generate_screenshots.mjs"
