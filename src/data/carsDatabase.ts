@@ -627,7 +627,7 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
     title: '1st Romanian Electric Single-Seater in History',
     tagline: 'Historic debut at Formula Student Alpe Adria (Bugatti Rimac Test Track, Croatia)',
     description:
-      'In August 2022, ART TU made Romanian motorsport history by becoming the very first university team in the country to design, build, and enter an electric formula car at an official international Formula Student competition, scoring 25th in static events against established European teams.',
+      'In August 2022, ART TU made Romanian motorsport history by becoming the very first university team in the country to design, build, and enter an electric formula car at an official international Formula Student competition, scoring 27th in static events against established European teams.',
     circuitLocation: 'Bugatti Rimac Test Track (Croatia)',
 
     innovations: [

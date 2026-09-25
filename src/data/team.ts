@@ -514,7 +514,7 @@ export const teamGenerations: TeamGeneration[] = [
     carModel: CARS_DATABASE['art-22'].name,
     groupPhoto: "/assets/Cover-FB-03.09.webp",
     groupPhotoCaption: "The 2021-2022 team in front of the Rimac and Alpe Adria banners at Formula Student Alpe Adria 2022 (Bugatti Rimac Test Track, Novi Marof, Croatia).",
-    description: "In August 2022, ART TU made Romanian motorsport history by becoming the very first Romanian university team to design, build, and enter an all-electric single-seater prototype at an official international Formula Student event (FS Alpe Adria at Bugatti Rimac Test Track, Croatia). Overcoming tremendous high-voltage engineering challenges, the team scored 25th out of 31 electric teams in static events.",
+    description: "In August 2022, ART TU made Romanian motorsport history by becoming the very first Romanian university team to design, build, and enter an all-electric single-seater prototype at an official international Formula Student event (FS Alpe Adria at Bugatti Rimac Test Track, Croatia). Overcoming tremendous high-voltage engineering challenges, the team scored 27th out of 31 electric teams in static events.",
     highlights: [
       "1st Romanian Formula Student team to design and build an electric racecar",
       "Official international debut at Formula Student Alpe Adria 2022 (Bugatti Rimac Test Track, Croatia)",

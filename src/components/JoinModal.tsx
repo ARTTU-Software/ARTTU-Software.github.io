@@ -26,7 +26,7 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose }) => {
         <div className="mb-6">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 text-xs font-mono uppercase font-bold mb-2">
             {isRecruitmentOpen ? <Users className="w-3.5 h-3.5" /> : <Clock className="w-3.5 h-3.5" />}
-            <span>{isRecruitmentOpen ? 'Recruitments Active' : 'Recruitment Opens Sept 25th'}</span>
+            <span>{isRecruitmentOpen ? 'Recruitments Active' : 'Recruitment Opens Sept 27th'}</span>
           </div>
           <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-warm-900 uppercase">
             JOIN ART TU FORMULA STUDENT

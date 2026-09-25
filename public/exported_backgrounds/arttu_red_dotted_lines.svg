@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="2940" viewBox="0 0 1440 2940" fill="none">
+  <!-- Primary Vibrant Red Streamline -->
+  <path
+    d="M 180,0 C 650,430 1250,640 1120,1080 C 980,1520 240,1720 360,2150 C 480,2570 1220,2630 1050,2940"
+    stroke="#e11d48"
+    stroke-width="5"
+    stroke-opacity="0.9"
+    stroke-dasharray="16 18"
+    stroke-linecap="round"
+  />
+  <!-- Secondary Crimson Support Streamline -->
+  <path
+    d="M 210,0 C 680,430 1280,640 1150,1080 C 1010,1520 270,1720 390,2150 C 510,2570 1250,2630 1080,2940"
+    stroke="#dc2626"
+    stroke-width="3.5"
+    stroke-opacity="0.8"
+    stroke-dasharray="12 16"
+    stroke-linecap="round"
+  />
+  <!-- Outer Accent Filament -->
+  <path
+    d="M 235,0 C 705,430 1305,640 1175,1080 C 1035,1520 295,1720 415,2150 C 535,2570 1275,2630 1105,2940"
+    stroke="#f43f5e"
+    stroke-width="2.5"
+    stroke-opacity="0.7"
+    stroke-dasharray="8 20"
+    stroke-linecap="round"
+  />
+</svg>

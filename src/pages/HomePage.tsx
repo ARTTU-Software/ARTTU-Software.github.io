@@ -908,7 +908,7 @@ export const HomePage: React.FC = () => {
                   <div className={`absolute top-4 left-4 px-3.5 py-1.5 rounded-lg bg-white/95 backdrop-blur-md text-xs font-mono font-bold shadow-sm flex items-center gap-1.5 ${
                     isRecruitmentOpen ? 'text-emerald-700' : 'text-warm-700'
                   }`}>
-                    {isRecruitmentOpen ? 'RECRUITMENT ACTIVE' : 'RECRUITMENT OPENS SEPT 25TH'}
+                    {isRecruitmentOpen ? 'RECRUITMENT ACTIVE' : 'RECRUITMENT OPENS SEPT 27th'}
                   </div>
                 </Link>
               </ScrollReveal>
