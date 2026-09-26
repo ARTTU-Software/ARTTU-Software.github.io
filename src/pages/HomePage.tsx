@@ -740,7 +740,7 @@ export const HomePage: React.FC = () => {
                   </div>
                   <div>
                     <div className="text-2xl sm:text-3xl font-black text-warm-900 font-mono">
-                      <TelemetryTicker value={6} />
+                      <TelemetryTicker value={5} />
                     </div>
                     <div className="text-xs font-mono text-warm-500 uppercase tracking-wider font-semibold mt-0.5">Departments</div>
                   </div>
