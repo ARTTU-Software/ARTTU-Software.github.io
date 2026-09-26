@@ -142,29 +142,30 @@ export const departments: Department[] = [
     name: "Finances & Marketing",
     iconName: "TrendingUp",
     title: "Finances & Marketing",
-    tagline: "The face, voice, and creative force driving partner relations and global reach.",
-    description: "The face and voice of the team. As the creative and strategic force behind ART TU, this department manages everything from fundraising and corporate sponsorship acquisition to the prestigious Business Plan Presentation (BPP) at European competitions. They lead photography, videography, graphic design, and social media management, ensuring our engineering achievements reach a global audience and our partners receive maximum visibility.",
+    tagline: "The face, voice, and creative force driving partner relations, brand presence, and global reach.",
+    description: "The face, voice, and creative force behind ART TU. This department manages corporate partnerships, leads sponsor acquisition, and crafts viable startup concepts for the Business Plan Presentation (BPP) at European competitions. They organize team rollouts, public expos, and brand activations, design race car liveries and visual media, and produce high-impact photography, videography, and social content to give our engineering achievements global reach.",
     responsibilities: [
-      "Authoring and delivering the Business Plan Presentation (BPP) at FS events",
-      "Leading sponsorship outreach, partner negotiations, and brand activations",
-      "Creating high-quality photo, video, and social media content for our channels",
-      "Budget planning, expense tracking, and team merchandise production"
+      "Crafting and presenting a viable startup concept in the Business Plan Presentation at official FS events",
+      "Shaping brand identity and public image by producing high-quality photo, video, and social media content across all channels",
+      "Leading partnership outreach, partner negotiations, and ongoing corporate communication",
+      "Planning and executing team events, public expos, brand activations, and overall event presence",
+      "Creating high-impact visual assets, including race car liveries, team apparel, merchandise, and print media"
     ],
     whatYoullLearn: [
-      "Developing investor pitch decks and presenting the Business Plan Presentation (BPP) to industry judges",
-      "Corporate partnership acquisition, sponsor tracking and B2B communication",
-      "Professional motorsport media production: DSLR photography, video editing, and social growth campaigns",
-      "Formula Student Cost & Manufacturing event auditing (Bill of Materials & manufacturing cost analysis)",
-      "Annual budget forecasting, event coordination, and brand identity design in Canva & Adobe Suite"
+      "Developing investor pitch decks and pitching startup business concepts to international industry judges in the BPP",
+      "Corporate partnership acquisition, sponsor relations, and B2B communication",
+      "Professional motorsport media production: DSLR track photography, video editing, and social growth campaigns",
+      "Planning and coordinating public exhibitions, university rollouts, and sponsor networking events",
+      "Visual brand identity design, race car livery creation, and merchandise design in Adobe Creative Suite & Canva"
     ],
     software: ["Adobe Creative Suite", "Canva", "Excel / Sheets", "Social Analytics"],
-    image: "/assets/departments/fnm/IMG_9963-scaled.webp",
+    image: "/assets/departments/fnm/fnm1.webp",
     images: [
-      "/assets/departments/fnm/IMG_9963-scaled.webp",
-      "/assets/departments/fnm/IMG_8745.webp",
-      "/assets/departments/fnm/IMG_8727.webp"
+      "/assets/departments/fnm/fnm1.webp",
+      "/assets/departments/fnm/fnm2.webp",
+      "/assets/departments/fnm/fnm3.webp"
     ],
-    imagePosition: "object-[78%_25%]",
+    imagePosition: "object-[center_52%]",
     openPositions: true
   }
 ];
