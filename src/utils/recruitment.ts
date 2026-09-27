@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 
 
-// Recruitment opens on September 27th, 2026 at midnight (00:00:00 local Romanian time UTC+3)
-export const RECRUITMENT_START_DATE = new Date('2026-09-27T00:00:00+03:00');
+// Recruitment opens on September 28th, 2026 at midnight (00:00:00 local Romanian time UTC+3)
+export const RECRUITMENT_START_DATE = new Date('2026-09-28T12:00:00+03:00');
 
 export interface RecruitmentStatus {
   isOpen: boolean;
