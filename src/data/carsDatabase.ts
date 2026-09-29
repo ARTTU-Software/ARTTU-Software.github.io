@@ -234,7 +234,7 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
         items: [
           { label: 'Accumulator Voltage', value: '201.6 V DC' },
           { label: 'Cell Chemistry', value: 'High-discharge Li-Ion' },
-          { label: 'BMS System', value: 'COTS, future in-house designed' },
+          { label: 'BMS System', value: 'COTS' },
           { label: 'Telemetry', value: '< 11ms Cloud LTE' }
         ]
       },
@@ -257,10 +257,9 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
         x: 12,
         y: 84,
         headline: 'Ground Effect Front Wing & Splitter',
-        description: 'Multi-element carbon fiber front wing generating direct downforce on the front. Optimized for downforce and low drag around the front slicks.',
+        description: 'Multi-element Front Wing optimized for ground effect and front tire wake.',
         specs: [
-          { label: 'Wing Type', value: 'Multi-Element Carbon Airfoil' },
-          { label: 'Ground Clearance', value: '40 mm Ride Height' }
+          { label: 'Material', value: '200 g/sm, 3K, Twill Carbon Fiber' }
         ]
       },
       {
@@ -273,7 +272,7 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
         description: 'Kinematically optimized double wishbone suspension with 5-axis CNC-milled 7000 Series Aluminum uprights, adjustable anti-roll bar, and custom damper kinematics.',
         specs: [
           { label: 'Configuration', value: 'Pushrod Double Wishbone' },
-          { label: 'Dampers', value: 'Adjustable Racing Dampers' },
+          { label: 'Dampers', value: 'Adjustable Rockshox Dampers' },
           { label: 'Uprights', value: '5-Axis CNC Milled 7000 Series Aluminum' }
         ]
       },
@@ -302,7 +301,7 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
         specs: [
           { label: 'Max Voltage', value: '201.6 V DC' },
           { label: 'Energy Capacity', value: '~4.2 kWh' },
-          { label: 'BMS', value: 'COTS Integrated BMS, future in-house' }
+          { label: 'BMS', value: 'COTS Integrated BMS' }
         ]
       },
       {
@@ -325,11 +324,11 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
         department: 'Aerodynamics',
         x: 88,
         y: 28,
-        headline: 'High-Downforce Multi-Element Rear Wing',
-        description: '3D element carbon fiber rear wing with integrated endplates, generating significant downforce for high-speed cornering and stability, optimized for low drag and maximum efficiency.',
+        headline: 'Multi-Element Rear Wing',
+        description: 'Variable section, multi-element carbon fiber rear wing. High-downforce, optimized for Formula Student low speed cornering.',
         specs: [
-          { label: 'Total Downforce', value: '~350 N @ 60 km/h' },
-          { label: 'Material', value: 'Autoclaved Carbon Fiber' }
+          { label: 'Total Downforce', value: '~430 N @ 60 km/h' },
+          { label: 'Material', value: '200 g/sm, 3K, Twill Carbon Fiber' }
         ]
       }
     ],
