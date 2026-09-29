@@ -25,17 +25,8 @@ export const CarPage: React.FC = () => {
 
   const kpis = [
     {
-      label: '0-100 km/h',
-      sublabel: 'Acceleration',
-      value: CURRENT_CAR.kpis.accelerationSec,
-      decimals: 1,
-      suffix: ' s',
-      icon: Gauge,
-      highlight: true,
-    },
-    {
       label: 'Top Speed',
-      sublabel: 'Track Limit',
+      sublabel: 'Race-Ready Speed',
       value: CURRENT_CAR.kpis.topSpeedKmh,
       decimals: 0,
       suffix: ' km/h',
@@ -62,9 +53,9 @@ export const CarPage: React.FC = () => {
       sublabel: 'Race-Ready Weight',
       value: CURRENT_CAR.kpis.vehicleMassKg,
       decimals: 0,
-      prefix: '~',
       suffix: ' kg',
       icon: Feather,
+      highlight: true
     },
     {
       label: 'Downforce',

@@ -193,8 +193,8 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
       packVoltageV: 201.6,
       packVoltageStr: '201.6 V DC',
       vehicleMassKg: 238,
-      vehicleMassStr: '~238 kg',
-      downforceN: 350,
+      vehicleMassStr: '239 kg',
+      downforceN: 430,
       downforceStr: '~350 N',
       torqueNm: 80,
       torqueStr: '80 Nm'
@@ -213,7 +213,7 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
       dimensions: '3008 x 1503 x 1235 mm',
       driveType: 'Dual Rear In-Wheel Planetary Gearbox (Half-Shaft)',
       tyres: 'Hoosier Slicks',
-      chassis: 'Steel Tubular Space Frame + Carbon Structural Elements',
+      chassis: 'Steel Tubular Space Frame',
       bms: 'COTS BMS',
       telemetry: 'CAN-Bus & Live Wireless Telemetry',
       suspension: 'Double A-Arm Pushrod with Anti-Roll Bar'
@@ -241,7 +241,7 @@ export const CARS_DATABASE: Record<string, CarRecord> = {
       {
         category: 'Chassis & Aero',
         items: [
-          { label: 'Chassis Structure', value: 'Steel Tubular Space Frame + Carbon Structural Elements' },
+          { label: 'Chassis Structure', value: 'Steel Tubular Space Frame' },
           { label: 'Total Vehicle Mass', value: '~238 kg' },
           { label: 'Aerodynamics', value: 'Full Carbon Fiber Wings & Diffuser' },
           { label: 'Suspension', value: 'Double A-Arm Pushrod with Anti-Roll Bar' }
